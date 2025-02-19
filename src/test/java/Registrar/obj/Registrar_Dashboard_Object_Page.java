@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import Configuration.ConfigReader;
 import Configuration.ConfigWriter;
 import Drivermanager.Driver;
 import hooks.Baseclass;
@@ -123,17 +124,17 @@ public class Registrar_Dashboard_Object_Page extends Baseclass{
 			}
 			//String Apptabledata[]= {"21","Vtech.bank.in","Vtech","Feb 2, 2025, 6:54 AM","Feb 2, 2030, 6:54 AM","Pending"};
 			//List<WebElement> val1 = driver.findElements(By.xpath("(//table[@id='table1']//tr[1]//td)"));
-			/*
+			
 					List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']/following-sibling::td"));
 					List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']/preceding-sibling::td"));
 
-					 //
-				validatet(Orgname1.get(1), "1"); //
-				validatet(Orgname1.get(0), "yuva.bank.in");
-				validatet(Orgname.get(0), "Feb 2, 2025, 9:02 AM");
-				validatet(Orgname.get(1), "Feb 2, 2025, 9:02 AM");
-				validatet(Orgname.get(2), "Pending");
+					 //ConfigReader.getProperty("Domainnametxtval"));
+				validatetext(Orgname1.get(1), "1"); //
+				validatetext(Orgname1.get(0), "yuva.bank.in");
+				validatetext(Orgname.get(0), "Feb 2, 2025, 9:02 AM");
+				validatetext(Orgname.get(1), "Feb 2, 2025, 9:02 AM");
+				validatetext(Orgname.get(2), "Pending");
 
-			}*/
+			}
 		}
-}
+

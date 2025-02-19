@@ -113,7 +113,7 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 	public void User_Can_Check_DomaintableData_in_Domain_Page(String src) throws Exception  {
 		//String Apptabledata2[]= {"2","Rohantech.bank.in","Vtech","Feb 2, 2025, 9:02 AM, Feb 2, 2030, 9:02 AM","InActive"};
 		//List<WebElement> values1 = driver.findElements(By.xpath("//tbody[@class='mdc-data-table__content']//tr[1]"));
-		sendkeyweb(Appsearchsend, "Rohan Tech");
+		sendkeyweb(Appsearchsend, "rohantech.bank.in");
 		List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']/following-sibling::td"));
 		List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']/preceding-sibling::td"));
 

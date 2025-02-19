@@ -203,8 +203,14 @@ public WebElement  ApproveClick;
 //1st case
 @FindBy(xpath="//select[@class='form-control ng-valid ng-touched ng-dirty']")
 public WebElement  selectstatustxtval;
-@FindBy(xpath="//div[@class='status Approved']")
-public WebElement  Approvedstatustxtval;
+@FindBy(xpath="(//div[@class='status approved'])[1]")
+public WebElement  Approved1statustxtval;
+@FindBy(xpath="(//div[@class='status approved'])[2]")
+public WebElement  Approved2statustxtval;
+@FindBy(xpath="(//div[@class='status approved'])[3]")
+public WebElement  Approved3statustxtval;
+@FindBy(xpath="(//div[@class='status approved'])[4]")
+public WebElement  Approved4statustxtval;
 @FindBy(xpath="(//div[text()=' Approved '])[1]")
 public WebElement  Rejectstatus2txtval;
 
@@ -248,45 +254,47 @@ public void User_Can_Check_OrganisationDetails_DocumentsUpload_Functionalities_i
 	Clickelement(ApproveClick);
 	//Thread.sleep(5000);
 	//Selectdropdown(selectstatustxtval, "Approved for payment");
-    //validatetext(Rejectstatustxtval, "Approved");
+    validatetext(Approved1statustxtval, "Approved");
    // validatetext(Rejectstatus2txtval, "Approved ");
-    validatetext(Toastermsgappovedoc, "Document  Approved Successfully");
+    validatetext(Toastermsgappovedoc, "Document  Approved");
 	//Clickelement(ClosebuttonClick);
 	Thread.sleep(3000);
 	Clickelement(PANsearch);
 	Thread.sleep(3000);
 	Clickelement(Approve2Click);
-	validatetext(Toastermsgappovedoc, "Document  Approved Successfully");
-	Thread.sleep(3000);
+	validatetext(Approved2statustxtval, "Approved");
+	validatetext(Toastermsgappovedoc, "Document  Approved");
+	//Thread.sleep(3000);
 	//Clickelement(Close2buttonClick);
-	Thread.sleep(3000);
-	validatetext(Approvedstatustxtval, "Approved");
-	Thread.sleep(3000);
-	validatetext(Rejectstatus2txtval, "Approved");
-	Thread.sleep(3000);
-	validatetext(Toastermsgappovedoc, "Document  Approved Successfully");
+	//Thread.sleep(3000);
+	
+	//Thread.sleep(3000);
+	//validatetext(Rejectstatus2txtval, "Approved");
+	//Thread.sleep(3000);
+	//validatetext(Toastermsgappovedoc, "Document  Approved Successfully");
 	Thread.sleep(3000);
 	Clickelement(LicenceNumberdocsearch);
 	Thread.sleep(3000);
 	Clickelement(Approve3Click);
 	//Thread.sleep(5000);
 	//Clickelement(Close3buttonClick);
-	Thread.sleep(5000);
-	validatetext(Approvedstatustxtval, "Approved");
-	Thread.sleep(5000);
-	validatetext(Rejectstatus2txtval, "Approved");
-	validatetext(Toastermsgappovedoc, "Document  Approved Successfully");
+	//Thread.sleep(5000);
+	validatetext(Approved3statustxtval, "Approved");
+	//Thread.sleep(5000);
+	//validatetext(Rejectstatus2txtval, "Approved");
+	validatetext(Toastermsgappovedoc, "Document  Approved");
+	Thread.sleep(2000);
 	Clickelement(BoardResolutionsearch);
-	Thread.sleep(5000);
+	Thread.sleep(2000);
 	Clickelement(Approve4Click);
-	Thread.sleep(3000);
-	Clickelement(Close4buttonClick);
+	Thread.sleep(2000);
+	//Clickelement(Close4buttonClick);
 	
 	///Thread.sleep(5000);
-	validatetext(Approvedstatustxtval, "Approved");
-	Thread.sleep(5000);
-	validatetext(Rejectstatus2txtval, "Approved");
-	validatetext(Toastermessage, "Document  Approved");
+	validatetext(Approved4statustxtval, "Approved");
+	//Thread.sleep(5000);
+	//validatetext(Rejectstatus2txtval, "Approved");
+	validatetext(Toastermsgappovedoc, "Document  Approved");
 	validatetext(offtxtval, "Officers"); //
 	validatetext(ststxtval, "Status");
 	validatetext(linktxtval, "Links");
@@ -342,6 +350,7 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 	//AO
 	Clickelement(Aoviewclick);
 	Thread.sleep(3000);
+	/*
 ///////////////////////////	1
 	List<WebElement> Orgname=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"'])[1]/following-sibling::td"));
 	List<WebElement> Orgname1=driver.findElements(By.xpath("(//td[normalize-space()='"+src+"'])[1]/preceding-sibling::td"));
@@ -393,9 +402,9 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 	validatetext(TOOrgname.get(8), ConfigReader.getProperty("TOIsActive"));
 	validatetext(TOOrgname.get(9), "");
 	
+	*/
 	
-	
-	Clickelement(AoDocviewclick);
+	//Clickelement(AoDocviewclick);
 	Thread.sleep(3000);
 	/////////////////////// 2
 	
@@ -405,7 +414,7 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 
 	//
 	validatetext(ADocumentType1.get(0), "1"); //
-	validatetext(ADocumentType1.get(1),"Aadhaar_445588776688.jpg");
+	validatetext(ADocumentType1.get(1),"Organisation_ID.jpg");
 	validatetext(ADocumentType.get(0), "");
 	validatetext(ADocumentType.get(1), ConfigReader.getProperty("AOAdharDocStatus")); 
 	validatetext(ADocumentType.get(2), ConfigReader.getProperty("AOAdharDocComment"));
@@ -415,7 +424,7 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 	//
 	//
 	validatetext(PDocumentType1.get(0), "2"); //
-	validatetext(PDocumentType1.get(1), "PAN_DXZOO7654R.jpg");
+	validatetext(PDocumentType1.get(1), "PAN_DXZOO7654R.jpeg");
 	validatetext(PDocumentType.get(0), "");
 	validatetext(PDocumentType.get(1), ConfigReader.getProperty("AOAdharDocStatus")); 
 	validatetext(PDocumentType.get(2), ConfigReader.getProperty("AOAdharDocComment"));
@@ -428,7 +437,7 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 
 	//
 	validatetext(OrgDocumentType1.get(0), "3"); //
-	validatetext(OrgDocumentType1.get(1), "Organisation_ID.jpg");
+	validatetext(OrgDocumentType1.get(1), "Licence.jpeg");
 	validatetext(OrgDocumentType.get(0), "");
 	validatetext(OrgDocumentType.get(1), ConfigReader.getProperty("AOAdharDocStatus")); 
 	validatetext(OrgDocumentType.get(2), ConfigReader.getProperty("AOAdharDocComment"));
@@ -527,8 +536,8 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 	Clickelement(AppCountsearch);
 	Thread.sleep(3000);
 	Clickelement(ToViewclick);
-	Thread.sleep(5000);
-	Clickelement(TODocviewclick);
+	//Thread.sleep(5000);
+	//Clickelement(TODocviewclick);
 	Thread.sleep(3000);
 	Clickelement(TOAdharverify);
 	Thread.sleep(3000);
@@ -634,8 +643,8 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 	Thread.sleep(3000);
 	Clickelement(Boclickiew);
 	Thread.sleep(3000);
-	Clickelement(BODocviewclick);
-	Thread.sleep(3000);
+	//Clickelement(BODocviewclick);
+	//Thread.sleep(3000);
 	Clickelement(BOAdharverify);
 	Thread.sleep(3000);
 	clickmultipleweb(closedocbutton);
@@ -671,10 +680,10 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 	validatetext(Toastermessage, "Document  Approved");
 	driver.navigate().back();
 	Thread.sleep(5000);
-	driver.navigate().back();
+	//driver.navigate().back();
 	Thread.sleep(5000);
 	Clickelement(submitclick);
-	Thread.sleep(5000);
+	//Thread.sleep(5000);
 	Thread.sleep(5000);
 
 

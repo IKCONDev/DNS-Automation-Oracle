@@ -14,7 +14,7 @@ WebDriver driver = Driver.getDriver();
 	
 Registrar_Settings_Department_Object RD = new Registrar_Settings_Department_Object(driver);
 
-@Then("Registrar  check RegistrarDepartmentSearch {string}  Textvalidations and functionalities in Settings Page")
+@Then("Registrar  check can RegistrarDepartmentSearch {string}  Textvalidations and functionalities in Settings Page")
 public void user_navigate_to_Settingspage_and_Check_RegistrarDepartmentSearch_Textvalidations(String src) throws Exception {
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 	RD.user_navigate_to_Settingspage_and_Check_RegistrarDepartmentSearch_Textvalidations(src);

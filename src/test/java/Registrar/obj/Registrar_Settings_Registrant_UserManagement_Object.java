@@ -57,8 +57,8 @@ public class Registrar_Settings_Registrant_UserManagement_Object extends Basecla
 		List<WebElement> UserID1=driver.findElements(By.xpath("//td[normalize-space()='"+src1+"']/preceding-sibling::td"));
 		Thread.sleep(3000);
 		//
-		String ID=UserID1.get(0).getText();
-		validatetext(UserID1.get(0), ID); //
+		validatetext(UserID1.get(0), "10");
+		//validatetext(UserID1.get(0), ID); //
 		validatetext(UserID.get(0), ConfigReader.getProperty("RMusername"));
 		validatetext(UserID.get(1),ConfigReader.getProperty("RMOrgname")); 
 		validatetext(UserID.get(2), ConfigReader.getProperty("RMRole"));
