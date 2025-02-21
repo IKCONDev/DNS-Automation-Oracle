@@ -34,19 +34,24 @@ public class Registrar_Application_Object extends Baseclass {
 
 	@FindBy(xpath="//div[@role='alert']")
 	public WebElement Toastermessage;
+	
+	@FindBy(xpath="//th")
+	public List<WebElement> Tabledata;
 
 public void User_textvaladation_in_Application_Page1() throws Exception  {
 	Thread.sleep(5000);
 	Clickelement(Appsearch);
 	//Thread.sleep(5000);
-	String Apptableextvalues[] = {"Application ID", "Organisations Name","Domain Name","", "Submission Date", "Application Status","Payment Status","NS Record Status","Tenure (yrs)"};
-	List<WebElement> val = driver.findElements(By.xpath("//table[@id='table1']//th"));
-	//Thread.sleep(3000);
-	for (int i = 0; i < val.size(); i++) {
-        if(val.get(i).isDisplayed()) {
-		validatetext(val.get(i), Apptableextvalues[i]);	
-        }
-	}	 
+	
+	String Apptableextvalues="Application ID,Organisations Name,Domain Name,,Submission Date,Application Status,Payment Status,NS Record Status,Tenure (yrs)";
+	Table_prop(Tabledata, Apptableextvalues);
+//	List<WebElement> val = driver.findElements(By.xpath("//table[@id='table1']//th"));
+//	//Thread.sleep(3000);
+//	for (int i = 0; i < val.size(); i++) {
+//        if(val.get(i).isDisplayed()) {
+//		validatetext(val.get(i), Apptableextvalues[i]);	
+//        }
+//	}	 
 
 }
 
@@ -81,6 +86,8 @@ public WebElement IDR110427txtval ;
 public WebElement InActivetxtval;
 @FindBy(xpath="//input[@placeholder='Search']")
 public WebElement Appsearchsend;
+//@FindBy(xpath="//td[normalize-space()='Rohan Tech']/preceding-sibling::td")
+//public WebElement Appidclick;
 
 
 
@@ -88,14 +95,14 @@ public void User_Can_Check_Application_Tabledatatextvaladation_in_Applications_P
 
 	//String Apptabledata[]= {"2","Vtech.bank.in","Onboarding Pending","Feb 2, 2025, 6:54 AM","Feb 2, 2030, 6:54 AM","InActive","Unpaid","OnHold","5"};
 	//List<WebElement> val1 = driver.findElements(By.xpath("(//table[@id='table1']//tr[1]//td)"));
-sendkeyweb(Appsearchsend, "Rohan Tech");
+sendkeyweb(Appsearchsend, ConfigReader.getProperty("OrgName"));
 	
 	List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//following-sibling::td"));
 	List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']//preceding-sibling::td"));
 
 	//
 	 dispalyedattribute(Orgname1.get(0), "1");
-	validatetext(Orgname.get(0), ConfigReader.getProperty("AppDomainname"));
+	validatetext(Orgname.get(0), ConfigReader.getProperty("Domain"));
 	System.out.println("HI"+Orgname.get(2));
 	//validatetext(Orgname.get(1), ""); 
 	validatetext(Orgname.get(2), ConfigReader.getProperty("AppSubmissionDate"));
@@ -110,6 +117,13 @@ sendkeyweb(Appsearchsend, "Rohan Tech");
 
 	Thread.sleep(8000); //
 	Clickelement(Orgname1.get(0));
+	Thread.sleep(3000);
+	Clickelement(cancelclick);
+	Thread.sleep(3000);
+	sendkeyweb(Appsearchsend, "Rohan Tech");
+	Thread.sleep(3000);
+	Clickelement(Orgname1.get(0));
+	
 
 }
 //Applications ---org details 
@@ -160,11 +174,11 @@ public void User_Can_Check_OrganisationDetails_Textvalidations_in_Applications_P
 	validatetext(SubmissionDatetxtval, "Submission Date");
 
 
-	validatetext(IDR110427txtval, "IDR302701");
-	validatetext(InActivetxtval,  "Approved");   
-	validatetext(IkconTechtxtval, "Rohan Tech"); //
-	validatetext(Ikcontechbankintxtval, "rohantech.bank.in");
-	validatetext(Datetxtval, "Feb 17, 2025, 12:11 AM");
+	validatetext(IDR110427txtval, "IDR789495");
+	validatetext(InActivetxtval,  "Under Review");   
+	validatetext(IkconTechtxtval, "mario"); //
+	validatetext(Ikcontechbankintxtval, "tambola.bank.in");
+	validatetext(Datetxtval, "Feb 20, 2025, 5:11 PM");
 
 
 	validatetext(OrganizationDetailstxtval, "Organization Details"); //
@@ -198,6 +212,14 @@ public WebElement Domainstatustxtval;
 public WebElement OrganizationDocstxtval;
 @FindBy(xpath="//span[text()='GSTIN']")
 public WebElement  GSTINsearch;
+@FindBy(xpath="(//button[contains(text(),'Reject')])[2]")
+public WebElement  RejectClick;
+@FindBy(xpath="(//button[contains(text(),'Reject')])[1]")
+public WebElement  Reject2Click;
+@FindBy(xpath="(//button[contains(text(),'Reject')])[3]")
+public WebElement  Reject3Click;
+@FindBy(xpath="(//button[contains(text(),'Reject')])[4]")
+public WebElement  Reject4Click;
 @FindBy(xpath="(//button[contains(text(),'Approve')])[2]")
 public WebElement  ApproveClick;
 //1st case
@@ -205,12 +227,20 @@ public WebElement  ApproveClick;
 public WebElement  selectstatustxtval;
 @FindBy(xpath="(//div[@class='status approved'])[1]")
 public WebElement  Approved1statustxtval;
+@FindBy(xpath="//div[@class='card'][contains(text(),'GSTIN')]//div[1]//div[1]//div[2]")
+public WebElement  Rejected1statustxtval;
 @FindBy(xpath="(//div[@class='status approved'])[2]")
 public WebElement  Approved2statustxtval;
+@FindBy(xpath="//div[@class='main col-6 ps-3']//div[2]//div[1]//div[2]")
+public WebElement  Rejected2statustxtval;
 @FindBy(xpath="(//div[@class='status approved'])[3]")
 public WebElement  Approved3statustxtval;
+@FindBy(xpath="//body//app-root//div[@class='row']//div[@class='row']//div[3]//div[1]//div[2]")
+public WebElement  Rejected3statustxtval;
 @FindBy(xpath="(//div[@class='status approved'])[4]")
 public WebElement  Approved4statustxtval;
+@FindBy(xpath="//div[4]//div[1]//div[2]")
+public WebElement  Rejected4statustxtval;
 @FindBy(xpath="(//div[text()=' Approved '])[1]")
 public WebElement  Rejectstatus2txtval;
 
@@ -243,12 +273,20 @@ public WebElement  Approve4Click;
 public WebElement  Close4buttonClick;
 @FindBy(xpath="//div[@role='alert' and @aria-label='Document Approved']")
 public WebElement  Toastermsgappovedoc;
+@FindBy(xpath="//div[@role='alert' and @aria-label='Document Rejected']")
+public WebElement  ToastermsgRejectdoc;
 public void User_Can_Check_OrganisationDetails_DocumentsUpload_Functionalities_in_Applications_Page() throws Exception {
 	validatetext(OrganizationDocstxtval, "Organization Documents");
 	
 	
 	
 	Thread.sleep(3000);
+	Clickelement(GSTINsearch);
+	Thread.sleep(3000);
+	Clickelement(RejectClick);
+	//Thread.sleep(3000);
+	validatetext(ToastermsgRejectdoc, "Document  Rejected");
+	validatetext(Rejected1statustxtval, "Rejected");
 	Clickelement(GSTINsearch);
 	Thread.sleep(3000);
 	Clickelement(ApproveClick);
@@ -258,6 +296,12 @@ public void User_Can_Check_OrganisationDetails_DocumentsUpload_Functionalities_i
    // validatetext(Rejectstatus2txtval, "Approved ");
     validatetext(Toastermsgappovedoc, "Document  Approved");
 	//Clickelement(ClosebuttonClick);
+	Thread.sleep(3000);
+	Clickelement(PANsearch);
+	Thread.sleep(3000);
+	Clickelement(Reject2Click);
+	validatetext(ToastermsgRejectdoc, "Document  Rejected");
+	validatetext(Rejected2statustxtval, "Rejected");
 	Thread.sleep(3000);
 	Clickelement(PANsearch);
 	Thread.sleep(3000);
@@ -275,6 +319,12 @@ public void User_Can_Check_OrganisationDetails_DocumentsUpload_Functionalities_i
 	Thread.sleep(3000);
 	Clickelement(LicenceNumberdocsearch);
 	Thread.sleep(3000);
+	Clickelement(Reject3Click);
+	Thread.sleep(3000);
+	validatetext(ToastermsgRejectdoc, "Document  Rejected");
+	validatetext(Rejected3statustxtval, "Rejected");
+	Clickelement(LicenceNumberdocsearch);
+	Thread.sleep(3000);
 	Clickelement(Approve3Click);
 	//Thread.sleep(5000);
 	//Clickelement(Close3buttonClick);
@@ -286,6 +336,12 @@ public void User_Can_Check_OrganisationDetails_DocumentsUpload_Functionalities_i
 	Thread.sleep(2000);
 	Clickelement(BoardResolutionsearch);
 	Thread.sleep(2000);
+	Clickelement(Reject4Click);
+	Thread.sleep(3000);
+	validatetext(ToastermsgRejectdoc, "Document  Rejected");
+	validatetext(Rejected4statustxtval, "Rejected");
+	Clickelement(BoardResolutionsearch);
+	Thread.sleep(3000);
 	Clickelement(Approve4Click);
 	Thread.sleep(2000);
 	//Clickelement(Close4buttonClick);
@@ -313,8 +369,7 @@ public WebElement AoDocviewclick ;
 public WebElement AOAdharverify ;
 @FindBy(xpath="(//button[text()='Close'])[1]")
 public WebElement AOadharclosebutton ;
-@FindBy(xpath="(//tbody[@class='mdc-data-table__content']//td[4]//span)[1]")
-public WebElement AOadharAproveClick ;
+
 @FindBy(xpath="(//textarea[@class='ng-untouched ng-pristine ng-valid'])[1]")
 public WebElement AOadharApprovalCommentClick ;
 @FindBy(xpath="(//button[text()='Save changes'])[1]")
@@ -325,8 +380,7 @@ public WebElement AOadharApprovalchecktxtval ;
 public WebElement AOpanverify ;
 @FindBy(xpath="(//button[text()='Close'])[3]")
 public WebElement AOpanclosebutton ;
-@FindBy(xpath="(//tbody[@class='mdc-data-table__content']//tr[2]//td[4]//span)[1]")
-public WebElement AOPanAproveClick ;
+
 @FindBy(xpath="(//textarea[@class='ng-untouched ng-pristine ng-valid'])[1]")
 public WebElement AOpanApprovalCommentClick ;
 @FindBy(xpath="(//button[text()='Save changes'])[1]")
@@ -337,8 +391,7 @@ public WebElement AOpanApprovalchecktxtval ;
 public WebElement AOODVerify ;
 @FindBy(xpath="(//button[text()='Close'])[3]")
 public WebElement AOODclosebutton ;
-@FindBy(xpath="(//tbody[@class='mdc-data-table__content']//tr[3]//td[4]//span)[1]")
-public WebElement AOODAproveClick ;
+
 @FindBy(xpath="(//textarea[@class='ng-untouched ng-pristine ng-valid'])[1]")
 public WebElement AOODApprovalCommentClick ;
 @FindBy(xpath="(//button[text()='Save changes'])[1]")
@@ -346,10 +399,37 @@ public WebElement AOODApprovalSavechangesClick ;
 @FindBy(xpath="//tbody/tr[3]/td[5]")
 public WebElement AodApprovalchecktxtval ;
 
+
+
+
+@FindBy(xpath="(//button[text()='Save changes'])[2]")
+public WebElement AoadharRejectSavechangesClick ;
+
+@FindBy(xpath="//td[normalize-space()='Aadhaar']/following-sibling::td//span[@data-target='#approveCommentModal']")
+public WebElement AOadharAproveClick ;
+@FindBy(xpath="//td[normalize-space()='PAN']/following-sibling::td//span[@data-target='#approveCommentModal']")
+public WebElement AOPanAproveClick ;
+@FindBy(xpath="//td[normalize-space()='Organisation Id']/following-sibling::td//span[@data-target='#approveCommentModal']")
+public WebElement AOODAproveClick ;
+@FindBy(xpath="//td[normalize-space()='Aadhaar']/following-sibling::td//span[@data-target='#rejectCommentModal']")
+public WebElement AOadharRejectClick ;
+@FindBy(xpath="//td[normalize-space()='PAN']/following-sibling::td//span[@data-target='#rejectCommentModal']")
+public WebElement AopanRejectClick ;
+@FindBy(xpath="//td[normalize-space()='Organisation Id']/following-sibling::td//span[@data-target='#rejectCommentModal']")
+public WebElement AoODRejectClick ;
+@FindBy(xpath="//td[normalize-space()='Rohan Tech']/preceding-sibling::td")
+public WebElement Appidclick;
 public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Applications_Page(String src,String src4,String src5,String src6) throws Exception {
 	//AO
+	Clickelement(Appsearch);
+	Thread.sleep(3000);
+	sendkeyweb(Appsearchsend, ConfigReader.getProperty("OrgName"));
+	Clickelement(Appidclick);
+	Thread.sleep(3000);
 	Clickelement(Aoviewclick);
 	Thread.sleep(3000);
+	
+	
 	/*
 ///////////////////////////	1
 	List<WebElement> Orgname=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"'])[1]/following-sibling::td"));
@@ -445,16 +525,14 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 	
 	
 	
-	
-	
-	
-	
-	
-	
 	Clickelement(AOAdharverify);
 	Thread.sleep(3000);
 	clickmultipleweb(closedocbutton);
 	Thread.sleep(3000);
+	Clickelement(AOadharRejectClick);
+	Thread.sleep(3000);
+	Clickelement(AoadharRejectSavechangesClick);
+	validatetext(Toastermessage, "Document  Rejected");
 	Clickelement(AOadharAproveClick);
 	Thread.sleep(3000);
 	sendkeyweb(AOadharApprovalCommentClick, "");
@@ -466,6 +544,10 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 	Thread.sleep(3000);
 	clickmultipleweb(closedocbutton);
 	Thread.sleep(3000);
+	Clickelement(AopanRejectClick);
+	Thread.sleep(3000);
+	Clickelement(AoadharRejectSavechangesClick);
+	validatetext(Toastermessage, "Document  Rejected");
 	Clickelement(AOPanAproveClick);
 	Thread.sleep(3000);
 	sendkeyweb(AOadharApprovalCommentClick, "");
@@ -477,6 +559,9 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 	Thread.sleep(3000);
 	clickmultipleweb(closedocbutton);
 	Thread.sleep(3000);
+	Clickelement(AoODRejectClick);
+	Clickelement(AoadharRejectSavechangesClick);
+	validatetext(Toastermessage, "Document  Rejected");
 	Clickelement(AOODAproveClick);
 	Thread.sleep(3000);
 	sendkeyweb(AOadharApprovalCommentClick, "");
@@ -484,6 +569,8 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 	Clickelement(AOODApprovalSavechangesClick);
 	Thread.sleep(3000);
 	validatetext(Toastermessage, "Document  Approved");
+	Thread.sleep(3000);
+	driver.navigate().back();
 }
 //TO
 @FindBy(xpath="//td[contains(text(),'Technical Officer')]/following-sibling::td//a")
@@ -496,20 +583,20 @@ public WebElement TODocviewclick ;
 public WebElement TOAdharverify ;
 @FindBy(xpath="(//button[text()='Close'])[3]")
 public WebElement TOadharclosebutton ;
-@FindBy(xpath="(//tbody[@class='mdc-data-table__content']//td[4]//span)[1]")
-public WebElement TOadharAproveClick ;
+
 @FindBy(xpath="(//textarea[@class='ng-untouched ng-pristine ng-valid'])[1]")
 public WebElement TOadharApprovalCommentClick ;
 @FindBy(xpath="(//button[text()='Save changes'])[1]")
 public WebElement TOadharApprovalSavechangesClick ;
+@FindBy(xpath="(//button[text()='Save changes'])[2]")
+public WebElement TOadharRejectSavechangesClick ;
 @FindBy(xpath="//tbody/tr[1]/td[5]")
 public WebElement TOAdharApprovalchecktxtval ;
 @FindBy(xpath="//table[@id='table1']//tr[2]//td[2]")
 public WebElement TOpanverify ;
 @FindBy(xpath="//button[text()='Close']")
 public List<WebElement>closedocbutton ;
-@FindBy(xpath="(//tbody[@class='mdc-data-table__content']//tr[2]//td[4]//span)[1]")
-public WebElement TOPanAproveClick ;
+
 @FindBy(xpath="(//textarea[@class='ng-untouched ng-pristine ng-valid'])[1]")
 public WebElement TOpanApprovalCommentClick ;
 @FindBy(xpath="(//button[text()='Save changes'])[1]")
@@ -520,8 +607,7 @@ public WebElement TOPanApprovalchecktxtval ;
 public WebElement TOODVerify ;
 @FindBy(xpath="(//button[text()='Close'])[3]")
 public WebElement TOODclosebutton ;
-@FindBy(xpath="(//tbody[@class='mdc-data-table__content']//tr[3]//td[4]//span)[1]")
-public WebElement TOODAproveClick ;
+
 @FindBy(xpath="(//textarea[@class='ng-untouched ng-pristine ng-valid'])[1]")
 public WebElement TOODApprovalCommentClick ;
 @FindBy(xpath="(//button[text()='Save changes'])[1]")
@@ -529,11 +615,26 @@ public WebElement TOODApprovalSavechangesClick ;
 @FindBy(xpath="//tbody/tr[3]/td[5]")
 public WebElement TOODApprovalchecktxtval ;
 
+
+@FindBy(xpath="//td[normalize-space()='Aadhaar']/following-sibling::td//span[@data-target='#approveCommentModal']")
+public WebElement TOadharAproveClick ;
+@FindBy(xpath="//td[normalize-space()='PAN']/following-sibling::td//span[@data-target='#approveCommentModal']")
+public WebElement TOPanAproveClick ;
+@FindBy(xpath="//td[normalize-space()='Organisation Id']/following-sibling::td//span[@data-target='#approveCommentModal']")
+public WebElement TOODAproveClick ;
+@FindBy(xpath="//td[normalize-space()='Aadhaar']/following-sibling::td//span[@data-target='#rejectCommentModal']")
+public WebElement TOadharRejectClick ;
+@FindBy(xpath="//td[normalize-space()='PAN']/following-sibling::td//span[@data-target='#rejectCommentModal']")
+public WebElement TOpanRejectClick ;
+@FindBy(xpath="//td[normalize-space()='Organisation Id']/following-sibling::td//span[@data-target='#rejectCommentModal']")
+public WebElement TOODRejectClick ;
+
 //TO
 public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Page() throws Exception {
-	Clickelement(Appsearch);
-	Thread.sleep(3000);
-	Clickelement(AppCountsearch);
+	//Clickelement(Appsearch);
+	//Thread.sleep(3000);
+	
+	//Clickelement(AppCountsearch);
 	Thread.sleep(3000);
 	Clickelement(ToViewclick);
 	//Thread.sleep(5000);
@@ -542,6 +643,11 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 	Clickelement(TOAdharverify);
 	Thread.sleep(3000);
 	clickmultipleweb(closedocbutton);
+	Thread.sleep(3000);
+	Clickelement(TOadharRejectClick);
+	Thread.sleep(3000);
+	Clickelement(TOadharRejectSavechangesClick);
+	validatetext(Toastermessage, "Document  Rejected");
 	Thread.sleep(3000);
 	Clickelement(TOadharAproveClick);
 	Thread.sleep(3000);
@@ -552,6 +658,11 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 	Clickelement(TOpanverify);
 	Thread.sleep(3000);
 	clickmultipleweb(closedocbutton);
+	Thread.sleep(3000);
+	Clickelement(TOpanRejectClick);
+	Thread.sleep(3000);
+	Clickelement(TOadharRejectSavechangesClick);
+	validatetext(Toastermessage, "Document  Rejected");
 	Thread.sleep(3000);
 	Clickelement(TOPanAproveClick);
 	Thread.sleep(3000);
@@ -564,6 +675,10 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 	Thread.sleep(3000);
 	clickmultipleweb(closedocbutton);
 	Thread.sleep(3000);
+	Clickelement(TOODRejectClick);
+	Thread.sleep(3000);
+	Clickelement(TOadharRejectSavechangesClick);
+	validatetext(Toastermessage, "Document  Rejected");
 	Clickelement(TOODAproveClick);
 	Thread.sleep(3000);
 	sendkeyweb(TOadharApprovalCommentClick, "");
@@ -571,6 +686,8 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 	Clickelement(TOODApprovalSavechangesClick);
 	Thread.sleep(3000);
 	validatetext(Toastermessage, "Document  Approved");
+	Thread.sleep(3000);
+	driver.navigate().back();
 
 }
 //BO
@@ -585,8 +702,7 @@ public WebElement BODocviewclick ;
 public WebElement BOAdharverify ;
 @FindBy(xpath="(//button[text()='Save changes'])[1]")
 public WebElement BOadharclosebutBOn ;
-@FindBy(xpath="(//tbody[@class='mdc-data-table__content']//td[4]//span)[1]")
-public WebElement BOadharAproveClick ;
+
 @FindBy(xpath="(//textarea[@class='ng-untouched ng-pristine ng-valid'])[1]")
 public WebElement BOadharApprovalCommentClick ;
 @FindBy(xpath="(//button[text()='Save changes'])[1]")
@@ -597,8 +713,7 @@ public WebElement BOAdharApprovalchecktxtval ;
 public WebElement BOpanverify ;
 @FindBy(xpath="(//button[text()='Close'])[3]")
 public WebElement BOpanclosebutBOn ;
-@FindBy(xpath="(//tbody[@class='mdc-data-table__content']//tr[2]//td[4]//span)[1]")
-public WebElement BOPanAproveClick ;
+
 @FindBy(xpath="(//textarea[@class='ng-untouched ng-pristine ng-valid'])[1]")
 public WebElement BOpanApprovalCommentClick ;
 @FindBy(xpath="(//button[text()='Save changes'])[1]")
@@ -609,14 +724,31 @@ public WebElement BOPanApprovalchecktxtval ;
 public WebElement BOODVerify ;
 @FindBy(xpath="(//button[text()='Close'])[3]")
 public WebElement BOODclosebutBOn ;
-@FindBy(xpath="(//tbody[@class='mdc-data-table__content']//tr[3]//td[4]//span)[1]")
-public WebElement BOODAproveClick ;
+
 @FindBy(xpath="(//textarea[@class='ng-untouched ng-pristine ng-valid'])[1]")
 public WebElement BOODApprovalCommentClick ;
 @FindBy(xpath="(//button[text()='Save changes'])[1]")
 public WebElement BOODApprovalSavechangesClick ;
 @FindBy(xpath="//tbody/tr[3]/td[5]")
 public WebElement BOODApprovalchecktxtval ;
+
+
+@FindBy(xpath="(//button[text()='Save changes'])[2]")
+public WebElement BOadharRejectSavechangesClick ;
+
+
+@FindBy(xpath="//td[normalize-space()='Aadhaar']/following-sibling::td//span[@data-target='#approveCommentModal']")
+public WebElement BOadharAproveClick ;
+@FindBy(xpath="//td[normalize-space()='PAN']/following-sibling::td//span[@data-target='#approveCommentModal']")
+public WebElement BOPanAproveClick ;
+@FindBy(xpath="//td[normalize-space()='Organisation Id']/following-sibling::td//span[@data-target='#approveCommentModal']")
+public WebElement BOODAproveClick ;
+@FindBy(xpath="//td[normalize-space()='Aadhaar']/following-sibling::td//span[@data-target='#rejectCommentModal']")
+public WebElement BOadharRejectClick ;
+@FindBy(xpath="//td[normalize-space()='PAN']/following-sibling::td//span[@data-target='#rejectCommentModal']")
+public WebElement BOpanRejectClick ;
+@FindBy(xpath="//td[normalize-space()='Organisation Id']/following-sibling::td//span[@data-target='#rejectCommentModal']")
+public WebElement BOODRejectClick ;
 
 //APP Textval 
 @FindBy(xpath="//th[normalize-space()='Officers']")
@@ -632,15 +764,14 @@ public WebElement TOofftxtval ;
 @FindBy(xpath="//td[normalize-space()='Billing Officer']")
 public WebElement BOofftxtval  ;
 
+@FindBy(xpath="//button[contains(text(),'Cancel')]")
+public WebElement cancelclick ;
 @FindBy(xpath="//button[text()='Submit']")
 public WebElement submitclick ;
 
 public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page() throws Exception {
 	
-	Clickelement(Appsearch);
-	Thread.sleep(3000);
-	Clickelement(AppCountsearch);
-	Thread.sleep(3000);
+	
 	Clickelement(Boclickiew);
 	Thread.sleep(3000);
 	//Clickelement(BODocviewclick);
@@ -648,6 +779,11 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 	Clickelement(BOAdharverify);
 	Thread.sleep(3000);
 	clickmultipleweb(closedocbutton);
+	Thread.sleep(3000);
+	Clickelement(BOadharRejectClick);
+	Thread.sleep(3000);
+	Clickelement(BOadharRejectSavechangesClick);
+	validatetext(Toastermessage, "Document  Rejected");
 	Thread.sleep(3000);
 	Clickelement(BOadharAproveClick);
 	Thread.sleep(3000);
@@ -660,6 +796,11 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 	Thread.sleep(3000);
 	clickmultipleweb(closedocbutton);
 	Thread.sleep(3000);
+	Clickelement(BOpanRejectClick);
+	Thread.sleep(3000);
+	Clickelement(BOadharRejectSavechangesClick);
+	validatetext(Toastermessage, "Document  Rejected");
+	Thread.sleep(3000);
 	Clickelement(BOPanAproveClick);
 	Thread.sleep(3000);
 	sendkeyweb(TOadharApprovalCommentClick, "");
@@ -671,6 +812,11 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 	Thread.sleep(3000);
 	clickmultipleweb(closedocbutton);
 	Thread.sleep(3000);
+	Clickelement(BOODRejectClick);
+	Thread.sleep(3000);
+	Clickelement(BOadharRejectSavechangesClick);
+	validatetext(Toastermessage, "Document  Rejected");
+	Thread.sleep(3000);
 	Clickelement(BOODAproveClick);
 	Thread.sleep(3000);
 	sendkeyweb(BOadharApprovalCommentClick, "");
@@ -681,6 +827,7 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 	driver.navigate().back();
 	Thread.sleep(5000);
 	//driver.navigate().back();
+	Selectdropdown(Selectpaymentoption, "Payment Approved");
 	Thread.sleep(5000);
 	Clickelement(submitclick);
 	//Thread.sleep(5000);
@@ -688,4 +835,7 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 
 
 }
+
+
+
 }

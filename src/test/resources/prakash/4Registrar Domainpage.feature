@@ -1,3 +1,6 @@
+
+
+
 Feature:  Registrar Domain Page
 
  Scenario Outline: Registrar validatetext and Functionalities in Domain Page

@@ -1,4 +1,6 @@
+
 Feature: Registrar Application Page
+
 
 
   Scenario Outline: Registrar validatetext and Functionalities in Application  Page

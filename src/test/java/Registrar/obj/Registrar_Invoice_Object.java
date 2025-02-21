@@ -29,6 +29,8 @@ public class Registrar_Invoice_Object extends Baseclass {
 	public WebElement Invoicesearch ;
 	@FindBy(xpath="//input[@placeholder='Search']")
 	public WebElement Appsearchsend;
+	@FindBy(xpath="//tbody/tr[1]/td[6]/span[1]//*[name()='svg']")
+	public WebElement InvoiceDownloadbutton;
 	//INVOICE____MODULE
 		public void user_navigate_to_Invoicepage1(String src) throws Exception {
 			Thread.sleep(8000);
@@ -43,8 +45,8 @@ public class Registrar_Invoice_Object extends Baseclass {
 				validatetext(values.get(i), Apptabledata1[i]);
 				//System.out.println("Code Printed");
 			}
-			
-			sendkeyweb(Appsearchsend, "rohantech.bank.in");
+			sendkeyweb(Appsearchsend, ConfigReader.getProperty("Domain"));
+			//sendkeyweb(Appsearchsend, "rohantech.bank.in");
 			List<WebElement> Domain=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("Domain")+"']/following-sibling::td"));
 			List<WebElement> Domain1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']/preceding-sibling::td"));
 
@@ -53,12 +55,15 @@ public class Registrar_Invoice_Object extends Baseclass {
 			dispalyedattribute(Domain1.get(0), "checkbox");
 			dispalyedattribute(Domain1.get(1), "ID");
 			//validatetext(Domain1.get(1), ConfigReader.getProperty("1"));
-			validatetext(Domain1.get(2), ConfigReader.getProperty("InORGname"));
+			validatetext(Domain1.get(2), ConfigReader.getProperty("OrgName"));
 			//validatet(Orgname.get(0), "Ikcontech solutions");
 			validatetext(Domain.get(0), ConfigReader.getProperty("InAmount"));
 			validatetext(Domain.get(1),ConfigReader.getProperty("Invoicedownload"));
 			validatetext(Domain.get(2), ConfigReader.getProperty("InPayStatus"));
 			//validatetext(Domain.get(3) ,"");
+			
+			
+			
 
 		}
 	
