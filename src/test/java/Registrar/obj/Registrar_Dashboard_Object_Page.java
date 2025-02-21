@@ -103,14 +103,63 @@ public class Registrar_Dashboard_Object_Page extends Baseclass{
 		public WebElement ApplicationByStatustext;
 		@FindBy(xpath="//p[normalize-space()='Application In Queue']")
 		public WebElement ApplicationInQueuetextvl;
+		
+		@FindBy(xpath="(//span[@class='ng-arrow-wrapper'])[1]")
+		public WebElement DomainregistarationDemoDD;
+		@FindBy(xpath="//span[contains(text(),'Weekly')]")
+		public WebElement DomainDemoDDselweek;
+		@FindBy(xpath="//span[contains(text(),'Monthly')]")
+		public WebElement DomainDemoDDselmonthly;
+		@FindBy(xpath="//span[contains(text(),'Yearly')]")
+		public WebElement DomainDemoDDselyearly;
+		
+		@FindBy(xpath="(//span[@class='ng-arrow-wrapper'])[2]")
+		public WebElement ApplicationstatusDD;
+		@FindBy(xpath="//span[contains(text(),'Weekly')]")
+		public WebElement Applicationstatusselweek;
+		@FindBy(xpath="//span[contains(text(),'Monthly')]")
+		public WebElement Applicationstatusselmonthly;
+		@FindBy(xpath="(//span[contains(text(),'Yearly')])[2]")
+		public WebElement Applicationstatusselyearly;
+		
+		
 
-		public void User_textvaladation_in_Home_Main_Page1() {
+		public void User_textvaladation_in_Home_Main_Page1() throws Exception {
 			validatetext(TotalRegistrantstxtval, "Total Registrants");
 			validatetext(TotalDomainstxtval, "Total Domains");
 			validatetext(Applicationinqueuetxtval,"Application in queue");
 			validatetext(ActiveUserstxtval, "Active Users");
 			validatetext(DomainRegistrationTrendstextval, "Domain Registration Trends");
+			Thread.sleep(2000);
+			Clickelement(DomainregistarationDemoDD);
+			Thread.sleep(2000);
+			Clickelement(DomainDemoDDselweek);
+			Thread.sleep(2000);
+			Clickelement(DomainregistarationDemoDD);
+			Clickelement(DomainDemoDDselmonthly);
+			Thread.sleep(2000);
+			Clickelement(DomainregistarationDemoDD);
+			Clickelement(DomainDemoDDselyearly);
+			Thread.sleep(2000);
 			validatetext(ApplicationByStatustext, "Application By Status");
+			Thread.sleep(2000);
+			Clickelement(ApplicationstatusDD);
+			Thread.sleep(2000);
+			Clickelement(Applicationstatusselweek);
+			Thread.sleep(2000);
+			Clickelement(ApplicationstatusDD);
+			Thread.sleep(2000);
+			Clickelement(Applicationstatusselmonthly);
+			Thread.sleep(2000);
+			Clickelement(ApplicationstatusDD);
+			Thread.sleep(2000);
+			Clickelement(Applicationstatusselyearly);
+			
+			
+			
+			
+			
+			
 			validatetext(ApplicationInQueuetextvl, "Application In Queue");
 		}
 		public void Create_ApplicationQuee_TextValidations_in_Home_Page(String src) throws InterruptedException {
@@ -124,16 +173,16 @@ public class Registrar_Dashboard_Object_Page extends Baseclass{
 			}
 			//String Apptabledata[]= {"21","Vtech.bank.in","Vtech","Feb 2, 2025, 6:54 AM","Feb 2, 2030, 6:54 AM","Pending"};
 			//List<WebElement> val1 = driver.findElements(By.xpath("(//table[@id='table1']//tr[1]//td)"));
-			
-					List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']/following-sibling::td"));
-					List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']/preceding-sibling::td"));
+			/*
+					List<WebElement> APPorgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("APPorgname")+"']/following-sibling::td"));
+					List<WebElement> APPorgname1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']/preceding-sibling::td"));
 
 					 //ConfigReader.getProperty("Domainnametxtval"));
-				validatetext(Orgname1.get(1), "1"); //
-				validatetext(Orgname1.get(0), "yuva.bank.in");
-				validatetext(Orgname.get(0), "Feb 2, 2025, 9:02 AM");
-				validatetext(Orgname.get(1), "Feb 2, 2025, 9:02 AM");
-				validatetext(Orgname.get(2), "Pending");
+				dispalyedattribute(APPorgname1.get(1), "6"); 
+				validatetext(APPorgname1.get(0),ConfigReader.getProperty("APPQDomainName"));
+				validatetext(APPorgname.get(0),ConfigReader.getProperty("AppQRegistrationDate")); 
+				validatetext(APPorgname.get(1), ConfigReader.getProperty("AppQRenewalDate"));
+				validatetext(APPorgname.get(2), ConfigReader.getProperty("AppQStatus"));          */
 
 			}
 		}

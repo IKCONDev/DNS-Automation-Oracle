@@ -15,7 +15,7 @@ WebDriver driver = Driver.getDriver();
 Registrar_Dashboard_Object_Page RB = new Registrar_Dashboard_Object_Page(driver);
 
 
-@Then("Registrar can check all fields  in  Home Page")
+@Then("Registrar  check  fields  in  Home Page")
 public void User_check_allfields_in_Home_Registrar_Page1() throws Exception {
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 	RB.User_check_allfields_in_Home_Page1();

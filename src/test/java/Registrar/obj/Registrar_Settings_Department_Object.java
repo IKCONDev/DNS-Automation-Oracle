@@ -39,7 +39,25 @@ public class Registrar_Settings_Department_Object extends Baseclass {
 	public WebElement RegistrarDepartmentSearch ;
 	@FindBy(xpath="//mat-icon[normalize-space()='dashboard']")
 	public WebElement Dashboardsearch ;
-	public void user_navigate_to_Settingspage_and_Check_RegistrarDepartmentSearch_Textvalidations(String src1) throws Exception {
+	
+	@FindBy(xpath="//mat-icon[normalize-space()='apps']")
+	public WebElement Appsearch; 
+	@FindBy(xpath="//input[@placeholder='Search']")
+	public WebElement Appsearchsend;
+	@FindBy(xpath="//td[normalize-space()='Rohan Tech']/preceding-sibling::td")
+	public WebElement Appidclick;
+	@FindBy(xpath="//p[text()='Application Status']")
+	public WebElement Statustxtval;
+	@FindBy(xpath="//td[normalize-space()='1']")
+	public WebElement DomainIDClick;
+	@FindBy(xpath="//mat-icon[normalize-space()='public']")
+	public WebElement DomainSearch ;
+	@FindBy(xpath="//div[text()='Active']")
+	public WebElement InActivetxtval1;
+	
+	@FindBy(xpath="(//div[@class='box-content'])[2]")
+	public WebElement InActivetxtval;
+	public void user_navigate_to_Settingspage_and_Check_RegistrarDepartmentSearch_Textvalidations(String src,String src1) throws Exception {
 		Thread.sleep(3000);
 		Clickelement(Settingssearch);
 		
@@ -58,7 +76,7 @@ public class Registrar_Settings_Department_Object extends Baseclass {
 		//List<WebElement> values1 = driver.findElements(By.xpath("//tbody[@class='mdc-data-table__content']//tr[1]"));
 
 		List<WebElement> DepartmentName=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("DepartmentName")+"']//following-sibling::td"));
-		List<WebElement> DepartmentName1=driver.findElements(By.xpath("//td[normalize-space()='"+src1+"']//preceding-sibling::td"));
+		List<WebElement> DepartmentName1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']//preceding-sibling::td"));
 
 		//
 		validatetext(DepartmentName1.get(0), "1"); //
@@ -75,9 +93,31 @@ public class Registrar_Settings_Department_Object extends Baseclass {
 		sendkeyweb(Adddeptname, "");
 		sendkeyweb(Adddeptcode, "");
 		Clickelement(Clicksavebutton);*/
-		
+	/*	
 		Clickelement(Dashboardsearch);
+		Clickelement(Appsearch);
+		sendkeyweb(Appsearchsend, ConfigReader.getProperty("OrgName"));
 		
 		
+		List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//following-sibling::td"));
+		List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+src1+"']//preceding-sibling::td"));
+
+		//
+		
+		validatetext(Orgname.get(3),  ConfigReader.getProperty("AppStatus2"));
+		
+		Clickelement(Appidclick);
+		validatetext(InActivetxtval,  "Approved");   
+		Clickelement(DomainSearch);
+		
+		sendkeyweb(Appsearchsend, ConfigReader.getProperty("Domain"));
+		
+		Clickelement(Appidclick);
+		validatetext(InActivetxtval1, "Active");
+		*/
+		
+		
+		
+			
 	}
 }

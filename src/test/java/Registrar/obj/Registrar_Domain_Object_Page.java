@@ -26,7 +26,7 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 	@FindBy(xpath="//input[@placeholder='Search']")
 	public WebElement Domainsearchclick;
 
-	@FindBy(xpath="//td[normalize-space()='1']")
+	@FindBy(xpath="//td[normalize-space()='Rohan Tech']/preceding-sibling::td")
 	public WebElement DomainIDClick;
 	
 	@FindBy(xpath="//mat-icon[normalize-space()='public']")
@@ -61,6 +61,9 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 	public WebElement Ikcontechbankintxtval1;
 	@FindBy(xpath="//div[normalize-space()='Rohan Tech']")
 	public WebElement IkconTechtxtval1;
+	
+	@FindBy(xpath="//div[normalize-space()=\"mario\"]")
+	public WebElement organisationname;
 	@FindBy(xpath="//div[normalize-space()='Feb 17, 2025, 12:11 AM']")
 	public WebElement Datetxtval1;
 	@FindBy(xpath="//div[normalize-space()='Feb 17, 2030, 12:11 AM']")
@@ -107,52 +110,109 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 
 
 	}
+	
+	
 	@FindBy(xpath="//input[@placeholder='Search']")
 	public WebElement Appsearchsend;
+	
 
 	public void User_Can_Check_DomaintableData_in_Domain_Page(String src) throws Exception  {
 		//String Apptabledata2[]= {"2","Rohantech.bank.in","Vtech","Feb 2, 2025, 9:02 AM, Feb 2, 2030, 9:02 AM","InActive"};
 		//List<WebElement> values1 = driver.findElements(By.xpath("//tbody[@class='mdc-data-table__content']//tr[1]"));
-		sendkeyweb(Appsearchsend, "rohantech.bank.in");
+		sendkeyweb(Appsearchsend, ConfigReader.getProperty("Domain"));
 		List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']/following-sibling::td"));
 		List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']/preceding-sibling::td"));
 
 		//
 		dispalyedattribute(Orgname1.get(1), "1"); //
-		validatetext(Orgname1.get(0), ConfigReader.getProperty("Domainnametxtval"));
+		validatetext(Orgname1.get(0), ConfigReader.getProperty("Domain"));
 		//validatet(Orgname.get(0), "Ikcontech solutions");
-		validatetext(Orgname.get(0), ConfigReader.getProperty("DomRegistrationDate"));
+		validatetext(Orgname.get(0), ConfigReader.getProperty("AppSubmissionDate"));
 		validatetext(Orgname.get(1),ConfigReader.getProperty("DomRenewalDate"));
 		validatetext(Orgname.get(2), ConfigReader.getProperty("Domstatus"));
 		//validatetext(Orgname.get(3) ,"5");
 
 	}
 
-
+	@FindBy(xpath="(//*[local-name()='svg' or xmlns='http://www.w3.org/2000/svg'])[6]")
+	public WebElement Clicknameseraddbtn;
+	@FindBy(xpath="//input[@id='3host']")
+	public WebElement Nameserver3hostinbox;
+	@FindBy(xpath="//input[@id='4host']")
+	public WebElement Nameserver4hostinbox;
+	@FindBy(xpath="//input[@id='3ipAddress']")
+	public WebElement Nameserver3addinbox;
+	@FindBy(xpath="//input[@id='4ipAddress']")
+	public WebElement Nameserver4addinbox;
+	@FindBy(xpath="//button[normalize-space()='Add More NS']")
+	public WebElement addmorebuttonns;
+	@FindBy(xpath="//button[normalize-space()='Save & Next']")
+	public WebElement savebuttonns;
+	@FindBy(xpath="(//button[@id='trashIcon'])[3]")
+	public WebElement delete3;
+	@FindBy(xpath="(//button[@id='trashIcon'])[4]")
+	public WebElement delete4;
+	@FindBy(xpath="//th")
+	public List<WebElement> Tabledata;
 	
 	public void user_validatetext_AllFields_in_Domainpage() throws Exception { 
 		Thread.sleep(3000);
 		Clickelement(DomainIDClick);
 		Thread.sleep(3000);
 		validatetext(DomainDetailstxtval, "Domain Details");
-
-
+		String Apptableextvalues="Domain,Organization,Registration Date,,Renewal Date,Domain Status";
+		Table_prop(Tabledata, Apptableextvalues);
+/*
 		validatetext(Domaintextval, "Domain");
 		validatetext(Organizationtxtval, "Organization");
 		validatetext(RegistrationDatetxtval, "Registration Date");
 		validatetext(RenewalDatetxtval, "Renewal Date");
-		validatetext(DomainStatustxtval, "Domain Status");
+		validatetext(DomainStatustxtval, "Domain Status"); */
 
 
-		validatetext(Ikcontechbankintxtval1, "rohantech.bank.in");
-		validatetext(IkconTechtxtval1, "Rohan Tech"); 
-		validatetext(Datetxtval1, "Feb 17, 2025, 12:11 AM");
-		validatetext(RenewelDatetxtval1, "Feb 17, 2030, 12:11 AM");
-		validatetext(InActivetxtval1, "Active");
+		
+		validatetext(IkconTechtxtval1, "tambola.bank.in"); 
+		validatetext(InActivetxtval1, "Inactive");
+		validatetext(organisationname, "mario");
+		validatetext(Datetxtval1, "Feb 20, 2025, 5:11 PM");
+		validatetext(RenewelDatetxtval1, "Feb 20, 2030, 5:11 PM");
+		
+/*
+		List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']/following-sibling::td"));
+		List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+src1+"']/preceding-sibling::td"));
 
-
+		//
+		dispalyedattribute(Orgname1.get(1), "1"); //
+		validatetext(Orgname1.get(0), ConfigReader.getProperty("Domain"));
+		//validatet(Orgname.get(0), "Ikcontech solutions");
+		validatetext(Orgname.get(0), ConfigReader.getProperty("AppSubmissionDate"));
+		validatetext(Orgname.get(1),ConfigReader.getProperty("DomRenewalDate"));
+		validatetext(Orgname.get(2), ConfigReader.getProperty("Domstatus"));
+		//validatetext(Orgname.get(3) ,"5");*/
 
 		validatetext(Nameserverstxtval1, "Name Servers");
+		
+		Clickelement(Clicknameseraddbtn);
+		Clickelement(addmorebuttonns);
+		driver.navigate().back();
+		Clickelement(Clicknameseraddbtn);
+		sendkeyweb(Nameserver3hostinbox,"Groundfloor");
+		sendkeyweb(Nameserver4hostinbox,"Topfloor");
+		sendkeyweb(Nameserver3addinbox, "47.25.36.12");
+		sendkeyweb(Nameserver4addinbox, "77.25.36.31");
+		//Clickelement(addmorebuttonns);
+		Clickelement(savebuttonns);
+		Thread.sleep(3000);
+		Clickelement(delete3);
+		Thread.sleep(3000);
+		validatealert("Are you sure, you really want to delete this name server record ?");
+		driver.switchTo().alert().accept();
+		Clickelement(delete4);
+		validatealert("Are you sure, you really want to delete this name server record ?");
+		driver.switchTo().alert().accept();
+		
+		
+		
 		validatetext(Hostnametxtval, "Host Name"); 
 		validatetext(IPaddtxtval1, "IP Address");
 		validatetext(TTltxtval1, "TTL");
@@ -163,6 +223,8 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 		validatetext(statustxtval1, "Status");
 		Thread.sleep(5000);
 	}
+
+
 
 	
 	
