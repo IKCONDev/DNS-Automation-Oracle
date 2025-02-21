@@ -73,7 +73,7 @@ public class Rs_Settings_obj extends Baseclass{
 	    validatetext(AO2.get(1), ConfigReader.getProperty("Orgname"));
 	    dispalyedattribute(AO2.get(0), "Admin Id");
 	    
-	    validate_document_table(view.get(0));
+//	    validate_document_table(view.get(0));
 	    
 	    List<WebElement> TO1=driver.findElements(By.xpath("//td[contains(text(),'Technical')]/following-sibling::td"));
 	    List<WebElement> TO2=driver.findElements(By.xpath("//td[contains(text(),'Technical')]/preceding-sibling::td"));

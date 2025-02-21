@@ -35,6 +35,8 @@ public class Rgst_domain_obj extends Baseclass{
 	public void user_validate_domain_page() {
 	    String s="Domain ID,Domain Status,Domain Name,Organization Name,Registration Date,Renewal Date";
 	    Table_prop(Table_col, s);
+	}
+	    public void user_validate_domain_data() {
 	    List<WebElement> Domain_ID=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/preceding-sibling::td"));
 		dispalyedattribute(Domain_ID.get(0), "Domain Id");
 		List<WebElement> Table_data=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/following-sibling::td"));

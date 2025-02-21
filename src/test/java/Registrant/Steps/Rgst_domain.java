@@ -21,6 +21,11 @@ public class Rgst_domain {
 		RDP.user_validate_domain_page();
 	   
 	}
+	@Then("User Validate Domain data")
+	public void user_validate_domain_data() {
+		RDP.user_validate_domain_data();
+	   
+	}
 
 	@Then("User Navigates the Domain Details page")
 	public void user_navigates_the_domain_details_page() {

@@ -307,6 +307,36 @@ public class Registrant_login_object extends Baseclass {
 		validatetext(DSC_affix, "Affix DSC");
 		Clickelement(DSC_affix);
 	}
+	
+	@FindBy(xpath = "//h1[normalize-space()='Sign Using DSC']")
+	public WebElement DSC_head;
+	@FindBy(xpath = "//select[@id='tokenSelect']")
+	public WebElement DSC_token;
+	//
+	@FindBy(xpath = "//select[@id='certificateSelect']")
+	public WebElement DSC_certificate;
+	// 
+	@FindBy(xpath = "//select[@id='dataTypeSelect']")
+	public WebElement DSC_datetype;
+	//1: TextPKCS7
+	@FindBy(xpath = "//input[@id='passwordInput']")
+	public WebElement DSC_password;
+	@FindBy(xpath = "//button[normalize-space()='Submit']")
+	public WebElement DSC_submit;
+	@FindBy(xpath = "//button[normalize-space()='Cancel']")
+	public WebElement DSC_Cancel;
+	
+	
+	public void DSC_token() throws InterruptedException {
+		popupvalidate("Fetched tokens successfully", "emty");
+		Selectdropdown(DSC_token, "1");
+//		Thread.sleep(10000);
+		Selectdropdown(DSC_certificate, "1");
+		Selectdropdown(DSC_datetype, "2");
+		sendkeyweb(DSC_password, "Idrbt@123");
+		Clickelement(DSC_submit);
+		popupvalidate("Fetched tokens successfully", "emty");
+	}
 
 	@FindBy(xpath = "//button[normalize-space()='Got it!']")
 	public WebElement Domain_button;
@@ -683,7 +713,15 @@ public class Registrant_login_object extends Baseclass {
 		ac.moveToElement(Preview_check);
 		Thread.sleep(3000);
 		Clickelement(Preview_check);
+		popupvalidate(null, null);
+		Thread.sleep(5000);
 		clickmultipleweb(Save_next);
+		
+		try {
+			clickmultipleweb(Save_next);
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
 		
 	}
 

@@ -55,6 +55,8 @@ public class Regst_App_obj extends Baseclass {
 
 		String s="Application ID,Organization Name,Domain Name,,Submission Date,Status,Payment Status,NS Record Status,Tenure (yrs),Payment";
 		Table_prop(Table_col, s);
+	}
+		public void user_validate_application_data() {
 		List<WebElement> APP_ID=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/preceding-sibling::td"));
 		dispalyedattribute(APP_ID.get(0), "Application ID");
 		List<WebElement> Table_data=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/following-sibling::td"));
@@ -70,6 +72,13 @@ public class Regst_App_obj extends Baseclass {
 		Clickelement(APP_ID.get(0));
 		    
 	}
+		
+		public void user_click_paynow_button() {
+			List<WebElement> Table_data=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/following-sibling::td"));
+			Clickelement(Table_data.get(6));
+			validatetext(Table_data.get(3), "Payment Not Done");
+		}
+		
 	@FindBy(xpath = "//h3[normalize-space()='Applications Details']")
 	public WebElement Details_page_title ;
 	@FindBy(xpath = "//p[normalize-space()='Organization Name']")

@@ -27,6 +27,13 @@ public void user_validate_application_page() {
     
 }
 
+@Then("User Validate Application data")
+public void user_validate_application_data() {
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+   RSP.user_validate_application_data();
+    
+}
+
 @Then("User Navigates the Domain Applications Details page")
 public void user_navigates_the_domain_applications_details_page() {
 	RSP.user_navigates_the_domain_applications_details_page();
