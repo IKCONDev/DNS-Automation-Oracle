@@ -10,7 +10,7 @@ Feature: Registrant Onboarding
 
     Examples: 
       | username               | password | Case  |
-      | sravan.p@ikcontech.com | Test@123 | Valid |
+      | venkatesh.udaru@idbc.com | Test@123 | Valid |
 
   Scenario Outline: DSC clear with valid data
     And User enters the dsc details
