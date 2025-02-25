@@ -285,7 +285,7 @@ public class Registrant_login_object extends Baseclass {
 	public WebElement DSC_desig;
 	@FindBy(xpath = "//input[@type='checkbox']")
 	public WebElement DSC_checkbox;
-	@FindBy(xpath = "//button[contains(.,'Affix DSC ')]")
+	@FindBy(xpath = "//button[contains(.,'Insert the PKI token')]")
 	public WebElement DSC_affix;
 	@FindBy(xpath = "//label[normalize-space()='I agree to the terms and conditions']")
 	public WebElement Checkbox_label;
@@ -332,7 +332,12 @@ public class Registrant_login_object extends Baseclass {
 		Selectdropdown(DSC_token, "1");
 //		Thread.sleep(10000);
 		Selectdropdown(DSC_certificate, "1");
-		Selectdropdown(DSC_datetype, "2");
+		try {
+			Selectdropdown(DSC_datetype, "2");
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
 		sendkeyweb(DSC_password, "Idrbt@123");
 		Clickelement(DSC_submit);
 		popupvalidate("Fetched tokens successfully", "emty");

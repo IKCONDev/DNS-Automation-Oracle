@@ -19,6 +19,7 @@ public class Driver {
 		WebDriverManager.chromedriver().setup();
 		
 		ChromeOptions options = new ChromeOptions();
+		options.setAcceptInsecureCerts(true); 
 		options.addArguments("force-device-scale-factor=0.70");
 		options.addArguments("high-dpi-support=0.80");
 		Map<String, Integer> timeouts = new HashMap<String, Integer>();
