@@ -43,7 +43,7 @@ public void User_textvaladation_in_Application_Page1() throws Exception  {
 	Clickelement(Appsearch);
 	//Thread.sleep(5000);
 	
-	String Apptableextvalues="Application ID,Organisations Name,Domain Name,,Submission Date,Application Status,Payment Status,NS Record Status,Tenure (yrs)";
+	String Apptableextvalues="Application ID,Organization Name,Domain Name,,Submission Date,Application Status,Payment Status,NS Record Status,Tenure (yrs)";
 	Table_prop(Tabledata, Apptableextvalues);
 //	List<WebElement> val = driver.findElements(By.xpath("//table[@id='table1']//th"));
 //	//Thread.sleep(3000);
@@ -57,7 +57,7 @@ public void User_textvaladation_in_Application_Page1() throws Exception  {
 
 @FindBy(xpath="//input[@placeholder='Search']")
 public WebElement searchbuttonclick; 
-@FindBy(xpath="//td[normalize-space()='1']")
+@FindBy(xpath="//td[normalize-space()='3']")
 public WebElement AppCountsearch; 
 @FindBy(xpath="//table[@id=\"table1\"]//tbody//tr[2]//td[1]")
 public WebElement DomainCountsearch; 
@@ -76,7 +76,7 @@ public WebElement Statustxtval;
 
 @FindBy(xpath="//div[text()='Rohan Tech']")
 public WebElement IkconTechtxtval;
-@FindBy(xpath="//div[contains(text(),'rohantech.bank.in')]")
+@FindBy(xpath="//div[contains(text(),'rohantech.bank.in')]")	
 public WebElement Ikcontechbankintxtval;
 @FindBy(xpath="//div[contains(text(),'Feb 17, 2025, 12:11 AM')]")
 public WebElement Datetxtval;
@@ -86,8 +86,8 @@ public WebElement IDR110427txtval ;
 public WebElement InActivetxtval;
 @FindBy(xpath="//input[@placeholder='Search']")
 public WebElement Appsearchsend;
-//@FindBy(xpath="//td[normalize-space()='Rohan Tech']/preceding-sibling::td")
-//public WebElement Appidclick;
+@FindBy(xpath="//td[normalize-space()='Canara Bank']/preceding-sibling::td")
+public WebElement AppIDclick;
 
 
 
@@ -98,12 +98,13 @@ public void User_Can_Check_Application_Tabledatatextvaladation_in_Applications_P
 sendkeyweb(Appsearchsend, ConfigReader.getProperty("OrgName"));
 	
 	List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//following-sibling::td"));
-	List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']//preceding-sibling::td"));
+	WebElement Orgname1=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//preceding-sibling::td"));
 
 	//
-	 dispalyedattribute(Orgname1.get(0), "1");
-	validatetext(Orgname.get(0), ConfigReader.getProperty("Domain"));
-	System.out.println("HI"+Orgname.get(2));
+	 dispalyedattribute(Orgname1, "ID");
+	validatetext(Orgname.get(0), ConfigReader.getProperty("DomainName"));
+	//validatetext(Orgname.get(1), "");
+	
 	//validatetext(Orgname.get(1), ""); 
 	validatetext(Orgname.get(2), ConfigReader.getProperty("AppSubmissionDate"));
 	validatetext(Orgname.get(3),  ConfigReader.getProperty("AppStatus"));
@@ -115,14 +116,27 @@ sendkeyweb(Appsearchsend, ConfigReader.getProperty("OrgName"));
 
 	//sendkeyweb(searchbuttonclick,"Ikcon");
 
-	Thread.sleep(8000); //
-	Clickelement(Orgname1.get(0));
-	Thread.sleep(3000);
+	Thread.sleep(2000); //
+	Clickelement(Orgname1);
+	Thread.sleep(2000);
 	Clickelement(cancelclick);
-	Thread.sleep(3000);
-	sendkeyweb(Appsearchsend, "Rohan Tech");
-	Thread.sleep(3000);
-	Clickelement(Orgname1.get(0));
+	Thread.sleep(4000);
+	sendkeyweb(Appsearchsend, ConfigReader.getProperty("OrgName"));
+	Thread.sleep(2000);
+	WebElement id1=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//preceding-sibling::td"));
+
+	try {
+		Clickelement(id1);
+	}catch (Exception e) {
+		System.out.println(e);
+	}
+	
+	try {
+		Clickelement(id1);
+	}catch (Exception e) {
+		System.out.println(e);
+	}
+	
 	
 
 }
@@ -164,7 +178,16 @@ public WebElement NSstatus;
 public WebElement Domainstatus ;
 
 
-
+@FindBy(xpath = "//p[normalize-space()='Organization Name']/following-sibling::div")
+public WebElement AOrg_name ;
+@FindBy(xpath = "//p[normalize-space()='Domain Name']/following-sibling::div")
+public WebElement Adn_name ;
+@FindBy(xpath = "//p[normalize-space()='Application No']/following-sibling::div")
+public WebElement AApp_no ;
+@FindBy(xpath = "//p[normalize-space()='Submission Date']/following-sibling::div")
+public WebElement Asub_date ;
+@FindBy(xpath = "//p[normalize-space()='Application Status']/following-sibling::div")
+public WebElement Astatus ;
 public void User_Can_Check_OrganisationDetails_Textvalidations_in_Applications_Page() throws Exception{
 	validatetext(Domainapptxtval, "Applications Details");
 	validatetext(ApplicationNotxtval, "Application No");
@@ -173,12 +196,19 @@ public void User_Can_Check_OrganisationDetails_Textvalidations_in_Applications_P
 	validatetext(DomainNametxtval, "Domain Name");
 	validatetext(SubmissionDatetxtval, "Submission Date");
 
+	/*String Apptableextvalues="Applications Details,Application No,Application Status,,Organization Name,Domain Name,Submission Date";
+	Table_prop(Tabledata, Apptableextvalues);*/
 
-	validatetext(IDR110427txtval, "IDR789495");
-	validatetext(InActivetxtval,  "Under Review");   
-	validatetext(IkconTechtxtval, "mario"); //
-	validatetext(Ikcontechbankintxtval, "tambola.bank.in");
-	validatetext(Datetxtval, "Feb 20, 2025, 5:11 PM");
+	
+
+	
+	    validatetext(AApp_no, ConfigReader.getProperty("Appno"));
+	    validatetext(Astatus, "Under Review");
+        validatetext(AOrg_name, ConfigReader.getProperty("OrgName"));
+		validatetext(Adn_name, ConfigReader.getProperty("DomainName"));
+		validatetext(Asub_date, ConfigReader.getProperty("AppSubmissionDate"));
+		
+ 
 
 
 	validatetext(OrganizationDetailstxtval, "Organization Details"); //
@@ -212,15 +242,15 @@ public WebElement Domainstatustxtval;
 public WebElement OrganizationDocstxtval;
 @FindBy(xpath="//span[text()='GSTIN']")
 public WebElement  GSTINsearch;
-@FindBy(xpath="(//button[contains(text(),'Reject')])[2]")
+@FindBy(xpath="//div[@id='viewTheOrgGstDocs']//button[@class='btn btn-danger'][normalize-space()='Reject']")
 public WebElement  RejectClick;
-@FindBy(xpath="(//button[contains(text(),'Reject')])[1]")
+@FindBy(xpath="//div[@id='viewTheOrgPanDocs']//button[@class='btn btn-danger'][normalize-space()='Reject']")
 public WebElement  Reject2Click;
-@FindBy(xpath="(//button[contains(text(),'Reject')])[3]")
+@FindBy(xpath="//div[@id='viewTheOrgLicenceDocs']//button[@class='btn btn-danger'][normalize-space()='Reject']")
 public WebElement  Reject3Click;
-@FindBy(xpath="(//button[contains(text(),'Reject')])[4]")
+@FindBy(xpath="//div[@id='viewTheBoardDocs']//button[@class='btn btn-danger'][normalize-space()='Reject']")
 public WebElement  Reject4Click;
-@FindBy(xpath="(//button[contains(text(),'Approve')])[2]")
+@FindBy(xpath="//div[@id='viewTheOrgGstDocs']//button[@class='btn btn-primary'][normalize-space()='Approve']")
 public WebElement  ApproveClick;
 //1st case
 @FindBy(xpath="//select[@class='form-control ng-valid ng-touched ng-dirty']")
@@ -261,13 +291,13 @@ public WebElement  Approve2Click;
 public WebElement  Close2buttonClick;
 @FindBy(xpath="//span[text()='Licence Number']")
 public WebElement LicenceNumberdocsearch ;
-@FindBy(xpath="//div[@id='viewTheOrgLicenceDocs']//button[@class='btn btn-primary'][normalize-space()='Approve'][1]")
+@FindBy(xpath="//div[@id='viewTheOrgLicenceDocs']//button[@class='btn btn-primary'][normalize-space()='Approve']")
 public WebElement  Approve3Click;
 @FindBy(xpath="//div[@id='viewTheOrgLicenceDocs']//span[@aria-hidden='true'][normalize-space()='×']")
 public WebElement  Close3buttonClick;
 @FindBy(xpath="//span[text()='Board Resolution']")
 public WebElement BoardResolutionsearch  ;
-@FindBy(xpath="//div[@id='viewTheBoardDocs']//button[@class='btn btn-primary'][normalize-space()='Approve'][1]")
+@FindBy(xpath="//div[@id='viewTheBoardDocs']//button[@class='btn btn-primary'][normalize-space()='Approve']")
 public WebElement  Approve4Click;
 @FindBy(xpath="//div[@id='viewTheBoardDocs']//span[@aria-hidden='true'][normalize-space()='×']")
 public WebElement  Close4buttonClick;
@@ -351,6 +381,7 @@ public void User_Can_Check_OrganisationDetails_DocumentsUpload_Functionalities_i
 	//Thread.sleep(5000);
 	//validatetext(Rejectstatus2txtval, "Approved");
 	validatetext(Toastermsgappovedoc, "Document  Approved");
+	Thread.sleep(3000);
 	validatetext(offtxtval, "Officers"); //
 	validatetext(ststxtval, "Status");
 	validatetext(linktxtval, "Links");
@@ -421,13 +452,14 @@ public WebElement AoODRejectClick ;
 public WebElement Appidclick;
 public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Applications_Page(String src,String src4,String src5,String src6) throws Exception {
 	//AO
-	Clickelement(Appsearch);
-	Thread.sleep(3000);
-	sendkeyweb(Appsearchsend, ConfigReader.getProperty("OrgName"));
-	Clickelement(Appidclick);
+//	Clickelement(Appsearch);
+//	Thread.sleep(3000);
+//	sendkeyweb(Appsearchsend, ConfigReader.getProperty("OrgName"));
+//	Clickelement(Appidclick);
+//	Thread.sleep(3000);
 	Thread.sleep(3000);
 	Clickelement(Aoviewclick);
-	Thread.sleep(3000);
+	
 	
 	
 	/*
@@ -630,7 +662,7 @@ public WebElement TOpanRejectClick ;
 public WebElement TOODRejectClick ;
 
 //TO
-public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Page() throws Exception {
+public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Page(String src) throws Exception {
 	//Clickelement(Appsearch);
 	//Thread.sleep(3000);
 	
@@ -671,6 +703,7 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 	Clickelement(TOpanApprovalSavechangesClick);
 	Thread.sleep(3000);
 	validatetext(Toastermessage, "Document  Approved");
+	Thread.sleep(3000);
 	Clickelement(TOODVerify);
 	Thread.sleep(3000);
 	clickmultipleweb(closedocbutton);
@@ -687,7 +720,21 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 	Thread.sleep(3000);
 	validatetext(Toastermessage, "Document  Approved");
 	Thread.sleep(3000);
-	driver.navigate().back();
+	Clickelement(Appsearch);
+	Thread.sleep(3000);
+	sendkeyweb(Appsearchsend, ConfigReader.getProperty("OrgName"));
+	//List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']//preceding-sibling::td"));
+	//WebElement id1=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//preceding-sibling::td"));
+	WebElement id2=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//preceding-sibling::td"));
+
+	try {
+		Clickelement(id2);
+	}catch (Exception e) {
+		System.out.println(e);
+	}
+	
+	
+	
 
 }
 //BO
@@ -770,7 +817,7 @@ public WebElement cancelclick ;
 public WebElement submitclick ;
 
 public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page() throws Exception {
-	
+	Thread.sleep(5000);
 	
 	Clickelement(Boclickiew);
 	Thread.sleep(3000);
@@ -792,6 +839,7 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 	Clickelement(BOadharApprovalSavechangesClick);
 	Thread.sleep(3000);
 	validatetext(Toastermessage, "Document  Approved");
+	Thread.sleep(3000);
 	Clickelement(BOpanverify);
 	Thread.sleep(3000);
 	clickmultipleweb(closedocbutton);
@@ -808,6 +856,7 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 	Clickelement(BOpanApprovalSavechangesClick);
 	Thread.sleep(3000);
 	validatetext(Toastermessage, "Document  Approved");
+	Thread.sleep(3000);
 	Clickelement(BOODVerify);
 	Thread.sleep(3000);
 	clickmultipleweb(closedocbutton);
@@ -832,6 +881,7 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 	Clickelement(submitclick);
 	//Thread.sleep(5000);
 	Thread.sleep(5000);
+	Clickelement(Appsearch);
 
 
 }

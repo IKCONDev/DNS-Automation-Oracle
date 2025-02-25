@@ -45,21 +45,21 @@ public class Registrar_Invoice_Object extends Baseclass {
 				validatetext(values.get(i), Apptabledata1[i]);
 				//System.out.println("Code Printed");
 			}
-			sendkeyweb(Appsearchsend, ConfigReader.getProperty("Domain"));
+			sendkeyweb(Appsearchsend, ConfigReader.getProperty("DomainName"));
 			//sendkeyweb(Appsearchsend, "rohantech.bank.in");
-			List<WebElement> Domain=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("Domain")+"']/following-sibling::td"));
-			List<WebElement> Domain1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']/preceding-sibling::td"));
+			List<WebElement> DomainName=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("DomainName")+"']/following-sibling::td"));
+			List<WebElement> DomainName1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']/preceding-sibling::td"));
 
 			//
 //			validatetext(Domain1.get(0)
-			dispalyedattribute(Domain1.get(0), "checkbox");
-			dispalyedattribute(Domain1.get(1), "ID");
-			//validatetext(Domain1.get(1), ConfigReader.getProperty("1"));
-			validatetext(Domain1.get(2), ConfigReader.getProperty("OrgName"));
+			dispalyedattribute(DomainName1.get(0), "checkbox");
+			dispalyedattribute(DomainName1.get(1), "ID");
+			//validatetext(Domain1.get(1), ConfigReader.getProperty("6"));
+			validatetext(DomainName1.get(2), ConfigReader.getProperty("OrgName"));
 			//validatet(Orgname.get(0), "Ikcontech solutions");
-			validatetext(Domain.get(0), ConfigReader.getProperty("InAmount"));
-			validatetext(Domain.get(1),ConfigReader.getProperty("Invoicedownload"));
-			validatetext(Domain.get(2), ConfigReader.getProperty("InPayStatus"));
+			validatetext(DomainName.get(0), ConfigReader.getProperty("InAmount"));
+			validatetext(DomainName.get(1),ConfigReader.getProperty("Invoicedownload"));
+			validatetext(DomainName.get(2), ConfigReader.getProperty("Status"));
 			//validatetext(Domain.get(3) ,"");
 			
 			

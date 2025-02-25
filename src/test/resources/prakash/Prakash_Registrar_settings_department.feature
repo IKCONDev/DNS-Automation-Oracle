@@ -1,10 +1,10 @@
 Feature:  Registrar settings   Department
 
- Scenario Outline: Registrar validatetext and Functionalities in Settings  Page
+ Scenario Outline: Registrar  Department Settings  Page
  
   
 
- Then Registrar can RegistrarDepartmentSearch "<DepartmentName>" "<OrgName>"  Textvalidations and functionalities in Settings Page
+ Then Registrar can RegistrarDepartmentSearch "<DepartmentName>"   Textvalidations and functionalities in Settings Page
   Examples: 
-  |DepartmentName| OrgName   |
-  |Banking       | Rohan Tech|    
+  |DepartmentName|
+  |Banking       |    

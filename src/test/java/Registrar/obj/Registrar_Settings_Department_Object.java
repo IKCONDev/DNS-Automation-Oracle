@@ -57,7 +57,7 @@ public class Registrar_Settings_Department_Object extends Baseclass {
 	
 	@FindBy(xpath="(//div[@class='box-content'])[2]")
 	public WebElement InActivetxtval;
-	public void user_navigate_to_Settingspage_and_Check_RegistrarDepartmentSearch_Textvalidations(String src,String src1) throws Exception {
+	public void user_navigate_to_Settingspage_and_Check_RegistrarDepartmentSearch_Textvalidations(String src) throws Exception {
 		Thread.sleep(3000);
 		Clickelement(Settingssearch);
 		

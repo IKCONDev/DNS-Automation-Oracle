@@ -20,6 +20,10 @@ public class Registrar_Settings_Registrant_UserManagement {
 	public void user_navigate_to_Settingspage_and_Check_RegistrantUserManagement_Textvalidations(String src) throws Exception {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 		RM.user_navigate_to_Settingspage_and_Check_RegistrantUserManagement_Textvalidations(src);
+		RM.user_navigate_to_Settingspage_and_Check_RegistrantUserManagement_Textvalidations1(src);
+		RM.user_navigate_to_Settingspage_and_Check_RegistrantUserManagement_Textvalidations2(src);
+		
+		RM.user_navigate_to_Settingspage_and_Check_RegistrantUserManagement_Textvalidations3(src);
 	
 	}
 
