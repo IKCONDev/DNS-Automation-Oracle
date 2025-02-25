@@ -30,12 +30,12 @@ public void User_Can_Check_DomaintableData_in_Domain_Page(String src) throws Exc
 	
 
 }
-@Then("Registrar  check AllFieldsData Textvalidations in Domain Page")
-public void user_validatetext_AllFields_in_Domainpage() throws Exception {
+@Then("Registrar  check AllFieldsData {string} {string} Textvalidations in Domain Page")
+public void user_validatetext_AllFields_in_Domainpage(String src,String src1) throws Exception {
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 	
 	
-	RD.user_validatetext_AllFields_in_Domainpage();
+	RD.user_validatetext_AllFields_in_Domainpage(src,src1);
 
 }
 }

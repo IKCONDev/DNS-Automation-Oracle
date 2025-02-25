@@ -26,7 +26,7 @@ public void User_textvaladation_in_Application_Page1() throws Exception  {
 
 @Then("Registrar Navigate to Application Page  check {string} Tabledata Textvalidations")
 public void User_textvaladation_in_Application_Page1(String src) throws Exception  {
-	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 	RA.User_Can_Check_Application_Tabledatatextvaladation_in_Applications_Page(src);
 	
 
@@ -54,10 +54,10 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 	
 
 }
-@Then("Registrar  check TechnicalOfficier Functionalities in Applications Page")
-public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Page() throws Exception  {
+@Then("Registrar  check TechnicalOfficier {string} Functionalities in Applications Page")
+public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Page(String src) throws Exception  {
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
-	RA.User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Page();
+	RA.User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Page(src);
 	
 
 }

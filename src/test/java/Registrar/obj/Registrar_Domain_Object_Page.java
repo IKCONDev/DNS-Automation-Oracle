@@ -26,17 +26,13 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 	@FindBy(xpath="//input[@placeholder='Search']")
 	public WebElement Domainsearchclick;
 
-	@FindBy(xpath="//td[normalize-space()='Rohan Tech']/preceding-sibling::td")
+	@FindBy(xpath="//td[normalize-space()='Canara Bank']/preceding-sibling::td")
 	public WebElement DomainIDClick;
 	
 	@FindBy(xpath="//mat-icon[normalize-space()='public']")
 	public WebElement DomainSearch ;
 
-	public void Registrar_nvigate_to_Domainpage() throws Exception {
-
-		Clickelement(DomainSearch);
-		Thread.sleep(5000);
-	}
+	
 
 
 
@@ -119,13 +115,13 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 	public void User_Can_Check_DomaintableData_in_Domain_Page(String src) throws Exception  {
 		//String Apptabledata2[]= {"2","Rohantech.bank.in","Vtech","Feb 2, 2025, 9:02 AM, Feb 2, 2030, 9:02 AM","InActive"};
 		//List<WebElement> values1 = driver.findElements(By.xpath("//tbody[@class='mdc-data-table__content']//tr[1]"));
-		sendkeyweb(Appsearchsend, ConfigReader.getProperty("Domain"));
+		sendkeyweb(Appsearchsend, ConfigReader.getProperty("DomainName"));
 		List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']/following-sibling::td"));
 		List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']/preceding-sibling::td"));
 
 		//
 		dispalyedattribute(Orgname1.get(1), "1"); //
-		validatetext(Orgname1.get(0), ConfigReader.getProperty("Domain"));
+		validatetext(Orgname1.get(0), ConfigReader.getProperty("DomainName"));
 		//validatet(Orgname.get(0), "Ikcontech solutions");
 		validatetext(Orgname.get(0), ConfigReader.getProperty("AppSubmissionDate"));
 		validatetext(Orgname.get(1),ConfigReader.getProperty("DomRenewalDate"));
@@ -148,34 +144,73 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 	public WebElement addmorebuttonns;
 	@FindBy(xpath="//button[normalize-space()='Save & Next']")
 	public WebElement savebuttonns;
-	@FindBy(xpath="(//button[@id='trashIcon'])[3]")
+	@FindBy(xpath="//div[contains(text(),'47.25.36.12')]//following-sibling::div//button[@id='trashIcon']")
 	public WebElement delete3;
-	@FindBy(xpath="(//button[@id='trashIcon'])[4]")
+	@FindBy(xpath="//div[contains(text(),'77.25.36.31')]//following-sibling::div//button[@id='trashIcon']")
 	public WebElement delete4;
 	@FindBy(xpath="//th")
 	public List<WebElement> Tabledata;
+	@FindBy(xpath = "//p[normalize-space()='Organization']/following-sibling::div")
+	public WebElement AOrg_name ;
+	@FindBy(xpath = "//p[normalize-space()='Domain']//following-sibling::div")
+	public WebElement Adn_name ;
+	@FindBy(xpath = "//p[normalize-space()='Renewal Date']//following-sibling::div")
+	public WebElement AApp_rendate ;
+	@FindBy(xpath = "//p[normalize-space()='Registration Date']//following-sibling::div")
+	public WebElement Asub_date ;
+	@FindBy(xpath = "//p[normalize-space()='Domain Status']/following-sibling::div")
+	public WebElement Astatus ;
+ 
+	@FindBy(xpath = "//p[contains(text(),'Do you have Name Server Details?')]")
+	public WebElement DOUhavennsd ;
+	@FindBy(xpath = "//label[@for='hasNSDetailsYes']")
+	public WebElement nsdetailstxtval;
+	@FindBy(xpath = "//label[@for='hasNSDetailsNo']")
+	public WebElement nsdnotxtval ;
+	@FindBy(xpath = "//label[normalize-space()='Name Server 3 Host Name']")
+	public WebElement nhns3txtval ;
+	@FindBy(xpath = "//label[normalize-space()='Name Server 3 IP Address']")
+	public WebElement ns3hipaddtxtval; 
+	@FindBy(xpath = "//label[normalize-space()='Name Server 4 Host Name']")
+	public WebElement nhns4txtval ;
+	@FindBy(xpath = "//label[normalize-space()='Name Server 4 IP Address']")
+	public WebElement nsh4ipaddtxtval; 
 	
-	public void user_validatetext_AllFields_in_Domainpage() throws Exception { 
+	
+	
+	
+	public void user_validatetext_AllFields_in_Domainpage(String src,String src1) throws Exception { 
 		Thread.sleep(3000);
-		Clickelement(DomainIDClick);
+		List<WebElement> DomainName1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']/preceding-sibling::td"));
+		Clickelement(DomainName1.get(0));
 		Thread.sleep(3000);
 		validatetext(DomainDetailstxtval, "Domain Details");
-		String Apptableextvalues="Domain,Organization,Registration Date,,Renewal Date,Domain Status";
-		Table_prop(Tabledata, Apptableextvalues);
-/*
+		
+
 		validatetext(Domaintextval, "Domain");
+		validatetext(DomainStatustxtval, "Domain Status"); 
 		validatetext(Organizationtxtval, "Organization");
 		validatetext(RegistrationDatetxtval, "Registration Date");
 		validatetext(RenewalDatetxtval, "Renewal Date");
-		validatetext(DomainStatustxtval, "Domain Status"); */
-
-
 		
+
+
+		/*
 		validatetext(IkconTechtxtval1, "tambola.bank.in"); 
 		validatetext(InActivetxtval1, "Inactive");
 		validatetext(organisationname, "mario");
 		validatetext(Datetxtval1, "Feb 20, 2025, 5:11 PM");
-		validatetext(RenewelDatetxtval1, "Feb 20, 2030, 5:11 PM");
+		validatetext(RenewelDatetxtval1, "Feb 20, 2030, 5:11 PM");*/
+		
+		
+		
+		validatetext(Adn_name, ConfigReader.getProperty("DomainName"));
+		validatetext(Astatus, ConfigReader.getProperty("Domstatus"));
+	    validatetext(AOrg_name, ConfigReader.getProperty("Orgname"));	
+		validatetext(AApp_rendate, ConfigReader.getProperty("AppSubmissionDate"));
+		validatetext(Asub_date, ConfigReader.getProperty("DomRenewalDate"));
+		
+	 
 		
 /*
 		List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']/following-sibling::td"));
@@ -191,24 +226,47 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 		//validatetext(Orgname.get(3) ,"5");*/
 
 		validatetext(Nameserverstxtval1, "Name Servers");
-		
+		Thread.sleep(3000);
 		Clickelement(Clicknameseraddbtn);
+		Thread.sleep(3000);
 		Clickelement(addmorebuttonns);
+		Thread.sleep(3000);
 		driver.navigate().back();
+		Thread.sleep(3000);
 		Clickelement(Clicknameseraddbtn);
+	    Thread.sleep(2000);
+		validatetext(DOUhavennsd,"Do you have Name Server Details?");
+		Thread.sleep(2000);
+		validatetext(nsdetailstxtval,"I have NS details (can be updated later)");
+		Thread.sleep(2000);
+		validatetext(nsdnotxtval," I will set it later");
+		Thread.sleep(2000);
+		validatetext(nhns3txtval,"Name Server 3 Host Name");
+		Thread.sleep(2000);
+		validatetext(ns3hipaddtxtval,"Name Server 3 IP Address");
+		Thread.sleep(2000);
+		validatetext(nhns4txtval,"Name Server 4 Host Name");
+		Thread.sleep(2000);
+		validatetext(nsh4ipaddtxtval,"Name Server 4 IP Address");
+		Thread.sleep(2000);
 		sendkeyweb(Nameserver3hostinbox,"Groundfloor");
+		Thread.sleep(2000);
 		sendkeyweb(Nameserver4hostinbox,"Topfloor");
+		Thread.sleep(2000);
 		sendkeyweb(Nameserver3addinbox, "47.25.36.12");
+		Thread.sleep(2000);
 		sendkeyweb(Nameserver4addinbox, "77.25.36.31");
+		Thread.sleep(2000);
 		//Clickelement(addmorebuttonns);
 		Clickelement(savebuttonns);
 		Thread.sleep(3000);
 		Clickelement(delete3);
 		Thread.sleep(3000);
-		validatealert("Are you sure, you really want to delete this name server record ?");
+		//validatealert("Are you sure, you really want to delete this name server record ?");
 		driver.switchTo().alert().accept();
+		Thread.sleep(3000);
 		Clickelement(delete4);
-		validatealert("Are you sure, you really want to delete this name server record ?");
+		//validatealert("Are you sure, you really want to delete this name server record ?");
 		driver.switchTo().alert().accept();
 		
 		
@@ -222,6 +280,16 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 		validatetext(Invoicedatetxtval1, "Invoice Date");
 		validatetext(statustxtval1, "Status");
 		Thread.sleep(5000);
+		List<WebElement> Status=driver.findElements(By.xpath("//div[normalize-space()='"+src1+"']/preceding-sibling::div"));
+
+		//
+		dispalyedattribute(Status.get(0), "6"); //
+		validatetext(Status.get(1), ConfigReader.getProperty("InAmount"));
+		validatetext(Status.get(2), ConfigReader.getProperty("InvoiceDate"));
+		
+		
+		
+		
 	}
 
 

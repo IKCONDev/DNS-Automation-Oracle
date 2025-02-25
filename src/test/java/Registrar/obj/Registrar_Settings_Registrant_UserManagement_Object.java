@@ -31,7 +31,7 @@ public class Registrar_Settings_Registrant_UserManagement_Object extends Basecla
 	@FindBy(xpath="//a[normalize-space()='Registrant User Management']")
 	public WebElement RegistrantUserManagementSearch ;
 	
-	public void user_navigate_to_Settingspage_and_Check_RegistrantUserManagement_Textvalidations(String src1) throws Exception {
+	public void user_navigate_to_Settingspage_and_Check_RegistrantUserManagement_Textvalidations(String src) throws Exception {
 
 		Clickelement(Settingssearch);
 		Thread.sleep(3000);
@@ -46,28 +46,84 @@ public class Registrar_Settings_Registrant_UserManagement_Object extends Basecla
 			validatetext(values.get(i), SettingDrtabledata[i]);
 			//System.out.println("Code Printed");
 		}
-		sendkeyweb(Registrantsearchbutton, "tambola.bank.in");
+		sendkeyweb(Registrantsearchbutton, ConfigReader.getProperty("OrgName"));
 
 		
 		//String Apptabledata2[]= {"2","Bharat Kumar","Vtech","Feb 2, 2025, 9:02 AM, Feb 2, 2030, 9:02 AM","InActive"};
 		//List<WebElement> values1 = driver.findElements(By.xpath("//tbody[@class='mdc-data-table__content']//tr[1]"));
 		
+		List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//following-sibling::td"));
+		List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']//preceding-sibling::td"));
 
-		List<WebElement> UserID=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("UserID")+"']/following-sibling::td"));
-		List<WebElement> UserID1=driver.findElements(By.xpath("//td[normalize-space()='"+src1+"']/preceding-sibling::td"));
-		Thread.sleep(3000);
 		//
-		validatetext(UserID1.get(0), "10");
-		//validatetext(UserID1.get(0), ID); //
-		validatetext(UserID.get(0), ConfigReader.getProperty("RMusername"));
-		validatetext(UserID.get(1),ConfigReader.getProperty("RMOrgname")); 
-		validatetext(UserID.get(2), ConfigReader.getProperty("RMRole"));
-		validatetext(UserID.get(3), "");
-		validatetext(UserID.get(4),ConfigReader.getProperty("RMStatus")); 
-		validatetext(UserID.get(5), "");
-		//validatet(UserID.get(6), "");
+		
+		 //dispalyedattribute(Orgname1.get(2), "59");
+		validatetext(Orgname1.get(1), ConfigReader.getProperty("UserID1"));
+		validatetext(Orgname1.get(0), ConfigReader.getProperty("UserName1"));
+		validatetext(Orgname.get(0), "Role1");
+		validatetext(Orgname.get(1), ""); 
+		validatetext(Orgname.get(2),  ConfigReader.getProperty("Status"));
+		validatetext(Orgname.get(3), ""); 
+	}
+		
+		public void user_navigate_to_Settingspage_and_Check_RegistrantUserManagement_Textvalidations1(String src) throws Exception {
+		
+		//dispalyedattribute(Orgname.get(4), "29");
+			List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//following-sibling::td"));
+			List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']//preceding-sibling::td"));
+
+			//
+			
+			 //dispalyedattribute(Orgname1.get(2), "59");
+			validatetext(Orgname1.get(1), ConfigReader.getProperty("UserID2"));
+			validatetext(Orgname1.get(0), ConfigReader.getProperty("UserName2"));
+			validatetext(Orgname.get(0), "Role2");
+			validatetext(Orgname.get(1), ""); 
+			validatetext(Orgname.get(2),  ConfigReader.getProperty("Status"));
+			validatetext(Orgname.get(3), ""); 
+		
 
 
 
 	}
+		public void user_navigate_to_Settingspage_and_Check_RegistrantUserManagement_Textvalidations2(String src) throws Exception {
+			
+			//dispalyedattribute(Orgname.get(4), "29");
+				List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//following-sibling::td"));
+				List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']//preceding-sibling::td"));
+
+				//
+				
+				 //dispalyedattribute(Orgname1.get(2), "59");
+				validatetext(Orgname1.get(1), ConfigReader.getProperty("UserID3"));
+				validatetext(Orgname1.get(0), ConfigReader.getProperty("UserName3"));
+				validatetext(Orgname.get(0), "Role3");
+				validatetext(Orgname.get(1), ""); 
+				validatetext(Orgname.get(2),  ConfigReader.getProperty("Status"));
+				validatetext(Orgname.get(3), ""); 
+			
+
+
+
+		}
+		public void user_navigate_to_Settingspage_and_Check_RegistrantUserManagement_Textvalidations3(String src) throws Exception {
+			
+			//dispalyedattribute(Orgname.get(4), "29");
+				List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//following-sibling::td"));
+				List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']//preceding-sibling::td"));
+
+				//
+				
+				 //dispalyedattribute(Orgname1.get(2), "59");
+				validatetext(Orgname1.get(1), ConfigReader.getProperty("UserID4"));
+				validatetext(Orgname1.get(0), ConfigReader.getProperty("UserName4"));
+				validatetext(Orgname.get(0), "Role4");
+				validatetext(Orgname.get(1), ""); 
+				validatetext(Orgname.get(2),  ConfigReader.getProperty("Status"));
+				validatetext(Orgname.get(3), ""); 
+			
+
+
+
+		}
 }

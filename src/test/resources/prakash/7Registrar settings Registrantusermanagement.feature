@@ -1,8 +1,9 @@
+
 Feature: Login Registrar Registrant User Management Page
 
-Scenario Outline: Registrar validatetext and Functionalities in Settings  Page
-Then Registrar  check RegistrantUserManagement "<UserID>" Textvalidations and functionalities in Settings Page
+Scenario Outline: Registrar Invoice Settings  Page
+Then Registrar  check RegistrantUserManagement "<OrgName>" Textvalidations and functionalities in Settings Page
 
 Examples: 
-      |UserID        |
-      |ramesh@123.com|
+       | OrgName    |
+       | Canara Bank|

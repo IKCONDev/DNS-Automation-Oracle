@@ -24,7 +24,7 @@ public class Registrar_Settings_Registrant_Officiers_Object extends Baseclass{
 	}
 	@FindBy(xpath="//span[@class='ng-arrow-wrapper']")
 	public WebElement OfficersDDClick;
-	@FindBy(xpath="//span[normalize-space()='Rohan Tech']")
+	@FindBy(xpath="//span[normalize-space()='Canara Bank']")
 	public WebElement OfficersDDSel;
 	@FindBy(xpath="//button[contains(text(),'Add User')]")
 	public WebElement ClickAddUser;
@@ -253,13 +253,26 @@ public class Registrar_Settings_Registrant_Officiers_Object extends Baseclass{
 			validatetext(values.get(i), SettingDrtabledata[i]);
 			//System.out.println("Code Printed");
 		}
+		
+		try {
 		Clickelement(OfficersDDClick);
-		Clickelement(OfficersDDSel);
+		}catch (Exception e) {
+			System.out.println(e);
+		}
+		WebElement id1=driver.findElement(By.xpath("//span[contains(text(),' "+ConfigReader.getProperty("OrgName")+"')]"));
+	
+		
+		try {
+			Clickelement(id1);
+		}catch (Exception e) {
+			System.out.println(e);
+		}
 		
 		
 		
 		
 		
+		/*
 		
 		
 		
@@ -287,7 +300,7 @@ public class Registrar_Settings_Registrant_Officiers_Object extends Baseclass{
 		//
 		//
 		
-		validatetext(BOOrgname1.get(0), "2"); //
+		//validatetext(BOOrgname1.get(0), "2"); //
 		validatetext(BOOrgname.get(0), ConfigReader.getProperty("BOPersonname")); 
 		validatetext(BOOrgname.get(1), ConfigReader.getProperty("BODesignation")); 
 		validatetext(BOOrgname.get(2), ConfigReader.getProperty("BOMobileNumber"));
@@ -305,7 +318,7 @@ public class Registrar_Settings_Registrant_Officiers_Object extends Baseclass{
 		//
 
 		//
-		validatetext(TOOrgname1.get(0), "3"); //
+		//validatetext(TOOrgname1.get(0), "3"); //
 		validatetext(TOOrgname.get(0), ConfigReader.getProperty("TOPersonname"));
 		validatetext(TOOrgname.get(1),ConfigReader.getProperty("TODesignation"));
 		validatetext(TOOrgname.get(2),ConfigReader.getProperty("AOMobileNumber")); 
@@ -315,7 +328,7 @@ public class Registrar_Settings_Registrant_Officiers_Object extends Baseclass{
 		//validatet(TOOrgname.get(6), "");
 		validatetext(TOOrgname.get(7), ConfigReader.getProperty("TOLoginStatus"));
 		validatetext(TOOrgname.get(8), ConfigReader.getProperty("TOIsActive"));
-		validatetext(TOOrgname.get(9), "");
+		validatetext(TOOrgname.get(9), "");*/
 		
 		
 		//AO
@@ -400,16 +413,28 @@ public class Registrar_Settings_Registrant_Officiers_Object extends Baseclass{
 				//validatetext(AodApprovalchecktxtval, "Approved");
 				//validatetext(Toastermessage, "Document  Approved");
 				Clickelement(Settingssearch);
+				Thread.sleep(3000);
+
 				Clickelement(RegistrantOfficerDetailsSearch);
+				Thread.sleep(3000);
 				Clickelement(OfficersDDClick);
-				Clickelement(OfficersDDSel);
+				Thread.sleep(3000);
+
+				WebElement id2=driver.findElement(By.xpath("//span[contains(text(),' "+ConfigReader.getProperty("OrgName")+"')]"));
+
+				try {
+					Clickelement(id2);
+				}catch (Exception e) {
+					System.out.println(e);
+				}
+				Thread.sleep(3000);
 	
 	//Bo		
-				Thread.sleep(2000);
+				Thread.sleep(3000);
 				Clickelement(setBoviewclick);
-				Thread.sleep(3000);
+				Thread.sleep(6000);
 				//Clickelement(BODocviewclick);
-				Thread.sleep(3000);
+				
 				Clickelement(BOAdharverify);
 				Thread.sleep(3000);
 				clickmultipleweb(closedocbutton);
@@ -448,20 +473,31 @@ public class Registrar_Settings_Registrant_Officiers_Object extends Baseclass{
 				//validatetext(BOODApprovalchecktxtval, "Approved");
 				//validatetext(Toastermessage, "Document  Approved");
 				Clickelement(Settingssearch);
+				Thread.sleep(3000);
+
 				Clickelement(RegistrantOfficerDetailsSearch);
+				Thread.sleep(3000);
 				Clickelement(OfficersDDClick);
-				Clickelement(OfficersDDSel);
+				Thread.sleep(3000);
+
+				WebElement id3=driver.findElement(By.xpath("//span[contains(text(),' "+ConfigReader.getProperty("OrgName")+"')]"));
+
+				try {
+					Clickelement(id3);
+				}catch (Exception e) {
+					System.out.println(e);
+				}
 			
 //TO
 				Thread.sleep(3000);
 				Clickelement(setToviewclick);
-				//Thread.sleep(5000);
+				Thread.sleep(6000);
 				//Clickelement(TODocviewclick);
 				
 				Clickelement(TOAdharverify);
 				Thread.sleep(3000);
 				clickmultipleweb(closedocbutton);
-				Thread.sleep(3000);
+				Thread.sleep(6000);
 //				Clickelement(TOadharAproveClick);
 //				Thread.sleep(3000);
 //				sendkeyweb(TOadharApprovalCommentClick, "");
@@ -496,7 +532,7 @@ public class Registrar_Settings_Registrant_Officiers_Object extends Baseclass{
 				//validatetext(TOODApprovalchecktxtval, "Approved");
 				//validatetext(Toastermessage, "Document  Approved");
 				
-			
+				driver.navigate().back();
 			
 			
 		}

@@ -1,13 +1,12 @@
 
 
-
 Feature:  Registrar Domain Page
 
- Scenario Outline: Registrar validatetext and Functionalities in Domain Page
+ Scenario Outline: Registrar  Domain Page
     Then Registrar can Navigate to Domain Page can check Textvalidations
     Then Registrar  check DomaintableData "<OrgName>" Textvalidations
-    Then Registrar  check AllFieldsData Textvalidations in Domain Page
+    Then Registrar  check AllFieldsData "<DomainName>" "<Status>" Textvalidations in Domain Page
 
     Examples: 
-      | OrgName    |
-      | Rohan Tech |
+      | OrgName    |DomainName    |Status          |
+      | Canara Bank|canara.bank.in|Payment Approved|
