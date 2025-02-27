@@ -17,9 +17,10 @@ import io.cucumber.java.*;
 public class Hooks {
 
     static WebDriver driver = Driver.getDriver();
+    
     static ExtentReports exp;
     static ExtentTest test1;
-
+    
     public static ExtentTest getExtentTest() {
         return test1;
     }
