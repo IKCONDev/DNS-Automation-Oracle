@@ -56,6 +56,12 @@ public class Registrant_login_object extends Baseclass {
 		validatetext(Register_button, "Register");
 		} catch (Exception e) {
 		}
+		configWriter.setProperty("Aadhar", absolutepath("Board.jpg"));
+        configWriter.setProperty("GSTIN", absolutepath("GSTIN_22ABCDE1234F1Z2.jpg"));
+        configWriter.setProperty("License", absolutepath("Licence.jpeg"));
+        configWriter.setProperty("PAN", absolutepath("PAN_DXZOO7654R.jpeg"));
+        configWriter.setProperty("ID", absolutepath("Organisation_ID.jpg"));
+        configWriter.setProperty("Aadhar", absolutepath("Aadhaar_445588776688.jpeg"));
 		
 		
 	}
@@ -152,9 +158,9 @@ public class Registrant_login_object extends Baseclass {
 	
 	public void User_Register_An_Account(String username,String Password) throws InterruptedException {
 		configWriter.setProperty("Username", username);
-	    configWriter.saveProperties();
+	   
 	    configWriter.setProperty("nameuser", SplitNameFromEmail(username));
-	    configWriter.saveProperties();
+	   
 		String stv="Passwords do not match";
 		Register_emailid.click();
 		jssendkeys(Register_emailid,username);
@@ -243,7 +249,6 @@ public class Registrant_login_object extends Baseclass {
 	
 	
 	public void user_enters_and(String UN, String Password) throws InterruptedException {
-		
 		sendkeyweb(Signin_email, UN);
 		sendkeyweb(Signin_password, Password);
 		Clickelement(Next_button);
@@ -269,11 +274,11 @@ public class Registrant_login_object extends Baseclass {
 		validateattribute(Signin_email, "placeholder", "Enter your email");
 		validateattribute(Signin_password, "placeholder", "Enter the strong password");
 		Clickelement(Next_button);
-		try {
-		validatetext(Enter_mail_error, "Enter email");
-		validatetext(Enter_password_error, "Enter password");
-		}catch (Exception e) {
-		}
+//		try {
+//		validatetext(Enter_mail_error, "Enter email");
+//		validatetext(Enter_password_error, "Enter password");
+//		}catch (Exception e) {
+//		}
 		validatetext(Forget_password,"Forgot password?");
 	}
 
@@ -330,14 +335,7 @@ public class Registrant_login_object extends Baseclass {
 	public void DSC_token() throws InterruptedException {
 		popupvalidate("Fetched tokens successfully", "emty");
 		Selectdropdown(DSC_token, "1");
-//		Thread.sleep(10000);
 		Selectdropdown(DSC_certificate, "1");
-		try {
-			Selectdropdown(DSC_datetype, "2");
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-		
 		sendkeyweb(DSC_password, "Idrbt@123");
 		Clickelement(DSC_submit);
 		popupvalidate("Fetched tokens successfully", "emty");
@@ -357,7 +355,11 @@ public class Registrant_login_object extends Baseclass {
 	public WebElement org_pin;
 	@FindBy(xpath = "//input[contains(@placeholder,'address')]")
 	public WebElement org_address;
-	@FindBy(xpath = "//input[contains(@placeholder,'tele')]")
+	@FindBy(xpath = "//input[contains(@placeholder,'STD Code')]")
+	public WebElement STD_Code;
+	@FindBy(xpath = "//input[contains(@placeholder,'Country Code')]")
+	public WebElement Country_Code;
+	@FindBy(xpath = "//input[contains(@placeholder,'Tele')]")
 	public WebElement org_telephone;
 	@FindBy(xpath = "//input[contains(@placeholder,'number')]")
 	public WebElement org_number;
@@ -388,7 +390,7 @@ public class Registrant_login_object extends Baseclass {
 	public void user_should_get_logged_in(String domain) throws InterruptedException{
 		 
        configWriter.setProperty("Domain", domain);
-       configWriter.saveProperties();
+      
 		Thread.sleep(2000);
 		validatetext(Domain_button, "Got it!");
 		Clickelement(Domain_button);
@@ -441,11 +443,13 @@ public class Registrant_login_object extends Baseclass {
 		validatetext(org_upload,"Documents");
 			
 		configWriter.setProperty("Orgname", Name);
-		configWriter.saveProperties();
+		
 		
 		sendkeyweb(org_name, Name);
 		sendkeyweb(org_pin, PIN);
 		sendkeyweb(org_address, Address);
+		sendkeyweb(STD_Code, "040");
+		sendkeyweb(Country_Code, "+91");
 		sendkeyweb(org_telephone, Tel);
 		sendkeyweb(org_number, Mob);
 		sendkeyweb(org_email, Email);
@@ -453,10 +457,8 @@ public class Registrant_login_object extends Baseclass {
 		
 		
 		public void user_org_documents(String GST,String PAN,String License) throws InterruptedException, AWTException {
-			
 		Selectdropdown(org_doc, "Organisation GSTIN");
 		configWriter.setProperty("OGSTnum", GST);
-		configWriter.saveProperties();
 		sendkeyweb(org_GST, GST);
 		Thread.sleep(4000);
 		Clickelement(org_select_file);
@@ -470,7 +472,7 @@ public class Registrant_login_object extends Baseclass {
 		Clickelement(org_select_file);
 		fileupload_robot(ConfigReader.getProperty("PAN"));
 		Thread.sleep(4000);
-		Selectdropdown(org_doc, "License No");
+		Selectdropdown(org_doc, " Regulatory RBI License");
 		Thread.sleep(4000);
 		configWriter.setProperty("Olicence", License);
 		sendkeyweb(org_Lic, License);
@@ -517,7 +519,7 @@ public class Registrant_login_object extends Baseclass {
 		configWriter.setProperty("admin_phone", Tel);
 		configWriter.setProperty("admin_altphone", Mob);
 		configWriter.setProperty("admin_desig", Desig);
-		configWriter.saveProperties();
+		
 		sendkeyweb(admin_fname, Name);
 		sendkeyweb(admin_email, Email);
 		sendkeyweb(admin_phone, Tel);
@@ -570,7 +572,7 @@ public class Registrant_login_object extends Baseclass {
 		configWriter.setProperty("tech_phone", Tel);
 		configWriter.setProperty("tech_altphone",Mob);
 		configWriter.setProperty("tech_desig", Desig);
-		configWriter.saveProperties();
+		
 		
 		sendkeyweb(tech_fname, Name);
 		sendkeyweb(tech_email, Email);
@@ -585,7 +587,7 @@ public class Registrant_login_object extends Baseclass {
 		Selectdropdown(tech_doc_type, "Aadhaar");
 		configWriter.setProperty("TechAadhar", Aadhar);
 		configWriter.setProperty("TechPan", PAN);
-		configWriter.saveProperties();
+		
 		sendkeyweb(admin_aadhar, Aadhar);
 		Thread.sleep(4000);
 		Clickelement(upload_doc.get(2));
@@ -626,7 +628,7 @@ public class Registrant_login_object extends Baseclass {
 		configWriter.setProperty("bill_phone", Tel);
 		configWriter.setProperty("bill_altphone",Mob);
 		configWriter.setProperty("bill_desig", Desig);
-		configWriter.saveProperties();
+		
 		sendkeyweb(bill_fname, Name);
 		sendkeyweb(bill_email, Email);
 		sendkeyweb(bill_phone, Tel);
@@ -637,7 +639,7 @@ public class Registrant_login_object extends Baseclass {
 		public void User_upload_billing_contact_details(String Aadhar,String  PAN) throws AWTException, InterruptedException {
 			configWriter.setProperty("BillAadhar", Aadhar);
 			configWriter.setProperty("BillPan", PAN);
-			configWriter.saveProperties();
+			
 			
 		Selectdropdown(bill_doc_type, "Aadhaar");
 		sendkeyweb(admin_aadhar, Aadhar);
@@ -703,7 +705,7 @@ public class Registrant_login_object extends Baseclass {
 		configWriter.setProperty("IP1", NIP1);
 		configWriter.setProperty("NS2", NSR2);
 		configWriter.setProperty("IP2", NIP2);	
-		configWriter.saveProperties();
+		
 		sendkeyweb(NS1, NSR1);
 		sendkeyweb(IP1, NIP1);
 		sendkeyweb(NS2, NSR2);

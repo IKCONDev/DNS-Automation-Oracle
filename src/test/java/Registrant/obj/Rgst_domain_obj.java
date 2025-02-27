@@ -43,7 +43,7 @@ public class Rgst_domain_obj extends Baseclass{
 		validatetext(Table_data.get(0), ConfigReader.getProperty("Orgname"));
 		validatetext(Table_data.get(1), ConfigReader.getProperty("submissiondate"));
 		configWriter.setProperty("Renewal", Table_data.get(2).getText());
-		configWriter.saveProperties();
+		
 		validatetext(Table_data.get(2), ConfigReader.getProperty("Renewal"));
 		validatetext(Domain_ID.get(1), "Inactive");
 		validateattribute(Search, "placeholder","Search");

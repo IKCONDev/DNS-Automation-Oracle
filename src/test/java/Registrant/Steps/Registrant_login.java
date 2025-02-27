@@ -13,13 +13,16 @@ public class Registrant_login {
 	WebDriver driver = Driver.getDriver();
 	Registrant_login_object RLO = new Registrant_login_object(driver);
 
+	 
+		 
+	 ConfigWriter configWriter = new ConfigWriter();
+	
 	@Given("User is on Landing Page")
 	public void user_is_on_home_page() {
 		driver.get(ConfigReader.getProperty("baseURL"));
 		driver.manage().window().maximize();
-		
-		ConfigWriter configWriter = new ConfigWriter();
 		configWriter.setProperty("lastRun", String.valueOf(System.currentTimeMillis()));
+		
 	}
 	
 	@Given("User is on Registar Landing Page")

@@ -9,19 +9,19 @@ Feature: Registrant Onboarding
     Then User enters "<username>" and "<password>"
 
     Examples: 
-      | username               | password | Case  |
+      | username                 | password | Case  |
       | venkatesh.udaru@idbc.com | Test@123 | Valid |
 
   Scenario Outline: DSC clear with valid data
-    And User enters the dsc details
+    And User enters the dsc details    
 
   Scenario Outline: onboarding page
     Then User enters domain page "<domain>"
     Then User enters organisation details "<Name>" "<PIN>" "<Address>" "<Tel>" "<Mob>" "<Email>" "<GST>" "<PAN>" "<License>"
 
     Examples: 
-      | domain | Name  | PIN    | Address               | Tel        | Mob        | Email          | GST             | PAN        | License               |
-      | tambola  | mario | 500090 | CYBERTOWERS,HEDERABAD | 9685578941 | 9685578945 | foya@gmail.com | 22ABCDE0000A1J5 | ASDEE4455Q | L12345MH2023PLC000001 |
+      | domain  | Name  | PIN    | Address               | Tel        | Mob        | Email          | GST             | PAN        | License               |
+      | hgfc | hgfc | 500090 | CYBERTOWERS,HEDERABAD | 9685578941 | 9685578945 | foya@gmail.com | 22ABCDE0000A1J5 | ASDEE4455Q | L12345MH2023PLC000001 |
 
   Scenario Outline: admin contact details page
     Then User enters admin contact details "<Name>" "<Tel>" "<Mob>" "<Email>" "<Aadhar>" "<PAN>" "<Desig>"
@@ -77,5 +77,3 @@ Feature: Registrant Onboarding
   Scenario Outline: Officer Details Management
     Then User navigate to officer details management page
     Then User Validate the officer details management page
-    
-    

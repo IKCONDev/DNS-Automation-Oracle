@@ -61,7 +61,7 @@ public class Regst_App_obj extends Baseclass {
 		dispalyedattribute(APP_ID.get(0), "Application ID");
 		List<WebElement> Table_data=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/following-sibling::td"));
 		configWriter.setProperty("submissiondate", Table_data.get(1).getText());
-		configWriter.saveProperties();
+		
 		validatetext(Table_data.get(2), "Under Review");
 		validatetext(Table_data.get(3), "Payment Not Done");
 		validatetext(Table_data.get(4), "OnHold");
@@ -105,7 +105,7 @@ public class Regst_App_obj extends Baseclass {
 	
 	public void user_navigates_the_domain_applications_details_page() {
 		configWriter.setProperty("Appno", AApp_no.getText());
-		configWriter.saveProperties();
+		
 		validatetext(Details_page_title, "Applications Details");
 		validatetext(Org_name, "Organization Name");
 		validatetext(dn_name, "Domain Name");
