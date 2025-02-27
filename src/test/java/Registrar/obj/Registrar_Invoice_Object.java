@@ -37,7 +37,7 @@ public class Registrar_Invoice_Object extends Baseclass {
 
 			Clickelement(Invoicesearch);
 			
-			String Apptabledata1[]= { "","SNo","Organisations Name", "Domain Name","Amount","Invoice","Payment Status"};
+			String Apptabledata1[]= { "","SNo","Organization Name", "Domain Name","Amount","Invoice","Payment Status"};
 			List<WebElement> values = driver.findElements(By.xpath("//table[@id='table1']//tr//th"));
 			Thread.sleep(3000);
 			for (int i= 0; i< values.size(); i++) {

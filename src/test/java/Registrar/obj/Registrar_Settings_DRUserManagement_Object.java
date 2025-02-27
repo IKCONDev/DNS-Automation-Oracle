@@ -95,7 +95,7 @@ public class Registrar_Settings_DRUserManagement_Object extends Baseclass {
 			validatetext(UserId.get(1), ConfigReader.getProperty("RDRDepartment")); 
 			validatetext(UserId.get(2), ConfigReader.getProperty("RDRUserRole"));
 			validatetext(UserId.get(3), "");
-			validatetext(UserId.get(4), ConfigReader.getProperty("Status")); 
+			validatetext(UserId.get(4), ConfigReader.getProperty("DRStatus")); 
 			validatetext(UserId.get(5), "");
 			validatetext(UserId.get(6), "");
 	/*

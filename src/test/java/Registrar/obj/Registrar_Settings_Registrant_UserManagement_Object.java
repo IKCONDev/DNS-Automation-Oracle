@@ -57,29 +57,29 @@ public class Registrar_Settings_Registrant_UserManagement_Object extends Basecla
 
 		//
 		
-		 //dispalyedattribute(Orgname1.get(2), "59");
+		 dispalyedattribute(Orgname1.get(0), "ID");
 		validatetext(Orgname1.get(1), ConfigReader.getProperty("UserID1"));
-		validatetext(Orgname1.get(0), ConfigReader.getProperty("UserName1"));
-		validatetext(Orgname.get(0), "Role1");
+		validatetext(Orgname1.get(2), ConfigReader.getProperty("UserName1"));
+		validatetext(Orgname.get(0), ConfigReader.getProperty("Role1"));
 		validatetext(Orgname.get(1), ""); 
-		validatetext(Orgname.get(2),  ConfigReader.getProperty("Status"));
+		validatetext(Orgname.get(2),  ConfigReader.getProperty("DRStatus"));
 		validatetext(Orgname.get(3), ""); 
 	}
 		
 		public void user_navigate_to_Settingspage_and_Check_RegistrantUserManagement_Textvalidations1(String src) throws Exception {
 		
 		//dispalyedattribute(Orgname.get(4), "29");
-			List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//following-sibling::td"));
-			List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']//preceding-sibling::td"));
+			List<WebElement> Orgname=driver.findElements(By.xpath("(//td[@role='cell'][normalize-space()='"+ConfigReader.getProperty("OrgName")+"'])[2]/following-sibling::td"));
+			List<WebElement> Orgname1=driver.findElements(By.xpath("(//td[@role='cell'][normalize-space()='"+src+"'])[2]/preceding-sibling::td"));
 
 			//
 			
-			 //dispalyedattribute(Orgname1.get(2), "59");
+			 dispalyedattribute(Orgname1.get(0), "ID");
 			validatetext(Orgname1.get(1), ConfigReader.getProperty("UserID2"));
-			validatetext(Orgname1.get(0), ConfigReader.getProperty("UserName2"));
-			validatetext(Orgname.get(0), "Role2");
+			validatetext(Orgname1.get(2), ConfigReader.getProperty("UserName2"));
+			validatetext(Orgname.get(0),ConfigReader.getProperty("Role2"));
 			validatetext(Orgname.get(1), ""); 
-			validatetext(Orgname.get(2),  ConfigReader.getProperty("Status"));
+			validatetext(Orgname.get(2),  ConfigReader.getProperty("DRStatus"));
 			validatetext(Orgname.get(3), ""); 
 		
 
@@ -89,17 +89,17 @@ public class Registrar_Settings_Registrant_UserManagement_Object extends Basecla
 		public void user_navigate_to_Settingspage_and_Check_RegistrantUserManagement_Textvalidations2(String src) throws Exception {
 			
 			//dispalyedattribute(Orgname.get(4), "29");
-				List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//following-sibling::td"));
-				List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']//preceding-sibling::td"));
+			List<WebElement> Orgname=driver.findElements(By.xpath("(//td[@role='cell'][normalize-space()='"+ConfigReader.getProperty("OrgName")+"'])[3]/following-sibling::td"));
+			List<WebElement> Orgname1=driver.findElements(By.xpath("(//td[@role='cell'][normalize-space()='"+src+"'])[3]/preceding-sibling::td"));
 
 				//
 				
-				 //dispalyedattribute(Orgname1.get(2), "59");
+				 dispalyedattribute(Orgname1.get(0), "ID");
 				validatetext(Orgname1.get(1), ConfigReader.getProperty("UserID3"));
-				validatetext(Orgname1.get(0), ConfigReader.getProperty("UserName3"));
-				validatetext(Orgname.get(0), "Role3");
+				validatetext(Orgname1.get(2), ConfigReader.getProperty("UserName3"));
+				validatetext(Orgname.get(0), ConfigReader.getProperty("Role3"));
 				validatetext(Orgname.get(1), ""); 
-				validatetext(Orgname.get(2),  ConfigReader.getProperty("Status"));
+				validatetext(Orgname.get(2),  ConfigReader.getProperty("DRStatus"));
 				validatetext(Orgname.get(3), ""); 
 			
 
@@ -109,17 +109,17 @@ public class Registrar_Settings_Registrant_UserManagement_Object extends Basecla
 		public void user_navigate_to_Settingspage_and_Check_RegistrantUserManagement_Textvalidations3(String src) throws Exception {
 			
 			//dispalyedattribute(Orgname.get(4), "29");
-				List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//following-sibling::td"));
-				List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']//preceding-sibling::td"));
+			List<WebElement> Orgname=driver.findElements(By.xpath("(//td[@role='cell'][normalize-space()='"+ConfigReader.getProperty("OrgName")+"'])[4]/following-sibling::td"));
+			List<WebElement> Orgname1=driver.findElements(By.xpath("(//td[@role='cell'][normalize-space()='"+src+"'])[4]/preceding-sibling::td"));
 
 				//
 				
-				 //dispalyedattribute(Orgname1.get(2), "59");
+				 dispalyedattribute(Orgname1.get(0), "ID");
 				validatetext(Orgname1.get(1), ConfigReader.getProperty("UserID4"));
-				validatetext(Orgname1.get(0), ConfigReader.getProperty("UserName4"));
-				validatetext(Orgname.get(0), "Role4");
+				validatetext(Orgname1.get(2), ConfigReader.getProperty("UserName4"));
+				validatetext(Orgname.get(0),ConfigReader.getProperty("Role4"));
 				validatetext(Orgname.get(1), ""); 
-				validatetext(Orgname.get(2),  ConfigReader.getProperty("Status"));
+				validatetext(Orgname.get(2),  ConfigReader.getProperty("DRStatus"));
 				validatetext(Orgname.get(3), ""); 
 			
 

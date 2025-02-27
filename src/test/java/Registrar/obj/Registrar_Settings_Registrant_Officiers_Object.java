@@ -342,7 +342,7 @@ public class Registrar_Settings_Registrant_Officiers_Object extends Baseclass{
 
 				//
 				validatetext(ADocumentType1.get(0), "1"); //
-				validatetext(ADocumentType1.get(1),"Organisation_ID.jpg");
+				validatetext(ADocumentType1.get(1),"Adahhar-Documents - 04.jpg");
 				validatetext(ADocumentType.get(0), "");
 				validatetext(ADocumentType.get(1), ConfigReader.getProperty("AOAdharDocStatus")); 
 				validatetext(ADocumentType.get(2), ConfigReader.getProperty("AOAdharDocComment"));
@@ -353,7 +353,7 @@ public class Registrar_Settings_Registrant_Officiers_Object extends Baseclass{
 				//
 				//
 				validatetext(PDocumentType1.get(0), "2"); //
-				validatetext(PDocumentType1.get(1), "PAN_DXZOO7654R.jpeg");
+				validatetext(PDocumentType1.get(1), "Pan-Documents - 05.jpg");
 				validatetext(PDocumentType.get(0), "");
 				validatetext(PDocumentType.get(1), ConfigReader.getProperty("AOAdharDocStatus")); 
 				validatetext(PDocumentType.get(2), ConfigReader.getProperty("AOAdharDocComment"));
@@ -365,7 +365,7 @@ public class Registrar_Settings_Registrant_Officiers_Object extends Baseclass{
 
 				//
 				validatetext(OrgDocumentType1.get(0), "3"); //
-				validatetext(OrgDocumentType1.get(1), "Licence.jpeg");
+				validatetext(OrgDocumentType1.get(1), "Licence-Documents - 01.jpg");
 				validatetext(OrgDocumentType.get(0), "");
 				validatetext(OrgDocumentType.get(1), ConfigReader.getProperty("AOAdharDocStatus")); 
 				validatetext(OrgDocumentType.get(2), ConfigReader.getProperty("AOAdharDocComment"));

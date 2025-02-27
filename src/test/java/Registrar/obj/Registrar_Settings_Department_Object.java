@@ -79,7 +79,7 @@ public class Registrar_Settings_Department_Object extends Baseclass {
 		List<WebElement> DepartmentName1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']//preceding-sibling::td"));
 
 		//
-		validatetext(DepartmentName1.get(0), "1"); //
+		dispalyedattribute(DepartmentName1.get(0), "ID"); //
 		//validatet(DepartmentName.get(1), "IT"); //
 		validatetext(DepartmentName.get(0), "B001");
 		validatetext(DepartmentName.get(1), "");

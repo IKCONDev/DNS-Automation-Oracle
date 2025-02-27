@@ -108,7 +108,7 @@ sendkeyweb(Appsearchsend, ConfigReader.getProperty("OrgName"));
 	//validatetext(Orgname.get(1), ""); 
 	validatetext(Orgname.get(2), ConfigReader.getProperty("AppSubmissionDate"));
 	validatetext(Orgname.get(3),  ConfigReader.getProperty("AppStatus"));
-	validatetext(Orgname.get(4),  ConfigReader.getProperty("AppPaymentStatus"));
+	validatetext(Orgname.get(4),  ConfigReader.getProperty("Status"));//change cheyalii next time ediii//
 	validatetext(Orgname.get(5),  ConfigReader.getProperty("AppNSRecordStatus"));
 	validatetext(Orgname.get(6) , ConfigReader.getProperty("AppTenure"));
 	// dispalyedattribute(Orgname.get(7), "");
@@ -202,7 +202,7 @@ public void User_Can_Check_OrganisationDetails_Textvalidations_in_Applications_P
 	
 
 	
-	    validatetext(AApp_no, ConfigReader.getProperty("Appno"));
+	    validatetext(AApp_no, ConfigReader.getProperty("Appnumber"));
 	    validatetext(Astatus, "Under Review");
         validatetext(AOrg_name, ConfigReader.getProperty("OrgName"));
 		validatetext(Adn_name, ConfigReader.getProperty("DomainName"));
@@ -315,29 +315,30 @@ public void User_Can_Check_OrganisationDetails_DocumentsUpload_Functionalities_i
 	Thread.sleep(3000);
 	Clickelement(RejectClick);
 	//Thread.sleep(3000);
-	validatetext(ToastermsgRejectdoc, "Document  Rejected");
 	validatetext(Rejected1statustxtval, "Rejected");
+	validatetext(ToastermsgRejectdoc,"Document Rejected");
+	
 	Clickelement(GSTINsearch);
 	Thread.sleep(3000);
 	Clickelement(ApproveClick);
 	//Thread.sleep(5000);
 	//Selectdropdown(selectstatustxtval, "Approved for payment");
-    validatetext(Approved1statustxtval, "Approved");
+    validatetext(Approved1statustxtval,"Approved");
    // validatetext(Rejectstatus2txtval, "Approved ");
-    validatetext(Toastermsgappovedoc, "Document  Approved");
+    validatetext(Toastermsgappovedoc,"Document Approved");
 	//Clickelement(ClosebuttonClick);
 	Thread.sleep(3000);
 	Clickelement(PANsearch);
 	Thread.sleep(3000);
 	Clickelement(Reject2Click);
-	validatetext(ToastermsgRejectdoc, "Document  Rejected");
-	validatetext(Rejected2statustxtval, "Rejected");
+	validatetext(Rejected2statustxtval,"Rejected");
+	validatetext(ToastermsgRejectdoc,"Document Rejected");
 	Thread.sleep(3000);
 	Clickelement(PANsearch);
 	Thread.sleep(3000);
 	Clickelement(Approve2Click);
-	validatetext(Approved2statustxtval, "Approved");
-	validatetext(Toastermsgappovedoc, "Document  Approved");
+	validatetext(Approved2statustxtval,"Approved");
+	validatetext(Toastermsgappovedoc,"Document Approved");
 	//Thread.sleep(3000);
 	//Clickelement(Close2buttonClick);
 	//Thread.sleep(3000);
@@ -351,25 +352,25 @@ public void User_Can_Check_OrganisationDetails_DocumentsUpload_Functionalities_i
 	Thread.sleep(3000);
 	Clickelement(Reject3Click);
 	Thread.sleep(3000);
-	validatetext(ToastermsgRejectdoc, "Document  Rejected");
-	validatetext(Rejected3statustxtval, "Rejected");
+	validatetext(ToastermsgRejectdoc,"Document Rejected");
+	validatetext(Rejected3statustxtval,"Rejected");
 	Clickelement(LicenceNumberdocsearch);
 	Thread.sleep(3000);
 	Clickelement(Approve3Click);
 	//Thread.sleep(5000);
 	//Clickelement(Close3buttonClick);
 	//Thread.sleep(5000);
-	validatetext(Approved3statustxtval, "Approved");
+	validatetext(Approved3statustxtval,"Approved");
 	//Thread.sleep(5000);
 	//validatetext(Rejectstatus2txtval, "Approved");
-	validatetext(Toastermsgappovedoc, "Document  Approved");
+	validatetext(Toastermsgappovedoc,"Document Approved");
 	Thread.sleep(2000);
 	Clickelement(BoardResolutionsearch);
 	Thread.sleep(2000);
 	Clickelement(Reject4Click);
 	Thread.sleep(3000);
-	validatetext(ToastermsgRejectdoc, "Document  Rejected");
-	validatetext(Rejected4statustxtval, "Rejected");
+	validatetext(Rejected4statustxtval,"Rejected");
+	validatetext(ToastermsgRejectdoc,"Document Rejected");
 	Clickelement(BoardResolutionsearch);
 	Thread.sleep(3000);
 	Clickelement(Approve4Click);
@@ -377,10 +378,10 @@ public void User_Can_Check_OrganisationDetails_DocumentsUpload_Functionalities_i
 	//Clickelement(Close4buttonClick);
 	
 	///Thread.sleep(5000);
-	validatetext(Approved4statustxtval, "Approved");
+	validatetext(Approved4statustxtval,"Approved");
 	//Thread.sleep(5000);
 	//validatetext(Rejectstatus2txtval, "Approved");
-	validatetext(Toastermsgappovedoc, "Document  Approved");
+	validatetext(Toastermsgappovedoc,"Document Approved");
 	Thread.sleep(3000);
 	validatetext(offtxtval, "Officers"); //
 	validatetext(ststxtval, "Status");
@@ -526,7 +527,7 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 
 	//
 	validatetext(ADocumentType1.get(0), "1"); //
-	validatetext(ADocumentType1.get(1),"Organisation_ID.jpg");
+	validatetext(ADocumentType1.get(1),"Adahhar-Documents - 04.jpg");
 	validatetext(ADocumentType.get(0), "");
 	validatetext(ADocumentType.get(1), ConfigReader.getProperty("AOAdharDocStatus")); 
 	validatetext(ADocumentType.get(2), ConfigReader.getProperty("AOAdharDocComment"));
@@ -536,7 +537,7 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 	//
 	//
 	validatetext(PDocumentType1.get(0), "2"); //
-	validatetext(PDocumentType1.get(1), "PAN_DXZOO7654R.jpeg");
+	validatetext(PDocumentType1.get(1), "Pan-Documents - 05.jpg");
 	validatetext(PDocumentType.get(0), "");
 	validatetext(PDocumentType.get(1), ConfigReader.getProperty("AOAdharDocStatus")); 
 	validatetext(PDocumentType.get(2), ConfigReader.getProperty("AOAdharDocComment"));
@@ -549,13 +550,13 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 
 	//
 	validatetext(OrgDocumentType1.get(0), "3"); //
-	validatetext(OrgDocumentType1.get(1), "Licence.jpeg");
+	validatetext(OrgDocumentType1.get(1), "Licence-Documents - 01.jpg");
 	validatetext(OrgDocumentType.get(0), "");
 	validatetext(OrgDocumentType.get(1), ConfigReader.getProperty("AOAdharDocStatus")); 
 	validatetext(OrgDocumentType.get(2), ConfigReader.getProperty("AOAdharDocComment"));
 	
 	
-	
+	//Administrative
 	
 	Clickelement(AOAdharverify);
 	Thread.sleep(3000);
@@ -564,14 +565,15 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 	Clickelement(AOadharRejectClick);
 	Thread.sleep(3000);
 	Clickelement(AoadharRejectSavechangesClick);
-	validatetext(Toastermessage, "Document  Rejected");
+	//validatetext(Toastermessage,"Document rejected.");
+	Thread.sleep(3000);
 	Clickelement(AOadharAproveClick);
 	Thread.sleep(3000);
 	sendkeyweb(AOadharApprovalCommentClick, "");
 	Thread.sleep(3000);
 	Clickelement(AOadharApprovalSavechangesClick);
 	Thread.sleep(3000);
-	validatetext(Toastermessage, "Document  Approved");
+	validatetext(Toastermessage,"Document approved.");
 	Clickelement(AOpanverify);
 	Thread.sleep(3000);
 	clickmultipleweb(closedocbutton);
@@ -579,28 +581,30 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 	Clickelement(AopanRejectClick);
 	Thread.sleep(3000);
 	Clickelement(AoadharRejectSavechangesClick);
-	validatetext(Toastermessage, "Document  Rejected");
+	//validatetext(Toastermessage,"Document rejected.");
+	Thread.sleep(3000);
 	Clickelement(AOPanAproveClick);
 	Thread.sleep(3000);
 	sendkeyweb(AOadharApprovalCommentClick, "");
 	Thread.sleep(3000);
 	Clickelement(AOpanApprovalSavechangesClick);
 	Thread.sleep(3000);
-	validatetext(Toastermessage, "Document  Approved");
+	validatetext(Toastermessage,"Document approved.");
 	Clickelement(AOODVerify);
 	Thread.sleep(3000);
 	clickmultipleweb(closedocbutton);
 	Thread.sleep(3000);
 	Clickelement(AoODRejectClick);
 	Clickelement(AoadharRejectSavechangesClick);
-	validatetext(Toastermessage, "Document  Rejected");
+	//validatetext(Toastermessage,"Document rejected.");
+	Thread.sleep(3000);
 	Clickelement(AOODAproveClick);
 	Thread.sleep(3000);
 	sendkeyweb(AOadharApprovalCommentClick, "");
 	Thread.sleep(3000);
 	Clickelement(AOODApprovalSavechangesClick);
 	Thread.sleep(3000);
-	validatetext(Toastermessage, "Document  Approved");
+	validatetext(Toastermessage,"Document approved.");
 	Thread.sleep(3000);
 	driver.navigate().back();
 }
@@ -662,6 +666,7 @@ public WebElement TOpanRejectClick ;
 public WebElement TOODRejectClick ;
 
 //TO
+
 public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Page(String src) throws Exception {
 	//Clickelement(Appsearch);
 	//Thread.sleep(3000);
@@ -679,14 +684,14 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 	Clickelement(TOadharRejectClick);
 	Thread.sleep(3000);
 	Clickelement(TOadharRejectSavechangesClick);
-	validatetext(Toastermessage, "Document  Rejected");
+	//validatetext(Toastermessage,"Document rejected.");
 	Thread.sleep(3000);
 	Clickelement(TOadharAproveClick);
 	Thread.sleep(3000);
 	sendkeyweb(TOadharApprovalCommentClick, "");
 	Clickelement(TOadharApprovalSavechangesClick);
 	Thread.sleep(3000);
-	validatetext(Toastermessage, "Document  Approved");
+	validatetext(Toastermessage,"Document approved.");
 	Clickelement(TOpanverify);
 	Thread.sleep(3000);
 	clickmultipleweb(closedocbutton);
@@ -694,7 +699,7 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 	Clickelement(TOpanRejectClick);
 	Thread.sleep(3000);
 	Clickelement(TOadharRejectSavechangesClick);
-	validatetext(Toastermessage, "Document  Rejected");
+	//validatetext(Toastermessage,"Document rejected.");
 	Thread.sleep(3000);
 	Clickelement(TOPanAproveClick);
 	Thread.sleep(3000);
@@ -702,7 +707,7 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 	Thread.sleep(3000);
 	Clickelement(TOpanApprovalSavechangesClick);
 	Thread.sleep(3000);
-	validatetext(Toastermessage, "Document  Approved");
+	validatetext(Toastermessage,"Document approved.");
 	Thread.sleep(3000);
 	Clickelement(TOODVerify);
 	Thread.sleep(3000);
@@ -711,14 +716,15 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 	Clickelement(TOODRejectClick);
 	Thread.sleep(3000);
 	Clickelement(TOadharRejectSavechangesClick);
-	validatetext(Toastermessage, "Document  Rejected");
+	//validatetext(Toastermessage,"Document rejected.");
+	Thread.sleep(3000);
 	Clickelement(TOODAproveClick);
 	Thread.sleep(3000);
 	sendkeyweb(TOadharApprovalCommentClick, "");
 	Thread.sleep(3000);
 	Clickelement(TOODApprovalSavechangesClick);
 	Thread.sleep(3000);
-	validatetext(Toastermessage, "Document  Approved");
+	validatetext(Toastermessage,"Document approved.");
 	Thread.sleep(3000);
 	Clickelement(Appsearch);
 	Thread.sleep(3000);
@@ -738,6 +744,8 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 
 }
 //BO
+
+
 //BO
 @FindBy(xpath="//td[contains(text(),'Billing Officer')]/following-sibling::td//a")
 public WebElement setBoviewclick ;
@@ -816,6 +824,7 @@ public WebElement cancelclick ;
 @FindBy(xpath="//button[text()='Submit']")
 public WebElement submitclick ;
 
+//BO
 public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page() throws Exception {
 	Thread.sleep(5000);
 	
@@ -830,7 +839,7 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 	Clickelement(BOadharRejectClick);
 	Thread.sleep(3000);
 	Clickelement(BOadharRejectSavechangesClick);
-	validatetext(Toastermessage, "Document  Rejected");
+	//validatetext(Toastermessage,"Document rejected.");
 	Thread.sleep(3000);
 	Clickelement(BOadharAproveClick);
 	Thread.sleep(3000);
@@ -838,7 +847,7 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 	Thread.sleep(3000);
 	Clickelement(BOadharApprovalSavechangesClick);
 	Thread.sleep(3000);
-	validatetext(Toastermessage, "Document  Approved");
+	validatetext(Toastermessage,"Document approved.");
 	Thread.sleep(3000);
 	Clickelement(BOpanverify);
 	Thread.sleep(3000);
@@ -847,7 +856,7 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 	Clickelement(BOpanRejectClick);
 	Thread.sleep(3000);
 	Clickelement(BOadharRejectSavechangesClick);
-	validatetext(Toastermessage, "Document  Rejected");
+	//validatetext(Toastermessage,"Document rejected.");
 	Thread.sleep(3000);
 	Clickelement(BOPanAproveClick);
 	Thread.sleep(3000);
@@ -855,7 +864,7 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 	Thread.sleep(3000);
 	Clickelement(BOpanApprovalSavechangesClick);
 	Thread.sleep(3000);
-	validatetext(Toastermessage, "Document  Approved");
+	validatetext(Toastermessage,"Document approved.");
 	Thread.sleep(3000);
 	Clickelement(BOODVerify);
 	Thread.sleep(3000);
@@ -864,7 +873,7 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 	Clickelement(BOODRejectClick);
 	Thread.sleep(3000);
 	Clickelement(BOadharRejectSavechangesClick);
-	validatetext(Toastermessage, "Document  Rejected");
+	//validatetext(Toastermessage,"Document rejected.");
 	Thread.sleep(3000);
 	Clickelement(BOODAproveClick);
 	Thread.sleep(3000);
@@ -872,11 +881,11 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 	Thread.sleep(3000);
 	Clickelement(BOODApprovalSavechangesClick);
 	Thread.sleep(3000);
-	validatetext(Toastermessage, "Document  Approved");
+	validatetext(Toastermessage,"Document approved.");
 	driver.navigate().back();
 	Thread.sleep(5000);
 	//driver.navigate().back();
-	Selectdropdown(Selectpaymentoption, "Payment Approved");
+	Selectdropdown(Selectpaymentoption,"Payment Approved");
 	Thread.sleep(5000);
 	Clickelement(submitclick);
 	//Thread.sleep(5000);
@@ -885,7 +894,44 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 
 
 }
+@FindBy(xpath="//select[@class='form-control ng-pristine ng-valid ng-touched']")
+public WebElement selectNSrecords ;
 
 
+public void Registrar_can_Approve_Registrant_Application(String src) throws Exception {
+	Thread.sleep(5000);
+	Clickelement(Appsearch);
+	Thread.sleep(3000);
+	sendkeyweb(Appsearchsend, ConfigReader.getProperty("OrgName"));
+	Thread.sleep(3000);
+	WebElement id1=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//preceding-sibling::td"));
+
+	try {
+		Clickelement(id1);
+	}catch (Exception e) {
+		System.out.println(e);
+	}
+	
+	try {
+		Clickelement(Viewpaymentclick);
+	} catch (Exception e) {
+		
+		e.printStackTrace();  
+	}
+	try {
+		Clickelement(payrejcloseclick);
+	} catch (Exception e) {
+		
+		e.printStackTrace();
+	}
+	
+	try {
+		Selectdropdown(selectNSrecords, "Approved");
+	} catch (Exception e) {
+		
+		e.printStackTrace();
+	}
+	
+}
 
 }

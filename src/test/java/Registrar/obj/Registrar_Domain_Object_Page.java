@@ -95,7 +95,7 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 
 
 
-		String Apptabledata1[]= { "Domain ID","Domain Name", "Organisation Name","Registration Date", "Renewal Date", "Status"};
+		String Apptabledata1[]= { "Domain ID","Domain Name", "Organization Name","Registration Date", "Renewal Date", "Status"};
 		List<WebElement> values = driver.findElements(By.xpath("//table[@id='table1']//tr//th"));
 		Thread.sleep(3000);
 		for (int i= 0; i< values.size(); i++) {
@@ -120,10 +120,12 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 		List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']/preceding-sibling::td"));
 
 		//
-		dispalyedattribute(Orgname1.get(1), "1"); //
-		validatetext(Orgname1.get(0), ConfigReader.getProperty("DomainName"));
+		dispalyedattribute(Orgname1.get(0), "ID"); //
+		validatetext(Orgname1.get(1), ConfigReader.getProperty("DomainName"));
 		//validatet(Orgname.get(0), "Ikcontech solutions");
 		validatetext(Orgname.get(0), ConfigReader.getProperty("AppSubmissionDate"));
+		configWriter.setProperty("DomRenewalDate", Orgname.get(1).getText());
+		configWriter.saveProperties();
 		validatetext(Orgname.get(1),ConfigReader.getProperty("DomRenewalDate"));
 		validatetext(Orgname.get(2), ConfigReader.getProperty("Domstatus"));
 		//validatetext(Orgname.get(3) ,"5");
@@ -206,9 +208,11 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 		
 		validatetext(Adn_name, ConfigReader.getProperty("DomainName"));
 		validatetext(Astatus, ConfigReader.getProperty("Domstatus"));
-	    validatetext(AOrg_name, ConfigReader.getProperty("Orgname"));	
-		validatetext(AApp_rendate, ConfigReader.getProperty("AppSubmissionDate"));
-		validatetext(Asub_date, ConfigReader.getProperty("DomRenewalDate"));
+	    validatetext(AOrg_name, ConfigReader.getProperty("OrgName"));	
+		validatetext(Asub_date, ConfigReader.getProperty("AppSubmissionDate"));
+		//configWriter.setProperty("DomRenewalDate", Orgname.get(1).getText());
+		//configWriter.saveProperties();
+		validatetext(AApp_rendate, ConfigReader.getProperty("DomRenewalDate"));
 		
 	 
 		

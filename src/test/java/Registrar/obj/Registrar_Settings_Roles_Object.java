@@ -54,7 +54,7 @@ public class Registrar_Settings_Roles_Object extends Baseclass {
 		List<WebElement> RoleName1=driver.findElements(By.xpath("//td[normalize-space()='"+src1+"']//preceding-sibling::td"));
 
 		//
-		validatetext(RoleName1.get(0), "1"); //
+		dispalyedattribute(RoleName1.get(0), "ID"); //
 		//validatet(RoleName.get(1), " IDRBTADMIN "); //
 		validatetext(RoleName.get(0), "");
 		validatetext(RoleName.get(1),ConfigReader.getProperty("RegistrarCreatedDate&Time")); 
