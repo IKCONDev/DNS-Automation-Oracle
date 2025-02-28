@@ -104,12 +104,16 @@ sendkeyweb(Appsearchsend, ConfigReader.getProperty("OrgName"));
 	 dispalyedattribute(Orgname1, "ID");
 	validatetext(Orgname.get(0), ConfigReader.getProperty("DomainName"));
 	//validatetext(Orgname.get(1), "");
-	
+	configWriter.setProperty("AppSubmissionDate", Orgname.get(2).getText());
 	//validatetext(Orgname.get(1), ""); 
 	validatetext(Orgname.get(2), ConfigReader.getProperty("AppSubmissionDate"));
+	configWriter.setProperty("AppStatus", Orgname.get(3).getText());
 	validatetext(Orgname.get(3),  ConfigReader.getProperty("AppStatus"));
+	configWriter.setProperty("Status", Orgname.get(4).getText());
 	validatetext(Orgname.get(4),  ConfigReader.getProperty("Status"));//change cheyalii next time ediii//
+	configWriter.setProperty("AppNSRecordStatus", Orgname.get(5).getText());
 	validatetext(Orgname.get(5),  ConfigReader.getProperty("AppNSRecordStatus"));
+	configWriter.setProperty("AppTenure", Orgname.get(6).getText());
 	validatetext(Orgname.get(6) , ConfigReader.getProperty("AppTenure"));
 	// dispalyedattribute(Orgname.get(7), "");
 
@@ -201,11 +205,14 @@ public void User_Can_Check_OrganisationDetails_Textvalidations_in_Applications_P
 
 	
 
-	
+		configWriter.setProperty("Appnumber", AApp_no.getText());
 	    validatetext(AApp_no, ConfigReader.getProperty("Appnumber"));
-	    validatetext(Astatus, "Under Review");
+		configWriter.setProperty("AppStatus", Astatus.getText());
+	    validatetext(Astatus, ConfigReader.getProperty("AppStatus"));
+	    
         validatetext(AOrg_name, ConfigReader.getProperty("OrgName"));
 		validatetext(Adn_name, ConfigReader.getProperty("DomainName"));
+		configWriter.setProperty("AppSubmissionDate", Asub_date.getText());
 		validatetext(Asub_date, ConfigReader.getProperty("AppSubmissionDate"));
 		
  
@@ -565,7 +572,7 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 	Clickelement(AOadharRejectClick);
 	Thread.sleep(3000);
 	Clickelement(AoadharRejectSavechangesClick);
-	//validatetext(Toastermessage,"Document rejected.");
+	validatetext(Toastermessage,"Document Rejected.");
 	Thread.sleep(3000);
 	Clickelement(AOadharAproveClick);
 	Thread.sleep(3000);
@@ -573,7 +580,7 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 	Thread.sleep(3000);
 	Clickelement(AOadharApprovalSavechangesClick);
 	Thread.sleep(3000);
-	validatetext(Toastermessage,"Document approved.");
+	validatetext(Toastermessage,"Document Approved.");
 	Clickelement(AOpanverify);
 	Thread.sleep(3000);
 	clickmultipleweb(closedocbutton);
@@ -581,7 +588,7 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 	Clickelement(AopanRejectClick);
 	Thread.sleep(3000);
 	Clickelement(AoadharRejectSavechangesClick);
-	//validatetext(Toastermessage,"Document rejected.");
+	validatetext(Toastermessage,"Document Rejected.");
 	Thread.sleep(3000);
 	Clickelement(AOPanAproveClick);
 	Thread.sleep(3000);
@@ -589,14 +596,14 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 	Thread.sleep(3000);
 	Clickelement(AOpanApprovalSavechangesClick);
 	Thread.sleep(3000);
-	validatetext(Toastermessage,"Document approved.");
+	validatetext(Toastermessage,"Document Approved.");
 	Clickelement(AOODVerify);
 	Thread.sleep(3000);
 	clickmultipleweb(closedocbutton);
 	Thread.sleep(3000);
 	Clickelement(AoODRejectClick);
 	Clickelement(AoadharRejectSavechangesClick);
-	//validatetext(Toastermessage,"Document rejected.");
+	validatetext(Toastermessage,"Document Rejected.");
 	Thread.sleep(3000);
 	Clickelement(AOODAproveClick);
 	Thread.sleep(3000);
@@ -604,7 +611,7 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 	Thread.sleep(3000);
 	Clickelement(AOODApprovalSavechangesClick);
 	Thread.sleep(3000);
-	validatetext(Toastermessage,"Document approved.");
+	validatetext(Toastermessage,"Document Approved.");
 	Thread.sleep(3000);
 	driver.navigate().back();
 }
@@ -684,14 +691,14 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 	Clickelement(TOadharRejectClick);
 	Thread.sleep(3000);
 	Clickelement(TOadharRejectSavechangesClick);
-	//validatetext(Toastermessage,"Document rejected.");
+	//validatetext(Toastermessage,"Document Rejected.");
 	Thread.sleep(3000);
 	Clickelement(TOadharAproveClick);
 	Thread.sleep(3000);
 	sendkeyweb(TOadharApprovalCommentClick, "");
 	Clickelement(TOadharApprovalSavechangesClick);
 	Thread.sleep(3000);
-	validatetext(Toastermessage,"Document approved.");
+	validatetext(Toastermessage,"Document Approved.");
 	Clickelement(TOpanverify);
 	Thread.sleep(3000);
 	clickmultipleweb(closedocbutton);
@@ -699,7 +706,7 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 	Clickelement(TOpanRejectClick);
 	Thread.sleep(3000);
 	Clickelement(TOadharRejectSavechangesClick);
-	//validatetext(Toastermessage,"Document rejected.");
+	//validatetext(Toastermessage,"Document Rejected.");
 	Thread.sleep(3000);
 	Clickelement(TOPanAproveClick);
 	Thread.sleep(3000);
@@ -707,7 +714,7 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 	Thread.sleep(3000);
 	Clickelement(TOpanApprovalSavechangesClick);
 	Thread.sleep(3000);
-	validatetext(Toastermessage,"Document approved.");
+	validatetext(Toastermessage,"Document Approved.");
 	Thread.sleep(3000);
 	Clickelement(TOODVerify);
 	Thread.sleep(3000);
@@ -716,7 +723,7 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 	Clickelement(TOODRejectClick);
 	Thread.sleep(3000);
 	Clickelement(TOadharRejectSavechangesClick);
-	//validatetext(Toastermessage,"Document rejected.");
+	//validatetext(Toastermessage,"Document Rejected.");
 	Thread.sleep(3000);
 	Clickelement(TOODAproveClick);
 	Thread.sleep(3000);
@@ -724,7 +731,7 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 	Thread.sleep(3000);
 	Clickelement(TOODApprovalSavechangesClick);
 	Thread.sleep(3000);
-	validatetext(Toastermessage,"Document approved.");
+	validatetext(Toastermessage,"Document Approved.");
 	Thread.sleep(3000);
 	Clickelement(Appsearch);
 	Thread.sleep(3000);
@@ -839,7 +846,7 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 	Clickelement(BOadharRejectClick);
 	Thread.sleep(3000);
 	Clickelement(BOadharRejectSavechangesClick);
-	//validatetext(Toastermessage,"Document rejected.");
+	//validatetext(Toastermessage,"Document Rejected.");
 	Thread.sleep(3000);
 	Clickelement(BOadharAproveClick);
 	Thread.sleep(3000);
@@ -847,7 +854,7 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 	Thread.sleep(3000);
 	Clickelement(BOadharApprovalSavechangesClick);
 	Thread.sleep(3000);
-	validatetext(Toastermessage,"Document approved.");
+	validatetext(Toastermessage,"Document Approved.");
 	Thread.sleep(3000);
 	Clickelement(BOpanverify);
 	Thread.sleep(3000);
@@ -856,7 +863,7 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 	Clickelement(BOpanRejectClick);
 	Thread.sleep(3000);
 	Clickelement(BOadharRejectSavechangesClick);
-	//validatetext(Toastermessage,"Document rejected.");
+	validatetext(Toastermessage,"Document Rejected.");
 	Thread.sleep(3000);
 	Clickelement(BOPanAproveClick);
 	Thread.sleep(3000);
@@ -864,7 +871,7 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 	Thread.sleep(3000);
 	Clickelement(BOpanApprovalSavechangesClick);
 	Thread.sleep(3000);
-	validatetext(Toastermessage,"Document approved.");
+	validatetext(Toastermessage,"Document Approved.");
 	Thread.sleep(3000);
 	Clickelement(BOODVerify);
 	Thread.sleep(3000);
@@ -873,7 +880,7 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 	Clickelement(BOODRejectClick);
 	Thread.sleep(3000);
 	Clickelement(BOadharRejectSavechangesClick);
-	//validatetext(Toastermessage,"Document rejected.");
+	validatetext(Toastermessage,"Document Rejected.");
 	Thread.sleep(3000);
 	Clickelement(BOODAproveClick);
 	Thread.sleep(3000);
@@ -881,7 +888,7 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 	Thread.sleep(3000);
 	Clickelement(BOODApprovalSavechangesClick);
 	Thread.sleep(3000);
-	validatetext(Toastermessage,"Document approved.");
+	validatetext(Toastermessage,"Document Approved.");
 	driver.navigate().back();
 	Thread.sleep(5000);
 	//driver.navigate().back();

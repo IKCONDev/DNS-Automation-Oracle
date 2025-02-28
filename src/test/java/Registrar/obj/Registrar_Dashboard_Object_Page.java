@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -155,15 +156,21 @@ public class Registrar_Dashboard_Object_Page extends Baseclass{
 			Thread.sleep(2000);
 			Clickelement(Applicationstatusselyearly);
 			
-			
-			
-			
-			
-			
 			validatetext(ApplicationInQueuetextvl, "Application In Queue");
+			
+			
+			
+			
+			
+			
 		}
 		public void Create_ApplicationQuee_TextValidations_in_Home_Page(String src) throws InterruptedException {
-
+			
+			Thread.sleep(5000);
+			Actions Act = new Actions(driver);
+			WebElement OrgName=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']"));
+			Act.moveToElement(OrgName).build().perform();
+			
 			String Apptableextvalues[] = { "Domain ID", "Domain Name", "Organisation Name","Registration Date", "Renewal Date", "Status"};
 			List<WebElement> val = driver.findElements(By.xpath("//table[@id='table1']//tr//th"));
 
@@ -173,16 +180,20 @@ public class Registrar_Dashboard_Object_Page extends Baseclass{
 			}
 			//String Apptabledata[]= {"21","Vtech.bank.in","Vtech","Feb 2, 2025, 6:54 AM","Feb 2, 2030, 6:54 AM","Pending"};
 			//List<WebElement> val1 = driver.findElements(By.xpath("(//table[@id='table1']//tr[1]//td)"));
-			/*
-					List<WebElement> APPorgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("APPorgname")+"']/following-sibling::td"));
-					List<WebElement> APPorgname1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']/preceding-sibling::td"));
+			
+					List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']/following-sibling::td"));
+					List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']/preceding-sibling::td"));
 
 					 //ConfigReader.getProperty("Domainnametxtval"));
-				dispalyedattribute(APPorgname1.get(1), "6"); 
-				validatetext(APPorgname1.get(0),ConfigReader.getProperty("APPQDomainName"));
-				validatetext(APPorgname.get(0),ConfigReader.getProperty("AppQRegistrationDate")); 
-				validatetext(APPorgname.get(1), ConfigReader.getProperty("AppQRenewalDate"));
-				validatetext(APPorgname.get(2), ConfigReader.getProperty("AppQStatus"));          */
+				dispalyedattribute(Orgname1.get(0), "ID"); 
+				
+				validatetext(Orgname1.get(1),ConfigReader.getProperty("DomainName"));
+				
+				validatetext(Orgname.get(0),ConfigReader.getProperty("AppSubmissionDate")); 
+				configWriter.setProperty("DomRenewalDate", Orgname.get(1).getText());
+				configWriter.saveProperties();
+				validatetext(Orgname.get(1), ConfigReader.getProperty("DomRenewalDate"));
+				validatetext(Orgname.get(2), ConfigReader.getProperty("AppStatus2"));          
 
 			}
 		}

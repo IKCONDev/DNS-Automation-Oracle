@@ -3,6 +3,7 @@ package Configuration;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
+
  
 public class ConfigReader {
     private static final String CONFIG_FILE_1 = "src/test/resources/config.properties";

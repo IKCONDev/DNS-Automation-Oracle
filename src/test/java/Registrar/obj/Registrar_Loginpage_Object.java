@@ -78,7 +78,7 @@ public class Registrar_Loginpage_Object extends Baseclass{
 		sendkeyweb(passwordentertxtbox, Password);
 		Clickelement(ClickNextbutton);
 		Thread.sleep(5000);
-		validatetext(Toastermessage,"An OTP has been sent to you email.");
+		validatetext(Toastermessage,"An OTP has been sent to your email.");
 		System.out.println("Enter OTP : ");
 		String OTP = myObj.nextLine();
 		sendkeyweb(Regemailotp, OTP);

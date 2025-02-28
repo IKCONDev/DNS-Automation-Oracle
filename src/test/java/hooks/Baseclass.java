@@ -173,7 +173,7 @@ public class Baseclass {
         }
 				
 	}
-
+				//validatetext
 	public void validatetext(WebElement element, String expectedText) {
         try {
             // Check if element is displayed and text matches

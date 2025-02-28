@@ -1,5 +1,5 @@
 
-      
+     
 Feature:  Registrar Dashboardpage
 
 
@@ -9,5 +9,5 @@ Feature:  Registrar Dashboardpage
     Then Registrar  check  Create ApplicationQuee "<OrgName>" TextValidations in Home Page
 
     Examples: 
-      |APPorgname |
-      |Information|
+      |APPorgname | OrgName    |
+      |Information| Canara Bank|
