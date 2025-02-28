@@ -23,12 +23,18 @@ public void user_navigate_to_application_page() {
 @Then("User Validate Application Page")
 public void user_validate_application_page() {
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-   RSP.user_validate_application_page();
+	RSP.user_validate_application_page();
     
 }
 
+@Then("User payment and upload recipt")
+public void user_payment_and_upload_recipt() throws AWTException, InterruptedException {
+	RSP.paymentrecipt();
+}
+
+
 @Then("User Validate Application data")
-public void user_validate_application_data() {
+public void user_validate_application_data() throws InterruptedException {
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
    RSP.user_validate_application_data();
     
