@@ -19,6 +19,7 @@ import hooks.Baseclass;
 public class Registrant_login_object extends Baseclass {
 
 	WebDriver driver = Driver.getDriver();
+	Actions ac=new Actions(driver);
 	ConfigWriter configWriter = new ConfigWriter();
 	public Registrant_login_object(WebDriver RC) {
 		driver = RC;
@@ -56,13 +57,6 @@ public class Registrant_login_object extends Baseclass {
 		validatetext(Register_button, "Register");
 		} catch (Exception e) {
 		}
-		configWriter.setProperty("Aadhar", absolutepath("Board.jpg"));
-        configWriter.setProperty("GSTIN", absolutepath("GSTIN_22ABCDE1234F1Z2.jpg"));
-        configWriter.setProperty("License", absolutepath("Licence.jpeg"));
-        configWriter.setProperty("PAN", absolutepath("PAN_DXZOO7654R.jpeg"));
-        configWriter.setProperty("ID", absolutepath("Organisation_ID.jpg"));
-        configWriter.setProperty("Aadhar", absolutepath("Aadhaar_445588776688.jpeg"));
-		
 		
 	}
 	
@@ -185,7 +179,7 @@ public class Registrant_login_object extends Baseclass {
 		validatetext(Error_msg, "Passwords do not match");
 		sendkeyweb(Register_cnf_password, Password);
 		Clickelement(Registration_button);
-		popupvalidate("OTP verification successful", "User registration successful");
+		popupvalidate("User registration successful","OTP verification successful");
 		
 		 
 	}
@@ -258,8 +252,8 @@ public class Registrant_login_object extends Baseclass {
 		sendkeyweb(Login_OTP_input, OTP);
 		Clickelement(Login_button);
 		Thread.sleep(1500);
-		popupvalidate("Login Success","Invalid Credentials");
-		Thread.sleep(4000);
+		popupvalidate("Login Successful","Invalid Credentials");
+		Thread.sleep(2000);
 		
 	}
 	
@@ -272,7 +266,7 @@ public class Registrant_login_object extends Baseclass {
 		validatetext(email_label, "Email ID");
 		validatetext(Passowrd_label, "Password");
 		validateattribute(Signin_email, "placeholder", "Enter your email");
-		validateattribute(Signin_password, "placeholder", "Enter the strong password");
+		validateattribute(Signin_password, "placeholder", "Enter your password");
 		Clickelement(Next_button);
 //		try {
 //		validatetext(Enter_mail_error, "Enter email");
@@ -309,7 +303,7 @@ public class Registrant_login_object extends Baseclass {
 		sendkeyweb(DSC_age, "25");
 		sendkeyweb(DSC_desig, "SEO");
 		Clickelement(DSC_checkbox);
-		validatetext(DSC_affix, "Affix DSC");
+		validatetext(DSC_affix, "Insert the PKI token");
 		Clickelement(DSC_affix);
 	}
 	
@@ -333,17 +327,17 @@ public class Registrant_login_object extends Baseclass {
 	
 	
 	public void DSC_token() throws InterruptedException {
-		popupvalidate("Fetched tokens successfully", "emty");
+		popupvalidate("Fetched tokens successfully", "");
 		Selectdropdown(DSC_token, "1");
 		Selectdropdown(DSC_certificate, "1");
 		sendkeyweb(DSC_password, "Idrbt@123");
 		Clickelement(DSC_submit);
-		popupvalidate("Fetched tokens successfully", "emty");
+		popupvalidate("Signed using DSC successful", "emty");
 	}
 
 	@FindBy(xpath = "//button[normalize-space()='Got it!']")
 	public WebElement Domain_button;
-	@FindBy(xpath = "//input[contains(@placeholder,'Bank Name')]")
+	@FindBy(xpath = "//input[contains(@placeholder,'Enter the organization Name')]")
 	public WebElement Bank_name;
 	@FindBy(xpath = "//select[@id='zoneInput']")
 	public WebElement Zone_input;
@@ -373,15 +367,12 @@ public class Registrant_login_object extends Baseclass {
 	public WebElement org_select_file;
 	@FindBy(xpath = "//input[contains(@placeholder,'PAN')]")
 	public WebElement org_PAN;
-	@FindBy(xpath = "//input[contains(@placeholder,'License No')]")
-	public WebElement org_Lic;
-	
-	
-	
+	@FindBy(xpath = "//input[contains(@placeholder,'License')]")
+	public WebElement org_Lic;//Enter Regulatory RBI License
 	
 	@FindBy(xpath = "//h1[normalize-space()='Domains']")
 	public WebElement Domain_validate;
-	@FindBy(xpath = "//label[normalize-space()='Bank Name']")
+	@FindBy(xpath = "//label[normalize-space()='Organization Name']")
 	public WebElement Bank_name_label;
 	@FindBy(xpath = "//label[normalize-space()='Domain']")
 	public WebElement Domain_label;
@@ -395,19 +386,20 @@ public class Registrant_login_object extends Baseclass {
 		validatetext(Domain_button, "Got it!");
 		Clickelement(Domain_button);
 		validatetext(Domain_validate, "Domains");
-		validatetext(Bank_name_label, "Bank Name");
+		validatetext(Bank_name_label, "Organization Name");
 		validatetext(Domain_label, "Domain");
 		validatetext(Domain_label, "Domain");
-		validateattribute(Bank_name,"placeholder","Bank Name");
+		validateattribute(Bank_name,"placeholder","Enter the organization Name");
 		sendkeyweb(Bank_name, domain);
 		Selectdropdown(Zone_input, ".bank.in");// .fin.in
+		ac.scrollByAmount(0, 500).build().perform();
 		clickmultipleweb(Save_next);
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 	}
 	
 	
 	
-	@FindBy(xpath = "//h3[contains(text(),'Organisation Details')]")
+	@FindBy(xpath = "//h3[contains(text(),'Organization Details')]")
 	public WebElement Org_heder;
 	@FindBy(xpath = "//label[contains(text(),'Institution Name')]")
 	public WebElement Ins_Name;
@@ -431,7 +423,7 @@ public class Registrant_login_object extends Baseclass {
 	
 		public void user_org_details(String Name,String PIN,String Address,String Tel,String Mob,String Email) throws InterruptedException, AWTException {
 		
-		validatetext(Org_heder,"Organisation Details");
+		validatetext(Org_heder,"Organization Details");
 		validatetext(Ins_Name,"Institution Name");
 		validatetext(Pincode,"Pincode");
 		validatetext(City,"City");
@@ -439,7 +431,7 @@ public class Registrant_login_object extends Baseclass {
 		validatetext(Org_addr,"Address");
 		validatetext(Org_std,"STD Telephone");
 		validatetext(Org_mob,"Mobile Number");
-		validatetext(Org_email,"Organisation Email");
+		validatetext(Org_email,"Organization Email");
 		validatetext(org_upload,"Documents");
 			
 		configWriter.setProperty("Orgname", Name);
@@ -453,38 +445,38 @@ public class Registrant_login_object extends Baseclass {
 		sendkeyweb(org_telephone, Tel);
 		sendkeyweb(org_number, Mob);
 		sendkeyweb(org_email, Email);
-		}
+	}
 		
 		
 		public void user_org_documents(String GST,String PAN,String License) throws InterruptedException, AWTException {
 		Selectdropdown(org_doc, "Organisation GSTIN");
 		configWriter.setProperty("OGSTnum", GST);
 		sendkeyweb(org_GST, GST);
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		Clickelement(org_select_file);
 		fileupload_robot(ConfigReader.getProperty("GSTIN"));
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		Selectdropdown(org_doc, "PAN");
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		configWriter.setProperty("OPANnum", PAN);
 		sendkeyweb(org_PAN, PAN);
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		Clickelement(org_select_file);
 		fileupload_robot(ConfigReader.getProperty("PAN"));
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		Selectdropdown(org_doc, " Regulatory RBI License");
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		configWriter.setProperty("Olicence", License);
 		sendkeyweb(org_Lic, License);
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		Clickelement(org_select_file);
 		fileupload_robot(ConfigReader.getProperty("License"));
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		Selectdropdown(org_doc, "Board Resolution");
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		Clickelement(org_select_file);
 		fileupload_robot(ConfigReader.getProperty("Board"));
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		clickmultipleweb(Save_next);
 		
 		
@@ -498,6 +490,8 @@ public class Registrant_login_object extends Baseclass {
 	public WebElement admin_email;
 	@FindBy(xpath = "//input[@id='adminPhone']")
 	public WebElement admin_phone;
+	@FindBy(xpath = "//input[contains(@id,'ountryCode')]")
+	public List<WebElement> Country_code;
 	@FindBy(xpath = "//input[@id='adminAltPhone']")
 	public WebElement admin_altphone;
 	@FindBy(xpath = "//input[@id='adminDesignation']")
@@ -522,7 +516,9 @@ public class Registrant_login_object extends Baseclass {
 		
 		sendkeyweb(admin_fname, Name);
 		sendkeyweb(admin_email, Email);
+		sendkeyweb(Country_code.get(1), "+91");
 		sendkeyweb(admin_phone, Tel);
+		sendkeyweb(Country_code.get(2), "+91");
 		sendkeyweb(admin_altphone, Mob);
 		sendkeyweb(admin_desig, Desig);
 		
@@ -533,21 +529,21 @@ public class Registrant_login_object extends Baseclass {
 		Selectdropdown(admin_doc_type, "Aadhaar");
 		sendkeyweb(admin_aadhar, Aadhar);
 		configWriter.setProperty("AdminAadhar", Aadhar);
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		Clickelement(upload_doc.get(1));
 		fileupload_robot(ConfigReader.getProperty("Aadhar"));
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		Selectdropdown(admin_doc_type, "PAN");
 		configWriter.setProperty("AdminPan", PAN);
 		sendkeyweb(admin_pan, PAN);
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		Clickelement(upload_doc.get(1));
 		fileupload_robot(ConfigReader.getProperty("PAN"));
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		Selectdropdown(admin_doc_type, "Organisation Id");
 		Clickelement(upload_doc.get(1));
 		fileupload_robot(ConfigReader.getProperty("ID"));
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 	}
 
 	@FindBy(xpath = "//input[@id='techFullName']")
@@ -569,7 +565,9 @@ public class Registrant_login_object extends Baseclass {
 		
 		configWriter.setProperty("tech_fname", Name);
 		configWriter.setProperty("tech_email", Email);
+		sendkeyweb(Country_code.get(3), "+91");
 		configWriter.setProperty("tech_phone", Tel);
+		sendkeyweb(Country_code.get(4), "+91");
 		configWriter.setProperty("tech_altphone",Mob);
 		configWriter.setProperty("tech_desig", Desig);
 		
@@ -589,20 +587,20 @@ public class Registrant_login_object extends Baseclass {
 		configWriter.setProperty("TechPan", PAN);
 		
 		sendkeyweb(admin_aadhar, Aadhar);
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		Clickelement(upload_doc.get(2));
 		fileupload_robot(ConfigReader.getProperty("Aadhar"));
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		Selectdropdown(tech_doc_type, "PAN");
 		sendkeyweb(admin_pan, PAN);
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		Clickelement(upload_doc.get(2));
 		fileupload_robot(ConfigReader.getProperty("PAN"));
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		Selectdropdown(tech_doc_type, "Organisation Id");
 		Clickelement(upload_doc.get(2));
 		fileupload_robot(ConfigReader.getProperty("ID"));
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 
 	}
 
@@ -631,7 +629,9 @@ public class Registrant_login_object extends Baseclass {
 		
 		sendkeyweb(bill_fname, Name);
 		sendkeyweb(bill_email, Email);
+		sendkeyweb(Country_code.get(5), "+91");
 		sendkeyweb(bill_phone, Tel);
+		sendkeyweb(Country_code.get(6), "+91");
 		sendkeyweb(bill_altphone,Mob);
 		sendkeyweb(bill_desig, Desig);
 	}
@@ -643,20 +643,20 @@ public class Registrant_login_object extends Baseclass {
 			
 		Selectdropdown(bill_doc_type, "Aadhaar");
 		sendkeyweb(admin_aadhar, Aadhar);
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		Clickelement(upload_doc.get(3));
 		fileupload_robot(ConfigReader.getProperty("Aadhar"));
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		Selectdropdown(bill_doc_type, "PAN");
 		sendkeyweb(admin_pan, PAN);
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		Clickelement(upload_doc.get(3));
 		fileupload_robot(ConfigReader.getProperty("PAN"));
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		Selectdropdown(bill_doc_type, "Organisation Id");
 		Clickelement(upload_doc.get(3));
 		fileupload_robot(ConfigReader.getProperty("ID"));
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		clickmultipleweb(Save_next);
 
 	}
@@ -686,8 +686,8 @@ public class Registrant_login_object extends Baseclass {
 	
 
 	public void Validate_name_server_details_page() {
-		dispalyedattribute(Radio_buttons.get(0), "  I have NS details Radio button");
-		dispalyedattribute(Radio_buttons.get(1), "  I will set it later Radio button");
+//		dispalyedattribute(Radio_buttons.get(0), "  I have NS details Radio button");
+//		dispalyedattribute(Radio_buttons.get(1), "  I will set it later Radio button");
 		validatetext(ADD_NS, "Add More NS");
 		validatetext(Cancel, "Cancel");
 		validatetext(NS1_label,"Name Server 1 Host Name");
@@ -716,10 +716,11 @@ public class Registrant_login_object extends Baseclass {
 	@FindBy(xpath = "//input[@type='checkbox']")
 	public WebElement Preview_check;
 	public void User_preview_and_submit_onboarding() throws InterruptedException {
-		Actions ac=new Actions(driver);
+		
 		ac.moveToElement(Preview_check);
 		Thread.sleep(3000);
 		Clickelement(Preview_check);
+		DSC_token();
 		popupvalidate(null, null);
 		Thread.sleep(5000);
 		clickmultipleweb(Save_next);

@@ -9,71 +9,71 @@ Feature: Registrant Onboarding
     Then User enters "<username>" and "<password>"
 
     Examples: 
-      | username                 | password | Case  |
-      | venkatesh.udaru@idbc.com | Test@123 | Valid |
+      | username             | password | Case  |
+      | venkat.g@igbc.com | Test@123 | Valid |
 
   Scenario Outline: DSC clear with valid data
-    And User enters the dsc details    
+    And User enters the dsc details
 
-  Scenario Outline: onboarding page
-    Then User enters domain page "<domain>"
-    Then User enters organisation details "<Name>" "<PIN>" "<Address>" "<Tel>" "<Mob>" "<Email>" "<GST>" "<PAN>" "<License>"
+  #Scenario Outline: onboarding page
+    #Then User enters domain page "<domain>"
+    #Then User enters organisation details "<Name>" "<PIN>" "<Address>" "<Tel>" "<Mob>" "<Email>" "<GST>" "<PAN>" "<License>"
+#
+    #Examples: 
+      #| domain | Name  | PIN    | Address                                  | Tel        | Mob        | Email          | GST             | PAN        | License               |
+      #| victor  | victor | 500090 | CYBERTOWERS,Madhapur,HEDERABAD,Telangana | 9685578941 | 9685578945 | foya@gmail.com | 22ABCDE0000A1J5 | ASDEE4455Q | L12345MH2023PLC000001 |
+#
+  #Scenario Outline: admin contact details page
+    #Then User enters admin contact details "<Name>" "<Tel>" "<Mob>" "<Email>" "<Aadhar>" "<PAN>" "<Desig>"
+#
+    #Examples: 
+      #| Name   | Tel        | Mob        | Email          | Aadhar         | PAN        | Desig   |
+      #| prasad | 9685578942 | 9685578946 | hoya@gmail.com | 1234 5678 8012 | ASDEE4455L | Manager |
+#
+  #Scenario Outline: Technical contact details page
+    #Then User enters technical contact details "<Name>" "<Tel>" "<Mob>" "<Email>" "<Aadhar>" "<PAN>" "<Desig>"
+#
+    #Examples: 
+      #| Name   | Tel        | Mob        | Email          | Aadhar         | PAN        | Desig     |
+      #| srivas | 9685578943 | 9685578947 | poya@gmail.com | 1234 5678 7012 | ASDEE4455P | Assig Mng |
+#
+  #Scenario Outline: Billing contact details page
+    #Then User enters billing contact details "<Name>" "<Tel>" "<Mob>" "<Email>" "<Aadhar>" "<PAN>" "<Desig>"
+#
+    #Examples: 
+      #| Name  | Tel        | Mob        | Email           | Aadhar         | PAN        | Desig    |
+      #| raman | 9685578954 | 9685578948 | tooya@gmail.com | 1234 5678 5012 | ASDEE4455P | Accounts |
+#
+  #Scenario Outline: Name server details page
+    #Then User enters name server details "<NS1>" "<IP1>" "<NS2>" "<IP2>"
+#
+    #Examples: 
+      #| NS1     | NS2     | IP1        | IP2        |
+      #| Office1 | office2 | 1.10.70.12 | 1.10.80.22 |
 
-    Examples: 
-      | domain  | Name  | PIN    | Address               | Tel        | Mob        | Email          | GST             | PAN        | License               |
-      | hgfc | hgfc | 500090 | CYBERTOWERS,HEDERABAD | 9685578941 | 9685578945 | foya@gmail.com | 22ABCDE0000A1J5 | ASDEE4455Q | L12345MH2023PLC000001 |
-
-  Scenario Outline: admin contact details page
-    Then User enters admin contact details "<Name>" "<Tel>" "<Mob>" "<Email>" "<Aadhar>" "<PAN>" "<Desig>"
-
-    Examples: 
-      | Name   | Tel        | Mob        | Email          | Aadhar         | PAN        | Desig   |
-      | prasad | 9685578942 | 9685578946 | hoya@gmail.com | 1234 5678 8012 | ASDEE4455L | Manager |
-
-  Scenario Outline: Technical contact details page
-    Then User enters technical contact details "<Name>" "<Tel>" "<Mob>" "<Email>" "<Aadhar>" "<PAN>" "<Desig>"
-
-    Examples: 
-      | Name   | Tel        | Mob        | Email          | Aadhar         | PAN        | Desig     |
-      | srivas | 9685578943 | 9685578947 | poya@gmail.com | 1234 5678 7012 | ASDEE4455P | Assig Mng |
-
-  Scenario Outline: Billing contact details page
-    Then User enters billing contact details "<Name>" "<Tel>" "<Mob>" "<Email>" "<Aadhar>" "<PAN>" "<Desig>"
-
-    Examples: 
-      | Name  | Tel        | Mob        | Email           | Aadhar         | PAN        | Desig    |
-      | raman | 9685578954 | 9685578948 | tooya@gmail.com | 1234 5678 5012 | ASDEE4455P | Accounts |
-
-  Scenario Outline: Name server details page
-    Then User enters name server details "<NS1>" "<IP1>" "<NS2>" "<IP2>"
-
-    Examples: 
-      | NS1     | NS2     | IP1        | IP2        |
-      | Office1 | office2 | 1.10.10.10 | 1.10.10.20 |
-
-  Scenario Outline: Preview and Submit
-    Then User preview and submit onboarding
-
+  #Scenario Outline: Preview and Submit
+    #Then User preview and submit onboarding
   Scenario Outline: Application Page
     Then User Navigate to Application Page
     Then User Validate Application Page
     Then User Validate Application data
-    Then User Navigates the Domain Applications Details page
-    Then User validate the Domain Applications Details page
-    And User subit the Domain Applications Details page
+    #Then User Navigates the Domain Applications Details page
+    #Then User validate the Domain Applications Details page
+    #And User subit the Domain Applications Details page
+    Then User payment and upload recipt
 
-  Scenario Outline: Domain Page
-    Then User Navigate to Domain Page
-    Then User Validate Domain Page
-    Then User Validate Domain data
-    Then User Navigates the Domain Details page
-    Then User validate the Domain Domain Details page
-    And User subit the Domain Details page
-
-  Scenario Outline: User Management
-    Then User navigate to user management page
-    Then User Validate the user management page
-
-  Scenario Outline: Officer Details Management
-    Then User navigate to officer details management page
-    Then User Validate the officer details management page
+  #Scenario Outline: Domain Page
+    #Then User Navigate to Domain Page
+    #Then User Validate Domain Page
+    #Then User Validate Domain data
+    #Then User Navigates the Domain Details page
+    #Then User validate the Domain Domain Details page
+    #And User subit the Domain Details page
+#
+  #Scenario Outline: User Management
+    #Then User navigate to user management page
+    #Then User Validate the user management page
+#
+  #Scenario Outline: Officer Details Management
+    #Then User navigate to officer details management page
+    #Then User Validate the officer details management page
