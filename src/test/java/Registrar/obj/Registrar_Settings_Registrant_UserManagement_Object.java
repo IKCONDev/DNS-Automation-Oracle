@@ -58,10 +58,14 @@ public class Registrar_Settings_Registrant_UserManagement_Object extends Basecla
 		//
 		
 		 dispalyedattribute(Orgname1.get(0), "ID");
+		 configWriter.setProperty("UserID1", Orgname1.get(1).getText());
 		validatetext(Orgname1.get(1), ConfigReader.getProperty("UserID1"));
+		configWriter.setProperty("UserName1", Orgname1.get(2).getText());
 		validatetext(Orgname1.get(2), ConfigReader.getProperty("UserName1"));
+		configWriter.setProperty("Role1", Orgname.get(0).getText());
 		validatetext(Orgname.get(0), ConfigReader.getProperty("Role1"));
 		validatetext(Orgname.get(1), ""); 
+		configWriter.setProperty("DRStatus", Orgname.get(2).getText());
 		validatetext(Orgname.get(2),  ConfigReader.getProperty("DRStatus"));
 		validatetext(Orgname.get(3), ""); 
 	}
@@ -75,10 +79,14 @@ public class Registrar_Settings_Registrant_UserManagement_Object extends Basecla
 			//
 			
 			 dispalyedattribute(Orgname1.get(0), "ID");
+			 configWriter.setProperty("UserID2", Orgname1.get(1).getText());
 			validatetext(Orgname1.get(1), ConfigReader.getProperty("UserID2"));
+			configWriter.setProperty("UserName2", Orgname1.get(2).getText());
 			validatetext(Orgname1.get(2), ConfigReader.getProperty("UserName2"));
-			validatetext(Orgname.get(0),ConfigReader.getProperty("Role2"));
+			configWriter.setProperty("Role2", Orgname.get(0).getText());
+			validatetext(Orgname.get(0), ConfigReader.getProperty("Role2"));
 			validatetext(Orgname.get(1), ""); 
+			configWriter.setProperty("DRStatus", Orgname.get(2).getText());
 			validatetext(Orgname.get(2),  ConfigReader.getProperty("DRStatus"));
 			validatetext(Orgname.get(3), ""); 
 		
@@ -93,15 +101,17 @@ public class Registrar_Settings_Registrant_UserManagement_Object extends Basecla
 			List<WebElement> Orgname1=driver.findElements(By.xpath("(//td[@role='cell'][normalize-space()='"+src+"'])[3]/preceding-sibling::td"));
 
 				//
-				
-				 dispalyedattribute(Orgname1.get(0), "ID");
-				validatetext(Orgname1.get(1), ConfigReader.getProperty("UserID3"));
-				validatetext(Orgname1.get(2), ConfigReader.getProperty("UserName3"));
-				validatetext(Orgname.get(0), ConfigReader.getProperty("Role3"));
-				validatetext(Orgname.get(1), ""); 
-				validatetext(Orgname.get(2),  ConfigReader.getProperty("DRStatus"));
-				validatetext(Orgname.get(3), ""); 
-			
+			 dispalyedattribute(Orgname1.get(0), "ID");
+			 configWriter.setProperty("UserID3", Orgname1.get(1).getText());
+			validatetext(Orgname1.get(1), ConfigReader.getProperty("UserID3"));
+			configWriter.setProperty("UserName3", Orgname1.get(2).getText());
+			validatetext(Orgname1.get(2), ConfigReader.getProperty("UserName3"));
+			configWriter.setProperty("Role3", Orgname.get(0).getText());
+			validatetext(Orgname.get(0), ConfigReader.getProperty("Role3"));
+			validatetext(Orgname.get(1), ""); 
+			configWriter.setProperty("DRStatus", Orgname.get(2).getText());
+			validatetext(Orgname.get(2),  ConfigReader.getProperty("DRStatus"));
+			validatetext(Orgname.get(3), ""); 
 
 
 
@@ -114,14 +124,17 @@ public class Registrar_Settings_Registrant_UserManagement_Object extends Basecla
 
 				//
 				
-				 dispalyedattribute(Orgname1.get(0), "ID");
-				validatetext(Orgname1.get(1), ConfigReader.getProperty("UserID4"));
-				validatetext(Orgname1.get(2), ConfigReader.getProperty("UserName4"));
-				validatetext(Orgname.get(0),ConfigReader.getProperty("Role4"));
-				validatetext(Orgname.get(1), ""); 
-				validatetext(Orgname.get(2),  ConfigReader.getProperty("DRStatus"));
-				validatetext(Orgname.get(3), ""); 
-			
+			 dispalyedattribute(Orgname1.get(0), "ID");
+			 configWriter.setProperty("UserID4", Orgname1.get(1).getText());
+			validatetext(Orgname1.get(1), ConfigReader.getProperty("UserID4"));
+			configWriter.setProperty("UserName4", Orgname1.get(2).getText());
+			validatetext(Orgname1.get(2), ConfigReader.getProperty("UserName4"));
+			configWriter.setProperty("Role4", Orgname.get(0).getText());
+			validatetext(Orgname.get(0), ConfigReader.getProperty("Role4"));
+			validatetext(Orgname.get(1), ""); 
+			configWriter.setProperty("DRStatus", Orgname.get(2).getText());
+			validatetext(Orgname.get(2),  ConfigReader.getProperty("DRStatus"));
+			validatetext(Orgname.get(3), ""); 
 
 
 

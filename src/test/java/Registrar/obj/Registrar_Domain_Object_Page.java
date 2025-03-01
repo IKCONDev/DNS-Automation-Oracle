@@ -207,11 +207,14 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 		
 		
 		validatetext(Adn_name, ConfigReader.getProperty("DomainName"));
+		configWriter.setProperty("Domstatus", Astatus.getText());
 		validatetext(Astatus, ConfigReader.getProperty("Domstatus"));
 	    validatetext(AOrg_name, ConfigReader.getProperty("OrgName"));	
+	    configWriter.setProperty("AppSubmissionDate", Asub_date.getText());
 		validatetext(Asub_date, ConfigReader.getProperty("AppSubmissionDate"));
 		//configWriter.setProperty("DomRenewalDate", Orgname.get(1).getText());
 		//configWriter.saveProperties();
+		 configWriter.setProperty("DomRenewalDate", AApp_rendate.getText());
 		validatetext(AApp_rendate, ConfigReader.getProperty("DomRenewalDate"));
 		
 	 
@@ -288,7 +291,9 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 
 		//
 		dispalyedattribute(Status.get(0), "6"); //
+		configWriter.setProperty("InAmount", Status.get(1).getText());
 		validatetext(Status.get(1), ConfigReader.getProperty("InAmount"));
+		configWriter.setProperty("InvoiceDate", Status.get(2).getText());
 		validatetext(Status.get(2), ConfigReader.getProperty("InvoiceDate"));
 		
 		

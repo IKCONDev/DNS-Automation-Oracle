@@ -8,5 +8,5 @@ Feature:  Registrar Domain Page
     Then Registrar  check AllFieldsData "<DomainName>" "<Status>" Textvalidations in Domain Page
 
     Examples: 
-      | OrgName    |DomainName    |Status          |
-      | Canara Bank|canara.bank.in|Payment Approved|
+      | OrgName    |DomainName    |InvoiceStatus       |
+      | Canara Bank|canara.bank.in|Approved for payment|

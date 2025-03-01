@@ -91,10 +91,15 @@ public class Registrar_Settings_DRUserManagement_Object extends Baseclass {
 			//
 			dispalyedattribute(UserId1.get(0), "ID");
 			//validatetext(UserId1.get(0), ID); // //
+			configWriter.setProperty("RDRUserName", UserId.get(0).getText());
 			validatetext(UserId.get(0),ConfigReader.getProperty("RDRUserName")); 
+			configWriter.setProperty("RDRDepartment", UserId.get(1).getText());
 			validatetext(UserId.get(1), ConfigReader.getProperty("RDRDepartment")); 
+			configWriter.setProperty("RDRUserRole", UserId.get(2).getText());
 			validatetext(UserId.get(2), ConfigReader.getProperty("RDRUserRole"));
+			
 			validatetext(UserId.get(3), "");
+			configWriter.setProperty("DRStatus", UserId.get(4).getText());
 			validatetext(UserId.get(4), ConfigReader.getProperty("DRStatus")); 
 			validatetext(UserId.get(5), "");
 			validatetext(UserId.get(6), "");

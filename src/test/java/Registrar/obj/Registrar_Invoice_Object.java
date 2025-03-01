@@ -31,6 +31,8 @@ public class Registrar_Invoice_Object extends Baseclass {
 	public WebElement Appsearchsend;
 	@FindBy(xpath="//tbody/tr[1]/td[6]/span[1]//*[name()='svg']")
 	public WebElement InvoiceDownloadbutton;
+	@FindBy(xpath="(//td[normalize-space()='Approved for payment']/preceding-sibling::td)[6]")
+	public WebElement InvoiceDownloadbutton1;
 	//INVOICE____MODULE
 		public void user_navigate_to_Invoicepage1(String src) throws Exception {
 			Thread.sleep(8000);
@@ -57,9 +59,13 @@ public class Registrar_Invoice_Object extends Baseclass {
 			//validatetext(Domain1.get(1), ConfigReader.getProperty("6"));
 			validatetext(DomainName1.get(2), ConfigReader.getProperty("OrgName"));
 			//validatet(Orgname.get(0), "Ikcontech solutions");
+			configWriter.setProperty("InAmount", DomainName.get(0).getText());
 			validatetext(DomainName.get(0), ConfigReader.getProperty("InAmount"));
+			configWriter.setProperty("Invoicedownload", DomainName.get(1).getText());
 			validatetext(DomainName.get(1),ConfigReader.getProperty("Invoicedownload"));
-			validatetext(DomainName.get(2), ConfigReader.getProperty("Status"));
+			Clickelement(InvoiceDownloadbutton1);
+			configWriter.setProperty("InvoiceStatus", DomainName.get(2).getText());
+			validatetext(DomainName.get(2), ConfigReader.getProperty("InvoiceStatus"));
 			//validatetext(Domain.get(3) ,"");
 			
 			

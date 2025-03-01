@@ -81,10 +81,15 @@ public class Registrar_Settings_Department_Object extends Baseclass {
 		//
 		dispalyedattribute(DepartmentName1.get(0), "ID"); //
 		//validatet(DepartmentName.get(1), "IT"); //
+	   
 		validatetext(DepartmentName.get(0), "B001");
 		validatetext(DepartmentName.get(1), "");
+		 configWriter.setProperty("RegistrarDepCreatedDate&Time", DepartmentName.get(2).getText());
+		 configWriter.saveProperties();
 		validatetext(DepartmentName.get(2), ConfigReader.getProperty("RegistrarDepCreatedDate&Time")); 
 		validatetext(DepartmentName.get(3), "");
+		 configWriter.setProperty("RegistrarDepModifiedDate&Time", DepartmentName.get(4).getText());
+		 configWriter.saveProperties();
 		validatetext(DepartmentName.get(4),ConfigReader.getProperty("RegistrarDepModifiedDate&Time"));  
 		validatetext(DepartmentName.get(5), "");
 		validatetext(DepartmentName.get(6), "");

@@ -188,11 +188,14 @@ public class Registrar_Dashboard_Object_Page extends Baseclass{
 				dispalyedattribute(Orgname1.get(0), "ID"); 
 				
 				validatetext(Orgname1.get(1),ConfigReader.getProperty("DomainName"));
-				
+				configWriter.setProperty("AppSubmissionDate", Orgname.get(0).getText());
+				configWriter.saveProperties();
 				validatetext(Orgname.get(0),ConfigReader.getProperty("AppSubmissionDate")); 
 				configWriter.setProperty("DomRenewalDate", Orgname.get(1).getText());
 				configWriter.saveProperties();
 				validatetext(Orgname.get(1), ConfigReader.getProperty("DomRenewalDate"));
+				configWriter.setProperty("AppStatus2", Orgname.get(2).getText());
+				configWriter.saveProperties();
 				validatetext(Orgname.get(2), ConfigReader.getProperty("AppStatus2"));          
 
 			}

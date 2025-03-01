@@ -56,9 +56,16 @@ public class Registrar_Settings_Roles_Object extends Baseclass {
 		//
 		dispalyedattribute(RoleName1.get(0), "ID"); //
 		//validatet(RoleName.get(1), " IDRBTADMIN "); //
+		
 		validatetext(RoleName.get(0), "");
+		configWriter.setProperty("RegistrarCreatedDate&Time", RoleName.get(1).getText());
+		configWriter.saveProperties();
 		validatetext(RoleName.get(1),ConfigReader.getProperty("RegistrarCreatedDate&Time")); 
-		validatetext(RoleName.get(2),ConfigReader.getProperty("RegistrarModified"));  
+		configWriter.setProperty("RegistrarModified", RoleName.get(2).getText());
+		configWriter.saveProperties();
+		validatetext(RoleName.get(2),ConfigReader.getProperty("RegistrarModified")); 
+		configWriter.setProperty("RegistrarModifiedDate&Time", RoleName.get(3).getText());
+		configWriter.saveProperties();
 		validatetext(RoleName.get(3),ConfigReader.getProperty("RegistrarModifiedDate&Time")); 
 		validatetext(RoleName.get(4), "");
 		validatetext(RoleName.get(5), "");

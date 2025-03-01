@@ -68,5 +68,24 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 	
 
 }
+@Then("Registrar  check Final {string} Functionalities in Applications Page")
+public void Registrar_can_Approve_Registrant_Application(String src)throws Exception  {
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+	RA.Registrar_can_Approve_Registrant_Application(src);
+	
+}
+	@Then("Registrar  check Final {string} Functionalities in Domain Page")
+	public void Registrar_can_Check_Registrant_Application_Domain(String src) throws Exception  {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+		RA.Registrar_can_Check_Registrant_Application_Domain(src);
+	
 
+}
+	@Then("Registrar  check Final {string} Functionalities in Invoice Page")
+	public void Registrar_can_check_Registrant_Application_Invoice(String src)throws Exception  {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+		RA.Registrar_can_check_Registrant_Application_Invoice(src);
+	
+
+}
 }

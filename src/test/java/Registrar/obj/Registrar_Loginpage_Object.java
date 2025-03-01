@@ -53,7 +53,7 @@ public class Registrar_Loginpage_Object extends Baseclass{
 
 	@FindBy(xpath="//input[@id='email']")
 	public WebElement Enteremailtextbox;
-	@FindBy(xpath="//input[@placeholder='Enter the strong password']")
+	@FindBy(xpath="//input[@placeholder='Enter your password']")
 	public WebElement passwordentertxtbox;
 	@FindBy(xpath="//button[text()='Next']")
 	public WebElement ClickNextbutton;

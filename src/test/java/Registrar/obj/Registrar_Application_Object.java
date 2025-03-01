@@ -901,17 +901,26 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 
 
 }
+@FindBy(xpath="//mat-icon[normalize-space()='description']")
+public WebElement Invoicesearch ;
+
+@FindBy(xpath="//tbody/tr[1]/td[6]/span[1]//*[name()='svg']")
+public WebElement InvoiceDownloadbutton;
+@FindBy(xpath="(//td[normalize-space()='Approved for payment']/preceding-sibling::td)[6]")
+public WebElement InvoiceDownloadbutton1;
 @FindBy(xpath="//select[@class='form-control ng-pristine ng-valid ng-touched']")
 public WebElement selectNSrecords ;
-
-
+@FindBy(xpath="//input[@placeholder='Search']")
+public WebElement Domainsearchclick;
+@FindBy(xpath = "//p[normalize-space()='Renewal Date']//following-sibling::div")
+public WebElement AApp_rendate ;
 public void Registrar_can_Approve_Registrant_Application(String src) throws Exception {
 	Thread.sleep(5000);
 	Clickelement(Appsearch);
 	Thread.sleep(3000);
 	sendkeyweb(Appsearchsend, ConfigReader.getProperty("OrgName"));
 	Thread.sleep(3000);
-	WebElement id1=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//preceding-sibling::td"));
+	WebElement id1=driver.findElement(By.xpath("//td[normalize-space()='"+ ConfigReader.getProperty("OrgName")+"']//preceding-sibling::td"));
 
 	try {
 		Clickelement(id1);
@@ -938,7 +947,69 @@ public void Registrar_can_Approve_Registrant_Application(String src) throws Exce
 		
 		e.printStackTrace();
 	}
+}
+	public void Registrar_can_Check_Registrant_Application_Domain(String src) throws Exception {
+	Thread.sleep(5000);
+	Clickelement(Domainsearchclick);
+	sendkeyweb(Appsearchsend, ConfigReader.getProperty("DomainName"));
+	List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']/following-sibling::td"));
+	List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']/preceding-sibling::td"));
+
+	//
+	dispalyedattribute(Orgname1.get(0), "ID"); //
+	validatetext(Orgname1.get(1), ConfigReader.getProperty("DomainName"));
+	//validatet(Orgname.get(0), "Ikcontech solutions");
+	validatetext(Orgname.get(0), ConfigReader.getProperty("AppSubmissionDate"));
+	configWriter.setProperty("DomRenewalDate", Orgname.get(1).getText());
+	configWriter.saveProperties();
+	validatetext(Orgname.get(1),ConfigReader.getProperty("DomRenewalDate"));
+	validatetext(Orgname.get(2), ConfigReader.getProperty("Domstatus"));
+	
+	validatetext(Adn_name, ConfigReader.getProperty("DomainName"));
+	configWriter.setProperty("DRStatus", Astatus.getText());
+	validatetext(Astatus, ConfigReader.getProperty("DRStatus"));
+    validatetext(AOrg_name, ConfigReader.getProperty("OrgName"));	
+    configWriter.setProperty("AppSubmissionDate", Asub_date.getText());
+	validatetext(Asub_date, ConfigReader.getProperty("AppSubmissionDate"));
+	//configWriter.setProperty("DomRenewalDate", Orgname.get(1).getText());
+	//configWriter.saveProperties();
+	 configWriter.setProperty("DomRenewalDate", AApp_rendate.getText());
+	validatetext(AApp_rendate, ConfigReader.getProperty("DomRenewalDate"));
+	}
+
+	public void Registrar_can_check_Registrant_Application_Invoice(String src) throws Exception {
+	Thread.sleep(5000);
+	Clickelement(Invoicesearch);
+	
+	String Apptabledata1[]= { "","SNo","Organization Name", "Domain Name","Amount","Invoice","Payment Status"};
+	List<WebElement> values = driver.findElements(By.xpath("//table[@id='table1']//tr//th"));
+	Thread.sleep(3000);
+	for (int i= 0; i< values.size(); i++) {
+
+		validatetext(values.get(i), Apptabledata1[i]);
+		//System.out.println("Code Printed");
+	}
+	sendkeyweb(Appsearchsend, ConfigReader.getProperty("DomainName"));
+	//sendkeyweb(Appsearchsend, "rohantech.bank.in");
+	List<WebElement> DomainName=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("DomainName")+"']/following-sibling::td"));
+	List<WebElement> DomainName1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']/preceding-sibling::td"));
+
+	//
+//	validatetext(Domain1.get(0)
+	dispalyedattribute(DomainName1.get(0), "checkbox");
+	dispalyedattribute(DomainName1.get(1), "ID");
+	//validatetext(Domain1.get(1), ConfigReader.getProperty("6"));
+	validatetext(DomainName1.get(2), ConfigReader.getProperty("OrgName"));
+	//validatet(Orgname.get(0), "Ikcontech solutions");
+	configWriter.setProperty("InAmount", DomainName.get(0).getText());
+	validatetext(DomainName.get(0), ConfigReader.getProperty("InAmount"));
+	configWriter.setProperty("Invoicedownload1", DomainName.get(1).getText());
+	validatetext(DomainName.get(1),ConfigReader.getProperty("Invoicedownload1"));
+	Clickelement(InvoiceDownloadbutton1);
+	configWriter.setProperty("InvoiceStatus1", DomainName.get(2).getText());
+	validatetext(DomainName.get(2), ConfigReader.getProperty("InvoiceStatus1"));
+	}
 	
 }
 
-}
+

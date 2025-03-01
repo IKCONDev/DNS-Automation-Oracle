@@ -13,5 +13,5 @@ Feature: Registrar Application Page
     Then Registrar  check BillingOfficier Functionalities in Applications Page
 
     Examples: 
-      | OrgName    | ADocument Type | PDocument Type | OrgDocument Type |
-      | Canara Bank| Aadhaar        | PAN            | Organisation Id  |
+      | OrgName    | ADocument Type | PDocument Type | OrgDocument Type |DomainName    |
+      | Canara Bank| Aadhaar        | PAN            | Organisation Id  |canara.bank.in|

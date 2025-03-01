@@ -341,10 +341,18 @@ public class Registrar_Settings_Registrant_Officiers_Object extends Baseclass{
 				List<WebElement> ADocumentType1=driver.findElements(By.xpath("//td[normalize-space()='"+src4+"']/preceding-sibling::td"));
 
 				//
+				configWriter.setProperty("1", ADocumentType1.get(0).getText());
+				configWriter.saveProperties();
 				validatetext(ADocumentType1.get(0), "1"); //
+				configWriter.setProperty("Adahhar-Documents - 04.jpg", ADocumentType1.get(1).getText());
+				configWriter.saveProperties();
 				validatetext(ADocumentType1.get(1),"Adahhar-Documents - 04.jpg");
 				validatetext(ADocumentType.get(0), "");
+				configWriter.setProperty("AOAdharDocStatus", ADocumentType.get(1).getText());
+				configWriter.saveProperties();
 				validatetext(ADocumentType.get(1), ConfigReader.getProperty("AOAdharDocStatus")); 
+				configWriter.setProperty("AOAdharDocComment", ADocumentType.get(2).getText());
+				configWriter.saveProperties();
 				validatetext(ADocumentType.get(2), ConfigReader.getProperty("AOAdharDocComment"));
 				
 				
@@ -352,10 +360,18 @@ public class Registrar_Settings_Registrant_Officiers_Object extends Baseclass{
 				List<WebElement> PDocumentType1=driver.findElements(By.xpath("//td[normalize-space()='"+src5+"']/preceding-sibling::td"));
 				//
 				//
+				configWriter.setProperty("2", PDocumentType1.get(0).getText());
+				configWriter.saveProperties();
 				validatetext(PDocumentType1.get(0), "2"); //
+				configWriter.setProperty("Pan-Documents - 05.jpg", PDocumentType1.get(1).getText());
+				configWriter.saveProperties();
 				validatetext(PDocumentType1.get(1), "Pan-Documents - 05.jpg");
 				validatetext(PDocumentType.get(0), "");
+				configWriter.setProperty("AOAdharDocStatus", PDocumentType.get(1).getText());
+				configWriter.saveProperties();
 				validatetext(PDocumentType.get(1), ConfigReader.getProperty("AOAdharDocStatus")); 
+				configWriter.setProperty("AOAdharDocComment", PDocumentType.get(2).getText());
+				configWriter.saveProperties();
 				validatetext(PDocumentType.get(2), ConfigReader.getProperty("AOAdharDocComment"));
 					
 				Thread.sleep(5000);			
@@ -364,10 +380,18 @@ public class Registrar_Settings_Registrant_Officiers_Object extends Baseclass{
 				//
 
 				//
+				configWriter.setProperty("3", OrgDocumentType1.get(0).getText());
+				configWriter.saveProperties();
 				validatetext(OrgDocumentType1.get(0), "3"); //
+				configWriter.setProperty("Licence-Documents - 01.jpg", OrgDocumentType1.get(1).getText());
+				configWriter.saveProperties();
 				validatetext(OrgDocumentType1.get(1), "Licence-Documents - 01.jpg");
 				validatetext(OrgDocumentType.get(0), "");
+				configWriter.setProperty("AOAdharDocStatus", OrgDocumentType1.get(1).getText());
+				configWriter.saveProperties();
 				validatetext(OrgDocumentType.get(1), ConfigReader.getProperty("AOAdharDocStatus")); 
+				configWriter.setProperty("AOAdharDocComment", OrgDocumentType1.get(2).getText());
+				configWriter.saveProperties();
 				validatetext(OrgDocumentType.get(2), ConfigReader.getProperty("AOAdharDocComment"));
 				
 				
