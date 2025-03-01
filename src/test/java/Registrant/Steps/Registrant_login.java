@@ -83,6 +83,11 @@ public class Registrant_login {
 		RLO.user_org_details(Name,PIN,Address,Tel,Mob,Email);
 		RLO.user_org_documents(GST, PAN, License);
 	}
+	
+	@Then("User logout the application")
+	public void User_logout_the_application () {
+		RLO.User_logout_the_application ();
+	}
 
 	@Then("User enters admin contact details {string} {string} {string} {string} {string} {string} {string}")
 	public void User_enters_admin_contact_details(String Name,String Tel,String  Mob,String  Email,String Aadhar,String  PAN,String Desig) throws AWTException, InterruptedException {
