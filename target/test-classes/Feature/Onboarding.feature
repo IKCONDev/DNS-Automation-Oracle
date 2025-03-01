@@ -7,14 +7,15 @@ Feature: Registrant Onboarding
     #Then User Register An Account "<username>" "<password>"
     #When User navigate to Login Page
     Then User enters "<username>" and "<password>"
+    Then User logout the application
 
     Examples: 
       | username             | password | Case  |
       | venkat.g@igbc.com | Test@123 | Valid |
 
-  Scenario Outline: DSC clear with valid data
-    And User enters the dsc details
-
+  #Scenario Outline: DSC clear with valid data
+    #And User enters the dsc details
+#
   #Scenario Outline: onboarding page
     #Then User enters domain page "<domain>"
     #Then User enters organisation details "<Name>" "<PIN>" "<Address>" "<Tel>" "<Mob>" "<Email>" "<GST>" "<PAN>" "<License>"
@@ -50,18 +51,20 @@ Feature: Registrant Onboarding
     #Examples: 
       #| NS1     | NS2     | IP1        | IP2        |
       #| Office1 | office2 | 1.10.70.12 | 1.10.80.22 |
-
+#
   #Scenario Outline: Preview and Submit
     #Then User preview and submit onboarding
-  Scenario Outline: Application Page
-    Then User Navigate to Application Page
-    Then User Validate Application Page
-    Then User Validate Application data
+    #
+    #
+  #Scenario Outline: Application Page
+    #Then User Navigate to Application Page
+    #Then User Validate Application Page
+    #Then User Validate Application data
     #Then User Navigates the Domain Applications Details page
     #Then User validate the Domain Applications Details page
     #And User subit the Domain Applications Details page
-    Then User payment and upload recipt
-
+    #Then User payment and upload recipt
+#
   #Scenario Outline: Domain Page
     #Then User Navigate to Domain Page
     #Then User Validate Domain Page

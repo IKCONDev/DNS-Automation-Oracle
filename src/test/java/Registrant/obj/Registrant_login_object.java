@@ -732,5 +732,13 @@ public class Registrant_login_object extends Baseclass {
 		}
 		
 	}
+	@FindBy(xpath = "//div[@class='col-6 custom-element']//div[@style='cursor: pointer;']")
+	public WebElement Profile_icon;
+	@FindBy(xpath = "//div[normalize-space()='Logout']")
+	public WebElement Logout;
+	public void User_logout_the_application () {
+		Clickelement(Profile_icon);
+		Clickelement(Logout);
+	}
 
 }
