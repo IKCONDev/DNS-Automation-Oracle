@@ -164,7 +164,7 @@ public class Registrar_Dashboard_Object_Page extends Baseclass{
 			
 			
 		}
-		public void Create_ApplicationQuee_TextValidations_in_Home_Page(String src) throws InterruptedException {
+		public void Create_ApplicationQuee_TextValidations_in_Home_Page() throws InterruptedException {
 			
 			Thread.sleep(5000);
 			Actions Act = new Actions(driver);
@@ -182,7 +182,7 @@ public class Registrar_Dashboard_Object_Page extends Baseclass{
 			//List<WebElement> val1 = driver.findElements(By.xpath("(//table[@id='table1']//tr[1]//td)"));
 			
 					List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']/following-sibling::td"));
-					List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']/preceding-sibling::td"));
+					List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']/preceding-sibling::td"));
 
 					 //ConfigReader.getProperty("Domainnametxtval"));
 				dispalyedattribute(Orgname1.get(0), "ID"); 

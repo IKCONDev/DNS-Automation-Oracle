@@ -237,7 +237,7 @@ public class Registrar_Settings_Registrant_Officiers_Object extends Baseclass{
 		@FindBy(xpath="//button[text()='Submit']")
 		public WebElement submitclick ;
 	
-	public void Registrar_can_check_registrant_officer_details_textvalidations_and_functionalities_in_settings_page(String src,String src4,String src5,String src6) throws Exception {
+	public void Registrar_can_check_registrant_officer_details_textvalidations_and_functionalities_in_settings_page(String srcp,String src4,String src5,String src6) throws Exception {
 	   
 		Clickelement(Settingssearch);
 		//Thread.sleep(3000);
@@ -268,70 +268,7 @@ public class Registrar_Settings_Registrant_Officiers_Object extends Baseclass{
 			System.out.println(e);
 		}
 		
-		
-		
-		
-		
-		/*
-		
-		
-		
-		List<WebElement> AOOrgname=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"'])[1]/following-sibling::td"));
-		List<WebElement> AOOrgname1=driver.findElements(By.xpath("(//td[normalize-space()='"+src+"'])[1]/preceding-sibling::td"));
-		//
-		Thread.sleep(3000);
-		try {
-//		validatetext(AOOrgname1.get(0), "1"); 
-		validatetext(AOOrgname.get(0), ConfigReader.getProperty("AOPersonname"));
-		validatetext(AOOrgname.get(1), ConfigReader.getProperty("AODesignation"));
-		validatetext(AOOrgname.get(2), ConfigReader.getProperty("AOMobileNumber"));
-		validatetext(AOOrgname.get(3), ConfigReader.getProperty("AOEmailId"));
-		validatetext(AOOrgname.get(4), ConfigReader.getProperty("AORole"));
-		validatetext(AOOrgname.get(5), "View");
-		//validatet(Orgname.get(6), "AOApprove/rejectlogin");
-		validatetext(AOOrgname.get(7), ConfigReader.getProperty("AOLoginStatus"));
-		validatetext(AOOrgname.get(8), ConfigReader.getProperty("AOIsActive"));
-		validatetext(AOOrgname.get(9), "");
-		}catch (Exception e) {
-			// TODO: handle exception
-		}
-		List<WebElement> BOOrgname=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"'])[2]/following-sibling::td"));
-		List<WebElement> BOOrgname1=driver.findElements(By.xpath("(//td[normalize-space()='"+src+"'])[2]/preceding-sibling::td"));
-		//
-		//
-		
-		//validatetext(BOOrgname1.get(0), "2"); //
-		validatetext(BOOrgname.get(0), ConfigReader.getProperty("BOPersonname")); 
-		validatetext(BOOrgname.get(1), ConfigReader.getProperty("BODesignation")); 
-		validatetext(BOOrgname.get(2), ConfigReader.getProperty("BOMobileNumber"));
-		validatetext(BOOrgname.get(3), ConfigReader.getProperty("BOEmailId"));
-		validatetext(BOOrgname.get(4), ConfigReader.getProperty("BORole"));
-		validatetext(BOOrgname.get(5), "View");
-		//validatet(BOOrgname.get(6), "");
-		validatetext(BOOrgname.get(7), ConfigReader.getProperty("BOLoginStatus"));
-		validatetext(BOOrgname.get(8), ConfigReader.getProperty("BOIsActive"));
-		validatetext(BOOrgname.get(9), "");
-			
-		
-		List<WebElement> TOOrgname=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"'])[3]/following-sibling::td"));
-		List<WebElement> TOOrgname1=driver.findElements(By.xpath("(//td[normalize-space()='"+src+"'])[3]/preceding-sibling::td"));
-		//
-
-		//
-		//validatetext(TOOrgname1.get(0), "3"); //
-		validatetext(TOOrgname.get(0), ConfigReader.getProperty("TOPersonname"));
-		validatetext(TOOrgname.get(1),ConfigReader.getProperty("TODesignation"));
-		validatetext(TOOrgname.get(2),ConfigReader.getProperty("AOMobileNumber")); 
-		validatetext(TOOrgname.get(3),ConfigReader.getProperty("BOEmailId")); 
-		validatetext(TOOrgname.get(4),ConfigReader.getProperty("TORole")); 
-		validatetext(TOOrgname.get(5), "View");
-		//validatet(TOOrgname.get(6), "");
-		validatetext(TOOrgname.get(7), ConfigReader.getProperty("TOLoginStatus"));
-		validatetext(TOOrgname.get(8), ConfigReader.getProperty("TOIsActive"));
-		validatetext(TOOrgname.get(9), "");*/
-		
-		
-		//AO
+	
 		        Thread.sleep(5000);
 				Clickelement(setAoviewclick);
 				Thread.sleep(3000);
