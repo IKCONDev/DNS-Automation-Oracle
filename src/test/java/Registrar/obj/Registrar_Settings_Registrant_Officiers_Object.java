@@ -327,7 +327,7 @@ public class Registrar_Settings_Registrant_Officiers_Object extends Baseclass{
 				configWriter.setProperty("AOAdharDocStatus", OrgDocumentType1.get(1).getText());
 				configWriter.saveProperties();
 				validatetext(OrgDocumentType.get(1), ConfigReader.getProperty("AOAdharDocStatus")); 
-				configWriter.setProperty("AOAdharDocComment", OrgDocumentType1.get(2).getText());
+				configWriter.setProperty("AOAdharDocComment", OrgDocumentType.get(2).getText());
 				configWriter.saveProperties();
 				validatetext(OrgDocumentType.get(2), ConfigReader.getProperty("AOAdharDocComment"));
 				

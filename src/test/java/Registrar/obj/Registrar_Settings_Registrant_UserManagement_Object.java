@@ -38,7 +38,7 @@ public class Registrar_Settings_Registrant_UserManagement_Object extends Basecla
 		Clickelement(RegistrantUserManagementSearch);
 		Thread.sleep(3000);
 
-		String SettingDrtabledata[]= {"Sl.No","User Id","User Name","Organisation Name", "Role", "Access","Status", "Actions"};
+		String SettingDrtabledata[]= {"Sl.No","User Id","User Name","Organisation Name", "Role", "Access","Status","Edit", "Actions"};
 		List<WebElement> values = driver.findElements(By.xpath("//table[@id='table1']//tr//th"));
 		Thread.sleep(3000);
 		for (int i= 0; i< values.size(); i++) {

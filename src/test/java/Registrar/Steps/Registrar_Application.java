@@ -69,12 +69,12 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 
 }
 @Then("Registrar  check Final Functionalities in Applications Page")
-public void Registrar_can_Approve_Registrant_Application(String src)throws Exception  {
+public void Registrar_can_Approve_Registrant_Application()throws Exception  {
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 	RA.Registrar_can_Approve_Registrant_Application();
 	
 }
-	@Then("Registrar  check Final Functionalities in Domain Page")
+	@Then("Registrar check Final Functionalities in Domain Page")
 	public void Registrar_can_Check_Registrant_Application_Domain() throws Exception  {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 		RA.Registrar_can_Check_Registrant_Application_Domain();
