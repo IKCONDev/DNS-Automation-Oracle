@@ -91,7 +91,7 @@ public WebElement AppIDclick;
 
 
 
-public void User_Can_Check_Application_Tabledatatextvaladation_in_Applications_Page(String src) throws Exception {
+public void User_Can_Check_Application_Tabledatatextvaladation_in_Applications_Page() throws Exception {
 
 	//String Apptabledata[]= {"2","Vtech.bank.in","Onboarding Pending","Feb 2, 2025, 6:54 AM","Feb 2, 2030, 6:54 AM","InActive","Unpaid","OnHold","5"};
 	//List<WebElement> val1 = driver.findElements(By.xpath("(//table[@id='table1']//tr[1]//td)"));
@@ -458,7 +458,7 @@ public WebElement AopanRejectClick ;
 public WebElement AoODRejectClick ;
 @FindBy(xpath="//td[normalize-space()='Rohan Tech']/preceding-sibling::td")
 public WebElement Appidclick;
-public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Applications_Page(String src,String src4,String src5,String src6) throws Exception {
+public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Applications_Page() throws Exception {
 	//AO
 //	Clickelement(Appsearch);
 //	Thread.sleep(3000);
@@ -530,7 +530,7 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 	
 	
 	List<WebElement> ADocumentType=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("ADocumentType")+"']/following-sibling::td"));
-	List<WebElement> ADocumentType1=driver.findElements(By.xpath("//td[normalize-space()='"+src4+"']/preceding-sibling::td"));
+	List<WebElement> ADocumentType1=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("ADocumentType")+"']/preceding-sibling::td"));
 
 	//
 	validatetext(ADocumentType1.get(0), "1"); //
@@ -540,8 +540,7 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 	validatetext(ADocumentType.get(2), ConfigReader.getProperty("AOAdharDocComment"));
 	
 	List<WebElement> PDocumentType=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("PDocumentType")+"']/following-sibling::td"));
-	List<WebElement> PDocumentType1=driver.findElements(By.xpath("//td[normalize-space()='"+src5+"']/preceding-sibling::td"));
-	//
+	List<WebElement> PDocumentType1=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("PDocumentType")+"']/preceding-sibling::td"));
 	//
 	validatetext(PDocumentType1.get(0), "2"); //
 	validatetext(PDocumentType1.get(1), "Pan-Documents - 05.jpg");
@@ -552,7 +551,7 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 		
 	Thread.sleep(5000);			
 	List<WebElement> OrgDocumentType=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgDocumentType")+"']/following-sibling::td"));
-	List<WebElement> OrgDocumentType1=driver.findElements(By.xpath("//td[normalize-space()='"+src6+"']/preceding-sibling::td"));
+	List<WebElement> OrgDocumentType1=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgDocumentType")+"']/preceding-sibling::td"));
 	//
 
 	//
@@ -674,7 +673,7 @@ public WebElement TOODRejectClick ;
 
 //TO
 
-public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Page(String src) throws Exception {
+public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Page() throws Exception {
 	//Clickelement(Appsearch);
 	//Thread.sleep(3000);
 	
@@ -914,7 +913,8 @@ public WebElement selectNSrecords ;
 public WebElement Domainsearchclick;
 @FindBy(xpath = "//p[normalize-space()='Renewal Date']//following-sibling::div")
 public WebElement AApp_rendate ;
-public void Registrar_can_Approve_Registrant_Application(String src) throws Exception {
+
+public void Registrar_can_Approve_Registrant_Application() throws Exception {
 	Thread.sleep(5000);
 	Clickelement(Appsearch);
 	Thread.sleep(3000);
@@ -948,12 +948,12 @@ public void Registrar_can_Approve_Registrant_Application(String src) throws Exce
 		e.printStackTrace();
 	}
 }
-	public void Registrar_can_Check_Registrant_Application_Domain(String src) throws Exception {
+	public void Registrar_can_Check_Registrant_Application_Domain() throws Exception {
 	Thread.sleep(5000);
 	Clickelement(Domainsearchclick);
 	sendkeyweb(Appsearchsend, ConfigReader.getProperty("DomainName"));
 	List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']/following-sibling::td"));
-	List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']/preceding-sibling::td"));
+	List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']/preceding-sibling::td"));
 
 	//
 	dispalyedattribute(Orgname1.get(0), "ID"); //
@@ -977,7 +977,7 @@ public void Registrar_can_Approve_Registrant_Application(String src) throws Exce
 	validatetext(AApp_rendate, ConfigReader.getProperty("DomRenewalDate"));
 	}
 
-	public void Registrar_can_check_Registrant_Application_Invoice(String src) throws Exception {
+	public void Registrar_can_check_Registrant_Application_Invoice() throws Exception {
 	Thread.sleep(5000);
 	Clickelement(Invoicesearch);
 	
@@ -992,7 +992,7 @@ public void Registrar_can_Approve_Registrant_Application(String src) throws Exce
 	sendkeyweb(Appsearchsend, ConfigReader.getProperty("DomainName"));
 	//sendkeyweb(Appsearchsend, "rohantech.bank.in");
 	List<WebElement> DomainName=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("DomainName")+"']/following-sibling::td"));
-	List<WebElement> DomainName1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']/preceding-sibling::td"));
+	List<WebElement> DomainName1=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("DomainName")+"']/preceding-sibling::td"));
 
 	//
 //	validatetext(Domain1.get(0)

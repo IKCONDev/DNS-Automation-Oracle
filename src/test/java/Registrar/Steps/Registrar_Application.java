@@ -24,10 +24,10 @@ public void User_textvaladation_in_Application_Page1() throws Exception  {
 
 }
 
-@Then("Registrar Navigate to Application Page  check {string} Tabledata Textvalidations")
-public void User_textvaladation_in_Application_Page1(String src) throws Exception  {
+@Then("Registrar Navigate to Application Page  check Tabledata Textvalidations")
+public void User_textvaladation_in_Application_Page() throws Exception  {
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-	RA.User_Can_Check_Application_Tabledatatextvaladation_in_Applications_Page(src);
+	RA.User_Can_Check_Application_Tabledatatextvaladation_in_Applications_Page();
 	
 
 }
@@ -47,17 +47,17 @@ public void User_Can_Check_OrganisationDetails_DocumentsUpload_Functionalities_i
 
 }
 //
-@Then("Registrar  check AdministrativeOfficier {string} {string}  {string}  {string}  Functionalities in Applications Page")
-public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Applications_Page(String src,String src4,String src5,String src6) throws Exception  {
+@Then("Registrar  check AdministrativeOfficier Functionalities in Applications Page")
+public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Applications_Page() throws Exception  {
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
-	RA.User_Can_Check_AdministrativeOfficier_Functionalities_in_Applications_Page(src,src4,src5,src6);
+	RA.User_Can_Check_AdministrativeOfficier_Functionalities_in_Applications_Page();
 	
 
 }
-@Then("Registrar  check TechnicalOfficier {string} Functionalities in Applications Page")
-public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Page(String src) throws Exception  {
+@Then("Registrar  check TechnicalOfficier Functionalities in Applications Page")
+public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Page() throws Exception  {
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
-	RA.User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Page(src);
+	RA.User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Page();
 	
 
 }
@@ -68,23 +68,23 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 	
 
 }
-@Then("Registrar  check Final {string} Functionalities in Applications Page")
+@Then("Registrar  check Final Functionalities in Applications Page")
 public void Registrar_can_Approve_Registrant_Application(String src)throws Exception  {
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
-	RA.Registrar_can_Approve_Registrant_Application(src);
+	RA.Registrar_can_Approve_Registrant_Application();
 	
 }
-	@Then("Registrar  check Final {string} Functionalities in Domain Page")
-	public void Registrar_can_Check_Registrant_Application_Domain(String src) throws Exception  {
+	@Then("Registrar  check Final Functionalities in Domain Page")
+	public void Registrar_can_Check_Registrant_Application_Domain() throws Exception  {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
-		RA.Registrar_can_Check_Registrant_Application_Domain(src);
+		RA.Registrar_can_Check_Registrant_Application_Domain();
 	
 
 }
-	@Then("Registrar  check Final {string} Functionalities in Invoice Page")
-	public void Registrar_can_check_Registrant_Application_Invoice(String src)throws Exception  {
+	@Then("Registrar  check Final Functionalities in Invoice Page")
+	public void Registrar_can_check_Registrant_Application_Invoice()throws Exception  {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
-		RA.Registrar_can_check_Registrant_Application_Invoice(src);
+		RA.Registrar_can_check_Registrant_Application_Invoice();
 	
 
 }

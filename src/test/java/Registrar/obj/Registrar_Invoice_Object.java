@@ -34,7 +34,7 @@ public class Registrar_Invoice_Object extends Baseclass {
 	@FindBy(xpath="(//td[normalize-space()='Approved for payment']/preceding-sibling::td)[6]")
 	public WebElement InvoiceDownloadbutton1;
 	//INVOICE____MODULE
-		public void user_navigate_to_Invoicepage1(String src) throws Exception {
+		public void user_navigate_to_Invoicepage1() throws Exception {
 			Thread.sleep(8000);
 
 			Clickelement(Invoicesearch);
@@ -50,7 +50,7 @@ public class Registrar_Invoice_Object extends Baseclass {
 			sendkeyweb(Appsearchsend, ConfigReader.getProperty("DomainName"));
 			//sendkeyweb(Appsearchsend, "rohantech.bank.in");
 			List<WebElement> DomainName=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("DomainName")+"']/following-sibling::td"));
-			List<WebElement> DomainName1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']/preceding-sibling::td"));
+			List<WebElement> DomainName1=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("DomainName")+"']/preceding-sibling::td"));
 
 			//
 //			validatetext(Domain1.get(0)
