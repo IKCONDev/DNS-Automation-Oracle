@@ -31,7 +31,7 @@ public class Registrar_Settings_Registrant_UserManagement_Object extends Basecla
 	@FindBy(xpath="//a[normalize-space()='Registrant User Management']")
 	public WebElement RegistrantUserManagementSearch ;
 	
-	public void user_navigate_to_Settingspage_and_Check_RegistrantUserManagement_Textvalidations(String src) throws Exception {
+	public void user_navigate_to_Settingspage_and_Check_RegistrantUserManagement_Textvalidations() throws Exception {
 
 		Clickelement(Settingssearch);
 		Thread.sleep(3000);
@@ -53,7 +53,7 @@ public class Registrar_Settings_Registrant_UserManagement_Object extends Basecla
 		//List<WebElement> values1 = driver.findElements(By.xpath("//tbody[@class='mdc-data-table__content']//tr[1]"));
 		
 		List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//following-sibling::td"));
-		List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']//preceding-sibling::td"));
+		List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//preceding-sibling::td"));
 
 		//
 		
@@ -70,11 +70,11 @@ public class Registrar_Settings_Registrant_UserManagement_Object extends Basecla
 		validatetext(Orgname.get(3), ""); 
 	}
 		
-		public void user_navigate_to_Settingspage_and_Check_RegistrantUserManagement_Textvalidations1(String src) throws Exception {
+		public void user_navigate_to_Settingspage_and_Check_RegistrantUserManagement_Textvalidations1() throws Exception {
 		
 		//dispalyedattribute(Orgname.get(4), "29");
 			List<WebElement> Orgname=driver.findElements(By.xpath("(//td[@role='cell'][normalize-space()='"+ConfigReader.getProperty("OrgName")+"'])[2]/following-sibling::td"));
-			List<WebElement> Orgname1=driver.findElements(By.xpath("(//td[@role='cell'][normalize-space()='"+src+"'])[2]/preceding-sibling::td"));
+			List<WebElement> Orgname1=driver.findElements(By.xpath("(//td[@role='cell'][normalize-space()='"+ConfigReader.getProperty("OrgName")+"'])[2]/preceding-sibling::td"));
 
 			//
 			
@@ -94,11 +94,11 @@ public class Registrar_Settings_Registrant_UserManagement_Object extends Basecla
 
 
 	}
-		public void user_navigate_to_Settingspage_and_Check_RegistrantUserManagement_Textvalidations2(String src) throws Exception {
+		public void user_navigate_to_Settingspage_and_Check_RegistrantUserManagement_Textvalidations2() throws Exception {
 			
 			//dispalyedattribute(Orgname.get(4), "29");
 			List<WebElement> Orgname=driver.findElements(By.xpath("(//td[@role='cell'][normalize-space()='"+ConfigReader.getProperty("OrgName")+"'])[3]/following-sibling::td"));
-			List<WebElement> Orgname1=driver.findElements(By.xpath("(//td[@role='cell'][normalize-space()='"+src+"'])[3]/preceding-sibling::td"));
+			List<WebElement> Orgname1=driver.findElements(By.xpath("(//td[@role='cell'][normalize-space()='"+ConfigReader.getProperty("OrgName")+"'])[3]/preceding-sibling::td"));
 
 				//
 			 dispalyedattribute(Orgname1.get(0), "ID");
@@ -116,11 +116,11 @@ public class Registrar_Settings_Registrant_UserManagement_Object extends Basecla
 
 
 		}
-		public void user_navigate_to_Settingspage_and_Check_RegistrantUserManagement_Textvalidations3(String src) throws Exception {
+		public void user_navigate_to_Settingspage_and_Check_RegistrantUserManagement_Textvalidations3() throws Exception {
 			
 			//dispalyedattribute(Orgname.get(4), "29");
 			List<WebElement> Orgname=driver.findElements(By.xpath("(//td[@role='cell'][normalize-space()='"+ConfigReader.getProperty("OrgName")+"'])[4]/following-sibling::td"));
-			List<WebElement> Orgname1=driver.findElements(By.xpath("(//td[@role='cell'][normalize-space()='"+src+"'])[4]/preceding-sibling::td"));
+			List<WebElement> Orgname1=driver.findElements(By.xpath("(//td[@role='cell'][normalize-space()='"+ConfigReader.getProperty("OrgName")+"'])[4]/preceding-sibling::td"));
 
 				//
 				

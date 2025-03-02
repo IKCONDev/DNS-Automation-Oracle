@@ -18,10 +18,10 @@ public class Registrar_Invoice {
 	
 	
 	
-	@Then("Registrar can Navigate to Invoice Page  check {string} Textvalidations")
-	public void User_Navigate_to_invoice_Page1(String src) throws Exception {
+	@Then("Registrar can Navigate to Invoice Page  check Textvalidations")
+	public void User_Navigate_to_invoice_Page1() throws Exception {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
-		RI.user_navigate_to_Invoicepage1(src);
+		RI.user_navigate_to_Invoicepage1();
 	
 	}
 	

@@ -22,20 +22,20 @@ public void User_Navigate_to_Domain_Page() throws Exception {
 	
 
 }
-@Then("Registrar  check DomaintableData {string} Textvalidations")
-public void User_Can_Check_DomaintableData_in_Domain_Page(String src) throws Exception {
+@Then("Registrar  check DomaintableData Textvalidations")
+public void User_Can_Check_DomaintableData_in_Domain_Page() throws Exception {
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 	
-	RD.User_Can_Check_DomaintableData_in_Domain_Page(src);
+	RD.User_Can_Check_DomaintableData_in_Domain_Page();
 	
 
 }
-@Then("Registrar  check AllFieldsData {string} {string} Textvalidations in Domain Page")
-public void user_validatetext_AllFields_in_Domainpage(String src,String src1) throws Exception {
+@Then("Registrar  check AllFieldsData {string} Textvalidations in Domain Page")
+public void user_validatetext_AllFields_in_Domainpage(String src1) throws Exception {
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 	
 	
-	RD.user_validatetext_AllFields_in_Domainpage(src,src1);
+	RD.user_validatetext_AllFields_in_Domainpage(src1);
 
 }
 }
