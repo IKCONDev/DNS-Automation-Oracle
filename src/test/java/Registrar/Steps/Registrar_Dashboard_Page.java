@@ -28,8 +28,9 @@ public void User_textvaladation_in_Home_Main_Page1() throws Exception {
 	
 }
 @Then("Registrar  check  Create ApplicationQuee TextValidations in Home Page")
-public void  Create_ApplicationQuee_TextValidations_in_Home_Page(String src)  throws Exception {
+public void  Create_ApplicationQuee_TextValidations_in_Home_Page()  throws Exception {
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+	RB.Create_ApplicationQuee_TextValidations_in_Home_Page();
 }
 
 }

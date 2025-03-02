@@ -270,10 +270,12 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 		Clickelement(delete3);
 		Thread.sleep(3000);
 		//validatealert("Are you sure, you really want to delete this name server record ?");
+		Thread.sleep(5000);
 		driver.switchTo().alert().accept();
 		Thread.sleep(3000);
 		Clickelement(delete4);
 		//validatealert("Are you sure, you really want to delete this name server record ?");
+		Thread.sleep(5000);
 		driver.switchTo().alert().accept();
 		
 		

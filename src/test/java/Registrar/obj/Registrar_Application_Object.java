@@ -192,6 +192,18 @@ public WebElement AApp_no ;
 public WebElement Asub_date ;
 @FindBy(xpath = "//p[normalize-space()='Application Status']/following-sibling::div")
 public WebElement Astatus ;
+
+@FindBy(xpath = "//p[normalize-space()='Organization']/following-sibling::div")
+public WebElement DOrg_name ;
+@FindBy(xpath = "//p[normalize-space()='Domain']//following-sibling::div")
+public WebElement Ddn_name ;
+@FindBy(xpath = "//p[normalize-space()='Renewal Date']//following-sibling::div")
+public WebElement DApp_rendate ;
+@FindBy(xpath = "//p[normalize-space()='Registration Date']//following-sibling::div")
+public WebElement Dsub_date ;
+@FindBy(xpath = "//p[normalize-space()='Domain Status']/following-sibling::div")
+public WebElement Dstatus ;
+
 public void User_Can_Check_OrganisationDetails_Textvalidations_in_Applications_Page() throws Exception{
 	validatetext(Domainapptxtval, "Applications Details");
 	validatetext(ApplicationNotxtval, "Application No");
@@ -902,18 +914,22 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 }
 @FindBy(xpath="//mat-icon[normalize-space()='description']")
 public WebElement Invoicesearch ;
-
+////h5[contains(text(),'Payment Status')]//following-sibling::div
 @FindBy(xpath="//tbody/tr[1]/td[6]/span[1]//*[name()='svg']")
 public WebElement InvoiceDownloadbutton;
 @FindBy(xpath="(//td[normalize-space()='Approved for payment']/preceding-sibling::td)[6]")
 public WebElement InvoiceDownloadbutton1;
-@FindBy(xpath="//select[@class='form-control ng-pristine ng-valid ng-touched']")
-public WebElement selectNSrecords ;
+@FindBy(xpath="(//select[@class='form-control form-select ng-untouched ng-pristine ng-valid'])[1]")
+public WebElement selectpaystatus ;
 @FindBy(xpath="//input[@placeholder='Search']")
 public WebElement Domainsearchclick;
+
 @FindBy(xpath = "//p[normalize-space()='Renewal Date']//following-sibling::div")
 public WebElement AApp_rendate ;
-
+@FindBy(xpath="//button[normalize-space()='Submit']")
+public WebElement submitclick1 ;
+@FindBy(xpath="//h5[contains(text(),'NS Status')]//following-sibling::select")
+public WebElement selectnsrecords;
 public void Registrar_can_Approve_Registrant_Application() throws Exception {
 	Thread.sleep(5000);
 	Clickelement(Appsearch);
@@ -940,17 +956,38 @@ public void Registrar_can_Approve_Registrant_Application() throws Exception {
 		
 		e.printStackTrace();
 	}
-	
+	Thread.sleep(3000);
 	try {
-		Selectdropdown(selectNSrecords, "Approved");
+		Selectdropdown(selectpaystatus, "Payment Approved");
 	} catch (Exception e) {
 		
 		e.printStackTrace();
 	}
+	Thread.sleep(3000);
+	try {
+		Selectdropdown(selectnsrecords, "Approved");
+	} catch (Exception e) {
+		
+		e.printStackTrace();
+	}
+	Thread.sleep(2000);
+	try {
+		Clickelement(submitclick1);
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
 }
+
+@FindBy(xpath="//mat-icon[normalize-space()='public']")
+public WebElement Domainsclick ;
 	public void Registrar_can_Check_Registrant_Application_Domain() throws Exception {
-	Thread.sleep(5000);
-	Clickelement(Domainsearchclick);
+		Thread.sleep(3000);
+		Clickelement(Domainsclick);
+	
+	
+	//Clickelement(Domainsearchclick);
 	sendkeyweb(Appsearchsend, ConfigReader.getProperty("DomainName"));
 	List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']/following-sibling::td"));
 	List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']/preceding-sibling::td"));
@@ -965,16 +1002,19 @@ public void Registrar_can_Approve_Registrant_Application() throws Exception {
 	validatetext(Orgname.get(1),ConfigReader.getProperty("DomRenewalDate"));
 	validatetext(Orgname.get(2), ConfigReader.getProperty("Domstatus"));
 	
-	validatetext(Adn_name, ConfigReader.getProperty("DomainName"));
-	configWriter.setProperty("DRStatus", Astatus.getText());
-	validatetext(Astatus, ConfigReader.getProperty("DRStatus"));
-    validatetext(AOrg_name, ConfigReader.getProperty("OrgName"));	
-    configWriter.setProperty("AppSubmissionDate", Asub_date.getText());
-	validatetext(Asub_date, ConfigReader.getProperty("AppSubmissionDate"));
+	Thread.sleep(3000);
+	Clickelement(Orgname1.get(0));
+	
+	validatetext(Ddn_name, ConfigReader.getProperty("DomainName"));
+	configWriter.setProperty("DRStatus", Dstatus.getText());
+	validatetext(Dstatus, ConfigReader.getProperty("DRStatus"));
+    validatetext(DOrg_name, ConfigReader.getProperty("OrgName"));	
+    configWriter.setProperty("AppSubmissionDate", Dsub_date.getText());
+	validatetext(Dsub_date, ConfigReader.getProperty("AppSubmissionDate"));
 	//configWriter.setProperty("DomRenewalDate", Orgname.get(1).getText());
 	//configWriter.saveProperties();
-	 configWriter.setProperty("DomRenewalDate", AApp_rendate.getText());
-	validatetext(AApp_rendate, ConfigReader.getProperty("DomRenewalDate"));
+	 configWriter.setProperty("DomRenewalDate", DApp_rendate.getText());
+	validatetext(DApp_rendate, ConfigReader.getProperty("DomRenewalDate"));
 	}
 
 	public void Registrar_can_check_Registrant_Application_Invoice() throws Exception {
