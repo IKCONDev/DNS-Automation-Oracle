@@ -381,7 +381,7 @@ public class Registrant_login_object extends Baseclass {
 	public void user_should_get_logged_in(String domain) throws InterruptedException{
 		 
        configWriter.setProperty("Domain", domain);
-      
+       configWriter.setProperty("DomainName", domain+".bank.in");
 		Thread.sleep(2000);
 		validatetext(Domain_button, "Got it!");
 		Clickelement(Domain_button);
@@ -435,7 +435,7 @@ public class Registrant_login_object extends Baseclass {
 		validatetext(org_upload,"Documents");
 			
 		configWriter.setProperty("Orgname", Name);
-		
+		configWriter.setProperty("OrgName", Name);
 		
 		sendkeyweb(org_name, Name);
 		sendkeyweb(org_pin, PIN);

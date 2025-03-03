@@ -3,6 +3,7 @@ package Registrar.obj;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -152,7 +153,7 @@ public WebElement OrganizationDetailstxtval;
 public WebElement InstitutionNametxtval;
 @FindBy(xpath="//input[@placeholder='Enter your Institute Name']")
 public WebElement Institionnameplaceholderval;
-@FindBy(xpath="//h5[normalize-space()='Pin Code']")
+@FindBy(xpath="//h5[normalize-space()='Pincode']")
 public WebElement PinCodetxtval;
 @FindBy(xpath="//input[@placeholder='Enter a pin code']")
 public WebElement PinCodeeditval;
@@ -587,7 +588,7 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 	Thread.sleep(3000);
 	Clickelement(AOadharAproveClick);
 	Thread.sleep(3000);
-	sendkeyweb(AOadharApprovalCommentClick, "");
+	sendkeyweb(TOadharApprovalCommentClick, "Approved");
 	Thread.sleep(3000);
 	Clickelement(AOadharApprovalSavechangesClick);
 	Thread.sleep(3000);
@@ -603,7 +604,7 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 	Thread.sleep(3000);
 	Clickelement(AOPanAproveClick);
 	Thread.sleep(3000);
-	sendkeyweb(AOadharApprovalCommentClick, "");
+	sendkeyweb(TOadharApprovalCommentClick, "Approved");
 	Thread.sleep(3000);
 	Clickelement(AOpanApprovalSavechangesClick);
 	Thread.sleep(3000);
@@ -618,7 +619,7 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 	Thread.sleep(3000);
 	Clickelement(AOODAproveClick);
 	Thread.sleep(3000);
-	sendkeyweb(AOadharApprovalCommentClick, "");
+	sendkeyweb(TOadharApprovalCommentClick, "Approved");
 	Thread.sleep(3000);
 	Clickelement(AOODApprovalSavechangesClick);
 	Thread.sleep(3000);
@@ -638,7 +639,7 @@ public WebElement TOAdharverify ;
 @FindBy(xpath="(//button[text()='Close'])[3]")
 public WebElement TOadharclosebutton ;
 
-@FindBy(xpath="(//textarea[@class='ng-untouched ng-pristine ng-valid'])[1]")
+@FindBy(xpath="(//div[@class='modal-body']//textarea)[1]")
 public WebElement TOadharApprovalCommentClick ;
 @FindBy(xpath="(//button[text()='Save changes'])[1]")
 public WebElement TOadharApprovalSavechangesClick ;
@@ -706,7 +707,7 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 	Thread.sleep(3000);
 	Clickelement(TOadharAproveClick);
 	Thread.sleep(3000);
-	sendkeyweb(TOadharApprovalCommentClick, "");
+	sendkeyweb(TOadharApprovalCommentClick, "Approved");
 	Clickelement(TOadharApprovalSavechangesClick);
 	Thread.sleep(3000);
 	validatetext(Toastermessage,"Document Approved.");
@@ -721,7 +722,7 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 	Thread.sleep(3000);
 	Clickelement(TOPanAproveClick);
 	Thread.sleep(3000);
-	sendkeyweb(TOadharApprovalCommentClick, "");
+	sendkeyweb(TOadharApprovalCommentClick, "Approved");
 	Thread.sleep(3000);
 	Clickelement(TOpanApprovalSavechangesClick);
 	Thread.sleep(3000);
@@ -738,7 +739,7 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 	Thread.sleep(3000);
 	Clickelement(TOODAproveClick);
 	Thread.sleep(3000);
-	sendkeyweb(TOadharApprovalCommentClick, "");
+	sendkeyweb(TOadharApprovalCommentClick, "Approved");
 	Thread.sleep(3000);
 	Clickelement(TOODApprovalSavechangesClick);
 	Thread.sleep(3000);
@@ -861,7 +862,7 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 	Thread.sleep(3000);
 	Clickelement(BOadharAproveClick);
 	Thread.sleep(3000);
-	sendkeyweb(BOadharApprovalCommentClick, " ");
+	sendkeyweb(TOadharApprovalCommentClick, "Approved");
 	Thread.sleep(3000);
 	Clickelement(BOadharApprovalSavechangesClick);
 	Thread.sleep(3000);
@@ -878,7 +879,7 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 	Thread.sleep(3000);
 	Clickelement(BOPanAproveClick);
 	Thread.sleep(3000);
-	sendkeyweb(TOadharApprovalCommentClick, "");
+	sendkeyweb(TOadharApprovalCommentClick, "Approved");
 	Thread.sleep(3000);
 	Clickelement(BOpanApprovalSavechangesClick);
 	Thread.sleep(3000);
@@ -895,7 +896,7 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 	Thread.sleep(3000);
 	Clickelement(BOODAproveClick);
 	Thread.sleep(3000);
-	sendkeyweb(BOadharApprovalCommentClick, "");
+	sendkeyweb(TOadharApprovalCommentClick, "Approved");
 	Thread.sleep(3000);
 	Clickelement(BOODApprovalSavechangesClick);
 	Thread.sleep(3000);
@@ -1000,7 +1001,9 @@ public WebElement Domainsclick ;
 	configWriter.setProperty("DomRenewalDate", Orgname.get(1).getText());
 	configWriter.saveProperties();
 	validatetext(Orgname.get(1),ConfigReader.getProperty("DomRenewalDate"));
-	validatetext(Orgname.get(2), ConfigReader.getProperty("Domstatus"));
+	//JavascriptExecutor jsExecutor = (JavascriptExecutor)driver;
+	//jsExecutor.executeScript("document",)
+	validatetext(Orgname.get(2), ConfigReader.getProperty("Domstatus1"));
 	
 	Thread.sleep(3000);
 	Clickelement(Orgname1.get(0));
@@ -1036,8 +1039,8 @@ public WebElement Domainsclick ;
 
 	//
 //	validatetext(Domain1.get(0)
-	dispalyedattribute(DomainName1.get(0), "checkbox");
-	dispalyedattribute(DomainName1.get(1), "ID");
+	//dispalyedattribute(DomainName1.get(0), "checkbox");
+	dispalyedattribute(DomainName1.get(0), "ID");
 	//validatetext(Domain1.get(1), ConfigReader.getProperty("6"));
 	validatetext(DomainName1.get(2), ConfigReader.getProperty("OrgName"));
 	//validatet(Orgname.get(0), "Ikcontech solutions");
