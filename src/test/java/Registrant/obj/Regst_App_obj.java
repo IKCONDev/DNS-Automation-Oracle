@@ -40,6 +40,10 @@ public class Regst_App_obj extends Baseclass {
 	public WebElement Search ;
 	@FindBy(xpath = "//button[contains(@aria-label,'Next page')]")
 	public WebElement nextpage ;
+	@FindBy(xpath = "//button[normalize-space()='Pay Now']")
+	public WebElement paynowbtn ;
+	
+	
 	
 	public void elementnot(WebElement e) {
 		if(e.isDisplayed()) {
@@ -65,18 +69,16 @@ public class Regst_App_obj extends Baseclass {
 		
 		validatetext(Table_data.get(2), "Under Review");
 		if(Table_data.get(3).getText().contains("Approved for payment")) {
-			Clickelement(Table_data.get(6));
+			Clickelement(paynowbtn);
 			driver.navigate().back();
 			Thread.sleep(2000);
 			driver.navigate().refresh();
+		}else {
+			validatetext(Table_data.get(3), "Payment Not Done");
 		}
 		List<WebElement> APP_ID1=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/preceding-sibling::td"));
 		List<WebElement> Table_data1=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/following-sibling::td"));
-		try {
-		validatetext(Table_data1.get(3), "Payment Not Done");
-		}catch (Exception e) {
 		validatetext(Table_data1.get(3), "Payment Completed");
-		}
 		validatetext(Table_data1.get(4), "OnHold");
 		validatetext(Table_data1.get(5), "5");
 		validatetext(Table_data1.get(6), "Pay Now");

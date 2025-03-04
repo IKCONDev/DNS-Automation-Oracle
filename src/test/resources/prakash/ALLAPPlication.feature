@@ -9,8 +9,8 @@ Feature: Registrant Onboarding
     Then User enters "<username>" and "<password>"
 
     Examples: 
-      | username            | password | Case  |
-      | venkat.u@komali.com | Test@123 | Valid |
+      | username               | password | Case  |
+      | venkat.p@swandhana.com | Test@123 | Valid |
 
   Scenario Outline: DSC Verify
     And User enters the dsc details
@@ -20,8 +20,8 @@ Feature: Registrant Onboarding
     Then User enters organisation details "<domain>" "<PIN>" "<Address>" "<Tel>" "<Mob>" "<Email>" "<GST>" "<PAN>" "<License>"
 
     Examples: 
-      | domain | PIN    | Address                                  | Tel        | Mob        | Email | GST             | PAN        | License               |
-      | komal  | 500090 | CYBERTOWERS,Madhapur,HEDERABAD,Telangana | 9685578941 | 9685578945 | foya@ | 22ABCDE0000A1J5 | ASDEE4455Q | L12345MH2023PLC000001 |
+      | domain    | PIN    | Address                                  | Tel        | Mob        | Email | GST             | PAN        | License               |
+      | swandhana | 500090 | CYBERTOWERS,Madhapur,HEDERABAD,Telangana | 9685578941 | 9685578945 | foya@ | 22ABCDE0000A1J5 | ASDEE4455Q | L12345MH2023PLC000001 |
 
   Scenario Outline: Admin Contact details
     Then User enters admin contact details "<Name>" "<Tel>" "<Mob>" "<Email>" "<Aadhar>" "<PAN>" "<Desig>"
@@ -48,8 +48,8 @@ Feature: Registrant Onboarding
     Then User enters name server details "<NS1>" "<IP1>" "<NS2>" "<IP2>"
 
     Examples: 
-      | NS1     | NS2     | IP1        | IP2        |
-      | Office1 | office2 | 1.10.72.21 | 1.10.72.12 |
+      | NS1     | NS2     | IP1         | IP2         |
+      | Office1 | office2 | 193.0.21.12 | 193.0.12.21 |
 
   Scenario Outline: Preview and Submit
     Then User preview and submit onboarding
@@ -79,7 +79,7 @@ Feature: Registrant Onboarding
     Then User Validate the officer details management page
     Then User logout the application
 
-  #2nd Step
+ #2nd Step
   Scenario Outline: Registrar Login Page
     Given Registrar is on Landing Page1
     Then Registrar Can Check  Textvaladations in Login Page
@@ -114,11 +114,12 @@ Feature: Registrant Onboarding
   Scenario Outline: Registrar  Domain Page
     Then Registrar can Navigate to Domain Page can check Textvalidations
     Then Registrar  check DomaintableData Textvalidations
-    Then Registrar  check AllFieldsData "<Status3>" "<IP1>" "<IP2>" Textvalidations in Domain Page
+    Then Registrar  check AllFieldsData  "<IP2>" "<IP1>" Textvalidations in Domain Page
+    Then Registrar  check Final "<Status2>" Functionalities in Domains Page
 
     Examples: 
-      | IP2        | IP1        | Status3              |
-      | 1.10.21.51 | 1.10.13.50 | Approved for payment |
+      | IP2          | IP1          | Status2          |
+      | 199.20.12.21 | 199.20.12.22 | Payment Not Done |
 
   Scenario Outline: Registrar Invoice  Page
     Then Registrar can Navigate to Invoice Page  check Textvalidations
@@ -169,8 +170,8 @@ Feature: Registrant Onboarding
     Then User enters "<username>" and "<password>"
 
     Examples: 
-      | username            | password | Case  |
-      | venkat.u@komali.com | Test@123 | Valid |
+      | username               | password | Case  |
+      | venkat.p@swandhana.com | Test@123 | Valid |
 
   Scenario Outline: DSC Verify
     And User enters the dsc details
@@ -193,9 +194,10 @@ Feature: Registrant Onboarding
   Scenario Outline: Application
     Then Registrar  check Final Functionalities in Applications Page
     Then Registrar check Final Functionalities in Domain Page
+    #Then Registrar  check Final "<Status3>" Final Functionalities in Domains Page
     #Then Registrar  check Final Functionalities in Invoice Page
     Then Registrar Can Check  logout funcionality
 
     Examples: 
-      | OrgName  | DomainName        |
-      | MaxTecho | hindustan.bank.in |
+      | OrgName  | DomainName        | Status3              |
+      | MaxTecho | hindustan.bank.in | Approved for payment |
