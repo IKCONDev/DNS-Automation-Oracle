@@ -9,8 +9,8 @@ Feature: Registrant Onboarding
     Then User enters "<username>" and "<password>"
 
     Examples: 
-      | username          | password | Case  |
-      | venkat.j@urban.com | Test@123 | Valid |
+      | username            | password | Case  |
+      | venkat.u@komali.com | Test@123 | Valid |
 
   Scenario Outline: DSC Verify
     And User enters the dsc details
@@ -21,7 +21,7 @@ Feature: Registrant Onboarding
 
     Examples: 
       | domain | PIN    | Address                                  | Tel        | Mob        | Email | GST             | PAN        | License               |
-      | urban | 500090 | CYBERTOWERS,Madhapur,HEDERABAD,Telangana | 9685578941 | 9685578945 | foya@ | 22ABCDE0000A1J5 | ASDEE4455Q | L12345MH2023PLC000001 |
+      | komal  | 500090 | CYBERTOWERS,Madhapur,HEDERABAD,Telangana | 9685578941 | 9685578945 | foya@ | 22ABCDE0000A1J5 | ASDEE4455Q | L12345MH2023PLC000001 |
 
   Scenario Outline: Admin Contact details
     Then User enters admin contact details "<Name>" "<Tel>" "<Mob>" "<Email>" "<Aadhar>" "<PAN>" "<Desig>"
@@ -49,7 +49,7 @@ Feature: Registrant Onboarding
 
     Examples: 
       | NS1     | NS2     | IP1        | IP2        |
-      | Office1 | office2 | 1.10.82.59 | 1.10.82.60 |
+      | Office1 | office2 | 1.10.72.21 | 1.10.72.12 |
 
   Scenario Outline: Preview and Submit
     Then User preview and submit onboarding
@@ -118,7 +118,7 @@ Feature: Registrant Onboarding
 
     Examples: 
       | IP2        | IP1        | Status3              |
-      | 1.10.72.51 | 1.10.82.50 | Approved for payment |
+      | 1.10.21.51 | 1.10.13.50 | Approved for payment |
 
   Scenario Outline: Registrar Invoice  Page
     Then Registrar can Navigate to Invoice Page  check Textvalidations
@@ -169,8 +169,8 @@ Feature: Registrant Onboarding
     Then User enters "<username>" and "<password>"
 
     Examples: 
-      | username          | password | Case  |
-      | venkat.l@ilbc.com | Test@123 | Valid |
+      | username            | password | Case  |
+      | venkat.u@komali.com | Test@123 | Valid |
 
   Scenario Outline: DSC Verify
     And User enters the dsc details
