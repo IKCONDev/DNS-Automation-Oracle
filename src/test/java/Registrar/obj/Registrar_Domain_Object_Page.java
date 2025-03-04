@@ -183,7 +183,7 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 	
 	
 	
-	public void user_validatetext_AllFields_in_Domainpage(String src1,String IP1,String IP2) throws Exception { 
+	public void user_validatetext_AllFields_in_Domainpage(String IP1,String IP2) throws Exception { 
 		Thread.sleep(3000);
 		List<WebElement> DomainName1=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("DomainName")+"']/preceding-sibling::td"));
 		Clickelement(DomainName1.get(0));
@@ -292,7 +292,11 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 		validatetext(Invoicedatetxtval1, "Invoice Date");
 		validatetext(statustxtval1, "Status");
 		Thread.sleep(5000);
-		List<WebElement> Status2=driver.findElements(By.xpath("//div[normalize-space()='"+src1+"']/preceding-sibling::div"));
+	}
+		public void user_validatetext_BillingHistory_Fields(String src) throws Exception
+		{
+		
+		List<WebElement> Status2=driver.findElements(By.xpath("//div[normalize-space()='"+src+"']/preceding-sibling::div"));
 
 		//
 		dispalyedattribute(Status2.get(0), "ID"); //
@@ -307,10 +311,27 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 		
 		
 	}
+		public void user_validatetext_BillingHistory_Fields_finalsdtage(String src) throws Exception
+		{
+		
+		List<WebElement> Status3=driver.findElements(By.xpath("//div[normalize-space()='"+src+"']/preceding-sibling::div"));
 
+		//
+		dispalyedattribute(Status3.get(0), "ID"); //
+		configWriter.setProperty("InAmount", Status3.get(1).getText());
+		configWriter.saveProperties();
+		validatetext(Status3.get(1), ConfigReader.getProperty("InAmount"));
+		configWriter.setProperty("InvoiceDate", Status3.get(2).getText());
+		configWriter.saveProperties();
+		validatetext(Status3.get(2), ConfigReader.getProperty("InvoiceDate"));
+		
+		
+		
+		
+	}
 
-
+	}
 	
 	
 	
-}
+

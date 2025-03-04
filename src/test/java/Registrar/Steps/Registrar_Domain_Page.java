@@ -30,12 +30,34 @@ public void User_Can_Check_DomaintableData_in_Domain_Page() throws Exception {
 	
 
 }
-@Then("Registrar  check AllFieldsData {string} {string} {string} Textvalidations in Domain Page")
-public void user_validatetext_AllFields_in_Domainpage(String src1,String ip1,String ip2) throws Exception {
+@Then("Registrar  check AllFieldsData  {string} {string} Textvalidations in Domain Page")
+public void user_validatetext_AllFields_in_Domainpage(String ip1,String ip2) throws Exception {
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 	
 	
-	RD.user_validatetext_AllFields_in_Domainpage(src1,ip1,ip2);
+	RD.user_validatetext_AllFields_in_Domainpage(ip1,ip2);
+	
 
 }
+@Then("Registrar  check Final {string} Functionalities in Domains Page")
+public void Registrar_can_Approve_Registrant_Application(String src)throws Exception  {
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+	RD.user_validatetext_BillingHistory_Fields(src);
+	
+}
+
+
+@Then("Registrar  check Final {string} Final Functionalities in Domains Page")
+public void user_validatetext_BillingHistory_Fields_finalsdtage(String src)throws Exception  {
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+	RD.user_validatetext_BillingHistory_Fields(src);
+	
+}
+
+
+
+
+
+
+
 }
