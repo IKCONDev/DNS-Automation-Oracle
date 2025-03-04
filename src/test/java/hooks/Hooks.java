@@ -1,6 +1,5 @@
 package hooks;
 
-import java.io.IOException;
 import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 import com.aventstack.extentreports.ExtentReports;
@@ -26,7 +25,7 @@ public class Hooks {
     }
 
     @BeforeAll
-    public static void before_all() {
+    public static void before_all() throws Exception {
         System.out.println("================ BEFORE ALL ================");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 
@@ -45,11 +44,12 @@ public class Hooks {
     }
 
     @AfterAll
-    public static void after_all() {
+    public static void after_all() throws Exception {
         System.out.println("================ AFTER ALL ================");
         if (exp != null) {
             exp.flush(); // Finalize the report
         }
+        
        // driver.quit(); // Close WebDriver after all tests
     }
 
@@ -68,13 +68,15 @@ public class Hooks {
     }
 
     @Before
-    public void bef(Scenario scenario) {
+    public void bef(Scenario scenario) throws Exception {
+    	
         // Create a new test for each scenario
         test1 = exp.createTest(scenario.getName());
     }
 
     @After
-    public void cleanup() throws IOException {
+    public void cleanup() throws Exception {
         // You no longer need to flush here since it's done in @AfterAll
+    	
     }
 }
