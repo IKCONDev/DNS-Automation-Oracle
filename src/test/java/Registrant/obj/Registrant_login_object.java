@@ -444,7 +444,7 @@ public class Registrant_login_object extends Baseclass {
 		sendkeyweb(Country_Code, "+91");
 		sendkeyweb(org_telephone, Tel);
 		sendkeyweb(org_number, Mob);
-		sendkeyweb(org_email, Email);
+		sendkeyweb(org_email, Email+ConfigReader.getProperty("OrgName")+".com");
 	}
 		
 		
@@ -509,13 +509,13 @@ public class Registrant_login_object extends Baseclass {
 
 	public void User_enters_contact_details(String Name,String Tel,String  Mob,String  Email,String Desig) throws AWTException, InterruptedException {
 		configWriter.setProperty("admin_fname", Name);
-		configWriter.setProperty("admin_email", Email);
+		configWriter.setProperty("admin_email", Email+ConfigReader.getProperty("OrgName")+".com");
 		configWriter.setProperty("admin_phone", Tel);
 		configWriter.setProperty("admin_altphone", Mob);
 		configWriter.setProperty("admin_desig", Desig);
 		
 		sendkeyweb(admin_fname, Name);
-		sendkeyweb(admin_email, Email);
+		sendkeyweb(admin_email, Email+ConfigReader.getProperty("OrgName")+".com");
 		sendkeyweb(Country_code.get(1), "+91");
 		sendkeyweb(admin_phone, Tel);
 		sendkeyweb(Country_code.get(2), "+91");
@@ -564,7 +564,7 @@ public class Registrant_login_object extends Baseclass {
 	public void User_enters_technical_contact_details(String Name,String Tel,String  Mob,String  Email,String Desig) throws AWTException, InterruptedException {
 		
 		configWriter.setProperty("tech_fname", Name);
-		configWriter.setProperty("tech_email", Email);
+		configWriter.setProperty("tech_email", Email+ConfigReader.getProperty("OrgName")+".com");
 		sendkeyweb(Country_code.get(3), "+91");
 		configWriter.setProperty("tech_phone", Tel);
 		sendkeyweb(Country_code.get(4), "+91");
@@ -573,7 +573,7 @@ public class Registrant_login_object extends Baseclass {
 		
 		
 		sendkeyweb(tech_fname, Name);
-		sendkeyweb(tech_email, Email);
+		sendkeyweb(tech_email, Email+ConfigReader.getProperty("OrgName")+".com");
 		sendkeyweb(tech_phone, Tel);
 		sendkeyweb(tech_altphone, Mob);
 		sendkeyweb(tech_desig, Desig);
@@ -622,13 +622,13 @@ public class Registrant_login_object extends Baseclass {
 	public void User_enters_billing_contact_details(String Name,String Tel,String  Mob,String  Email,String Desig) throws AWTException, InterruptedException {
 		
 		configWriter.setProperty("bill_fname", Name);
-		configWriter.setProperty("bill_email", Email);
+		configWriter.setProperty("bill_email", Email+ConfigReader.getProperty("OrgName")+".com");
 		configWriter.setProperty("bill_phone", Tel);
 		configWriter.setProperty("bill_altphone",Mob);
 		configWriter.setProperty("bill_desig", Desig);
 		
 		sendkeyweb(bill_fname, Name);
-		sendkeyweb(bill_email, Email);
+		sendkeyweb(bill_email, Email+ConfigReader.getProperty("OrgName")+".com");
 		sendkeyweb(Country_code.get(5), "+91");
 		sendkeyweb(bill_phone, Tel);
 		sendkeyweb(Country_code.get(6), "+91");

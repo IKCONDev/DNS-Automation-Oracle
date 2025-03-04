@@ -73,8 +73,8 @@ public class Registrar_Settings_Registrant_UserManagement_Object extends Basecla
 		public void user_navigate_to_Settingspage_and_Check_RegistrantUserManagement_Textvalidations1() throws Exception {
 		
 		//dispalyedattribute(Orgname.get(4), "29");
-			List<WebElement> Orgname=driver.findElements(By.xpath("(//td[@role='cell'][normalize-space()='"+ConfigReader.getProperty("OrgName")+"'])[2]/following-sibling::td"));
-			List<WebElement> Orgname1=driver.findElements(By.xpath("(//td[@role='cell'][normalize-space()='"+ConfigReader.getProperty("OrgName")+"'])[2]/preceding-sibling::td"));
+			List<WebElement> Orgname=driver.findElements(By.xpath("(//td[@role='cell'][normalize-space()='"+ConfigReader.getProperty("OrgName")+"'])/following-sibling::td"));
+			List<WebElement> Orgname1=driver.findElements(By.xpath("(//td[@role='cell'][normalize-space()='"+ConfigReader.getProperty("OrgName")+"'])/preceding-sibling::td"));
 
 			//
 			

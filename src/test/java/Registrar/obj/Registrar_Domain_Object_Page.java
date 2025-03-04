@@ -67,7 +67,7 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 	@FindBy(xpath="//div[text()='Active']")
 	public WebElement InActivetxtval1;
 
-	@FindBy(xpath="//h2[text()='Name Server Details']")
+	@FindBy(xpath="//h2[text()='Name Servers']")
 	public WebElement Nameserverstxtval1;
 	@FindBy(xpath="//div[text()='Host Name']")
 	public WebElement Hostnametxtval;
@@ -132,7 +132,7 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 
 	}
 
-	@FindBy(xpath="(//*[local-name()='svg' or xmlns='http://www.w3.org/2000/svg'])[6]")
+	@FindBy(xpath="((//div//h2[contains(text(),'Name Servers')])/following::div)[1]")
 	public WebElement Clicknameseraddbtn;
 	@FindBy(xpath="//input[@id='3host']")
 	public WebElement Nameserver3hostinbox;
@@ -146,9 +146,9 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 	public WebElement addmorebuttonns;
 	@FindBy(xpath="//button[normalize-space()='Save & Next']")
 	public WebElement savebuttonns;
-	@FindBy(xpath="(//button[@id='trashIcon'])[3]")
-	public WebElement delete3;
 	@FindBy(xpath="(//button[@id='trashIcon'])[4]")
+	public WebElement delete3;
+	@FindBy(xpath="(//button[@id='trashIcon'])[3]")
 	public WebElement delete4;
 	@FindBy(xpath="//th")
 	public List<WebElement> Tabledata;
@@ -169,6 +169,8 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 	public WebElement nsdetailstxtval;
 	@FindBy(xpath = "//label[@for='hasNSDetailsNo']")
 	public WebElement nsdnotxtval ;
+	@FindBy(xpath = "//h3[text()='Name Server Details']")
+	public WebElement nsdetails ;
 	@FindBy(xpath = "//label[normalize-space()='Name Server 3 Host Name']")
 	public WebElement nhns3txtval ;
 	@FindBy(xpath = "//label[normalize-space()='Name Server 3 IP Address']")
@@ -181,7 +183,7 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 	
 	
 	
-	public void user_validatetext_AllFields_in_Domainpage(String src,String IP1,String IP2) throws Exception { 
+	public void user_validatetext_AllFields_in_Domainpage(String src1,String IP1,String IP2) throws Exception { 
 		Thread.sleep(3000);
 		List<WebElement> DomainName1=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("DomainName")+"']/preceding-sibling::td"));
 		Clickelement(DomainName1.get(0));
@@ -232,7 +234,7 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 		validatetext(Orgname.get(2), ConfigReader.getProperty("Domstatus"));
 		//validatetext(Orgname.get(3) ,"5");*/
 
-		validatetext(Nameserverstxtval1, "Name Server Details");
+		validatetext(Nameserverstxtval1, "Name Servers");
 		Thread.sleep(3000);
 		Clickelement(Clicknameseraddbtn);
 		Thread.sleep(3000);
@@ -247,6 +249,7 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 		//validatetext(nsdetailstxtval,"I have NS details (can be updated later)");
 		Thread.sleep(2000);
 		//validatetext(nsdnotxtval," I will set it later");
+		validatetext(nsdetails,"Name Server Details");
 		Thread.sleep(2000);
 		validatetext(nhns3txtval,"Name Server 3 Host Name");
 		Thread.sleep(2000);
@@ -289,14 +292,16 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 		validatetext(Invoicedatetxtval1, "Invoice Date");
 		validatetext(statustxtval1, "Status");
 		Thread.sleep(5000);
-		List<WebElement> Status=driver.findElements(By.xpath("//div[normalize-space()='"+src+"']/preceding-sibling::div"));
+		List<WebElement> Status2=driver.findElements(By.xpath("//div[normalize-space()='"+src1+"']/preceding-sibling::div"));
 
 		//
-		dispalyedattribute(Status.get(0), "6"); //
-		configWriter.setProperty("InAmount", Status.get(1).getText());
-		validatetext(Status.get(1), ConfigReader.getProperty("InAmount"));
-		configWriter.setProperty("InvoiceDate", Status.get(2).getText());
-		validatetext(Status.get(2), ConfigReader.getProperty("InvoiceDate"));
+		dispalyedattribute(Status2.get(0), "ID"); //
+		configWriter.setProperty("InAmount", Status2.get(1).getText());
+		configWriter.saveProperties();
+		validatetext(Status2.get(1), ConfigReader.getProperty("InAmount"));
+		configWriter.setProperty("InvoiceDate", Status2.get(2).getText());
+		configWriter.saveProperties();
+		validatetext(Status2.get(2), ConfigReader.getProperty("InvoiceDate"));
 		
 		
 		
