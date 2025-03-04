@@ -90,8 +90,8 @@ public class Registrar_Dashboard_Object_Page extends Baseclass{
 	}
 	//HOME PAGE
 
-		@FindBy(xpath="//div[contains(text(),'Total Registrants')]")
-		public WebElement TotalRegistrantstxtval ;
+		@FindBy(xpath="//div[contains(text(),'Total Organisations')]")
+		public WebElement TotalOrganisationstxtval ;
 		@FindBy(xpath="//div[contains(text(),'Total Domains')]")
 		public WebElement TotalDomainstxtval ;
 		@FindBy(xpath="//div[contains(text(),'Application in queue')]")
@@ -126,7 +126,7 @@ public class Registrar_Dashboard_Object_Page extends Baseclass{
 		
 
 		public void User_textvaladation_in_Home_Main_Page1() throws Exception {
-			validatetext(TotalRegistrantstxtval, "Total Registrants");
+			validatetext(TotalOrganisationstxtval, "Total Registrants");
 			validatetext(TotalDomainstxtval, "Total Domains");
 			validatetext(Applicationinqueuetxtval,"Application in queue");
 			validatetext(ActiveUserstxtval, "Active Users");
