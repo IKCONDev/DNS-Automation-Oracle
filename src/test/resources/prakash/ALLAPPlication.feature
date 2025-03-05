@@ -9,8 +9,8 @@ Feature: Registrant Onboarding
     Then User enters "<username>" and "<password>"
 
     Examples: 
-      | username               | password | Case  |
-      | venkat.p@swandhana.com | Test@123 | Valid |
+      | username              | password | Case  |
+      | venkat.p@iswaraya.com | Test@123 | Valid |
 
   Scenario Outline: DSC Verify
     And User enters the dsc details
@@ -20,8 +20,8 @@ Feature: Registrant Onboarding
     Then User enters organisation details "<domain>" "<PIN>" "<Address>" "<Tel>" "<Mob>" "<Email>" "<GST>" "<PAN>" "<License>"
 
     Examples: 
-      | domain    | PIN    | Address                                  | Tel        | Mob        | Email | GST             | PAN        | License               |
-      | swandhana | 500090 | CYBERTOWERS,Madhapur,HEDERABAD,Telangana | 9685578941 | 9685578945 | foya@ | 22ABCDE0000A1J5 | ASDEE4455Q | L12345MH2023PLC000001 |
+      | domain   | PIN    | Address                                  | Tel        | Mob        | Email | GST             | PAN        | License               |
+      | iswaraya | 500090 | CYBERTOWERS,Madhapur,HEDERABAD,Telangana | 9685578941 | 9685578945 | foya@ | 22ABCDE0000A1J5 | ASDEE4455Q | L12345MH2023PLC000001 |
 
   Scenario Outline: Admin Contact details
     Then User enters admin contact details "<Name>" "<Tel>" "<Mob>" "<Email>" "<Aadhar>" "<PAN>" "<Desig>"
@@ -49,7 +49,7 @@ Feature: Registrant Onboarding
 
     Examples: 
       | NS1     | NS2     | IP1         | IP2         |
-      | Office1 | office2 | 193.0.21.12 | 193.0.12.21 |
+      | Office1 | office2 | 193.0.21.13 | 193.0.12.14 |
 
   Scenario Outline: Preview and Submit
     Then User preview and submit onboarding
@@ -79,7 +79,7 @@ Feature: Registrant Onboarding
     Then User Validate the officer details management page
     Then User logout the application
 
- #2nd Step
+  #2nd Step
   Scenario Outline: Registrar Login Page
     Given Registrar is on Landing Page1
     Then Registrar Can Check  Textvaladations in Login Page
@@ -119,7 +119,7 @@ Feature: Registrant Onboarding
 
     Examples: 
       | IP2          | IP1          | Status2          |
-      | 199.20.12.21 | 199.20.12.22 | Payment Not Done |
+      | 199.20.12.23 | 199.20.12.24 | Payment Not Done |
 
   Scenario Outline: Registrar Invoice  Page
     Then Registrar can Navigate to Invoice Page  check Textvalidations
@@ -170,8 +170,8 @@ Feature: Registrant Onboarding
     Then User enters "<username>" and "<password>"
 
     Examples: 
-      | username               | password | Case  |
-      | venkat.p@swandhana.com | Test@123 | Valid |
+      | username              | password | Case  |
+      | venkat.p@iswaraya.com | Test@123 | Valid |
 
   Scenario Outline: DSC Verify
     And User enters the dsc details
