@@ -6,7 +6,7 @@
 <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<tools-systemPath>
-			C:\Users\PeralaBhargaviPrakas\DNS-Automation\Tools\tools-1.5.0 1.jar</tools-systemPath>
+			C:\Users\VenkateshUdaru\OneDrive - IKCON TECHNOLOGIES INC\Desktop\Automation\DNSproject(new)\DNSproject\Tools\tools-1.5.0 1.jar</tools-systemPath>
 	</properties>
 	<dependencies>
 	<dependency>
