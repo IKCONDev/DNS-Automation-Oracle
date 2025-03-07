@@ -43,7 +43,7 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 
 	@FindBy(xpath="//p[text()='Domain']")
 	public WebElement Domaintextval;
-	@FindBy(xpath="//p[text()='Organization']")
+	@FindBy(xpath="(//p[text()='Organization'])[2]")
 	public WebElement Organizationtxtval;
 	@FindBy(xpath="//p[text()='Registration Date']")
 	public WebElement RegistrationDatetxtval;
@@ -134,14 +134,30 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 
 	@FindBy(xpath="((//div//h2[contains(text(),'Name Servers')])/following::div)[1]")
 	public WebElement Clicknameseraddbtn;
-	@FindBy(xpath="//input[@id='3host']")
-	public WebElement Nameserver3hostinbox;
-	@FindBy(xpath="//input[@id='4host']")
-	public WebElement Nameserver4hostinbox;
-	@FindBy(xpath="//input[@id='3ipAddress']")
-	public WebElement Nameserver3addinbox;
-	@FindBy(xpath="//input[@id='4ipAddress']")
-	public WebElement Nameserver4addinbox;
+	
+	@FindBy(xpath="(//input[@placeholder='Enter name server host'])[1]")
+	public WebElement Nameserverhostinbox1;
+	@FindBy(xpath="(//input[@placeholder='Enter Provider Name'])[1]")
+	public WebElement Dnsserverproviderinbox1;
+	@FindBy(xpath="(//input[@placeholder='Enter IP Address'])[1]")
+	public WebElement Nameserveripaddinbox1;
+	@FindBy(xpath="(//input[@placeholder='Enter Provider Name'])[2]")
+	public WebElement Nameserveripaddproviderinbox1;
+	
+	@FindBy(xpath="(//input[@placeholder='Enter name server host'])[2]")
+	public WebElement Nameserverhostinbox2;
+	@FindBy(xpath="(//input[@placeholder='Enter Provider Name'])[3]")
+	public WebElement Dnsserverproviderinbox2;
+	@FindBy(xpath="(//input[@placeholder='Enter IP Address'])[2]")
+	public WebElement Nameserveripaddinbox2;
+	@FindBy(xpath="(//input[@placeholder='Enter Provider Name'])[4]")
+	public WebElement Nameserveripaddproviderinbox2;
+	
+	
+	
+	
+	
+	
 	@FindBy(xpath="//button[normalize-space()='Add More NS']")
 	public WebElement addmorebuttonns;
 	@FindBy(xpath="//button[normalize-space()='Save & Next']")
@@ -179,6 +195,9 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 	public WebElement nhns4txtval ;
 	@FindBy(xpath = "//label[normalize-space()='Name Server 4 IP Address']")
 	public WebElement nsh4ipaddtxtval; 
+	@FindBy(xpath = "//p[text()='Any change in the data point need to be approved by the Registrar before it takes affect']")
+	public WebElement anychangemsgtxtval; 
+	
 	
 	
 	
@@ -236,7 +255,7 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 
 		validatetext(Nameserverstxtval1, "Name Servers");
 		Thread.sleep(3000);
-		Clickelement(Clicknameseraddbtn);
+	/*	Clickelement(Clicknameseraddbtn);
 		Thread.sleep(3000);
 		Clickelement(addmorebuttonns);
 		Thread.sleep(3000);
@@ -251,21 +270,43 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 		//validatetext(nsdnotxtval," I will set it later");
 		validatetext(nsdetails,"Name Server Details");
 		Thread.sleep(2000);
-		validatetext(nhns3txtval,"Name Server 3 Host Name");
+		validatetext(anychangemsgtxtval, "Any change in the data point need to be approved by the Registrar before it takes affect");
 		Thread.sleep(2000);
-		validatetext(ns3hipaddtxtval,"Name Server 3 IP Address");
+		String Apptabledata1[]= { "Server","Name Server Host Name", "DNS Service Provider","IP Address", "IP Service Provider", "Status"};
+		List<WebElement> values = driver.findElements(By.xpath("//table[@class='ns-table']//tr//th"));
+		Thread.sleep(3000);
+		for (int i= 0; i< values.size(); i++) {
+
+			validatetext(values.get(i), Apptabledata1[i]);
+			//System.out.println("Code Printed");
+		}
+
+
+//		validatetext(nhns3txtval,"Name Server 3 Host Name");
+//		Thread.sleep(2000);
+//		validatetext(ns3hipaddtxtval,"Name Server 3 IP Address");
+//		Thread.sleep(2000);
+//		validatetext(nhns4txtval,"Name Server 4 Host Name");
+//		Thread.sleep(2000);
+//		validatetext(nsh4ipaddtxtval,"Name Server 4 IP Address");
+//		Thread.sleep(2000);
+		sendkeyweb(Nameserverhostinbox1,"Groundfloor");
 		Thread.sleep(2000);
-		validatetext(nhns4txtval,"Name Server 4 Host Name");
+		sendkeyweb(Dnsserverproviderinbox1,"Oracle");
 		Thread.sleep(2000);
-		validatetext(nsh4ipaddtxtval,"Name Server 4 IP Address");
+		sendkeyweb(Nameserveripaddinbox1, IP1);//47.25.37.12
 		Thread.sleep(2000);
-		sendkeyweb(Nameserver3hostinbox,"Groundfloor");
+		sendkeyweb(Nameserveripaddproviderinbox1,"Cisco");
 		Thread.sleep(2000);
-		sendkeyweb(Nameserver4hostinbox,"Topfloor");
+		sendkeyweb(Nameserverhostinbox2,"Topfloor");
 		Thread.sleep(2000);
-		sendkeyweb(Nameserver3addinbox, IP1);//47.25.37.12
+		sendkeyweb(Dnsserverproviderinbox1,"Grandstream");
 		Thread.sleep(2000);
-		sendkeyweb(Nameserver4addinbox, IP2);//77.25.86.31
+		sendkeyweb(Nameserveripaddinbox2, IP2);//77.25.86.31
+		Thread.sleep(2000);
+		sendkeyweb(Nameserveripaddproviderinbox2,"Ciscom");
+		Thread.sleep(2000);
+		
 		Thread.sleep(2000);
 		//Clickelement(addmorebuttonns);
 		Clickelement(savebuttonns);
@@ -280,7 +321,7 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 		//validatealert("Are you sure, you really want to delete this name server record ?");
 		Thread.sleep(5000);
 		driver.switchTo().alert().accept();
-		
+		*/
 		
 		
 		validatetext(Hostnametxtval, "Host Name"); 
@@ -296,16 +337,16 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 		public void user_validatetext_BillingHistory_Fields(String src) throws Exception
 		{
 		
-		List<WebElement> Status2=driver.findElements(By.xpath("//div[normalize-space()='"+src+"']/preceding-sibling::div"));
+		List<WebElement> Status3=driver.findElements(By.xpath("//div[normalize-space()='"+ConfigReader.getProperty("Status3")+"']/preceding-sibling::div"));
 
 		//
-		dispalyedattribute(Status2.get(0), "ID"); //
-		configWriter.setProperty("InAmount", Status2.get(1).getText());
+		dispalyedattribute(Status3.get(0), "ID"); 
+		configWriter.setProperty("InAmount", Status3.get(1).getText());
 		configWriter.saveProperties();
-		validatetext(Status2.get(1), ConfigReader.getProperty("InAmount"));
-		configWriter.setProperty("InvoiceDate", Status2.get(2).getText());
+		validatetext(Status3.get(1), ConfigReader.getProperty("InAmount"));
+		configWriter.setProperty("InvoiceDate", Status3.get(2).getText());
 		configWriter.saveProperties();
-		validatetext(Status2.get(2), ConfigReader.getProperty("InvoiceDate"));
+		validatetext(Status3.get(2), ConfigReader.getProperty("InvoiceDate"));
 		
 		
 		
@@ -324,9 +365,7 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 		configWriter.setProperty("InvoiceDate", Status3.get(2).getText());
 		configWriter.saveProperties();
 		validatetext(Status3.get(2), ConfigReader.getProperty("InvoiceDate"));
-		
-		
-		
+			
 		
 	}
 

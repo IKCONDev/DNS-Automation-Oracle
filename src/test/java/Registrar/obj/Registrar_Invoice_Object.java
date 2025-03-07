@@ -54,10 +54,10 @@ public class Registrar_Invoice_Object extends Baseclass {
 
 			//
 //			validatetext(Domain1.get(0)
-			dispalyedattribute(DomainName1.get(0), "checkbox");
-			dispalyedattribute(DomainName1.get(1), "ID");
+			//dispalyedattribute(DomainName1.get(0), "checkbox");
+			dispalyedattribute(DomainName1.get(0), "ID");
 			//validatetext(Domain1.get(1), ConfigReader.getProperty("6"));
-			validatetext(DomainName1.get(2), ConfigReader.getProperty("OrgName"));
+			validatetext(DomainName1.get(1), ConfigReader.getProperty("OrgName"));
 			//validatet(Orgname.get(0), "Ikcontech solutions");
 			configWriter.setProperty("InAmount", DomainName.get(0).getText());
 			validatetext(DomainName.get(0), ConfigReader.getProperty("InAmount"));
@@ -65,7 +65,7 @@ public class Registrar_Invoice_Object extends Baseclass {
 			validatetext(DomainName.get(1),ConfigReader.getProperty("Invoicedownload"));
 			Clickelement(InvoiceDownloadbutton1);
 			configWriter.setProperty("InvoiceStatus", DomainName.get(2).getText());
-			validatetext(DomainName.get(2), ConfigReader.getProperty("InvoiceStatus"));
+			validatetext(DomainName.get(2), ConfigReader.getProperty("Status"));
 			//validatetext(Domain.get(3) ,"");
 			
 			

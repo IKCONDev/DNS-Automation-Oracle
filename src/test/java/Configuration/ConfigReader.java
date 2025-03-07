@@ -6,16 +6,20 @@ import java.util.Properties;
 
  
 public class ConfigReader {
+<<<<<<< HEAD
     private static final String CONFIG_FILE_1 = "src/test/resources/config.properties";
     private static final String CONFIG_FILE_2 = "config1.properties"; 
+=======
+    private static final String CONFIG_FILE_1 = "src/test/resources/config.properties"; 
+    
+//    private static final String CONFIG_FILE_2 = "config1.properties";
+>>>>>>> branch 'devbranch' of https://github.com/IKCONDev/DNS-Automation.git
     private static Properties properties = new Properties();
  
     static {
         // Load properties from multiple config files
-        try (FileInputStream fis1 = new FileInputStream(CONFIG_FILE_1);
-             FileInputStream fis2 = new FileInputStream(CONFIG_FILE_2)) {
+        try (FileInputStream fis1 = new FileInputStream(CONFIG_FILE_1);) {
             properties.load(fis1);  // Load from config1
-            properties.load(fis2);  // Load from config2 (overwrites any duplicates)
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -29,10 +33,8 @@ public class ConfigReader {
  
     public static void reloadConfigs() {
         properties.clear();
-        try (FileInputStream fis1 = new FileInputStream(CONFIG_FILE_1);
-             FileInputStream fis2 = new FileInputStream(CONFIG_FILE_2)) {
+        try (FileInputStream fis1 = new FileInputStream(CONFIG_FILE_1);) {
             properties.load(fis1);
-            properties.load(fis2);
         } catch (IOException e) {
             e.printStackTrace();
         }

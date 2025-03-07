@@ -1,12 +1,11 @@
+Feature: Registrar Domain Page
 
-
-Feature:  Registrar Domain Page
-
- Scenario Outline: Registrar  Domain Page
+  Scenario Outline: Registrar  Domain Page
     Then Registrar can Navigate to Domain Page can check Textvalidations
     Then Registrar  check DomaintableData Textvalidations
-    Then Registrar  check AllFieldsData "<Status>" Textvalidations in Domain Page
+    Then Registrar  check AllFieldsData  "<IP2>" "<IP1>" Textvalidations in Domain Page
+    Then Registrar  check Final "<Status2>" Functionalities in Domains Page
 
     Examples: 
-      | OrgName    |DomainName    |InvoiceStatus       |
-      | Canara Bank|canara.bank.in|Approved for payment|
+      | IP2          | IP1          | Status2          |
+      | 199.20.12.23 | 199.20.12.24 | Payment Not Done |

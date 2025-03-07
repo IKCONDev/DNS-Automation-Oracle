@@ -153,7 +153,7 @@ public class Registrar_Settings_Registrant_Officiers_Object extends Baseclass{
 	public WebElement TOAdharApprovalchecktxtval ;
 	@FindBy(xpath="//table[@id='table1']//tr[2]//td[2]")
 	public WebElement TOpanverify ;
-	@FindBy(xpath="//button[text()='Close']")
+	@FindBy(xpath="//button[normalize-space()='Ok']")
 	public List<WebElement>closedocbutton ;
 	@FindBy(xpath="(//tbody[@class='mdc-data-table__content']//tr[2]//td[4]//span)[1]")
 	public WebElement TOPanAproveClick ;
@@ -269,10 +269,63 @@ public class Registrar_Settings_Registrant_Officiers_Object extends Baseclass{
 		}
 		
 	
+				Thread.sleep(3000);
+
+			
+				List<WebElement> Orgname=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"'])[1]/following-sibling::td"));
+				List<WebElement> Orgname1=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"'])[1]/preceding-sibling::td"));
+				//
+				validatetext(Orgname1.get(0), "1"); //
+				validatetext(Orgname.get(0), ConfigReader.getProperty("AOPersonname"));
+				validatetext(Orgname.get(1), ConfigReader.getProperty("AODesignation"));
+				validatetext(Orgname.get(2), ConfigReader.getProperty("AOMobileNumber"));
+				validatetext(Orgname.get(3), ConfigReader.getProperty("AOEmailId"));
+				validatetext(Orgname.get(4), ConfigReader.getProperty("AORole"));
+				validatetext(Orgname.get(5), "View");
+				validatetext(Orgname.get(6), "");
+				validatetext(Orgname.get(7), ConfigReader.getProperty("AOLoginStatus"));
+				validatetext(Orgname.get(8), ConfigReader.getProperty("AOIsActive"));
+				//validatetext(Orgname.get(9), "");
+				
+				
+				List<WebElement> BOOrgname=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"'])[2]/following-sibling::td"));
+				List<WebElement> BOOrgname1=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"'])[2]/preceding-sibling::td"));
+				//
+				//
+				validatetext(BOOrgname1.get(0), "2"); //
+				validatetext(BOOrgname.get(0), ConfigReader.getProperty("BOPersonname")); 
+				validatetext(BOOrgname.get(1), ConfigReader.getProperty("BODesignation")); 
+				validatetext(BOOrgname.get(2), ConfigReader.getProperty("BOMobileNumber"));
+				validatetext(BOOrgname.get(3), ConfigReader.getProperty("BOEmailId"));
+				validatetext(BOOrgname.get(4), ConfigReader.getProperty("BORole"));
+				validatetext(BOOrgname.get(5), "View");
+				validatetext(BOOrgname.get(6), "");
+				validatetext(BOOrgname.get(7), ConfigReader.getProperty("BOLoginStatus"));
+				validatetext(BOOrgname.get(8), ConfigReader.getProperty("BOIsActive"));
+				//validatetext(BOOrgname.get(9), "");
+					
+				
+				List<WebElement> TOOrgname=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"'])[3]/following-sibling::td"));
+				List<WebElement> TOOrgname1=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"'])[3]/preceding-sibling::td"));
+				//
+
+				//
+				validatetext(TOOrgname1.get(0), "3"); //
+				validatetext(TOOrgname.get(0), ConfigReader.getProperty("TOPersonname"));
+				validatetext(TOOrgname.get(1),ConfigReader.getProperty("TODesignation"));
+				validatetext(TOOrgname.get(2),ConfigReader.getProperty("TOMobileNumber")); 
+				validatetext(TOOrgname.get(3),ConfigReader.getProperty("TOEmailId")); 
+				validatetext(TOOrgname.get(4),ConfigReader.getProperty("TORole")); 
+				validatetext(TOOrgname.get(5), "View");
+				validatetext(TOOrgname.get(6), "");
+				validatetext(TOOrgname.get(7), ConfigReader.getProperty("TOLoginStatus"));
+				validatetext(TOOrgname.get(8), ConfigReader.getProperty("TOIsActive"));
+				//validatetext(TOOrgname.get(9), "");
+				
+				
+
 		        Thread.sleep(5000);
 				Clickelement(setAoviewclick);
-				Thread.sleep(3000);
-				
 
 				List<WebElement> ADocumentType=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("ADocumentType")+"']/following-sibling::td"));
 				List<WebElement> ADocumentType1=driver.findElements(By.xpath("//td[normalize-space()='"+src4+"']/preceding-sibling::td"));
