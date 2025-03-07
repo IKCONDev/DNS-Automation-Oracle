@@ -7,7 +7,7 @@ import java.util.Properties;
  
 public class ConfigReader {
     private static final String CONFIG_FILE_1 = "src/test/resources/config.properties";
-    private static final String CONFIG_FILE_2 = "config1.properties";
+    private static final String CONFIG_FILE_2 = "config1.properties"; 
     private static Properties properties = new Properties();
  
     static {
