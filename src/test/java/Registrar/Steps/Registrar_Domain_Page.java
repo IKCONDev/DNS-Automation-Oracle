@@ -47,7 +47,7 @@ public void Registrar_can_Approve_Registrant_Application()throws Exception  {
 }
 
 
-@Then("Registrar  check Finalstep Functionalities in Domains Page1")
+@Then("Registrar check Finalstep Functionalities in Domains page")
 public void user_validatetext_BillingHistory_Fields_finalsdtage()throws Exception  {
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 	RD.user_validatetext_BillingHistory_Fields_finalsdtage();
