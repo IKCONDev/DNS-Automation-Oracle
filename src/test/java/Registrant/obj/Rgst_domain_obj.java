@@ -1,5 +1,6 @@
 package Registrant.obj;
 
+import java.awt.AWTException;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -15,6 +16,7 @@ import hooks.Baseclass;
 public class Rgst_domain_obj extends Baseclass{
 
 	WebDriver driver = Driver.getDriver(); 
+	Registrant_login_object RL=new Registrant_login_object(driver);
 	ConfigWriter configWriter = new ConfigWriter();
 	public Rgst_domain_obj(WebDriver RC) {
 		driver = RC;
@@ -28,7 +30,7 @@ public class Rgst_domain_obj extends Baseclass{
 		Clickelement(Domains);
 	   
 	}
-	@FindBy(xpath = "//th")
+	@FindBy(xpath = "//table[@id='table1']//th")
 	public List<WebElement> Table_col ;
 	@FindBy(xpath = "//input[@placeholder='Search']")
 	public WebElement Search ;
@@ -107,7 +109,7 @@ public class Rgst_domain_obj extends Baseclass{
 	@FindBy(xpath = "//h2[normalize-space()='Billing History']")
 	public WebElement Bill_history;
 	
-	public void user_validate_the_domain_domain_details_page() {
+	public void user_validate_the_domain_domain_details_page(String NS1,String IP1,String N2,String IP2) throws AWTException, InterruptedException {
 		validatetext(Nameserver, "Name Servers");
 		validatetext(Hostname,"Host Name");
 		validatetext(Ipaddr ,"IP Address");
@@ -117,14 +119,29 @@ public class Rgst_domain_obj extends Baseclass{
 		validatetext(Invocedate,"Invoice Date");
 		validatetext(nsstatus,"Status");
 		validatetext(Bill_history,"Billing History");
+		try {
 		List<WebElement> NS_records=driver.findElements(By.xpath("(//div[contains(@class,'row row-cols-')]//div[contains(text(),'"+ConfigReader.getProperty("NS1")+"')])/following::div"));
 //		validatetext(NS_records.get(0),ConfigReader.getProperty("NS1"));
 		validatetext(NS_records.get(0),ConfigReader.getProperty("IP1"));
 		validatetext(NS_records.get(1),"10");
 		validatetext(NS_records.get(4),ConfigReader.getProperty("NS2"));
 		validatetext(NS_records.get(5),ConfigReader.getProperty("IP2"));
+		}catch (Exception e) {
+			System.out.println(e);
+		}
+		Clickelement(ADD_NS);
+		RL.User_enters_name_server_details(NS1,IP1,N2,IP2);
+		Clickelement(DeleteNS.get(2));
+		Clickelement(DeleteNS.get(2));
+		
 	}
-
+	
+	
+	@FindBy(xpath = "//button[@id='trashIcon']")
+	public List<WebElement> DeleteNS;
+	@FindBy(xpath = "//h2[normalize-space()='Name Servers']/following::div[1]")
+	public WebElement ADD_NS;
+	
 	public void user_subit_the_domain_details_page() {
 	    
 		

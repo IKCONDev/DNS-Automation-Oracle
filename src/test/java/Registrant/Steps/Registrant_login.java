@@ -21,7 +21,6 @@ public class Registrant_login {
 	public void user_is_on_home_page() {
 		driver.get(ConfigReader.getProperty("baseURL"));
 		driver.manage().window().maximize();
-		configWriter.setProperty("lastRun", String.valueOf(System.currentTimeMillis()));
 		
 	}
 	

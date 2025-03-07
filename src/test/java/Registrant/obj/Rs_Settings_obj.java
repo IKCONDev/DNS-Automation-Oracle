@@ -37,7 +37,7 @@ public class Rs_Settings_obj extends Baseclass{
 	   actions.moveToElement(Settings).perform();
 	    clickmultipleweb(User_mang);
 	}
-	@FindBy(xpath = "//th")
+	@FindBy(xpath = "//table[@id='table1']//th")
 	public List<WebElement> table;	
 	public void user_validate_the_user_management_page() {
 	   String st="Sl.No,User Id,User Name,Organisation Name,Role,Status";
@@ -135,7 +135,7 @@ public class Rs_Settings_obj extends Baseclass{
 	    dispalyedattribute(AA1.get(0), "Aadhar ID");
 	    Clickelement(AA1.get(1));
 	    clickmultipleweb(close);
-	    
+	    driver.navigate().refresh();
 	    
 	    validatetext(PA.get(0), "PAN");
 	    validatetext(PA.get(1), "NA");
@@ -144,7 +144,7 @@ public class Rs_Settings_obj extends Baseclass{
 	    dispalyedattribute(PA1.get(0), "Aadhar ID");
 	    Clickelement(PA1.get(1));
 	    clickmultipleweb(close);
-	    
+	    driver.navigate().refresh();
 	    
 	    validatetext(OI.get(0), "NA");
 	    validatetext(OI.get(1), "NA");
@@ -152,7 +152,7 @@ public class Rs_Settings_obj extends Baseclass{
 	    dispalyedattribute(OI1.get(0), "Aadhar ID");
 	    Clickelement(OI1.get(1));
 	    clickmultipleweb(close);
-		
+	    driver.navigate().refresh();
 		driver.navigate().back();
 	}
 

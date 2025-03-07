@@ -34,7 +34,7 @@ public class Regst_App_obj extends Baseclass {
 	    
 	}
 	
-	@FindBy(xpath = "//th")
+	@FindBy(xpath = "//table[@id='table1']//th")
 	public List<WebElement> Table_col ;
 	@FindBy(xpath = "//input[@placeholder='Search']")
 	public WebElement Search ;

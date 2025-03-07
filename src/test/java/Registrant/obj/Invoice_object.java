@@ -21,10 +21,11 @@ public class Invoice_object extends Baseclass {
 	public void user_navigate_to_invoice_page() {
 	    Clickelement(Invoice);
 	}
-	@FindBy(xpath = "//th")
+	
+	@FindBy(xpath = "//table[@id='table1']//th")
 	public List<WebElement> table;
 	public void user_validate_the_invoice_page() {
-	    String st="SNo,Organization Name,Domain Name,Amount,Invoice,Payment Status";
+	    String st="Invoice ID,Organization Name,Domain Name,Amount,Invoice,Payment Status";
 		Table_prop(table, st);
 	}
 }
