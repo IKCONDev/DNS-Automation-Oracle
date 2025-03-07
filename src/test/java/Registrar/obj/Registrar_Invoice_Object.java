@@ -33,7 +33,8 @@ public class Registrar_Invoice_Object extends Baseclass {
 	@FindBy(xpath="//tbody/tr[1]/td[6]/span[1]//*[name()='svg']")
 	public WebElement InvoiceDownloadbutton;
 	////span[@class='ng-star-inserted']//*[name()='svg']
-	@FindBy(xpath="(//td[normalize-space()='Approved for payment']/preceding-sibling::td)[5]")
+//	@FindBy(xpath="(//td[normalize-space()='Approved for payment']/preceding-sibling::td)[5]")
+//	@FindBy(xpath="//td[normalize-space()='cbse.bank.in']/following-sibling::td//span//*[name()='svg']")
 	public WebElement InvoiceDownloadbutton1;
 	//INVOICE____MODULE
 		public void user_navigate_to_Invoicepage1() throws Exception {
@@ -65,6 +66,8 @@ public class Registrar_Invoice_Object extends Baseclass {
 			validatetext(DomainName.get(0), ConfigReader.getProperty("InAmount"));
 			configWriter.setProperty("Invoicedownload", DomainName.get(1).getText());
 			validatetext(DomainName.get(1),ConfigReader.getProperty("Invoicedownload"));
+			WebElement inv_down=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("DomainName")+"']/following-sibling::td//span//*[name()='svg']"));
+			Clickelement(inv_down);
 			configWriter.setProperty("InvoiceStatus", DomainName.get(2).getText());
 			validatetext(DomainName.get(2), ConfigReader.getProperty("Status"));
 			//validatetext(Domain.get(3) ,"");

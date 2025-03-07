@@ -62,6 +62,14 @@ public class Registrant_login {
 		RLO.user_enters_and(UN, Password);
 
 	}
+	
+	@Then("User enters registrant credentials")
+	public void user_enters_and() throws InterruptedException {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		RLO.validate_login_page();
+		RLO.user_enters_pand();
+
+	}
 
 	@Then("User enters the dsc details")
 	public void message_displayed_login_successfully() throws InterruptedException {

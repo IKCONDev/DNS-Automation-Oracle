@@ -1063,12 +1063,14 @@ public WebElement Domainsclick ;
 	//dispalyedattribute(DomainName1.get(0), "checkbox");
 	dispalyedattribute(DomainName1.get(0), "ID");
 	//validatetext(Domain1.get(1), ConfigReader.getProperty("6"));
-	validatetext(DomainName1.get(2), ConfigReader.getProperty("OrgName"));
+	validatetext(DomainName1.get(1), ConfigReader.getProperty("OrgName"));
 	//validatet(Orgname.get(0), "Ikcontech solutions");
 	configWriter.setProperty("InAmount", DomainName.get(0).getText());
 	validatetext(DomainName.get(0), ConfigReader.getProperty("InAmount"));
 	configWriter.setProperty("Invoicedownload1", DomainName.get(1).getText());
 	validatetext(DomainName.get(1),ConfigReader.getProperty("Invoicedownload1"));
+	WebElement inv_down=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("DomainName")+"']/following-sibling::td//span//*[name()='svg']"));
+	Clickelement(inv_down);
 	configWriter.setProperty("InvoiceStatus1", DomainName.get(2).getText());
 	validatetext(DomainName.get(2), ConfigReader.getProperty("InvoiceStatus1"));
 	

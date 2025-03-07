@@ -60,22 +60,44 @@ public class Regst_App_obj extends Baseclass {
 		String s="Application ID,Organization Name,Domain Name,,Submission Date,Status,Payment Status,NS Record Status,Tenure (yrs),Payment";
 		Table_prop(Table_col, s);
 	}
-		public void user_validate_application_data() throws InterruptedException {
+	
+	public void user_pay_bill() throws InterruptedException {
 		List<WebElement> APP_ID=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/preceding-sibling::td"));
 		dispalyedattribute(APP_ID.get(0), "Application ID");
 		List<WebElement> Table_data=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/following-sibling::td"));
 		
 		configWriter.setProperty("submissiondate", Table_data.get(1).getText());
 		
-		validatetext(Table_data.get(2), "Under Review");
-		if(Table_data.get(3).getText().contains("Approved for payment")) {
+		validatetext(Table_data.get(2), "Approved for payment");
 			Clickelement(paynowbtn);
 			driver.navigate().back();
 			Thread.sleep(2000);
 			driver.navigate().refresh();
-		}else {
-			validatetext(Table_data.get(3), "Payment Not Done");
+			validatetext(Table_data.get(3), "Payment Completed");
+		List<WebElement> APP_ID1=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/preceding-sibling::td"));
+		List<WebElement> Table_data1=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/following-sibling::td"));
+		validatetext(Table_data1.get(4), "OnHold");
+		validatetext(Table_data1.get(5), "5");
+		validatetext(Table_data1.get(6), "Pay Now");
+		validatetext(Table_data1.get(1), ConfigReader.getProperty("submissiondate"));
+		validateattribute(Search, "placeholder","Search");
+		Clickelement(APP_ID.get(0));
+		try {
+			Clickelement(APP_ID.get(0));
+		} catch (Exception e) {
+			Clickelement(APP_ID1.get(0));
 		}
+	
+	}
+	
+	
+		public void user_validate_application_data() throws InterruptedException {
+		List<WebElement> APP_ID=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/preceding-sibling::td"));
+		dispalyedattribute(APP_ID.get(0), "Application ID");
+		List<WebElement> Table_data=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/following-sibling::td"));
+		configWriter.setProperty("submissiondate", Table_data.get(1).getText());
+		validatetext(Table_data.get(2), "Under Review");
+	
 		List<WebElement> APP_ID1=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/preceding-sibling::td"));
 		List<WebElement> Table_data1=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/following-sibling::td"));
 		validatetext(Table_data1.get(3), "Payment Completed");
