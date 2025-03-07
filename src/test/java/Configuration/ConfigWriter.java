@@ -7,7 +7,7 @@ import java.nio.file.Paths;
 import java.util.Properties;
 
 public class ConfigWriter {
-    private static final String CONFIG_FILE = "config1.properties";
+    private static final String CONFIG_FILE = "src/test/resources/config.properties";
     private Properties properties;
  
     public ConfigWriter() {

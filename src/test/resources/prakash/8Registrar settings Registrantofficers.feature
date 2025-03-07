@@ -1,6 +1,5 @@
 
 
-
 Feature: Login Registrar then check Registrant Officers Details
 
 Scenario Outline: Registrant Officers Details  Settings  Page

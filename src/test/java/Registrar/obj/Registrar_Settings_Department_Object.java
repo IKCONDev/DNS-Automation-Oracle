@@ -76,15 +76,21 @@ public class Registrar_Settings_Department_Object extends Baseclass {
 		//List<WebElement> values1 = driver.findElements(By.xpath("//tbody[@class='mdc-data-table__content']//tr[1]"));
 
 		List<WebElement> DepartmentName=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("DepartmentName")+"']//following-sibling::td"));
-		List<WebElement> DepartmentName1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']//preceding-sibling::td"));
+		List<WebElement> DepartmentName1=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("DepartmentName")+"']//preceding-sibling::td"));
 
 		//
 		dispalyedattribute(DepartmentName1.get(0), "ID"); //
 		//validatet(DepartmentName.get(1), "IT"); //
 	   
-		validatetext(DepartmentName.get(0), "B001");
+		validatetext(DepartmentName.get(0), "IT001");
 		validatetext(DepartmentName.get(1), "");
-		 configWriter.setProperty("RegistrarDepCreatedDate&Time", DepartmentName.get(2).getText());
+		validatetext(DepartmentName.get(2), ConfigReader.getProperty("NA")); 
+		validatetext(DepartmentName.get(3), "");
+		validatetext(DepartmentName.get(4),ConfigReader.getProperty("NA"));  
+		validatetext(DepartmentName.get(5), "Active");
+		validatetext(DepartmentName.get(6), "");
+		validatetext(DepartmentName.get(7), "");
+		 /*configWriter.setProperty("RegistrarDepCreatedDate&Time", DepartmentName.get(2).getText());
 		 configWriter.saveProperties();
 		validatetext(DepartmentName.get(2), ConfigReader.getProperty("RegistrarDepCreatedDate&Time")); 
 		validatetext(DepartmentName.get(3), "");
@@ -92,7 +98,7 @@ public class Registrar_Settings_Department_Object extends Baseclass {
 		 configWriter.saveProperties();
 		validatetext(DepartmentName.get(4),ConfigReader.getProperty("RegistrarDepModifiedDate&Time"));  
 		validatetext(DepartmentName.get(5), "");
-		validatetext(DepartmentName.get(6), "");
+		validatetext(DepartmentName.get(6), "");*/
 		/*
 		Clickelement(Clickadddept);
 		sendkeyweb(Adddeptname, "");
