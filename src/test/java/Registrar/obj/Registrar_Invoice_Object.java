@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -31,7 +32,8 @@ public class Registrar_Invoice_Object extends Baseclass {
 	public WebElement Appsearchsend;
 	@FindBy(xpath="//tbody/tr[1]/td[6]/span[1]//*[name()='svg']")
 	public WebElement InvoiceDownloadbutton;
-	@FindBy(xpath="(//td[normalize-space()='Approved for payment']/preceding-sibling::td)[6]")
+	////span[@class='ng-star-inserted']//*[name()='svg']
+	@FindBy(xpath="(//td[normalize-space()='Approved for payment']/preceding-sibling::td)[5]")
 	public WebElement InvoiceDownloadbutton1;
 	//INVOICE____MODULE
 		public void user_navigate_to_Invoicepage1() throws Exception {
@@ -51,7 +53,7 @@ public class Registrar_Invoice_Object extends Baseclass {
 			//sendkeyweb(Appsearchsend, "rohantech.bank.in");
 			List<WebElement> DomainName=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("DomainName")+"']/following-sibling::td"));
 			List<WebElement> DomainName1=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("DomainName")+"']/preceding-sibling::td"));
-
+			
 			//
 //			validatetext(Domain1.get(0)
 			//dispalyedattribute(DomainName1.get(0), "checkbox");
@@ -63,10 +65,17 @@ public class Registrar_Invoice_Object extends Baseclass {
 			validatetext(DomainName.get(0), ConfigReader.getProperty("InAmount"));
 			configWriter.setProperty("Invoicedownload", DomainName.get(1).getText());
 			validatetext(DomainName.get(1),ConfigReader.getProperty("Invoicedownload"));
-			Clickelement(InvoiceDownloadbutton1);
 			configWriter.setProperty("InvoiceStatus", DomainName.get(2).getText());
 			validatetext(DomainName.get(2), ConfigReader.getProperty("Status"));
 			//validatetext(Domain.get(3) ,"");
+			
+			
+			Actions act = new Actions(driver);
+			Thread.sleep(3000);
+			act.doubleClick(InvoiceDownloadbutton1);
+			Thread.sleep(1000);
+			act.doubleClick(InvoiceDownloadbutton1);
+			
 			
 			
 			

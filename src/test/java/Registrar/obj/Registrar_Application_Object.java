@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -1068,9 +1069,16 @@ public WebElement Domainsclick ;
 	validatetext(DomainName.get(0), ConfigReader.getProperty("InAmount"));
 	configWriter.setProperty("Invoicedownload1", DomainName.get(1).getText());
 	validatetext(DomainName.get(1),ConfigReader.getProperty("Invoicedownload1"));
-	Clickelement(InvoiceDownloadbutton1);
 	configWriter.setProperty("InvoiceStatus1", DomainName.get(2).getText());
 	validatetext(DomainName.get(2), ConfigReader.getProperty("InvoiceStatus1"));
+	
+	
+	
+	Thread.sleep(3000);
+	Clickelement(InvoiceDownloadbutton1);
+	Actions act = new Actions(driver);
+	act.doubleClick(InvoiceDownloadbutton1);
+	
 	}
 	
 }
