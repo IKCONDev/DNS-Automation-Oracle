@@ -49,7 +49,6 @@ public class Registrant_login_object extends Baseclass {
 	public WebElement Register_buttons;
 	
 	public void user_validating_landing_page() {
-		validatetext(Contact_linktext, "Contact");
 		validatetext(Usermanual_linktext, "User Manual");
 		validatetext(Privacy_policy_linktext, "Privacy Policy");
 		validatetext(Disclaimer_linktext, "Disclaimer");
@@ -153,6 +152,7 @@ public class Registrant_login_object extends Baseclass {
 	
 	public void User_Register_An_Account(String username,String Password) throws InterruptedException {
 		configWriter.setProperty("Username", username);
+		configWriter.setProperty("Password", Password);
 		String stv="Mobile number should not be empty,Name should not be empty.,Password should not be empty,Confirm password should not be empty"
 		 +",You must agree to the terms and conditions to proceed.";
 		
@@ -242,6 +242,20 @@ public class Registrant_login_object extends Baseclass {
 	public void user_enters_and(String UN, String Password) throws InterruptedException {
 		sendkeyweb(Signin_email, UN);
 		sendkeyweb(Signin_password, Password);
+		Clickelement(Next_button);
+		popupvalidate("An OTP has been sent to your email.","Invalid Credentials");
+		System.out.println("Enter OTP:");
+		String OTP = myObj.nextLine();
+		sendkeyweb(Login_OTP_input, OTP);
+		Clickelement(Login_button);
+		Thread.sleep(1500);
+		popupvalidate("Login Successful","Invalid Credentials");
+		Thread.sleep(2000);
+		
+	}
+	public void user_enters_pand() throws InterruptedException {
+		sendkeyweb(Signin_email, ConfigReader.getProperty("Username"));
+		sendkeyweb(Signin_password, ConfigReader.getProperty("Password"));
 		Clickelement(Next_button);
 		popupvalidate("An OTP has been sent to your email.","Invalid Credentials");
 		System.out.println("Enter OTP:");

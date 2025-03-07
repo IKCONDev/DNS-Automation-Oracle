@@ -29,6 +29,7 @@ public void user_validate_application_page() {
 
 @Then("User payment and upload recipt")
 public void user_payment_and_upload_recipt() throws AWTException, InterruptedException {
+	RSP.user_pay_bill();
 	RSP.paymentrecipt();
 }
 
