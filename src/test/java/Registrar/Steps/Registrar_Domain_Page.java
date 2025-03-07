@@ -39,18 +39,18 @@ public void user_validatetext_AllFields_in_Domainpage(String ip1,String ip2) thr
 	
 
 }
-@Then("Registrar  check Final {string} Functionalities in Domains Page")
-public void Registrar_can_Approve_Registrant_Application(String src)throws Exception  {
+@Then("Registrar  check Final  Functionalities in Domains Page")
+public void Registrar_can_Approve_Registrant_Application()throws Exception  {
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
-	RD.user_validatetext_BillingHistory_Fields(src);
+	RD.user_validatetext_BillingHistory_Fields();
 	
 }
 
 
-@Then("Registrar  check Final {string} Final Functionalities in Domains Page")
-public void user_validatetext_BillingHistory_Fields_finalsdtage(String src)throws Exception  {
+@Then("Registrar  check Finalstep Functionalities in Domains Page1")
+public void user_validatetext_BillingHistory_Fields_finalsdtage()throws Exception  {
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
-	RD.user_validatetext_BillingHistory_Fields(src);
+	RD.user_validatetext_BillingHistory_Fields_finalsdtage();
 	
 }
 

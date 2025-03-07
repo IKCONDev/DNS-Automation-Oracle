@@ -1005,7 +1005,8 @@ public WebElement Domainsclick ;
 	public void Registrar_can_Check_Registrant_Application_Domain() throws Exception {
 		Thread.sleep(3000);
 		Clickelement(Domainsclick);
-	
+		Thread.sleep(3000);
+	driver.navigate().refresh();
 	
 	//Clickelement(Domainsearchclick);
 	sendkeyweb(Appsearchsend, ConfigReader.getProperty("DomainName"));

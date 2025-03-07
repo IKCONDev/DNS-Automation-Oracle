@@ -334,7 +334,7 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 		validatetext(statustxtval1, "Status");
 		Thread.sleep(5000);
 	}
-		public void user_validatetext_BillingHistory_Fields(String src) throws Exception
+		public void user_validatetext_BillingHistory_Fields() throws Exception
 		{
 		
 		List<WebElement> Status3=driver.findElements(By.xpath("//div[normalize-space()='"+ConfigReader.getProperty("Status3")+"']/preceding-sibling::div"));
@@ -352,19 +352,19 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 		
 		
 	}
-		public void user_validatetext_BillingHistory_Fields_finalsdtage(String src) throws Exception
+		public void user_validatetext_BillingHistory_Fields_finalsdtage() throws Exception
 		{
 		
-		List<WebElement> Status3=driver.findElements(By.xpath("//div[normalize-space()='"+src+"']/preceding-sibling::div"));
+		List<WebElement> InvoiceStatus1=driver.findElements(By.xpath("//div[normalize-space()='"+ConfigReader.getProperty("InvoiceStatus1")+"']/preceding-sibling::div"));
 
 		//
-		dispalyedattribute(Status3.get(0), "ID"); //
-		configWriter.setProperty("InAmount", Status3.get(1).getText());
+		dispalyedattribute(InvoiceStatus1.get(0), "ID"); //
+		configWriter.setProperty("InAmount", InvoiceStatus1.get(1).getText());
 		configWriter.saveProperties();
-		validatetext(Status3.get(1), ConfigReader.getProperty("InAmount"));
-		configWriter.setProperty("InvoiceDate", Status3.get(2).getText());
+		validatetext(InvoiceStatus1.get(1), ConfigReader.getProperty("InAmount"));
+		configWriter.setProperty("InvoiceDate", InvoiceStatus1.get(2).getText());
 		configWriter.saveProperties();
-		validatetext(Status3.get(2), ConfigReader.getProperty("InvoiceDate"));
+		validatetext(InvoiceStatus1.get(2), ConfigReader.getProperty("InvoiceDate"));
 			
 		
 	}
