@@ -702,7 +702,7 @@ Feature: Registrant Onboarding
   Scenario Outline: Registrant Registration and login
     Given User is on Landing Page
     Then User enters "<username>" and "<password>"
-
+ 
     Examples: 
       | username           | password | Case  |
       | venkat.p@groy.com | Test@123 | Valid |
