@@ -18,7 +18,8 @@ public class Registrant_login {
 	 ConfigWriter configWriter = new ConfigWriter();
 	
 	@Given("User is on Landing Page")
-	public void user_is_on_home_page() {
+	public void user_is_on_home_page() throws InterruptedException {
+		Thread.sleep(4000);
 		driver.get(ConfigReader.getProperty("baseURL"));
 		driver.manage().window().maximize();
 		
@@ -92,7 +93,7 @@ public class Registrant_login {
 	}
 	
 	@Then("User logout the application")
-	public void User_logout_the_application () {
+	public void User_logout_the_application () throws InterruptedException {
 		RLO.User_logout_the_application ();
 	}
 
