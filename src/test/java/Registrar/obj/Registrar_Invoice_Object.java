@@ -69,15 +69,10 @@ public class Registrar_Invoice_Object extends Baseclass {
 			WebElement inv_down=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("DomainName")+"']/following-sibling::td//span//*[name()='svg']"));
 			Clickelement(inv_down);
 			configWriter.setProperty("InvoiceStatus", DomainName.get(2).getText());
-			validatetext(DomainName.get(2), ConfigReader.getProperty("Status"));
+			validatetext(DomainName.get(2), ConfigReader.getProperty("Status3"));
 			//validatetext(Domain.get(3) ,"");
 			
 			
-			Actions act = new Actions(driver);
-			Thread.sleep(3000);
-			act.doubleClick(InvoiceDownloadbutton1);
-			Thread.sleep(1000);
-			act.doubleClick(InvoiceDownloadbutton1);
 			
 			
 			
