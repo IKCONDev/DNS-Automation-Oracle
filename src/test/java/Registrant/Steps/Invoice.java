@@ -23,4 +23,16 @@ public class Invoice {
 	    
 	}
 	
+	@Then("User download the proforma invoice")
+	public void user_download_the_proforma_invoice_page() {
+	   IO.proforma_InvoiceDownload();
+	    
+	}
+	
+	@Then("User download the invoice")
+	public void user_download_the_invoice_page() {
+	   IO.InvoiceDownload();
+	    
+	}
+	
 }
