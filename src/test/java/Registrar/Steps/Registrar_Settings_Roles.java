@@ -18,7 +18,7 @@ public class Registrar_Settings_Roles {
 	
 	@Then("Registrar  check RegistrarRolesSearch {string} Textvalidations and functionalities in Settings Page")
 	public void user_navigate_to_Settingspage_and_Check_RegistrarRolesSearch_Textvalidations(String src) throws Exception {
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		RR.user_navigate_to_Settingspage_and_Check_RegistrarRolesSearch_Textvalidations(src);
 		
 	

@@ -26,11 +26,11 @@ public class Regst_App_obj extends Baseclass {
 	
 	
 	@FindBy(xpath = "//span[contains(text(),'Applications')]")
-	public WebElement Domains;
+	public WebElement Application;
 	
 	
 	public void user_navigate_to_application_page() {
-	   Clickelement(Domains);
+	   Clickelement(Application);
 	    
 	}
 	
@@ -81,11 +81,13 @@ public class Regst_App_obj extends Baseclass {
 		validatetext(Table_data1.get(6), "Pay Now");
 		validatetext(Table_data1.get(1), ConfigReader.getProperty("submissiondate"));
 		validateattribute(Search, "placeholder","Search");
-		Clickelement(APP_ID.get(0));
 		try {
 			Clickelement(APP_ID.get(0));
 		} catch (Exception e) {
+		}
+		try {
 			Clickelement(APP_ID1.get(0));
+		} catch (Exception e) {
 		}
 	
 	}
