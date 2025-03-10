@@ -1014,16 +1014,13 @@ public WebElement Domainsclick ;
 	List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']/following-sibling::td"));
 	List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']/preceding-sibling::td"));
 
-	//
-	dispalyedattribute(Orgname1.get(0), "ID"); //
+	
+	dispalyedattribute(Orgname1.get(0), "ID"); 
 	validatetext(Orgname1.get(1), ConfigReader.getProperty("DomainName"));
-	//validatet(Orgname.get(0), "Ikcontech solutions");
 	validatetext(Orgname.get(0), ConfigReader.getProperty("AppSubmissionDate"));
 	configWriter.setProperty("DomRenewalDate", Orgname.get(1).getText());
 	configWriter.saveProperties();
 	validatetext(Orgname.get(1),ConfigReader.getProperty("DomRenewalDate"));
-	//JavascriptExecutor jsExecutor = (JavascriptExecutor)driver;
-	//jsExecutor.executeScript("document",)
 	validatetext(Orgname.get(2), ConfigReader.getProperty("Domstatus1"));
 	
 	Thread.sleep(3000);

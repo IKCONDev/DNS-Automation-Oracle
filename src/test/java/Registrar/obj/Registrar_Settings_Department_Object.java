@@ -58,77 +58,43 @@ public class Registrar_Settings_Department_Object extends Baseclass {
 	@FindBy(xpath="(//div[@class='box-content'])[2]")
 	public WebElement InActivetxtval;
 	public void user_navigate_to_Settingspage_and_Check_RegistrarDepartmentSearch_Textvalidations(String src) throws Exception {
-		Thread.sleep(3000);
+		
 		Clickelement(Settingssearch);
 		
 		Clickelement(RegistrarDepartmentSearch);
-		//Thread.sleep(3000);
+		
 		String Settingtabledata[]= {"ID","Department Name","Department Code", "Created By","Created Date & Time", "Modified By","Modified Date & Time", 
 				"Edit","Delete"};
 		List<WebElement> values = driver.findElements(By.xpath("//table[@id='table1']//tr//th"));
-		Thread.sleep(3000);
+		
 		for (int i= 0; i< values.size(); i++) {
 
 			validatetext(values.get(i), Settingtabledata[i]);
-			//System.out.println("Code Printed");
+			
 		}
-		//String Apptabledata2[]= {"2","Bharat Kumar","Vtech","Feb 2, 2025, 9:02 AM, Feb 2, 2030, 9:02 AM","InActive"};
-		//List<WebElement> values1 = driver.findElements(By.xpath("//tbody[@class='mdc-data-table__content']//tr[1]"));
-
-		List<WebElement> DepartmentName=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("DepartmentName")+"']//following-sibling::td"));
-		List<WebElement> DepartmentName1=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("DepartmentName")+"']//preceding-sibling::td"));
+		List<WebElement> Departmentstatus=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("Departmentstatus")+"']//following-sibling::td"));
+		List<WebElement> Departmentstatus1=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("Departmentstatus")+"']//preceding-sibling::td"));
 
 		//
-		dispalyedattribute(DepartmentName1.get(0), "ID"); //
+		dispalyedattribute(Departmentstatus.get(0), "ID"); //
 		//validatet(DepartmentName.get(1), "IT"); //
 	   
-		validatetext(DepartmentName.get(0), "IT001");
-		validatetext(DepartmentName.get(1), "");
-		validatetext(DepartmentName.get(2), ConfigReader.getProperty("NA")); 
-		validatetext(DepartmentName.get(3), "");
-		validatetext(DepartmentName.get(4),ConfigReader.getProperty("NA"));  
-		validatetext(DepartmentName.get(5), "Active");
-		validatetext(DepartmentName.get(6), "");
-		validatetext(DepartmentName.get(7), "");
-		 /*configWriter.setProperty("RegistrarDepCreatedDate&Time", DepartmentName.get(2).getText());
-		 configWriter.saveProperties();
-		validatetext(DepartmentName.get(2), ConfigReader.getProperty("RegistrarDepCreatedDate&Time")); 
-		validatetext(DepartmentName.get(3), "");
-		 configWriter.setProperty("RegistrarDepModifiedDate&Time", DepartmentName.get(4).getText());
-		 configWriter.saveProperties();
-		validatetext(DepartmentName.get(4),ConfigReader.getProperty("RegistrarDepModifiedDate&Time"));  
-		validatetext(DepartmentName.get(5), "");
-		validatetext(DepartmentName.get(6), "");*/
-		/*
-		Clickelement(Clickadddept);
-		sendkeyweb(Adddeptname, "");
-		sendkeyweb(Adddeptcode, "");
-		Clickelement(Clicksavebutton);*/
-	/*	
-		Clickelement(Dashboardsearch);
-		Clickelement(Appsearch);
-		sendkeyweb(Appsearchsend, ConfigReader.getProperty("OrgName"));
+		validatetext(Departmentstatus1.get(0), "IT001");
+		validatetext(Departmentstatus1.get(1), "");
+		validatetext(Departmentstatus1.get(2),"NA"); 
+		validatetext(Departmentstatus1.get(3), "");
+		validatetext(Departmentstatus1.get(4),"NA");  
+		//validatetext(RDRDepartment.get(5), "Active");
+		validatetext(Departmentstatus.get(0), "");
+		validatetext(Departmentstatus.get(1), "");
 		
 		
-		List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//following-sibling::td"));
-		List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+src1+"']//preceding-sibling::td"));
-
-		//
-		
-		validatetext(Orgname.get(3),  ConfigReader.getProperty("AppStatus2"));
-		
-		Clickelement(Appidclick);
-		validatetext(InActivetxtval,  "Approved");   
-		Clickelement(DomainSearch);
-		
-		sendkeyweb(Appsearchsend, ConfigReader.getProperty("Domain"));
-		
-		Clickelement(Appidclick);
-		validatetext(InActivetxtval1, "Active");
-		*/
 		
 		
 		
 			
 	}
-}
+	}
+	
+
+

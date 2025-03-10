@@ -1,3 +1,6 @@
+
+
+
 Feature:  Registrar settings   Department
 
  Scenario Outline: Registrar  Department Settings  Page

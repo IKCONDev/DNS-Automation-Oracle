@@ -353,16 +353,21 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 		
 	}
 		
-		@FindBy(xpath = "//h2[normalize-space()='Billing History']/following::div")
-		public List<WebElement> Bill_status;
+//		@FindBy(xpath = "//h2[normalize-space()='Billing History']/following::div")
+//		public List<WebElement> Bill_status;
 		public void user_validatetext_BillingHistory_Fields_finalsdtage() throws Exception
 		{
-		
-		dispalyedattribute(Bill_status.get(6), "ID"); //
-		configWriter.setProperty("InAmount", Bill_status.get(6).getText());
-		validatetext(Bill_status.get(7), ConfigReader.getProperty("InAmount"));
-		configWriter.setProperty("InvoiceDate", Bill_status.get(7).getText());
-		validatetext(Bill_status.get(8), ConfigReader.getProperty("InvoiceDate"));
+			List<WebElement> Status4=driver.findElements(By.xpath("//div[normalize-space()='"+ConfigReader.getProperty("Status4")+"']/preceding-sibling::div"));
+
+			//
+			dispalyedattribute(Status4.get(0), "ID"); 
+			configWriter.setProperty("InAmount", Status4.get(1).getText());
+			configWriter.saveProperties();
+			validatetext(Status4.get(1), ConfigReader.getProperty("InAmount"));
+			configWriter.setProperty("InvoiceDate", Status4.get(2).getText());
+			configWriter.saveProperties();
+			validatetext(Status4.get(2), ConfigReader.getProperty("InvoiceDate"));
+			
 			
 		
 	}
