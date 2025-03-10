@@ -185,8 +185,7 @@ Feature: Registrant Onboarding
   Scenario Outline: Registrant Application Page
     Then User Navigate to Application Page
     Then User payment and upload recipt
-<<<<<<< HEAD
-=======
+
     Then User logout the application
     
   Scenario Outline: Registrant Registration and login
@@ -196,7 +195,6 @@ Feature: Registrant Onboarding
     Then User Register An Account "<username>" "<password>"
     When User navigate to Login Page
     Then User enters "<username>" and "<password>"
->>>>>>> branch 'devbranch' of https://github.com/IKCONDev/DNS-Automation.git
 
   Scenario Outline: Registrant Invoice Page
     Then User Navigate to Domain Page
@@ -204,9 +202,6 @@ Feature: Registrant Onboarding
     Then User download the invoice
     Then User logout the application
 
-<<<<<<< HEAD
-=======
-  @2ndStep
   Scenario Outline: Registrar Login Page
     Given Registrar is on Landing Page1
     Then Registrar Can Check  Textvaladations in Login Page
@@ -304,7 +299,6 @@ Feature: Registrant Onboarding
     Then User payment and upload recipt
     Then User logout the application
 
->>>>>>> branch 'devbranch' of https://github.com/IKCONDev/DNS-Automation.git
   @4thstep
   Scenario Outline: Registrar Login Page
     Given Registrar is on Landing Page1
