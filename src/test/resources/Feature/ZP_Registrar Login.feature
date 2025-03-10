@@ -9,8 +9,8 @@ Feature: Registrant Onboarding
     Then User enters "<username>" and "<password>"
 
     Examples: 
-      | username        | password | Case  |
-      | venkat@cbse.com | Test@123 | Valid |
+      | username          | password | Case  |
+      | venkat@natty.com | Test@123 | Valid |
 
   Scenario Outline: DSC Verify
     And User enters the dsc details
@@ -21,7 +21,7 @@ Feature: Registrant Onboarding
 
     Examples: 
       | domain | PIN    | Address                                  | Tel        | Mob        | Email  | GST             | PAN        | License               |
-      | cbse   | 500090 | CYBERTOWERS,Madhapur,HEDERABAD,Telangana | 9685578941 | 9685578945 | ikcon@ | 22ABCDE0000A1J5 | ASDEE4455Q | L12345MH2023PLC000001 |
+      | natty | 500090 | CYBERTOWERS,Madhapur,HEDERABAD,Telangana | 9685578941 | 9685578945 | ikcon@ | 22ABCDE0000A1J5 | ASDEE4455Q | L12345MH2023PLC000001 |
 
   Scenario Outline: Admin Contact details
     Then User enters admin contact details "<Name>" "<Tel>" "<Mob>" "<Email>" "<Aadhar>" "<PAN>" "<Desig>"
@@ -49,7 +49,7 @@ Feature: Registrant Onboarding
 
     Examples: 
       | NS1     | NS2     | IP1       | IP2       |
-      | Office1 | office2 | 1.0.28.21 | 1.0.61.12 |
+      | Office1 | office2 | 1.1.29.22 | 1.1.65.13 |
 
   Scenario Outline: Preview and Submit
     Then User preview and submit onboarding
@@ -71,8 +71,8 @@ Feature: Registrant Onboarding
     And User subit the Domain Details page
 
     Examples: 
-      | NS1     | NS2     | IP1        | IP2        |
-      | Office1 | office2 | 1.10.71.11 | 1.10.81.11 |
+      | NS1     | NS2     | IP1       | IP2       |
+      | Office1 | office2 | 1.1.30.22 | 1.1.66.13 |
 
   Scenario Outline: Registrant Invoice Page
     Then User Navigate to Domain Page
@@ -129,7 +129,7 @@ Feature: Registrant Onboarding
 
     Examples: 
       | IP2          | IP1          | Status2          |
-      | 199.20.12.23 | 199.20.12.24 | Payment Not Done |
+      | 199.27.12.23 | 199.29.12.24 | Payment Not Done |
 
   Scenario Outline: Registrar Invoice  Page
     Then Registrar can Navigate to Invoice Page  check Textvalidations
@@ -187,7 +187,7 @@ Feature: Registrant Onboarding
     Then User payment and upload recipt
 
   Scenario Outline: Registrant Invoice Page
-    Then User Navigate to Domain Page
+    Then User navigate to Invoice page
     Then User download the proforma invoice
     Then User download the invoice
     Then User logout the application
@@ -221,6 +221,6 @@ Feature: Registrant Onboarding
     And User enters the dsc details
 
   Scenario Outline: Registrant Invoice Page
-    Then User Navigate to Domain Page
+    Then User navigate to Invoice page
     Then User download the invoice
     Then User logout the application

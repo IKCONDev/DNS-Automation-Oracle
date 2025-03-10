@@ -319,18 +319,19 @@ public class Baseclass {
         }
     }
 	@FindBy(xpath = "//div[@role='alert']")
-	public WebElement alert_popup;
+	public List<WebElement> alert_popup;
 	
 	public void popupvalidate(String str,String str1) {
 //		wait.until(ExpectedConditions.visibilityOf(alert_popup));
-		if(alert_popup.isDisplayed()) {
-			String st = alert_popup.getText();
-			validatealert(alert_popup, str,str1);
+		for(WebElement e: alert_popup) {
+		if(e.isDisplayed()) {
+			String st = e.getText();
+			validatealert(e, str,str1);
 			System.out.println(st);
 
 	}else {
 		System.out.println("pop up not displayed");
-	}
+	}}
 	}
 	public static String absolutepath(String src) {
 	    File f = new File("src/test/resources/Documents/"+src); 

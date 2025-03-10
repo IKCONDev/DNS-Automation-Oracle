@@ -181,8 +181,7 @@ Feature: Registrant Onboarding
     Then User Navigate to Application Page
     Then User payment and upload recipt
     Then User logout the application
-<<<<<<< HEAD
-=======
+    
   Scenario Outline: Registrant Registration and login
     Given User is on Landing Page
     Then User validating the Landing Page
@@ -363,7 +362,6 @@ Feature: Registrant Onboarding
     Then User Navigate to Application Page
     Then User payment and upload recipt
     Then User logout the application
->>>>>>> branch 'devbranch' of https://github.com/IKCONDev/DNS-Automation.git
 
   @4thstep
   Scenario Outline: Registrar Login Page
