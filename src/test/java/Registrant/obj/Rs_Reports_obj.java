@@ -14,11 +14,11 @@ import Configuration.ConfigReader;
 import Drivermanager.Driver;
 import hooks.Baseclass;
 
-public class Rs_Settings_obj extends Baseclass{
+public class Rs_Reports_obj extends Baseclass{
 	
 	WebDriver driver = Driver.getDriver();
 	ConfigWriter configWriter = new ConfigWriter();
-	public Rs_Settings_obj(WebDriver RC) {
+	public Rs_Reports_obj(WebDriver RC) {
 		driver = RC;
 		PageFactory.initElements(RC, this);
 	}
@@ -26,21 +26,21 @@ public class Rs_Settings_obj extends Baseclass{
 	Actions actions = new Actions(driver);
 	
 	
-	@FindBy(xpath = "//span[contains(text(),'Settings')]")
-	public WebElement Settings;	
-	@FindBy(xpath = "//a[contains(text(),'User Management')]")
+	@FindBy(xpath = "//span[contains(text(),'Reports')]")
+	public WebElement Reports;	
+	@FindBy(xpath = "//a[@class='ng-star-inserted']")
 	public List<WebElement> User_mang;	
 	//div[contains(@class,'box visible')]
 	@FindBy(xpath = "//a[contains(text(),'Officer Details Management')]")
 	public List<WebElement> Officer_details_manage;	
-	public void user_navigate_to_user_management_page() {
-	   actions.moveToElement(Settings).perform();
+	public void user_navigate_to_user_details_management_page() {
+	   actions.moveToElement(Reports).perform();
 	    clickmultipleweb(User_mang);
 	}
 	@FindBy(xpath = "//table[@id='table1']//th")
 	public List<WebElement> table;	
-	public void user_validate_the_user_management_page() {
-	   String st="Sl.No,User Id,User Name,Organisation Name,Role,Status";
+	public void user_validate_the_user_details_management_page() {
+	   String st="Sl.No,User Id,User Name,Organisation Name,Role,Status,Last Login IP,Last Login Date";
 	  //"24	venkateshl@ikcontech.com	Charan T	Orgname	Super Admin	Active"
 	    Table_prop(table, st);
 	    List<WebElement> tabledata=driver.findElements(By.xpath("//td[contains(text(),'"+ConfigReader.getProperty("Username")+"')]/following-sibling::td"));
@@ -57,7 +57,7 @@ public class Rs_Settings_obj extends Baseclass{
 	public List<WebElement> view;
 
 	public void user_navigate_to_officer_details_management_page() {
-		actions.moveToElement(Settings).perform();
+		actions.moveToElement(Reports).perform();
 	    clickmultipleweb(Officer_details_manage);
 	    String st="Id,Organisation Name,Person Name,Designation,Mobile Number,Email Id,Role,Verify Documents,Login Status,Actions";
 	    Table_prop(table, st);

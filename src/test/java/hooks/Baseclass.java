@@ -18,6 +18,7 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -83,6 +84,9 @@ public class Baseclass {
             .info("Expected result: "+ Actual);
         }
     }
+	
+	
+	
 	private void logStatusalert(boolean isPassed, String Expected,String Actual, ExtentTest test) {
         ExtentColor color = isPassed ? ExtentColor.GREEN : ExtentColor.RED;
         String screenshotBase64 = Dateformatter.Capsre();

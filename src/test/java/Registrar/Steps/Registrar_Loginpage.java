@@ -24,13 +24,13 @@ public class Registrar_Loginpage {
 	
 	
 	@Then("Registrar Can Check  Textvaladations in Login Page")
-	public void User_textvaladation_in_Loginpage_Page1() {
+	public void User_textvaladation_in_Loginpage_Page1() throws Exception  {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		RL.User_textvaladation_in_Login_Page1();
 	}
 	
 	@When("Registrar  Enter valid UN and PWD {string} and {string} and navigate to Registrar Home Page")
-	public void User_user_enters_andnavigate_to_Registrar_loginPage1(String UN, String Password) throws Exception {
+	public void User_user_enters_andnavigate_to_Registrar_loginPage1(String UN, String Password) throws Exception  {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		RL.User_enter_Username_Password_to_navigate_Home_Page1(UN ,Password);
 	}

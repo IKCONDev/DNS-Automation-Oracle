@@ -23,6 +23,7 @@ public class Registrant_login {
 		driver.get(ConfigReader.getProperty("baseURL"));
 		driver.manage().window().maximize();
 		
+		
 	}
 	
 	@Given("User is on Registar Landing Page")
@@ -38,9 +39,10 @@ public class Registrant_login {
 	}
 
 	@When("User navigate to Registration Page")
-	public void user_navigate_to_Registration_page() {
+	public void user_navigate_to_Registration_page() throws Exception {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		RLO.user_navigate_to_Registration_page();
+		RLO.user_navigate_to_Registration_page1();
 	}
 
 	@Then("User Register An Account {string} {string}")
@@ -92,7 +94,7 @@ public class Registrant_login {
 		RLO.user_org_documents(GST, PAN, License);
 	}
 	
-	@Then("User logout the application")
+	@Then("User logout  application")
 	public void User_logout_the_application () throws InterruptedException {
 		RLO.User_logout_the_application ();
 	}
@@ -119,11 +121,11 @@ public class Registrant_login {
 		RLO.User_upload_billing_contact_details(Aadhar, PAN);
 	}
 
-	@Then("User enters name server details {string} {string} {string} {string}")
-	public void User_enters_name_server_details(String NS1,String IP1,String N2,String IP2) throws AWTException, InterruptedException {
+	@Then("User enters name server details {string} {string} {string} {string} {string} {string} {string} {string}")
+	public void User_enters_name_server_details(String NSR1,String NIP1,String NSR2,String NIP2,String NSR3,String NIP3,String NSR4,String NIP4) throws AWTException, InterruptedException {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		RLO.Validate_name_server_details_page();
-		RLO.User_enters_name_server_details(NS1,IP1,N2,IP2);
+		RLO.User_enters_name_server_details(NSR1,NIP1,NSR2,NIP2,NSR3,NIP3,NSR4,NIP4);
 	}
 	
 	@Then("User preview and submit onboarding")

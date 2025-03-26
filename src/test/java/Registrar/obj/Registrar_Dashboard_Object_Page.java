@@ -166,7 +166,7 @@ public class Registrar_Dashboard_Object_Page extends Baseclass{
 		}
 		public void Create_ApplicationQuee_TextValidations_in_Home_Page() throws InterruptedException {
 			
-			Thread.sleep(5000);
+			//Thread.sleep(5000);
 			Actions Act = new Actions(driver);
 			WebElement OrgName=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']"));
 			Act.moveToElement(OrgName).build().perform();

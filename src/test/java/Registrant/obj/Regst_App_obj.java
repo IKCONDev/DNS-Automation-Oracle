@@ -25,9 +25,14 @@ public class Regst_App_obj extends Baseclass {
 	}
 	
 	
+	@FindBy(xpath = "//button[contains(text(),'Track Your Application')]")
+	public WebElement TrackApplication;
 	@FindBy(xpath = "//span[contains(text(),'Applications')]")
 	public WebElement Application;
 	
+	public void Trackapplication() {
+		Clickelement(TrackApplication);
+	}
 	
 	public void user_navigate_to_application_page() {
 	   Clickelement(Application);

@@ -311,7 +311,7 @@ public WebElement PANsearch ;
 public WebElement  Approve2Click;
 @FindBy(xpath="//div[@id='viewTheOrgPanDocs']//span[@aria-hidden='true'][normalize-space()='×']")
 public WebElement  Close2buttonClick;
-@FindBy(xpath="//span[text()='Licence Number']")
+@FindBy(xpath="//span[text()='Licence From Regulator']")
 public WebElement LicenceNumberdocsearch ;
 @FindBy(xpath="//div[@id='viewTheOrgLicenceDocs']//button[@class='btn btn-primary'][normalize-space()='Approve']")
 public WebElement  Approve3Click;
@@ -327,9 +327,10 @@ public WebElement  Close4buttonClick;
 public WebElement  Toastermsgappovedoc;
 @FindBy(xpath="//div[@role='alert' and @aria-label='Document Rejected']")
 public WebElement  ToastermsgRejectdoc;
+@FindBy(xpath="//button[contains(text(),'Review')]")
+public WebElement  clickreviewbtn;
 public void User_Can_Check_OrganisationDetails_DocumentsUpload_Functionalities_in_Applications_Page() throws Exception {
 	validatetext(OrganizationDocstxtval, "Organization Documents");
-	
 	
 	
 	Thread.sleep(3000);
@@ -463,13 +464,13 @@ public WebElement AoadharRejectSavechangesClick ;
 public WebElement AOadharAproveClick ;
 @FindBy(xpath="//td[normalize-space()='PAN']/following-sibling::td//span[@data-target='#approveCommentModal']")
 public WebElement AOPanAproveClick ;
-@FindBy(xpath="//td[normalize-space()='Organisation Id']/following-sibling::td//span[@data-target='#approveCommentModal']")
+@FindBy(xpath="//td[normalize-space()='//td[normalize-space()='Organization Identity Card']/following-sibling::td//span[@data-target='#rejectCommentModal']']/following-sibling::td//span[@data-target='#approveCommentModal']")
 public WebElement AOODAproveClick ;
 @FindBy(xpath="//td[normalize-space()='Aadhaar']/following-sibling::td//span[@data-target='#rejectCommentModal']")
 public WebElement AOadharRejectClick ;
 @FindBy(xpath="//td[normalize-space()='PAN']/following-sibling::td//span[@data-target='#rejectCommentModal']")
 public WebElement AopanRejectClick ;
-@FindBy(xpath="//td[normalize-space()='Organisation Id']/following-sibling::td//span[@data-target='#rejectCommentModal']")
+@FindBy(xpath="//td[normalize-space()='Organization Identity Card']/following-sibling::td//span[@data-target='#rejectCommentModal']")
 public WebElement AoODRejectClick ;
 @FindBy(xpath="//td[normalize-space()='Rohan Tech']/preceding-sibling::td")
 public WebElement Appidclick;
@@ -542,8 +543,8 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 	//Clickelement(AoDocviewclick);
 	Thread.sleep(3000);
 	/////////////////////// 2
-	
-	
+	//change
+	/*
 	List<WebElement> ADocumentType=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("ADocumentType")+"']/following-sibling::td"));
 	List<WebElement> ADocumentType1=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("ADocumentType")+"']/preceding-sibling::td"));
 
@@ -575,7 +576,7 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 	validatetext(OrgDocumentType.get(0), "");
 	validatetext(OrgDocumentType.get(1), ConfigReader.getProperty("AOAdharDocStatus")); 
 	validatetext(OrgDocumentType.get(2), ConfigReader.getProperty("AOAdharDocComment"));
-	
+	*/
 	
 	//Administrative
 	System.out.println(" Administrative Officer Approvals ");
@@ -683,14 +684,16 @@ public WebElement TOODApprovalchecktxtval ;
 public WebElement TOadharAproveClick ;
 @FindBy(xpath="//td[normalize-space()='PAN']/following-sibling::td//span[@data-target='#approveCommentModal']")
 public WebElement TOPanAproveClick ;
-@FindBy(xpath="//td[normalize-space()='Organisation Id']/following-sibling::td//span[@data-target='#approveCommentModal']")
+@FindBy(xpath="//td[normalize-space()='//td[normalize-space()='Organization Identity Card']/following-sibling::td//span[@data-target='#rejectCommentModal']']/following-sibling::td//span[@data-target='#approveCommentModal']")
 public WebElement TOODAproveClick ;
 @FindBy(xpath="//td[normalize-space()='Aadhaar']/following-sibling::td//span[@data-target='#rejectCommentModal']")
 public WebElement TOadharRejectClick ;
 @FindBy(xpath="//td[normalize-space()='PAN']/following-sibling::td//span[@data-target='#rejectCommentModal']")
 public WebElement TOpanRejectClick ;
-@FindBy(xpath="//td[normalize-space()='Organisation Id']/following-sibling::td//span[@data-target='#rejectCommentModal']")
+@FindBy(xpath="//td[normalize-space()='//td[normalize-space()='Organization Identity Card']/following-sibling::td//span[@data-target='#rejectCommentModal']']/following-sibling::td//span[@data-target='#rejectCommentModal']")
 public WebElement TOODRejectClick ;
+@FindBy(xpath="//button[contains(text(),'Submit')]")
+public WebElement clicksubmitbtn;
 
 //TO
 
@@ -761,6 +764,10 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 	Thread.sleep(3000);
 	Clickelement(Appsearch);
 	Thread.sleep(3000);
+
+	
+	//driver.navigate().back();
+	
 	sendkeyweb(Appsearchsend, ConfigReader.getProperty("OrgName"));
 	//List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']//preceding-sibling::td"));
 	//WebElement id1=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//preceding-sibling::td"));
@@ -829,13 +836,13 @@ public WebElement BOadharRejectSavechangesClick ;
 public WebElement BOadharAproveClick ;
 @FindBy(xpath="//td[normalize-space()='PAN']/following-sibling::td//span[@data-target='#approveCommentModal']")
 public WebElement BOPanAproveClick ;
-@FindBy(xpath="//td[normalize-space()='Organisation Id']/following-sibling::td//span[@data-target='#approveCommentModal']")
+@FindBy(xpath="//td[normalize-space()='//td[normalize-space()='Organization Identity Card']/following-sibling::td//span[@data-target='#rejectCommentModal']']/following-sibling::td//span[@data-target='#approveCommentModal']")
 public WebElement BOODAproveClick ;
 @FindBy(xpath="//td[normalize-space()='Aadhaar']/following-sibling::td//span[@data-target='#rejectCommentModal']")
 public WebElement BOadharRejectClick ;
 @FindBy(xpath="//td[normalize-space()='PAN']/following-sibling::td//span[@data-target='#rejectCommentModal']")
 public WebElement BOpanRejectClick ;
-@FindBy(xpath="//td[normalize-space()='Organisation Id']/following-sibling::td//span[@data-target='#rejectCommentModal']")
+@FindBy(xpath="//td[normalize-space()='//td[normalize-space()='Organization Identity Card']/following-sibling::td//span[@data-target='#rejectCommentModal']']/following-sibling::td//span[@data-target='#rejectCommentModal']")
 public WebElement BOODRejectClick ;
 
 //APP Textval 
@@ -849,13 +856,28 @@ public WebElement linktxtval  ;
 public WebElement AOofftxtval ;
 @FindBy(xpath="//td[normalize-space()='Technical Officer']")
 public WebElement TOofftxtval ;
-@FindBy(xpath="//td[normalize-space()='Billing Officer']")
+@FindBy(xpath="//td[normalize-space()='Financial Officer']")
 public WebElement BOofftxtval  ;
 
 @FindBy(xpath="//button[contains(text(),'Cancel')]")
 public WebElement cancelclick ;
 @FindBy(xpath="//button[text()='Submit']")
 public WebElement submitclick ;
+@FindBy(xpath = "//select[@id='tokenSelect']")
+public WebElement DSC_token;
+//
+@FindBy(xpath = "//select[@id='certificateSelect']")
+public WebElement DSC_certificate;
+// 
+@FindBy(xpath = "//select[@id='dataTypeSelect']")
+public WebElement DSC_datetype;
+//1: TextPKCS7
+@FindBy(xpath = "//input[@id='passwordInput']")
+public WebElement DSC_password;
+@FindBy(xpath = "//button[normalize-space()='Submit']")
+public WebElement DSC_submit;
+@FindBy(xpath = "//button[normalize-space()='Cancel']")
+public WebElement DSC_Cancel;
 
 //BO
 public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page() throws Exception {
@@ -919,17 +941,25 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 	Clickelement(BOODApprovalSavechangesClick);
 	Thread.sleep(3000);
 	validatetext(Toastermessage,"Document Approved.");
-	driver.navigate().back();
-	Thread.sleep(5000);
 	//driver.navigate().back();
-	Selectdropdown(Selectpaymentoption,"Approved for payment");
 	Thread.sleep(5000);
+	Clickelement(clickreviewbtn);
+	Clickelement(clicksubmitbtn);
+	popupvalidate("Fetched tokens successfully", "");
+	Selectdropdown(DSC_token, "1");
+	Selectdropdown(DSC_certificate, "1");
+	sendkeyweb(DSC_password, "Idrbt@123");
+	Clickelement(DSC_submit);
+	popupvalidate("Signed using DSC successful", "emty");
+	driver.navigate().back();
+	//Selectdropdown(Selectpaymentoption,"Approved for payment");
+	//Thread.sleep(5000);
 	Clickelement(submitclick);
 	//Thread.sleep(5000);
 	validatetext(ToastermessageFinal,"Domain data updated successfully.");
 	Thread.sleep(5000);
 	
-	Clickelement(Appsearch);
+	//Clickelement(Appsearch);
 
 
 }

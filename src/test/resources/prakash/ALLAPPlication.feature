@@ -9,8 +9,8 @@ Feature: Registrant Onboarding
     Then User enters "<username>" and "<password>"
 
     Examples: 
-      | username          | password | Case  |
-      | venkat@camron.com | Test@123 | Valid |
+      | username       | password | Case  |
+      | venkat@hmis.com | Test@123 | Valid |
 
   Scenario Outline: DSC Verify
     And User enters the dsc details
@@ -21,7 +21,7 @@ Feature: Registrant Onboarding
 
     Examples: 
       | domain | PIN    | Address                                  | Tel        | Mob        | Email  | GST             | PAN        | License               |
-      | camron | 500090 | CYBERTOWERS,Madhapur,HEDERABAD,Telangana | 9685578941 | 9685578945 | ikcon@ | 22ABCDE0000A1J5 | ASDEE4455Q | L12345MH2023PLC000001 |
+      | hmis    | 500090 | CYBERTOWERS,Madhapur,HEDERABAD,Telangana | 9685578941 | 9685578945 | ikcon@ | 22ABCDE0000A1J5 | ASDEE4455Q | L12345MH2023PLC000001 |
 
   Scenario Outline: Admin Contact details
     Then User enters admin contact details "<Name>" "<Tel>" "<Mob>" "<Email>" "<Aadhar>" "<PAN>" "<Desig>"
@@ -49,7 +49,7 @@ Feature: Registrant Onboarding
 
     Examples: 
       | NS1     | NS2     | IP1      | IP2      |
-      | Office1 | office2 | 1.0.8.71 | 1.0.1.94 |
+      | Office1 | office2 | 1.0.7.71 | 1.0.9.94 |
 
   Scenario Outline: Preview and Submit
     Then User preview and submit onboarding
@@ -72,7 +72,7 @@ Feature: Registrant Onboarding
 
     Examples: 
       | NS1     | NS2     | IP1       | IP2       |
-      | Office1 | office2 | 1.10.6.41 | 1.10.6.41 |
+      | Office1 | office2 | 1.10.2.41 | 1.10.3.41 |
 
   Scenario Outline: Registrant Invoice Page
     Then User Navigate to Domain Page
@@ -129,7 +129,7 @@ Feature: Registrant Onboarding
 
     Examples: 
       | IP2         | IP1         | Status2          |
-      | 199.2.12.23 | 199.2.12.24 | Payment Not Done |
+      | 199.12.4.23 | 199.15.2.24 | Payment Not Done |
 
   Scenario Outline: Registrar Invoice  Page
     Then Registrar can Navigate to Invoice Page  check Textvalidations
@@ -185,9 +185,8 @@ Feature: Registrant Onboarding
   Scenario Outline: Registrant Application Page
     Then User Navigate to Application Page
     Then User payment and upload recipt
-
     Then User logout the application
-    
+
   Scenario Outline: Registrant Registration and login
     Given User is on Landing Page
     Then User validating the Landing Page
