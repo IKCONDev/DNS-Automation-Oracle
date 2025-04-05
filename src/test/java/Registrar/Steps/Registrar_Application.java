@@ -74,7 +74,7 @@ public void Registrar_can_Approve_Registrant_Application()throws Exception  {
 	RA.Registrar_can_Approve_Registrant_Application();
 	
 }
-//Registrar  check Final Final Functionalities in Domains Page
+   
 	@Then("Registrar  check Final Final Functionalities in Domains Page")
 	public void Registrar_can_Check_Registrant_Application_Domain() throws Exception  {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));

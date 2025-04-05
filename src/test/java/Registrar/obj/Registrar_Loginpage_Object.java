@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Set;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -60,7 +61,9 @@ public class Registrar_Loginpage_Object extends Baseclass{
 	public WebElement Verifyotp;
 	@FindBy(xpath="//div[@role='alert']")
 	public WebElement Toastermessage;
-
+	@FindBy(xpath = "//a[normalize-space()='Privacy Policy']")
+	public WebElement privcypolicy_buttons;
+	
 	public void User_textvaladation_in_Login_Page1() throws Exception  {
 		
     
@@ -73,12 +76,11 @@ public class Registrar_Loginpage_Object extends Baseclass{
 		validatetext(Nextbuttontextvl,"Next");
 		String src=driver.getCurrentUrl();
 		
-        Clickelement(Termsconditions_buttons);
-        
-       
-      
-       
+		Actions act = new Actions(driver);
+		act.sendKeys(Keys.PAGE_DOWN).build().perform();
 		
+        Clickelement(Termsconditions_buttons);
+       
 	
         Set<String> allWindows = driver.getWindowHandles();
 
@@ -115,7 +117,7 @@ public class Registrar_Loginpage_Object extends Baseclass{
 	       configWriter.setProperty("RGPPAss", Password);
 	      configWriter.saveProperties();
 		
-	      Clickelement(Usermanual_buttons);
+	      Clickelement(privcypolicy_buttons);
 	        
 	     
 	  	

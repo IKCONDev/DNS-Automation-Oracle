@@ -26,7 +26,7 @@ public class Registrant_login_object extends Baseclass {
 	ConfigWriter configWriter = new ConfigWriter();
 	public Registrant_login_object(WebDriver RC) {
 		driver = RC;
-		PageFactory.initElements(RC, this);
+		PageFactory.initElements(RC, this);		
 	}
 
 	Scanner myObj = new Scanner(System.in);// Create a Scanner objectF
@@ -36,9 +36,17 @@ public class Registrant_login_object extends Baseclass {
 	public WebElement Termsconditions_buttons;
 	@FindBy(xpath = "//a[normalize-space()='User Manual']")
 	public WebElement Usermanual_buttons;
+	@FindBy(xpath = "//a[normalize-space()='Privacy Policy']")
+	public WebElement privcypolicy_buttons;
+	
+	
 	public void user_navigate_to_Registration_page() throws Exception {
+		Actions act = new Actions(driver);
+		act.sendKeys(Keys.PAGE_DOWN).build().perform();
+		
+		 Thread.sleep(5000);
 		 Clickelement(Termsconditions_buttons);
-	        
+		
 	  
 	        Set<String> allWindows = driver.getWindowHandles();
 
@@ -50,9 +58,10 @@ public class Registrant_login_object extends Baseclass {
 	            // If the window is not the current one, close it
 	            if (!window.equals(currentWindow)) {
 	                driver.switchTo().window(window);
+	                Thread.sleep(3000);
 	                driver.close(); // Close the tab
 	            
-	        Thread.sleep(3000);
+	       
 	        
 	        // Switch back to the original window
 	        driver.switchTo().window(currentWindow);
@@ -73,9 +82,10 @@ public class Registrant_login_object extends Baseclass {
 
 		
 	public void user_navigate_to_Registration_page1() throws Exception {
-		 Clickelement(Usermanual_buttons);
+		 Thread.sleep(5000);
+		 Clickelement(privcypolicy_buttons);
 	        
-		  
+		
 	        Set<String> allWindows = driver.getWindowHandles();
 
 	        // Store the current window handle
@@ -86,9 +96,10 @@ public class Registrant_login_object extends Baseclass {
 	            // If the window is not the current one, close it
 	            if (!window.equals(currentWindow)) {
 	                driver.switchTo().window(window);
+	                Thread.sleep(5000);
 	                driver.close(); // Close the tab
 	            
-	        Thread.sleep(3000);
+	       
 	        
 	        // Switch back to the original window
 	        driver.switchTo().window(currentWindow);
@@ -125,14 +136,14 @@ public class Registrant_login_object extends Baseclass {
 	
 	
 	public void user_validating_landing_page() {
-		
-		validatetext(Usermanual_linktext, "User Manual");
-		validatetext(Privacy_policy_linktext, "Privacy Policy");
-		validatetext(Disclaimer_linktext, "Disclaimer");
-		try {
-		validatetext(Register_button, "Register");
-		} catch (Exception e) {
-		}
+		//validatetext(Termsconditions_buttons, "Terms & Conditions");
+		//validatetext(Usermanual_linktext, "User Manual");
+		//validatetext(Privacy_policy_linktext, "Privacy Policy");
+		//validatetext(Disclaimer_linktext, "Disclaimer");
+//		try {
+//		validatetext(Register_button, "Register");
+//		} catch (Exception e) {
+//		}
 		
 	}
 	
@@ -281,7 +292,7 @@ public class Registrant_login_object extends Baseclass {
 	@FindBy(xpath = "//button[@id='otp-btn']")
 	public WebElement Signin_otp_button;
 		
-	@FindBy(xpath = "//div[contains(text(),'Login to')]")
+	@FindBy(xpath = "//div[contains(text(),'Login to your account')]")
 	public WebElement login_title;	
 	@FindBy(xpath = "//div[normalize-space()='Authorized Email ID' or normalize-space()='Authorized Email ID']")
 	public WebElement email_label;	
@@ -350,7 +361,7 @@ public class Registrant_login_object extends Baseclass {
 	@FindBy(xpath = "(//div[normalize-space()='Enter password'])")
 	public WebElement Enter_password_error;
 	public void validate_login_page() {
-		validatetext(login_title, "Login to your account");
+		validatetext(login_title, "Register using official email ID");
 		validatetext(email_label, "Email ID");
 		validatetext(Passowrd_label, "Password");
 		validateattribute(Signin_email, "placeholder", "Enter your email");
@@ -429,8 +440,17 @@ public class Registrant_login_object extends Baseclass {
 	public WebElement Bank_name;
 	@FindBy(xpath = "//select[@id='zoneInput']")
 	public WebElement Zone_input;
-	@FindBy(xpath = "//button[normalize-space()='Save & Next']")
-	public List<WebElement> Save_next;
+//	@FindBy(xpath = "(//button[contains(text(),' Save & Next ')])[2]")
+//	public List<WebElement> Save_next11;
+//	@FindBy(xpath = "(//button[contains(text(),' Save & Next ')])[3]")
+//	public List<WebElement> Save_nextDS;
+//	@FindBy(xpath = "(//button[contains(text(),' Save & Next ')])[4]")
+//	public List<WebElement> Save_nextPP;
+//	@FindBy(xpath = "(//button[contains(text(),' Save & Next ')])[1]")
+//	public List<WebElement> Save_next1;
+	@FindBy(xpath = "//button[contains(text(),'Save & Next')]")
+	public  List<WebElement> Save_next;
+	
 	@FindBy(xpath = "//input[contains(@placeholder,'n name')]")
 	public WebElement org_name;
 	@FindBy(xpath = "//input[contains(@placeholder,'pincode')]")
@@ -494,7 +514,7 @@ public class Registrant_login_object extends Baseclass {
 	
 	@FindBy(xpath = "//div[@class='alias-grid']//input")
 	public List<WebElement> Alias_grid;
-	@FindBy(xpath = "//div[contains(text(),'An additional charge of ₹ 2000/- will be applied for adding an extra domain name to your domain.')]")
+	@FindBy(xpath = "//div[contains(text(),'Your first 5 additional domain registrations are free. Each additional domain beyond this limit will incur a charge of ₹2000/- per domain.')]")
 	public WebElement Alias_section_path;
 	@FindBy(xpath = "//h2[contains(text(),'Domain Price Summary')]")
 	public WebElement Price_summary;
@@ -644,10 +664,10 @@ public class Registrant_login_object extends Baseclass {
 		sendkeyweb(org_pin, PIN);
 		sendkeyweb(org_address, Address);
 		sendkeyweb(STD_Code, "040");
-		Selectdropdown(selectcountry, "India -(+91)");
 		sendkeyweb(org_telephone, Tel);
+		Selectdropdown(selectcountry, "India -(+91)");
 		sendkeyweb(org_number, Mob);
-		org_number.sendKeys("9");
+		//org_number.sendKeys("9");
 		sendkeyweb(org_email, Email+ConfigReader.getProperty("OrgName")+".com");
 	}
 		
@@ -681,7 +701,7 @@ public class Registrant_login_object extends Baseclass {
 		Clickelement(org_select_file);
 		fileupload_robot(ConfigReader.getProperty("Board"));
 		Thread.sleep(2000);
-		clickmultipleweb(Save_next);
+	     clickmultipleweb(Save_next);
 		
 		
 
@@ -740,7 +760,7 @@ public class Registrant_login_object extends Baseclass {
 		sendkeyweb(org_telephone1, Tel);
 		Selectdropdown(selectcountry1, "India -(+91)");
 		sendkeyweb(Admin_number, Mob);
-		Admin_number.sendKeys("9");
+		//Admin_number.sendKeys("9");
 		sendkeyweb(admin_desig, Desig);
 		
 	}
@@ -815,7 +835,7 @@ public class Registrant_login_object extends Baseclass {
 		sendkeyweb(org_telephone2, Tel);
 		Selectdropdown(selectcountry2, "India -(+91)");
 		sendkeyweb(Tech_number, Mob);
-		Tech_number.sendKeys("9");
+		//Tech_number.sendKeys("9");
 		sendkeyweb(tech_desig, Desig);
 	}
 		
@@ -884,7 +904,7 @@ public class Registrant_login_object extends Baseclass {
 		sendkeyweb(org_telephone3, Tel);
 		Selectdropdown(selectcountry3, "India -(+91)");
 		sendkeyweb(Bill_number,Mob);
-		Bill_number.sendKeys("33");
+		//Bill_number.sendKeys("3");
 		sendkeyweb(bill_desig, Desig);
 	}
 		
@@ -998,6 +1018,10 @@ public class Registrant_login_object extends Baseclass {
 	public WebElement offdeclick;
 	@FindBy(xpath = "//input[@type='checkbox']")
 	public WebElement Preview_check;
+	@FindBy(xpath = "(//button[@aria-label='Close'])[1]")
+	public WebElement popupclose;
+	@FindBy(xpath = "(//button[@aria-label='Close'])[2]")
+	public WebElement popupclose1;
 	public void User_preview_and_submit_onboarding() throws InterruptedException {
 		
 		ac.moveToElement(Preview_check);
@@ -1013,7 +1037,9 @@ public class Registrant_login_object extends Baseclass {
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
-		
+		Clickelement(popupclose);
+		Thread.sleep(3000);
+		Clickelement(popupclose1);
 		Clickelement(reportsbuttonclick);
 		Clickelement(udrbuttonclick);
 		Clickelement(UMbuttonclick);

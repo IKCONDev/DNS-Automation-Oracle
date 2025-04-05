@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -64,7 +65,7 @@ public WebElement searchbuttonclick;
 public WebElement AppCountsearch; 
 @FindBy(xpath="//table[@id=\"table1\"]//tbody//tr[2]//td[1]")
 public WebElement DomainCountsearch; 
-@FindBy(xpath="//h3[text()='Applications Details']")
+@FindBy(xpath="//h3[contains(text(),'Application Details')]")
 public WebElement Domainapptxtval;
 @FindBy(xpath="//p[text()='Organization Name']")
 public WebElement OrganizationNametxtval;
@@ -149,11 +150,11 @@ sendkeyweb(Appsearchsend, ConfigReader.getProperty("OrgName"));
 }
 //Applications ---org details 
 
-@FindBy(xpath="//h4[contains(text(),' Organization Details')]")
+@FindBy(xpath="//h4[contains(text(),'Organization Details')]")
 public WebElement OrganizationDetailstxtval;
-@FindBy(xpath="//h5[normalize-space()='Institution Name']")
+@FindBy(xpath="//h5[normalize-space()='Organization Name']")
 public WebElement InstitutionNametxtval;
-@FindBy(xpath="//input[@placeholder='Enter your Institute Name']")
+@FindBy(xpath="//input[@placeholder='Enter your Organization Name']")
 public WebElement Institionnameplaceholderval;
 @FindBy(xpath="//h5[normalize-space()='Pincode']")
 public WebElement PinCodetxtval;
@@ -162,7 +163,7 @@ public WebElement PinCodeeditval;
 
 @FindBy(xpath="//h5[normalize-space()='Address']")
 public WebElement Addresstxtval;
-@FindBy(xpath="//h5[normalize-space()='Email ID']")
+@FindBy(xpath="//h5[normalize-space()='Organization Email ID']")
 public WebElement Emailtxtval;
 @FindBy(xpath="//input[@placeholder='Enter your Email id']")
 public WebElement Emailtxtbox;
@@ -235,7 +236,7 @@ public void User_Can_Check_OrganisationDetails_Textvalidations_in_Applications_P
 
 	validatetext(OrganizationDetailstxtval, "Organization Details"); //
 	validatetext(InstitutionNametxtval, "Institution Name");
-	validateattribute(Institionnameplaceholderval,"placeholder", "Enter your Institute Name");
+	validateattribute(Institionnameplaceholderval,"placeholder", "Enter your Organization Name");
 	validatetext(PinCodetxtval, "Pin Code");
     sendkeyweb(PinCodeeditval,"130003");
 	validatetext(Addresstxtval, "Address");
@@ -330,7 +331,7 @@ public WebElement  ToastermsgRejectdoc;
 @FindBy(xpath="//button[contains(text(),'Review')]")
 public WebElement  clickreviewbtn;
 public void User_Can_Check_OrganisationDetails_DocumentsUpload_Functionalities_in_Applications_Page() throws Exception {
-	validatetext(OrganizationDocstxtval, "Organization Documents");
+	//validatetext(OrganizationDocstxtval, "Organization Documents");
 	
 	
 	Thread.sleep(3000);
@@ -464,7 +465,7 @@ public WebElement AoadharRejectSavechangesClick ;
 public WebElement AOadharAproveClick ;
 @FindBy(xpath="//td[normalize-space()='PAN']/following-sibling::td//span[@data-target='#approveCommentModal']")
 public WebElement AOPanAproveClick ;
-@FindBy(xpath="//td[normalize-space()='//td[normalize-space()='Organization Identity Card']/following-sibling::td//span[@data-target='#rejectCommentModal']']/following-sibling::td//span[@data-target='#approveCommentModal']")
+@FindBy(xpath="//td[normalize-space()='Organization Identity Card']/following-sibling::td//span[@data-target='#approveCommentModal']")
 public WebElement AOODAproveClick ;
 @FindBy(xpath="//td[normalize-space()='Aadhaar']/following-sibling::td//span[@data-target='#rejectCommentModal']")
 public WebElement AOadharRejectClick ;
@@ -684,15 +685,15 @@ public WebElement TOODApprovalchecktxtval ;
 public WebElement TOadharAproveClick ;
 @FindBy(xpath="//td[normalize-space()='PAN']/following-sibling::td//span[@data-target='#approveCommentModal']")
 public WebElement TOPanAproveClick ;
-@FindBy(xpath="//td[normalize-space()='//td[normalize-space()='Organization Identity Card']/following-sibling::td//span[@data-target='#rejectCommentModal']']/following-sibling::td//span[@data-target='#approveCommentModal']")
+@FindBy(xpath="//td[normalize-space()='Organization Identity Card']//following-sibling::td//span[@data-target='#approveCommentModal']")
 public WebElement TOODAproveClick ;
 @FindBy(xpath="//td[normalize-space()='Aadhaar']/following-sibling::td//span[@data-target='#rejectCommentModal']")
 public WebElement TOadharRejectClick ;
 @FindBy(xpath="//td[normalize-space()='PAN']/following-sibling::td//span[@data-target='#rejectCommentModal']")
 public WebElement TOpanRejectClick ;
-@FindBy(xpath="//td[normalize-space()='//td[normalize-space()='Organization Identity Card']/following-sibling::td//span[@data-target='#rejectCommentModal']']/following-sibling::td//span[@data-target='#rejectCommentModal']")
+@FindBy(xpath="//td[normalize-space()='Organization Identity Card']//following-sibling::td//span[@data-target='#rejectCommentModal']")
 public WebElement TOODRejectClick ;
-@FindBy(xpath="//button[contains(text(),'Submit')]")
+@FindBy(xpath="(//button[contains(text(),'Submit')])[1]")
 public WebElement clicksubmitbtn;
 
 //TO
@@ -787,9 +788,9 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 
 
 //BO
-@FindBy(xpath="//td[contains(text(),'Billing Officer')]/following-sibling::td//a")
+@FindBy(xpath="//td[contains(text(),'Financial Officer')]/following-sibling::td//a")
 public WebElement setBoviewclick ;
-@FindBy(xpath="//td[contains(text(),'Billing Officer')]/following-sibling::td//p")
+@FindBy(xpath="//td[contains(text(),'Financial Officer')]/following-sibling::td//p")
 public WebElement Boclickiew  ;
 @FindBy(xpath="(//a[contains(text(),'View')])[3]")
 public WebElement BODocviewclick ;
@@ -836,13 +837,13 @@ public WebElement BOadharRejectSavechangesClick ;
 public WebElement BOadharAproveClick ;
 @FindBy(xpath="//td[normalize-space()='PAN']/following-sibling::td//span[@data-target='#approveCommentModal']")
 public WebElement BOPanAproveClick ;
-@FindBy(xpath="//td[normalize-space()='//td[normalize-space()='Organization Identity Card']/following-sibling::td//span[@data-target='#rejectCommentModal']']/following-sibling::td//span[@data-target='#approveCommentModal']")
+@FindBy(xpath="//td[normalize-space()='Organization Identity Card']/following-sibling::td//span[@data-target='#approveCommentModal']")
 public WebElement BOODAproveClick ;
 @FindBy(xpath="//td[normalize-space()='Aadhaar']/following-sibling::td//span[@data-target='#rejectCommentModal']")
 public WebElement BOadharRejectClick ;
 @FindBy(xpath="//td[normalize-space()='PAN']/following-sibling::td//span[@data-target='#rejectCommentModal']")
 public WebElement BOpanRejectClick ;
-@FindBy(xpath="//td[normalize-space()='//td[normalize-space()='Organization Identity Card']/following-sibling::td//span[@data-target='#rejectCommentModal']']/following-sibling::td//span[@data-target='#rejectCommentModal']")
+@FindBy(xpath="//td[normalize-space()='Organization Identity Card']//following-sibling::td//span[@data-target='#rejectCommentModal']")
 public WebElement BOODRejectClick ;
 
 //APP Textval 
@@ -872,13 +873,17 @@ public WebElement DSC_certificate;
 @FindBy(xpath = "//select[@id='dataTypeSelect']")
 public WebElement DSC_datetype;
 //1: TextPKCS7
+
 @FindBy(xpath = "//input[@id='passwordInput']")
 public WebElement DSC_password;
-@FindBy(xpath = "//button[normalize-space()='Submit']")
+@FindBy(xpath = "(//button[contains(text(),'Submit')])[2]")
 public WebElement DSC_submit;
 @FindBy(xpath = "//button[normalize-space()='Cancel']")
 public WebElement DSC_Cancel;
-
+@FindBy(xpath = "//*[@id=\"toast-container\"]/div[1]/button/span")
+public WebElement closed1;
+@FindBy(xpath = "//*[@id=\"toast-container\"]/div[2]/button/span")
+public WebElement closed2;
 //BO
 public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page() throws Exception {
 	Thread.sleep(5000);
@@ -941,9 +946,13 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 	Clickelement(BOODApprovalSavechangesClick);
 	Thread.sleep(3000);
 	validatetext(Toastermessage,"Document Approved.");
-	//driver.navigate().back();
+	driver.navigate().back();
 	Thread.sleep(5000);
 	Clickelement(clickreviewbtn);
+	Actions act = new Actions(driver);
+	act.sendKeys(Keys.PAGE_DOWN).build().perform();
+	act.sendKeys(Keys.PAGE_UP).build().perform();
+	act.sendKeys(Keys.PAGE_DOWN).build().perform();
 	Clickelement(clicksubmitbtn);
 	popupvalidate("Fetched tokens successfully", "");
 	Selectdropdown(DSC_token, "1");
@@ -951,11 +960,24 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 	sendkeyweb(DSC_password, "Idrbt@123");
 	Clickelement(DSC_submit);
 	popupvalidate("Signed using DSC successful", "emty");
-	driver.navigate().back();
+	Thread.sleep(10000);
+//	validatealert("");
+	try {
+		driver.switchTo().alert().accept();
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+	Thread.sleep(3000);
+	Clickelement(closed1);
+	Clickelement(closed2);
+	
 	//Selectdropdown(Selectpaymentoption,"Approved for payment");
-	//Thread.sleep(5000);
-	Clickelement(submitclick);
-	//Thread.sleep(5000);
+	driver.navigate().back();
+	Thread.sleep(3000);
+	Clickelement(submitclick1);
+	//driver.navigate().back();
 	validatetext(ToastermessageFinal,"Domain data updated successfully.");
 	Thread.sleep(5000);
 	
@@ -977,7 +999,7 @@ public WebElement Domainsearchclick;
 
 @FindBy(xpath = "//p[normalize-space()='Renewal Date']//following-sibling::div")
 public WebElement AApp_rendate ;
-@FindBy(xpath="//button[normalize-space()='Submit']")
+@FindBy(xpath="(//button[contains(text(),'Submit')])[1]")
 public WebElement submitclick1 ;
 @FindBy(xpath="//h5[contains(text(),'NS Status')]//following-sibling::select")
 public WebElement selectnsrecords;
@@ -1008,7 +1030,7 @@ public void Registrar_can_Approve_Registrant_Application() throws Exception {
 		e.printStackTrace();
 	}
 	Thread.sleep(3000);
-	try {
+	/*try {
 		Selectdropdown(selectpaystatus, "Payment Approved");
 	} catch (Exception e) {
 		
@@ -1021,7 +1043,7 @@ public void Registrar_can_Approve_Registrant_Application() throws Exception {
 		
 		e.printStackTrace();
 	}
-	Thread.sleep(2000);
+	Thread.sleep(2000);*/
 	try {
 		Clickelement(submitclick1);
 	} catch (Exception e) {

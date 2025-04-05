@@ -17,7 +17,8 @@ public class Registrar_Loginpage {
 	Registrar_Loginpage_Object RL = new Registrar_Loginpage_Object(driver);
 	
 	@Given("Registrar is on Landing Page1")
-	public void user_is_on_home_page() {
+	public void user_is_on_home_page() throws Exception {
+		Thread.sleep(4000);
 		driver.get(ConfigReader.getProperty("RbaseURL"));
 		driver.manage().window().maximize();
 	}

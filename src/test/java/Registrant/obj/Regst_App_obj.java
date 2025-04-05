@@ -45,7 +45,7 @@ public class Regst_App_obj extends Baseclass {
 	public WebElement Search ;
 	@FindBy(xpath = "//button[contains(@aria-label,'Next page')]")
 	public WebElement nextpage ;
-	@FindBy(xpath = "//button[normalize-space()='Pay Now']")
+	@FindBy(xpath = "//button[contains(text(),' Pay Now ')]")
 	public WebElement paynowbtn ;
 	
 	
@@ -67,18 +67,19 @@ public class Regst_App_obj extends Baseclass {
 	}
 	
 	public void user_pay_bill() throws InterruptedException {
-		List<WebElement> APP_ID=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/preceding-sibling::td"));
-		dispalyedattribute(APP_ID.get(0), "Application ID");
-		List<WebElement> Table_data=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/following-sibling::td"));
-		
-		configWriter.setProperty("submissiondate", Table_data.get(1).getText());
+	List<WebElement> APP_ID=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/preceding-sibling::td"));
+	dispalyedattribute(APP_ID.get(0), "Application ID");
+	List<WebElement> Table_data=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/following-sibling::td"));
+	
+	configWriter.setProperty("submissiondate", Table_data.get(1).getText());
 		
 		validatetext(Table_data.get(2), "Approved for payment");
+		    Thread.sleep(2000);
 			Clickelement(paynowbtn);
-			driver.navigate().back();
+			//driver.navigate().back();
 			Thread.sleep(2000);
-			driver.navigate().refresh();
-			validatetext(Table_data.get(3), "Payment Completed");
+			//driver.navigate().refresh();
+		validatetext(Table_data.get(3), "Payment Completed");
 		List<WebElement> APP_ID1=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/preceding-sibling::td"));
 		List<WebElement> Table_data1=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/following-sibling::td"));
 		validatetext(Table_data1.get(4), "OnHold");
