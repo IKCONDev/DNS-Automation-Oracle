@@ -30,8 +30,9 @@ public class Invoice {
 	}
 	
 	@Then("User download the invoice")
-	public void user_download_the_invoice_page() {
+	public void user_download_the_invoice_page() throws Exception {
 	   IO.InvoiceDownload();
+	  
 	    
 	}
 	

@@ -53,7 +53,7 @@ public class Registrant_login {
 	}
 
 	@When("User navigate to Login Page")
-	public void user_navigate_to_login_page() {
+	public void user_navigate_to_login_page() throws Exception {
 		RLO.user_navigate_to_login_page();
 
 	}

@@ -247,6 +247,7 @@ public class Registrant_login_object extends Baseclass {
 		 jssendkeys(Register_emailid,username);
 		Thread.sleep(1000);
 		Clickelement(Register_verify_button);
+		//driver.switchTo().alert().accept();
 		System.out.println("Enter OTP : ");
 		String OTP = myObj.nextLine();
 		sendkeyweb(Register_email_otp, OTP);
@@ -264,6 +265,7 @@ public class Registrant_login_object extends Baseclass {
 		Clickelement(Registration_checkbox.get(1));
 		validatetext(Registration_button, "Register");
 		Clickelement(Registration_button);
+		Thread.sleep(5000);
 		popupvalidate("User registration successful","OTP verification successful");
 		
 		 
@@ -276,10 +278,14 @@ public class Registrant_login_object extends Baseclass {
 	@FindBy(xpath = "//button[@routerlink='/login']")
 	public WebElement Signin_button;
 	//button[contains(text(),'Continue to Login')]
-	public void user_navigate_to_login_page() {
+	public void user_navigate_to_login_page() throws Exception {
 		
 			validatetext(Signin_button, "Continue to Login");
+			Thread.sleep(3000);
 			Clickelement(Signin_button);
+			Thread.sleep(4000);
+			validatealert(null);
+			driver.switchTo().alert().accept();
 	}
 
 	
@@ -328,9 +334,11 @@ public class Registrant_login_object extends Baseclass {
 	
 	
 	public void user_enters_and(String UN, String Password) throws InterruptedException {
+		
 		sendkeyweb(Signin_email, UN);
 		sendkeyweb(Signin_password, Password);
 		Clickelement(Next_button);
+		
 		popupvalidate("An OTP has been sent to your email.","Invalid Credentials");
 		System.out.println("Enter OTP:");
 		String OTP = myObj.nextLine();
@@ -667,7 +675,7 @@ public class Registrant_login_object extends Baseclass {
 		sendkeyweb(org_telephone, Tel);
 		Selectdropdown(selectcountry, "India -(+91)");
 		sendkeyweb(org_number, Mob);
-		//org_number.sendKeys("9");
+		org_number.sendKeys("9");
 		sendkeyweb(org_email, Email+ConfigReader.getProperty("OrgName")+".com");
 	}
 		
@@ -760,7 +768,7 @@ public class Registrant_login_object extends Baseclass {
 		sendkeyweb(org_telephone1, Tel);
 		Selectdropdown(selectcountry1, "India -(+91)");
 		sendkeyweb(Admin_number, Mob);
-		//Admin_number.sendKeys("9");
+		Admin_number.sendKeys("9");
 		sendkeyweb(admin_desig, Desig);
 		
 	}
@@ -835,7 +843,7 @@ public class Registrant_login_object extends Baseclass {
 		sendkeyweb(org_telephone2, Tel);
 		Selectdropdown(selectcountry2, "India -(+91)");
 		sendkeyweb(Tech_number, Mob);
-		//Tech_number.sendKeys("9");
+		Tech_number.sendKeys("9");
 		sendkeyweb(tech_desig, Desig);
 	}
 		
@@ -904,7 +912,8 @@ public class Registrant_login_object extends Baseclass {
 		sendkeyweb(org_telephone3, Tel);
 		Selectdropdown(selectcountry3, "India -(+91)");
 		sendkeyweb(Bill_number,Mob);
-		//Bill_number.sendKeys("3");
+		Bill_number.sendKeys("7");
+		Bill_number.sendKeys("5");
 		sendkeyweb(bill_desig, Desig);
 	}
 		
@@ -1047,12 +1056,13 @@ public class Registrant_login_object extends Baseclass {
 		
 	}
 	
-	@FindBy(xpath = "//div[@class='col-6 custom-element']//div[@style='cursor: pointer;']")
+	@FindBy(xpath = "//div[@id='profile-icon']")
 	public WebElement Profile_icon;
 	@FindBy(xpath = "//div[normalize-space()='Logout']")
 	public WebElement Logout;
+	
 	public void User_logout_the_application () throws InterruptedException {
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		Clickelement(Profile_icon);
 		Clickelement(Logout);
 	}

@@ -1050,7 +1050,7 @@ public void Registrar_can_Approve_Registrant_Application() throws Exception {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-	
+	driver.navigate().refresh();
 }
 
 @FindBy(xpath="//mat-icon[normalize-space()='public']")

@@ -44,7 +44,9 @@ public class Invoice_object extends Baseclass {
 	Clickelement(download);
 	}
 	
-	public void InvoiceDownload() {
+	public void InvoiceDownload() throws Exception {
+		
+		
 		List<WebElement> table1=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("DomainName")+"']/following-sibling::td"));
 		List<WebElement> table2=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("DomainName")+"']/preceding-sibling::td"));
 		validatetext(table1.get(0),table1.get(0).getText());
@@ -52,7 +54,8 @@ public class Invoice_object extends Baseclass {
 		validatetext(table1.get(2),"Approved for payment");
 		dispalyedattribute(table2.get(0), "Invoice ID");
 		validatetext(table2.get(1),ConfigReader.getProperty("OrgName"));
-		WebElement download=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("DomainName")+"']/following-sibling::td//span//*[name()='svg']"));
+		Thread.sleep(1000);
+		WebElement download=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("DomainName")+"']//following-sibling::td//span//*[name()='svg']"));
 		Clickelement(download);
 	}
 	
