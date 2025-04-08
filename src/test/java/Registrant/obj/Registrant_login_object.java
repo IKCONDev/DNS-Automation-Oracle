@@ -283,9 +283,9 @@ public class Registrant_login_object extends Baseclass {
 			validatetext(Signin_button, "Continue to Login");
 			Thread.sleep(3000);
 			Clickelement(Signin_button);
-			Thread.sleep(4000);
-			validatealert(null);
-			driver.switchTo().alert().accept();
+//			Thread.sleep(4000);
+//			validatealert(null);
+//			driver.switchTo().alert().accept();
 	}
 
 	
