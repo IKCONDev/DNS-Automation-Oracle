@@ -2,7 +2,6 @@ package Registrant.obj;
 
 import java.awt.AWTException;
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -35,28 +34,28 @@ public class Rgst_domain_obj extends Baseclass{
 	@FindBy(xpath = "//input[@placeholder='Search']")
 	public WebElement Search ;
 	public void user_validate_domain_page() {
-	    String s="Domain ID,Domain Status,Domain Name,Organization Name,Registration Date,Renewal Date";
+	    String s=",Domain ID,Domain Status,Domain Name,Entity Name,Registration Date,Renewal Date";
 	    Table_prop(Table_col, s);
 	}
 	    public void user_validate_domain_data() {
 	    List<WebElement> Domain_ID=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/preceding-sibling::td"));
-		dispalyedattribute(Domain_ID.get(0), "Domain Id");
+		dispalyedattribute(Domain_ID.get(1), "Domain Id");
 		List<WebElement> Table_data=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/following-sibling::td"));
 		validatetext(Table_data.get(0), ConfigReader.getProperty("Orgname"));
 		validatetext(Table_data.get(1), ConfigReader.getProperty("submissiondate"));
 		configWriter.setProperty("Renewal", Table_data.get(2).getText());
 		
 		validatetext(Table_data.get(2), ConfigReader.getProperty("Renewal"));
-		validatetext(Domain_ID.get(1), "Inactive");
+		validatetext(Domain_ID.get(2), "Inactive");
 		validateattribute(Search, "placeholder","Search");
-		Clickelement(Domain_ID.get(0));
+		Clickelement(Domain_ID.get(1));
 	}
 	
 	@FindBy(xpath = "//h3[normalize-space()='Domain Details']")
 	public WebElement Details_page_title ;
 	@FindBy(xpath = "//p[normalize-space()='Domain']")
 	public WebElement domain_name ;
-	@FindBy(xpath = "(//p[normalize-space()='Organization'])[2]")
+	@FindBy(xpath = "//p[normalize-space()='Entity Name']")
 	public WebElement org_name ;
 	@FindBy(xpath = "//p[normalize-space()='Registration Date']")
 	public WebElement Reg_date ;
@@ -66,7 +65,7 @@ public class Rgst_domain_obj extends Baseclass{
 	public WebElement status ;
 	@FindBy(xpath = "//p[normalize-space()='Domain']/following-sibling::div")
 	public WebElement Adomain_name ;
-	@FindBy(xpath = "//p[normalize-space()='Organization']/following-sibling::div")
+	@FindBy(xpath = "//p[normalize-space()='Entity Name']/following-sibling::div")
 	public WebElement Aorg_name ;
 	@FindBy(xpath = "//p[normalize-space()='Registration Date']/following-sibling::div")
 	public WebElement Areg_no ;
@@ -78,7 +77,7 @@ public class Rgst_domain_obj extends Baseclass{
 	public void user_navigates_the_domain_details_page() {
 		validatetext(Details_page_title, "Domain Details");
 		validatetext(domain_name, "Domain");
-		validatetext(org_name, "Organization");
+		validatetext(org_name, "Entity Name");
 		validatetext(Reg_date, "Registration Date");
 		validatetext(Ren_date, "Renewal Date");
 		validatetext(status, "Domain Status");
@@ -139,8 +138,15 @@ public class Rgst_domain_obj extends Baseclass{
 	
 	@FindBy(xpath = "//button[@id='trashIcon']")
 	public List<WebElement> DeleteNS;
-	@FindBy(xpath = "//h2[normalize-space()='Name Servers']/following::div[1]")
+	@FindBy(xpath = "(//h2[normalize-space()='Name Servers']/following::div/button)[1]")
 	public WebElement ADD_NS;
+	@FindBy(xpath = "//input[@id='numNameServers']")
+	public WebElement Nameserver_count;
+	@FindBy(xpath = "//button[normalize-space()='Confirm']")
+	public WebElement Nameserver_confirm;
+	
+	
+	
 	
 	public void user_subit_the_domain_details_page() {
 	    

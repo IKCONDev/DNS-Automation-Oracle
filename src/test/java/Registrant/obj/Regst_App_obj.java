@@ -62,14 +62,14 @@ public class Regst_App_obj extends Baseclass {
 	public void user_validate_application_page() {
 		
 
-		String s="Application ID,Organization Name,Domain Name,,Submission Date,Status,Payment Status,NS Record Status,Tenure (yrs),Payment";
+		String s="Application ID,Entity Name,Domain Name,,Submission Date,Status,Payment Status,NS Record Status,Tenure (yrs),Remarks/Comments,Payment";
 		Table_prop(Table_col, s);
 	}
 	
 	public void user_pay_bill() throws InterruptedException {
-	List<WebElement> APP_ID=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/preceding-sibling::td"));
+	List<WebElement> APP_ID=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in']preceding-sibling::td"));
 	dispalyedattribute(APP_ID.get(0), "Application ID");
-	List<WebElement> Table_data=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/following-sibling::td"));
+	List<WebElement> Table_data=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in']/following-sibling::td"));
 	
 	configWriter.setProperty("submissiondate", Table_data.get(1).getText());
 		
@@ -90,11 +90,8 @@ public class Regst_App_obj extends Baseclass {
 		try {
 			Clickelement(APP_ID.get(0));
 		} catch (Exception e) {
-		}
-		try {
 			Clickelement(APP_ID1.get(0));
-		} catch (Exception e) {
-		}
+		} 
 	
 	}
 	
@@ -104,14 +101,15 @@ public class Regst_App_obj extends Baseclass {
 		dispalyedattribute(APP_ID.get(0), "Application ID");
 		List<WebElement> Table_data=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/following-sibling::td"));
 		configWriter.setProperty("submissiondate", Table_data.get(1).getText());
-		validatetext(Table_data.get(2), "Under Review");
+		validatetext(Table_data.get(2), "Submitted info");
 	
 		List<WebElement> APP_ID1=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/preceding-sibling::td"));
 		List<WebElement> Table_data1=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/following-sibling::td"));
-		validatetext(Table_data1.get(3), "Payment Completed");
+		validatetext(Table_data1.get(3), "Payment Not Done");
 		validatetext(Table_data1.get(4), "OnHold");
-		validatetext(Table_data1.get(5), "5");
-		validatetext(Table_data1.get(6), "Pay Now");
+		validatetext(Table_data1.get(5), "1");
+		validatetext(Table_data1.get(6), "NA");
+		validatetext(Table_data1.get(7), "Pay Now");
 		validatetext(Table_data1.get(1), ConfigReader.getProperty("submissiondate"));
 		validateattribute(Search, "placeholder","Search");
 		Clickelement(APP_ID1.get(0));
@@ -147,11 +145,11 @@ public class Regst_App_obj extends Baseclass {
 			validatetext(Table_data.get(3), "Payment Not Done");
 		}
 		
-	@FindBy(xpath = "//h3[normalize-space()='Applications Details']")
+	@FindBy(xpath = "//h3[normalize-space()='Application Details']")
 	public WebElement Details_page_title ;
-	@FindBy(xpath = "//p[normalize-space()='Organization Name']")
+	@FindBy(xpath = "//p[normalize-space()='Entity Name']")
 	public WebElement Org_name ;
-	@FindBy(xpath = "//p[normalize-space()='Domain Name']")
+	@FindBy(xpath = "//div[normalize-space()='Domain Name']")
 	public WebElement dn_name ;
 	@FindBy(xpath = "//p[normalize-space()='Application No']")
 	public WebElement App_no ;
@@ -161,7 +159,7 @@ public class Regst_App_obj extends Baseclass {
 	public WebElement status ;
 	@FindBy(xpath = "//p[normalize-space()='Organization Name']/following-sibling::div")
 	public WebElement AOrg_name ;
-	@FindBy(xpath = "//p[normalize-space()='Domain Name']/following-sibling::div")
+	@FindBy(xpath = "//div[normalize-space()='Domain Name']/following-sibling::div")
 	public WebElement Adn_name ;
 	@FindBy(xpath = "//p[normalize-space()='Application No']/following-sibling::div")
 	public WebElement AApp_no ;
@@ -174,8 +172,8 @@ public class Regst_App_obj extends Baseclass {
 	public void user_navigates_the_domain_applications_details_page() {
 		configWriter.setProperty("Appno", AApp_no.getText());
 		
-		validatetext(Details_page_title, "Applications Details");
-		validatetext(Org_name, "Organization Name");
+		validatetext(Details_page_title, "Application Details");
+		validatetext(Org_name, "Entity Name");
 		validatetext(dn_name, "Domain Name");
 		validatetext(App_no, "Application No");
 		validatetext(sub_date, "Submission Date");
@@ -184,16 +182,16 @@ public class Regst_App_obj extends Baseclass {
 		validatetext(Adn_name, ConfigReader.getProperty("Domain")+".bank.in");
 		validatetext(AApp_no, ConfigReader.getProperty("Appno"));
 		validatetext(Asub_date, ConfigReader.getProperty("submissiondate"));
-		validatetext(Astatus, "Under Review");
+		validatetext(Astatus, "Submitted");
 	    
 	}
 
 	
-	@FindBy(xpath = "//h4[contains(text(),'Organization Details')]")
+	@FindBy(xpath = "//h4[contains(text(),'Entity Details')]")
 	public WebElement Org_details ;
-	@FindBy(xpath = "//h5[contains(text(),'Institution Name')]")
+	@FindBy(xpath = "//h5[contains(text(),'Entity Name')]")
 	public WebElement INS_Name;
-	@FindBy(xpath = "//h5[contains(text(),'Pin Code')]")
+	@FindBy(xpath = "//h5[contains(text(),'Pincode')]")
 	public WebElement Pin_code;
 	@FindBy(xpath = "//h5[contains(text(),'Address')]")
 	public WebElement Address ;
@@ -208,13 +206,13 @@ public class Regst_App_obj extends Baseclass {
 	@FindBy(xpath = "//h5[contains(text(),'Domain Status')]")
 	public WebElement DomainSta;
 	
-	@FindBy(xpath = "//button[normalize-space()='Submit']")
+	@FindBy(xpath = "//button[normalize-space()='Re-Submit Application']")
 	public WebElement Submit_app;
 	@FindBy(xpath = "//button[normalize-space()='Cancel']")
 	public List<WebElement> Submit_close;
 	
 	public void user_validate_the_domain_applications_details_page() throws AWTException, InterruptedException {
-		validatetext(Org_details, "Organization Details");
+		validatetext(Org_details, "Entity Documents");
 		validatetext(INS_Name, "Institution Name");
 		validatetext(INS_Name, "Pin Code");
 		validatetext(INS_Name, "Address");
@@ -229,20 +227,20 @@ public class Regst_App_obj extends Baseclass {
 		
 	}
 	
-	@FindBy(xpath = "//h4[normalize-space()='Organization Documents']")
+	@FindBy(xpath = "//h4[normalize-space()='Entity Documents']")
 	public WebElement ORG_doc;
 	@FindBy(xpath = "//span[contains(text(),'GSTIN')]")
 	public WebElement ORGST;
 	@FindBy(xpath = "//span[contains(text(),'PAN')]")
 	public WebElement ORPAN;
-	@FindBy(xpath = "//span[contains(text(),'Licence Number')]")
+	@FindBy(xpath = "//span[contains(text(),'Licence From Regulator')]")
 	public WebElement ORLic;
 	@FindBy(xpath = "//span[contains(text(),'Board Resolution')]")
 	public WebElement ORBoard;
 	
 	@FindBy(xpath = "//div[contains(@style,'space-between') and contains(.,'Board Resolution')]")
 	public WebElement BoardStatus;
-	@FindBy(xpath = "//div[contains(@style,'space-between') and contains(.,'Licence Number')]")
+	@FindBy(xpath = "//div[contains(@style,'space-between') and contains(.,'Licence')]")
 	public WebElement LicenseStatus;
 	@FindBy(xpath = "//div[contains(@style,'space-between') and contains(.,'PAN')]")
 	public WebElement PANStatus;
@@ -258,10 +256,10 @@ public class Regst_App_obj extends Baseclass {
 	@FindBy(xpath = "//div[@id='reuploadModal']//button[contains(text(),'Cancel')]")
 	public WebElement Cancel;
 	public void user_validate_org_documents() throws AWTException, InterruptedException {
-		validatetext(ORG_doc, "Organization Documents");
+		validatetext(ORG_doc, "Entity Documents");
 //		validatetext(ORGST, "GSTIN");
 		validatetext(ORPAN, "PAN");
-		validatetext(ORLic, "Licence Number");
+		validatetext(ORLic, "Licence From Regulator");
 		validatetext(ORBoard, "Board Resolution");
 		if(GSTStatus.getText().contains("Rejected")) {
 			Clickelement(RGST);

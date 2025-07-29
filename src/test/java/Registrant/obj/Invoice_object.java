@@ -19,7 +19,7 @@ public class Invoice_object extends Baseclass {
 		driver = RC;
 		PageFactory.initElements(RC, this);
 	}
-	@FindBy(xpath = "//span[contains(text(),'Invoice')]")
+	@FindBy(xpath = "//span[contains(text(),'Invoices')]")
 	public WebElement Invoice;	
 	public void user_navigate_to_invoice_page() {
 	    Clickelement(Invoice);

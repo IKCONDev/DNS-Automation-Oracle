@@ -1,6 +1,5 @@
 package Registrar.obj;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -74,7 +73,7 @@ public class Registrar_Loginpage_Object extends Baseclass{
 		validateattribute(EnterpasswordPlaceholder,"placeholder", "Enter the strong password");
 		validatetext(Forgitpasswordtext, "Forgot password?");
 		validatetext(Nextbuttontextvl,"Next");
-		String src=driver.getCurrentUrl();
+//		String src=driver.getCurrentUrl();
 		
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.PAGE_DOWN).build().perform();

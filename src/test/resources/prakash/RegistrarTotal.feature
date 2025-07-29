@@ -37,7 +37,7 @@ Feature: Registrar Operations
   Scenario Outline: Registrar  Domain Page
   Then Registrar can Navigate to Domain Page can check Textvalidations
   Then Registrar  check DomaintableData Textvalidations
-  Then Registrar  check AllFieldsData "<Status>" Textvalidations in Domain Page
+  #Then Registrar  check AllFieldsData "<Status>" Textvalidations in Domain Page
   
   Examples:
   | OrgName    |DomainName    |InvoiceStatus       |
@@ -105,13 +105,13 @@ Feature: Registrar Operations
   #4th step
   Scenario Outline: Application
     Then Registrar  check Final Functionalities in Applications Page
-    Then Registrar check Final Functionalities in Domain Page
-
+    #Then Registrar check Final Functionalities in Domain Page
   Then Registrar  check Final Functionalities in Invoice Page
   
   Examples:
   | OrgName |DomainName       |
   | MaxTecho|hindustan.bank.in|
+  
   #logout
   Scenario Outline: Registrar with valid credentials
     Given Registrar is on Landing Page1

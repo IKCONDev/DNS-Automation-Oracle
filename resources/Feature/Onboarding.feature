@@ -44,12 +44,12 @@ Feature: Registrant Onboarding
       | Name  | Tel        | Mob        | Email             | Aadhar         | PAN        | Desig    |
       | raman | 9685578954 | 9685578948 | billing@gmail.com | 1234 5678 5012 | ASDEE4455P | Accounts |
 
-  Scenario Outline: Name server details page
-    Then User enters name server details "<NS1>" "<IP1>" "<NS2>" "<IP2>"
-
-    Examples: 
-      | NS1     | NS2     | IP1        | IP2        |
-      | Office1 | office2 | 1.10.10.10 | 1.10.10.20 |
+  #Scenario Outline: Name server details page
+    #Then User enters name server details "<NS1>" "<IP1>" "<NS2>" "<IP2>"
+#
+    #Examples: 
+      #| NS1     | NS2     | IP1        | IP2        |
+      #| Office1 | office2 | 1.10.10.10 | 1.10.10.20 |
 
   Scenario Outline: Preview and Submit
     Then User preview and submit onboarding

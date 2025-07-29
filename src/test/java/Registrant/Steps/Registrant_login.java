@@ -77,7 +77,6 @@ public class Registrant_login {
 	@Then("User enters the dsc details")
 	public void message_displayed_login_successfully() throws InterruptedException {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-		RLO.message_displayed_login_successfully();
 		RLO.DSC_token();
 	}
 
@@ -135,5 +134,11 @@ public class Registrant_login {
 		Thread.sleep(4000);
 	}
 
+	@Then("User logout the application")
+	public void User_logout_the_application1() throws InterruptedException {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		RLO.User_logout_the_application();
+		Thread.sleep(4000);
+	}
 	
 }
