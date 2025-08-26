@@ -444,7 +444,7 @@ public class Registrant_login_object extends Baseclass {
 	public WebElement Price_summary;
 	@FindBy(xpath = "(//div//h2[contains(text(),'Domain Price Summary')])/following-sibling::div")
 	public List<WebElement> Price_summary_obj;
-	@FindBy(xpath = "(//input[@class='form-control ng-untouched ng-pristine ng-valid'])[1]")
+	@FindBy(xpath = "(//input[@type='text'])[2]")
 	public WebElement addalisname;
 	@FindBy(xpath = "//button[contains(text(),'Add')]")
 	public WebElement addbuttonclick;
@@ -821,36 +821,54 @@ public class Registrant_login_object extends Baseclass {
 
 	public void Validate_name_server_details_page() {
 		validatetext(NS_Page_head, "Name Server Details");
-		String Table_cold="Server,Name Server Host Name,DNS Service Provider,IP Address,IP Service Provider,Actions";
+		String Table_cold="Server,Name Server Host Name,DNS Service Provider,IPV4 Address,IPV6 Address,IP Service Provider,Actions";
 		Table_prop(TAble_col, Table_cold);
-		validateattribute(Table_dataNS.get(0),"placeholder", "Enter name server host");
+		validateattribute(Table_dataNS.get(0),"placeholder", "");
 		validateattribute(Table_dataNS.get(1),"placeholder", "Enter Provider Name");
-		validateattribute(Table_dataNS.get(2),"placeholder", "Enter IP Address");
-		validateattribute(Table_dataNS.get(3),"placeholder", "Enter Provider Name");
-		validateattribute(Table_dataNS.get(4),"placeholder", "Enter name server host");
-		validateattribute(Table_dataNS.get(5),"placeholder", "Enter Provider Name");
-		validateattribute(Table_dataNS.get(6),"placeholder", "Enter IP Address");
-		validateattribute(Table_dataNS.get(7),"placeholder", "Enter Provider Name");
+		validateattribute(Table_dataNS.get(2),"placeholder", "Enter IPV4 Address");
+		validateattribute(Table_dataNS.get(3),"placeholder", "Enter IPV6 Address");
+		validateattribute(Table_dataNS.get(4),"placeholder", "Enter Provider Name");
+		validateattribute(Table_dataNS.get(5),"placeholder", "Enter name server host");
+		validateattribute(Table_dataNS.get(6),"placeholder", "Enter Provider Name");
+		validateattribute(Table_dataNS.get(7),"placeholder", "Enter IPV4 Address");
+		validateattribute(Table_dataNS.get(8),"placeholder", "Enter IPV6 Address");
+		validateattribute(Table_dataNS.get(9),"placeholder", "Enter Provider Name");
 	}
 
-	public void User_enters_name_server_details(String NSR1,String NIP1,String NSR2,String NIP2,String NSR3,String NIP3,String NSR4,String NIP4) throws AWTException, InterruptedException {
+	public void User_enters_name_server_details(String NSR1,String NIP1, String NIP2,String NSR2,String NIP3,String NIP4,String NSR3,String NIP5,String NIP6,String NSR4,String NIP7,String NIP8) throws AWTException, InterruptedException {
 		configWriter.setProperty("NS1", NSR1);
-		configWriter.setProperty("IP1", NIP1);
+		configWriter.setProperty("IPV41", NIP1);
+		configWriter.setProperty("IPV61", NIP2);	
 		configWriter.setProperty("NS2", NSR2);
-		configWriter.setProperty("IP2", NIP2);	
+		configWriter.setProperty("IPV42", NIP3);
+		configWriter.setProperty("IPV62", NIP4);	
 		configWriter.setProperty("NS3", NSR3);
-		configWriter.setProperty("IP3", NIP3);	
+		configWriter.setProperty("IPV43", NIP5);
+		configWriter.setProperty("IPV63", NIP6);	
 		configWriter.setProperty("NS4", NSR4);
-		configWriter.setProperty("IP4", NIP4);	
+		configWriter.setProperty("IPV44", NIP7);
+		configWriter.setProperty("IPV64", NIP8);	
 		
 		sendkeyweb(Table_dataNS.get(0),NSR1);
 		sendkeyweb(Table_dataNS.get(1),"Oracle");
 		sendkeyweb(Table_dataNS.get(2),NIP1);
-		sendkeyweb(Table_dataNS.get(3),"IDRBT");
-		sendkeyweb(Table_dataNS.get(4),NSR2);
-		sendkeyweb(Table_dataNS.get(5),"Oracle");
-		sendkeyweb(Table_dataNS.get(6),NIP2);
-		sendkeyweb(Table_dataNS.get(7),"IDRBT");
+		sendkeyweb(Table_dataNS.get(3),NIP2);
+		sendkeyweb(Table_dataNS.get(4),"IDRBT");
+		sendkeyweb(Table_dataNS.get(5),NSR2);
+		sendkeyweb(Table_dataNS.get(6),"Oracle1");
+		sendkeyweb(Table_dataNS.get(7),NIP3);
+		sendkeyweb(Table_dataNS.get(8),NIP4);
+		sendkeyweb(Table_dataNS.get(9),"IDRBT");
+		sendkeyweb(Table_dataNS.get(10),NSR3);
+		sendkeyweb(Table_dataNS.get(11),"Oracle2");
+		sendkeyweb(Table_dataNS.get(12),NIP5);
+		sendkeyweb(Table_dataNS.get(13),NIP6);
+		sendkeyweb(Table_dataNS.get(14),"IDRBT");
+		sendkeyweb(Table_dataNS.get(15),NSR4);
+		sendkeyweb(Table_dataNS.get(16),"Oracle3");
+		sendkeyweb(Table_dataNS.get(17),NIP7);
+		sendkeyweb(Table_dataNS.get(18),NIP8);
+		sendkeyweb(Table_dataNS.get(19),"IDRBT");
 		Clickelement(Addnsbutton);
 		
 		sendkeyweb(Table_dataNS.get(8),NSR3);

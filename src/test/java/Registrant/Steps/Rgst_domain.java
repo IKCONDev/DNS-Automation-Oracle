@@ -36,8 +36,8 @@ public class Rgst_domain {
 	}
 
 	@Then("User validate the Domain Domain Details page {string} {string} {string} {string}")
-	public void user_validate_the_domain_domain_details_page(String NSR1,String NIP1,String NSR2,String NIP2,String NSR3,String NIP3,String NSR4,String NIP4) throws AWTException, InterruptedException {
-		RDP.user_validate_the_domain_domain_details_page(NSR1,NIP1,NSR2,NIP2, NSR3, NIP3, NSR4,NIP4);
+	public void user_validate_the_domain_domain_details_page(String NSR1,String NIP1, String NIP2,String NSR2,String NIP3,String NIP4,String NSR3,String NIP5,String NIP6,String NSR4,String NIP7,String NIP8) throws AWTException, InterruptedException {
+		RDP.user_validate_the_domain_domain_details_page(NSR1, NIP1,  NIP2, NSR2, NIP3, NIP4,NSR3, NIP5, NIP6,NSR4, NIP7, NIP8);
 	   
 	}
 

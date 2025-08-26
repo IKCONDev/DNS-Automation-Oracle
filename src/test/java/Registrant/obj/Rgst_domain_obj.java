@@ -108,7 +108,7 @@ public class Rgst_domain_obj extends Baseclass{
 	@FindBy(xpath = "//h2[normalize-space()='Billing History']")
 	public WebElement Bill_history;
 	
-	public void user_validate_the_domain_domain_details_page(String NSR1,String NIP1,String NSR2,String NIP2,String NSR3,String NIP3,String NSR4,String NIP4) throws AWTException, InterruptedException {
+	public void user_validate_the_domain_domain_details_page(String NSR1,String NIP1, String NIP2,String NSR2,String NIP3,String NIP4,String NSR3,String NIP5,String NIP6,String NSR4,String NIP7,String NIP8) throws AWTException, InterruptedException {
 		validatetext(Nameserver, "Name Servers");
 		validatetext(Hostname,"Host Name");
 		validatetext(Ipaddr ,"IP Address");
@@ -129,7 +129,7 @@ public class Rgst_domain_obj extends Baseclass{
 			System.out.println(e);
 		}
 		Clickelement(ADD_NS);
-		RL.User_enters_name_server_details(NSR1, NIP1, NSR2, NIP2, NSR3, NIP3, NSR4,NIP4);
+		RL.User_enters_name_server_details(NSR1, NIP1,  NIP2, NSR2, NIP3, NIP4,NSR3, NIP5, NIP6,NSR4, NIP7, NIP8);
 		Clickelement(DeleteNS.get(2));
 		Clickelement(DeleteNS.get(2));
 		

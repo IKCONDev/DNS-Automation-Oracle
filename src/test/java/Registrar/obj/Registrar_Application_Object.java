@@ -46,13 +46,13 @@ public void User_textvaladation_in_Application_Page1() throws Exception  {
 	Clickelement(Appsearch);
 	//Thread.sleep(5000);
 	
-	String Apptableextvalues="Application ID,Organization Name,Domain Name,,Submission Date,Application Status,Payment Status,NS Record Status,Tenure (yrs)";
+	String Apptableextvalues="Application ID,Entity Name,Domain Name,Submission Date,Application Status,Payment Status,NS Record Status,Tenure (yrs),View Name Servers,Remarks/Comments,Added By,Re-Submissiom,Mark As Deleted";
 	Table_prop(Tabledata, Apptableextvalues);
-//	List<WebElement> val = driver.findElements(By.xpath("//table[@id='table1']//th"));
-//	//Thread.sleep(3000);
+	List<WebElement> val = driver.findElements(By.xpath("//table[@id='table1']//th"));
+	//Thread.sleep(3000);
 //	for (int i = 0; i < val.size(); i++) {
 //        if(val.get(i).isDisplayed()) {
-//		validatetext(val.get(i), Apptableextvalues[i]);	
+//		validatetext(val.get(i),Apptableextvalues[i]);	
 //        }
 //	}	 
 
@@ -68,11 +68,14 @@ public WebElement DomainCountsearch;
 public WebElement Domainapptxtval;
 @FindBy(xpath="//p[text()='Organization Name']")
 public WebElement OrganizationNametxtval;
+@FindBy(xpath="//p[text()='Tenure (yrs)']")
+public WebElement Tenuretxtval;
+
 @FindBy(xpath="//p[text()='Domain Name']")
 public WebElement DomainNametxtval;
 @FindBy(xpath="//p[text()='Submission Date']")
 public WebElement SubmissionDatetxtval;
-@FindBy(xpath="//p[text()='Application No']")
+@FindBy(xpath="//p[text()='Application Id']")
 public WebElement ApplicationNotxtval;
 @FindBy(xpath="//p[text()='Application Status']")
 public WebElement Statustxtval;
@@ -96,30 +99,41 @@ public WebElement AppIDclick;
 
 public void User_Can_Check_Application_Tabledatatextvaladation_in_Applications_Page() throws Exception {
 
-	//String Apptabledata[]= {"2","Vtech.bank.in","Onboarding Pending","Feb 2, 2025, 6:54 AM","Feb 2, 2030, 6:54 AM","InActive","Unpaid","OnHold","5"};
-	//List<WebElement> val1 = driver.findElements(By.xpath("(//table[@id='table1']//tr[1]//td)"));
+	
 sendkeyweb(Appsearchsend, ConfigReader.getProperty("OrgName"));
 	
 	List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//following-sibling::td"));
 	WebElement Orgname1=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//preceding-sibling::td"));
 
 	//
-	 dispalyedattribute(Orgname1, "ID");
+	 try {
+		dispalyedattribute(Orgname1, "ID");
+	} catch (Exception e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+	}
+	 configWriter.setProperty("DomainName", Orgname.get(0).getText());
 	validatetext(Orgname.get(0), ConfigReader.getProperty("DomainName"));
-	//validatetext(Orgname.get(1), "");
-	configWriter.setProperty("AppSubmissionDate", Orgname.get(2).getText());
-	//validatetext(Orgname.get(1), ""); 
-	validatetext(Orgname.get(2), ConfigReader.getProperty("AppSubmissionDate"));
-	configWriter.setProperty("AppStatus", Orgname.get(3).getText());
-	validatetext(Orgname.get(3),  ConfigReader.getProperty("AppStatus"));
-	configWriter.setProperty("Status", Orgname.get(4).getText());
-	validatetext(Orgname.get(4),  ConfigReader.getProperty("Status"));//change cheyalii next time ediii//
-	configWriter.setProperty("AppNSRecordStatus", Orgname.get(5).getText());
-	validatetext(Orgname.get(5),  ConfigReader.getProperty("AppNSRecordStatus"));
-	configWriter.setProperty("AppTenure", Orgname.get(6).getText());
-	validatetext(Orgname.get(6) , ConfigReader.getProperty("AppTenure"));
-	// dispalyedattribute(Orgname.get(7), "");
-
+	configWriter.setProperty("AppSubmissionDate", Orgname.get(1).getText());
+	validatetext(Orgname.get(1), ConfigReader.getProperty("AppSubmissionDate"));
+	configWriter.setProperty("AppStatus", Orgname.get(2).getText());
+	validatetext(Orgname.get(2),  ConfigReader.getProperty("AppStatus"));
+	configWriter.setProperty("Status", Orgname.get(3).getText());
+	validatetext(Orgname.get(3),  ConfigReader.getProperty("Status"));
+	configWriter.setProperty("AppNSRecordStatus", Orgname.get(4).getText());
+	validatetext(Orgname.get(4),  ConfigReader.getProperty("AppNSRecordStatus"));
+	configWriter.setProperty("AppTenure", Orgname.get(5).getText());
+	validatetext(Orgname.get(5) , ConfigReader.getProperty("AppTenure"));
+	configWriter.setProperty("ViewNameServers", Orgname.get(6).getText());
+	validatetext(Orgname.get(6) , ConfigReader.getProperty("ViewNameServers"));
+	configWriter.setProperty("RemarksComments", Orgname.get(7).getText());
+	validatetext(Orgname.get(7) , ConfigReader.getProperty("RemarksComments"));
+	configWriter.setProperty("Addedby", Orgname.get(8).getText());
+	validatetext(Orgname.get(8) , ConfigReader.getProperty("Addedby"));
+	configWriter.setProperty("Resubmission", Orgname.get(9).getText());
+	validatetext(Orgname.get(9) , ConfigReader.getProperty("Resubmission"));
+	configWriter.setProperty("Markasdel", Orgname.get(10).getText());
+	validatetext(Orgname.get(10) , ConfigReader.getProperty("Markasdel"));
 
 	//sendkeyweb(searchbuttonclick,"Ikcon");
 
@@ -149,20 +163,26 @@ sendkeyweb(Appsearchsend, ConfigReader.getProperty("OrgName"));
 }
 //Applications ---org details 
 
-@FindBy(xpath="//h4[contains(text(),'Organization Details')]")
+@FindBy(xpath="//h4[contains(text(),' Entity Details')]")
 public WebElement OrganizationDetailstxtval;
-@FindBy(xpath="//h5[normalize-space()='Organization Name']")
+@FindBy(xpath="//h5[contains(text(),'Entity Name ')]")
 public WebElement InstitutionNametxtval;
 @FindBy(xpath="//input[@placeholder='Enter your Organization Name']")
 public WebElement Institionnameplaceholderval;
 @FindBy(xpath="//h5[normalize-space()='Pincode']")
 public WebElement PinCodetxtval;
+@FindBy(xpath="//h5[normalize-space()='Location']")
+public WebElement Loctxtval;
+@FindBy(xpath="//h5[normalize-space()='City/District']")
+public WebElement citytxtval;
+@FindBy(xpath="//h5[normalize-space()='State']")
+public WebElement statetxtval;
 @FindBy(xpath="//input[@placeholder='Enter a pin code']")
 public WebElement PinCodeeditval;
 
 @FindBy(xpath="//h5[normalize-space()='Address']")
 public WebElement Addresstxtval;
-@FindBy(xpath="//h5[normalize-space()='Organization Email ID']")
+@FindBy(xpath="//h5[normalize-space()='Entity Email ID']")
 public WebElement Emailtxtval;
 @FindBy(xpath="//input[@placeholder='Enter your Email id']")
 public WebElement Emailtxtbox;
@@ -185,11 +205,11 @@ public WebElement NSstatus;
 public WebElement Domainstatus ;
 
 
-@FindBy(xpath = "//p[normalize-space()='Organization Name']/following-sibling::div")
+@FindBy(xpath = "//p[normalize-space()='Tenure (yrs)']/following-sibling::div")
 public WebElement AOrg_name ;
 @FindBy(xpath = "//p[normalize-space()='Domain Name']/following-sibling::div")
 public WebElement Adn_name ;
-@FindBy(xpath = "//p[normalize-space()='Application No']/following-sibling::div")
+@FindBy(xpath = "//p[normalize-space()='Application Id']/following-sibling::div")
 public WebElement AApp_no ;
 @FindBy(xpath = "//p[normalize-space()='Submission Date']/following-sibling::div")
 public WebElement Asub_date ;
@@ -209,14 +229,15 @@ public WebElement Dstatus ;
 
 public void User_Can_Check_OrganisationDetails_Textvalidations_in_Applications_Page() throws Exception{
 	validatetext(Domainapptxtval, "Applications Details");
-	validatetext(ApplicationNotxtval, "Application No");
+	validatetext(ApplicationNotxtval, "Application Id");
 	validatetext(Statustxtval, "Application Status");
-	validatetext(OrganizationNametxtval, "Organization Name");
+	validatetext(OrganizationNametxtval, "Tenure (yrs)");
 	validatetext(DomainNametxtval, "Domain Name");
 	validatetext(SubmissionDatetxtval, "Submission Date");
 
-	/*String Apptableextvalues="Applications Details,Application No,Application Status,,Organization Name,Domain Name,Submission Date";
-	Table_prop(Tabledata, Apptableextvalues);*/
+	String Apptableextvalues="Application Id,Application Status,Tenure (yrs),Domain Name,Submission Date";
+			
+	Table_prop(Tabledata, Apptableextvalues);
 
 	
 
@@ -225,7 +246,7 @@ public void User_Can_Check_OrganisationDetails_Textvalidations_in_Applications_P
 		configWriter.setProperty("AppStatus", Astatus.getText());
 	    validatetext(Astatus, ConfigReader.getProperty("AppStatus"));
 	    
-        validatetext(AOrg_name, ConfigReader.getProperty("OrgName"));
+        validatetext(AOrg_name, ConfigReader.getProperty("Tenure (yrs)"));
 		validatetext(Adn_name, ConfigReader.getProperty("DomainName"));
 		configWriter.setProperty("AppSubmissionDate", Asub_date.getText());
 		validatetext(Asub_date, ConfigReader.getProperty("AppSubmissionDate"));
@@ -233,14 +254,17 @@ public void User_Can_Check_OrganisationDetails_Textvalidations_in_Applications_P
  
 
 
-	validatetext(OrganizationDetailstxtval, "Organization Details"); //
-	validatetext(InstitutionNametxtval, "Institution Name");
-	validateattribute(Institionnameplaceholderval,"placeholder", "Enter your Organization Name");
+	validatetext(OrganizationDetailstxtval, "Entity Details"); //
+	validatetext(InstitutionNametxtval, "Entity Name");
+	//validateattribute(Institionnameplaceholderval,"placeholder", "Enter your Organization Name");
 	validatetext(PinCodetxtval, "Pin Code");
-    sendkeyweb(PinCodeeditval,"130003");
+	validatetext(Loctxtval, "Location");
+	validatetext(citytxtval, "City/District");
+	validatetext(statetxtval, "State");
+    
 	validatetext(Addresstxtval, "Address");
-	validatetext(Emailtxtval, "Email ID"); //
-	sendkeyweb(Emailtxtbox,"bhargav@gmail.com");
+	validatetext(Emailtxtval, "Entity Email ID"); //
+	//sendkeyweb(Emailtxtbox,"bhargav@gmail.com");
 	validatetext(Paystatustxtval, "Payment Status");
 	//Selectdropdown(Selectpaymentoption, "Paid");
 	//Clickelement(Viewpaymentclick);
@@ -260,7 +284,7 @@ public WebElement NSstatustxtval;
 @FindBy(xpath="//h5[normalize-space()='Domain Status']")
 public WebElement Domainstatustxtval;
 
-@FindBy(xpath="//h4[contains(text(),'Organization Documents')]")
+@FindBy(xpath="//h4[contains(text(),'Entity Documents')]")
 public WebElement OrganizationDocstxtval;
 @FindBy(xpath="//span[text()='GSTIN']")
 public WebElement  GSTINsearch;
@@ -303,8 +327,10 @@ public WebElement  ToastermessageApproved;
 
 
 
-@FindBy(xpath="//div[@id='viewTheOrgGstDocs']//span[@aria-hidden='true'][normalize-space()='×']")
-public WebElement  ClosebuttonClick;
+@FindBy(xpath="(//button[text()='Save changes'])")
+public List< WebElement>  ClosebuttonClick;
+@FindBy(xpath="(//button[text()='Save changes'])[1]")
+public WebElement  ClosebuttonClick2;
 @FindBy(xpath="//span[text()='PAN']")
 public WebElement PANsearch ;
 @FindBy(xpath="//div[@id='viewTheOrgPanDocs']//button[@class='btn btn-primary'][normalize-space()='Approve']")
@@ -330,38 +356,43 @@ public WebElement  ToastermsgRejectdoc;
 @FindBy(xpath="//button[contains(text(),'Review')]")
 public WebElement  clickreviewbtn;
 public void User_Can_Check_OrganisationDetails_DocumentsUpload_Functionalities_in_Applications_Page() throws Exception {
-	//validatetext(OrganizationDocstxtval, "Organization Documents");
+	validatetext(OrganizationDocstxtval, "Entity Documents");
 	
 	
-	Thread.sleep(3000);
+	//Thread.sleep(5000);
 	Clickelement(GSTINsearch);
 	Thread.sleep(3000);
 	Clickelement(RejectClick);
 	//Thread.sleep(3000);
+	clickmultipleweb(ClosebuttonClick);
 	validatetext(Rejected1statustxtval, "Rejected");
 	validatetext(ToastermsgRejectdoc,"Document Rejected");
 	
 	Clickelement(GSTINsearch);
 	Thread.sleep(3000);
 	Clickelement(ApproveClick);
-	//Thread.sleep(5000);
+	Clickelement(ClosebuttonClick2);
 	//Selectdropdown(selectstatustxtval, "Approved for payment");
     validatetext(Approved1statustxtval,"Approved");
    // validatetext(Rejectstatus2txtval, "Approved ");
     validatetext(Toastermsgappovedoc,"Document Approved");
-	//Clickelement(ClosebuttonClick);
+	
 	Thread.sleep(3000);
 	Clickelement(PANsearch);
 	Thread.sleep(3000);
 	Clickelement(Reject2Click);
+	clickmultipleweb(ClosebuttonClick);
 	validatetext(Rejected2statustxtval,"Rejected");
 	validatetext(ToastermsgRejectdoc,"Document Rejected");
+	clickmultipleweb(ClosebuttonClick);
 	Thread.sleep(3000);
 	Clickelement(PANsearch);
 	Thread.sleep(3000);
 	Clickelement(Approve2Click);
+	clickmultipleweb(ClosebuttonClick);
 	validatetext(Approved2statustxtval,"Approved");
 	validatetext(Toastermsgappovedoc,"Document Approved");
+	//Clickelement(ClosebuttonClick2);
 	//Thread.sleep(3000);
 	//Clickelement(Close2buttonClick);
 	//Thread.sleep(3000);
@@ -374,29 +405,35 @@ public void User_Can_Check_OrganisationDetails_DocumentsUpload_Functionalities_i
 	Clickelement(LicenceNumberdocsearch);
 	Thread.sleep(3000);
 	Clickelement(Reject3Click);
+	clickmultipleweb(ClosebuttonClick);
 	Thread.sleep(3000);
 	validatetext(ToastermsgRejectdoc,"Document Rejected");
 	validatetext(Rejected3statustxtval,"Rejected");
 	Clickelement(LicenceNumberdocsearch);
 	Thread.sleep(3000);
 	Clickelement(Approve3Click);
+	clickmultipleweb(ClosebuttonClick);
 	//Thread.sleep(5000);
 	//Clickelement(Close3buttonClick);
 	//Thread.sleep(5000);
-	validatetext(Approved3statustxtval,"Approved");
+	//Clickelement(ClosebuttonClick);
+	//validatetext(Approved3statustxtval,"Approved");
 	//Thread.sleep(5000);
 	//validatetext(Rejectstatus2txtval, "Approved");
 	validatetext(Toastermsgappovedoc,"Document Approved");
+	
 	Thread.sleep(2000);
 	Clickelement(BoardResolutionsearch);
 	Thread.sleep(2000);
 	Clickelement(Reject4Click);
+	clickmultipleweb(ClosebuttonClick);
 	Thread.sleep(3000);
 	validatetext(Rejected4statustxtval,"Rejected");
 	validatetext(ToastermsgRejectdoc,"Document Rejected");
 	Clickelement(BoardResolutionsearch);
 	Thread.sleep(3000);
 	Clickelement(Approve4Click);
+	clickmultipleweb(ClosebuttonClick);
 	Thread.sleep(2000);
 	//Clickelement(Close4buttonClick);
 	

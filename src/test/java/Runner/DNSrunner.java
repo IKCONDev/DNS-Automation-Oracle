@@ -11,7 +11,7 @@ glue = {"Registrant","Registrar","hooks"},
 dryRun = false,
 plugin = {"pretty","html:target/cucu-report.html","json:target/cuc"}
 //,"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
-//"org.simplestudio.cucumber.XlsFormatter"}
+//"org.simplestudio.cucumber.XlsFormatter"}	
 ,monochrome = true
 		,publish = true)
 
@@ -23,7 +23,7 @@ public class DNSrunner extends AbstractTestNGCucumberTests {
 //        		"Feature\\ums.feature"};
 //        cucumber.api.cli.Main.main(arguments);
 //    }
-	
+			
 }
 
 
