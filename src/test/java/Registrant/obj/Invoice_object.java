@@ -28,7 +28,7 @@ public class Invoice_object extends Baseclass {
 	@FindBy(xpath = "//table[@id='table1']//th")
 	public List<WebElement> table;
 	public void user_validate_the_invoice_page() {
-	    String st="Invoice ID,Organization Name,Domain Name,Amount,Invoice,Payment Status";
+	    String st="Invoice ID,Entity Name,Domain Name,Amount,Invoice,Payment Status";
 		Table_prop(table, st);
 	}
 	//configWriter.setProperty("DomainName"

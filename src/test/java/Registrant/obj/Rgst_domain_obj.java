@@ -34,18 +34,18 @@ public class Rgst_domain_obj extends Baseclass{
 	@FindBy(xpath = "//input[@placeholder='Search']")
 	public WebElement Search ;
 	public void user_validate_domain_page() {
-	    String s=",Domain ID,Domain Status,Domain Name,Entity Name,Registration Date,Renewal Date";
+	    String s=",Application ID,Status,Domain Name,Entity Name,Tenure (yrs),Registration Date,Renewal Date";
 	    Table_prop(Table_col, s);
 	}
 	    public void user_validate_domain_data() {
 	    List<WebElement> Domain_ID=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/preceding-sibling::td"));
-		dispalyedattribute(Domain_ID.get(1), "Domain Id");
+		dispalyedattribute(Domain_ID.get(1), "Application ID");
 		List<WebElement> Table_data=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/following-sibling::td"));
-		validatetext(Table_data.get(0), ConfigReader.getProperty("Orgname"));
-		validatetext(Table_data.get(1), ConfigReader.getProperty("submissiondate"));
-		configWriter.setProperty("Renewal", Table_data.get(2).getText());
-		
-		validatetext(Table_data.get(2), ConfigReader.getProperty("Renewal"));
+		validatetext(Table_data.get(0), ConfigReader.getProperty("Orgname").toUpperCase());
+		validatetext(Table_data.get(1), "1");
+		configWriter.setProperty("Renewal", Table_data.get(3).getText());
+		configWriter.setProperty("RegDate", Table_data.get(2).getText());
+		validatetext(Table_data.get(3), ConfigReader.getProperty("Renewal"));
 		validatetext(Domain_ID.get(2), "Inactive");
 		validateattribute(Search, "placeholder","Search");
 		Clickelement(Domain_ID.get(1));
@@ -83,8 +83,8 @@ public class Rgst_domain_obj extends Baseclass{
 		validatetext(status, "Domain Status");
 		validatetext(Aorg_name, ConfigReader.getProperty("Orgname"));
 		validatetext(Adomain_name, ConfigReader.getProperty("Domain")+".bank.in");
-		validatetext(Areg_no, ConfigReader.getProperty("submissiondate"));
 		validatetext(Aren_date, ConfigReader.getProperty("Renewal"));
+		validatetext(Areg_no, ConfigReader.getProperty("RegDate"));
 		validatetext(Astatus, "Inactive");
 	   
 	}
@@ -93,9 +93,17 @@ public class Rgst_domain_obj extends Baseclass{
 	public WebElement Nameserver;
 	@FindBy(xpath = "//div[normalize-space()='Host Name']")
 	public WebElement Hostname ;
-	@FindBy(xpath = "//div[normalize-space()='IP Address']")
-	public WebElement Ipaddr ;
-	@FindBy(xpath = "//div[normalize-space()='TTL']")
+	@FindBy(xpath = "//div[normalize-space()='IP Service Provider']")
+	public WebElement Ip_service ;
+	@FindBy(xpath = "//div[normalize-space()='Approved by Registrar']")
+	public WebElement Approve_reg;
+	@FindBy(xpath = "//div[normalize-space()='IPV4 Address']")
+	public WebElement IPv4;
+	@FindBy(xpath = "//div[normalize-space()='IPV6 Address']")
+	public WebElement IPv6;
+	@FindBy(xpath = "//div[normalize-space()='DNS Service Provider']")
+	public WebElement DNS_Provider ;
+	@FindBy(xpath = "//div[normalize-space()='Tenure']")
 	public WebElement TTL ;
 	@FindBy(xpath = "//div[normalize-space()='Invoice No']")
 	public WebElement invoice ;
@@ -108,11 +116,24 @@ public class Rgst_domain_obj extends Baseclass{
 	@FindBy(xpath = "//h2[normalize-space()='Billing History']")
 	public WebElement Bill_history;
 	
-	public void user_validate_the_domain_domain_details_page(String NSR1,String NIP1,String NSR2,String NIP2,String NSR3,String NIP3,String NSR4,String NIP4) throws AWTException, InterruptedException {
+	@FindBy(xpath = "//h2[normalize-space()='DNSSEC Details']")
+	public WebElement DNS_SECdetails;
+	@FindBy(xpath = "//div[normalize-space()='Key Tag']")
+	public WebElement Key_Tag;
+	@FindBy(xpath = "//div[normalize-space()='Algorithm']")
+	public WebElement Algorithm;
+	@FindBy(xpath = "//div[normalize-space()='Digest Type']")
+	public WebElement Digest_Type ;
+	@FindBy(xpath = "//div[normalize-space()='Digest']")
+	public WebElement Digest ;
+	@FindBy(xpath = "//div[normalize-space()='Appoved']")
+	public WebElement Appoved;
+	
+	
+	public void user_validate_the_domain_domain_details_page(String NSR1,String NIP1,String NSR2,String NIP2) throws AWTException, InterruptedException {
 		validatetext(Nameserver, "Name Servers");
 		validatetext(Hostname,"Host Name");
-		validatetext(Ipaddr ,"IP Address");
-		validatetext(TTL,"TTL");
+		validatetext(TTL,"Tenure");
 		validatetext(invoice,"Invoice No");
 		validatetext(Amount,"Amount");
 		validatetext(Invocedate,"Invoice Date");
@@ -129,16 +150,23 @@ public class Rgst_domain_obj extends Baseclass{
 			System.out.println(e);
 		}
 		Clickelement(ADD_NS);
-		RL.User_enters_name_server_details(NSR1, NIP1, NSR2, NIP2, NSR3, NIP3, NSR4,NIP4);
-		Clickelement(DeleteNS.get(2));
-		Clickelement(DeleteNS.get(2));
+		driver.navigate().back();
 		
+//		RL.User_enters_name_server_details(NSR1, NIP1, NSR2, NIP2);
+//		Clickelement(DeleteNS.get(2));
+//		Clickelement(DeleteNS.get(2));
+		Clickelement(ADD_DNSsec);
+		clickmultipleweb(backbutton);
 	}
+	@FindBy(xpath = "//button[@aria-label='Close']")
+	public List<WebElement> backbutton;
 	
+	@FindBy(xpath = "(//h2[normalize-space()='DNSSEC Details']/following::div)[1]")
+	public WebElement ADD_DNSsec;
 	
 	@FindBy(xpath = "//button[@id='trashIcon']")
 	public List<WebElement> DeleteNS;
-	@FindBy(xpath = "(//h2[normalize-space()='Name Servers']/following::div/button)[1]")
+	@FindBy(xpath = "(//h2[normalize-space()='Name Servers']/following::div)[1]")
 	public WebElement ADD_NS;
 	@FindBy(xpath = "//input[@id='numNameServers']")
 	public WebElement Nameserver_count;

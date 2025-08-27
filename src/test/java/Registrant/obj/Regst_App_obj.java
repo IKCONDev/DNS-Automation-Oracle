@@ -62,7 +62,7 @@ public class Regst_App_obj extends Baseclass {
 	public void user_validate_application_page() {
 		
 
-		String s="Application ID,Entity Name,Domain Name,,Submission Date,Status,Payment Status,NS Record Status,Tenure (yrs),Remarks/Comments,Payment";
+		String s="Application ID,Entity Name,Domain Name,,Submission Date,Status,Payment Status,NS Record Status,Tenure (yrs),View Name Servers,Remarks/Comments,Payment";
 		Table_prop(Table_col, s);
 	}
 	
@@ -101,15 +101,16 @@ public class Regst_App_obj extends Baseclass {
 		dispalyedattribute(APP_ID.get(0), "Application ID");
 		List<WebElement> Table_data=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/following-sibling::td"));
 		configWriter.setProperty("submissiondate", Table_data.get(1).getText());
-		validatetext(Table_data.get(2), "Submitted info");
+		validatetext(Table_data.get(2), "Submitted");
 	
 		List<WebElement> APP_ID1=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/preceding-sibling::td"));
 		List<WebElement> Table_data1=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/following-sibling::td"));
 		validatetext(Table_data1.get(3), "Payment Not Done");
 		validatetext(Table_data1.get(4), "OnHold");
 		validatetext(Table_data1.get(5), "1");
-		validatetext(Table_data1.get(6), "NA");
-		validatetext(Table_data1.get(7), "Pay Now");
+		validatetext(Table_data1.get(6), "View");
+		validatetext(Table_data1.get(7), "NA");
+		validatetext(Table_data1.get(8), "Pay Now");
 		validatetext(Table_data1.get(1), ConfigReader.getProperty("submissiondate"));
 		validateattribute(Search, "placeholder","Search");
 		Clickelement(APP_ID1.get(0));
@@ -147,21 +148,21 @@ public class Regst_App_obj extends Baseclass {
 		
 	@FindBy(xpath = "//h3[normalize-space()='Application Details']")
 	public WebElement Details_page_title ;
-	@FindBy(xpath = "//p[normalize-space()='Entity Name']")
-	public WebElement Org_name ;
+//	@FindBy(xpath = "//p[normalize-space()='Entity Name']")
+//	public WebElement Org_name ;
 	@FindBy(xpath = "//div[normalize-space()='Domain Name']")
 	public WebElement dn_name ;
-	@FindBy(xpath = "//p[normalize-space()='Application No']")
+	@FindBy(xpath = "//p[normalize-space()='Application Id']")
 	public WebElement App_no ;
 	@FindBy(xpath = "//p[normalize-space()='Submission Date']")
 	public WebElement sub_date ;
 	@FindBy(xpath = "//p[normalize-space()='Application Status']")
 	public WebElement status ;
-	@FindBy(xpath = "//p[normalize-space()='Organization Name']/following-sibling::div")
-	public WebElement AOrg_name ;
+//	@FindBy(xpath = "//p[normalize-space()='Organization Name']/following-sibling::div")
+//	public WebElement AOrg_name ;
 	@FindBy(xpath = "//div[normalize-space()='Domain Name']/following-sibling::div")
 	public WebElement Adn_name ;
-	@FindBy(xpath = "//p[normalize-space()='Application No']/following-sibling::div")
+	@FindBy(xpath = "//p[normalize-space()='Application Id']/following-sibling::div")
 	public WebElement AApp_no ;
 	@FindBy(xpath = "//p[normalize-space()='Submission Date']/following-sibling::div")
 	public WebElement Asub_date ;
@@ -173,12 +174,10 @@ public class Regst_App_obj extends Baseclass {
 		configWriter.setProperty("Appno", AApp_no.getText());
 		
 		validatetext(Details_page_title, "Application Details");
-		validatetext(Org_name, "Entity Name");
 		validatetext(dn_name, "Domain Name");
-		validatetext(App_no, "Application No");
+		validatetext(App_no, "Application Id");
 		validatetext(sub_date, "Submission Date");
 		validatetext(status, "Status");
-		validatetext(AOrg_name, ConfigReader.getProperty("Orgname"));
 		validatetext(Adn_name, ConfigReader.getProperty("Domain")+".bank.in");
 		validatetext(AApp_no, ConfigReader.getProperty("Appno"));
 		validatetext(Asub_date, ConfigReader.getProperty("submissiondate"));

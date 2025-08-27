@@ -1,93 +1,93 @@
 Feature: Registrant Onboarding
 
-  Scenario Outline: Registrant Registration and login
-    Given User is on Landing Page
-    Then User validating the Landing Page
-    When User navigate to Registration Page
-    Then User Register An Account "<username>" "<password>"
-    When User navigate to Login Page
-    Then User enters "<username>" and "<password>"
-
-    Examples: 
-      | username                      | password  | Case  |
-      | venkatesh.udaru@ikcontech.com | Test@1236 | Valid |
-
-  Scenario Outline: DSC Verify
-    And User enters the dsc details
-
-  Scenario Outline: Onboarding Page
-    Then User enters domain page "<domain>"
-    Then User enters organisation details "<domain>" "<PIN>" "<Address>" "<Tel>" "<Mob>" "<Email>" "<GST>" "<PAN>" "<License>"
-
-    Examples: 
-      | domain | PIN    | Address                                  | Tel        | Mob       | Email  | GST             | PAN        | License               |
-      | ikoncy | 500090 | CYBERTOWERS,Madhapur,HEDERABAD,Telangana | 9685578941 | 868557894 | ikcon@ | 22ABCDE0000A1J5 | ASDEE4455Q | L12345MH2023PLC000001 |
-
-  Scenario Outline: Admin Contact details
-    Then User enters admin contact details "<Name>" "<Tel>" "<Mob>" "<Email>" "<Aadhar>" "<PAN>" "<Desig>"
-
-    Examples: 
-      | Name   | Tel        | Mob       | Email   | Aadhar         | PAN        | Desig   |
-      | prasad | 9685578942 | 868557894 | ikcon1@ | 1234 5678 8012 | ASDEE4455L | Manager |
-
-  Scenario Outline: Technical contact details
-    Then User enters technical contact details "<Name>" "<Tel>" "<Mob>" "<Email>" "<Aadhar>" "<PAN>" "<Desig>"
-
-    Examples: 
-      | Name   | Tel        | Mob       | Email   | Aadhar         | PAN        | Desig     |
-      | srivas | 9685578943 | 868557894 | ikcon2@ | 1234 5678 7012 | ASDEE4455P | Assig Mng |
-
-  Scenario Outline: Billing contact details page
-    Then User enters billing contact details "<Name>" "<Tel>" "<Mob>" "<Email>" "<Aadhar>" "<PAN>" "<Desig>"
-
-    Examples: 
-      | Name  | Tel        | Mob      | Email   | Aadhar         | PAN        | Desig    |
-      | raman | 9685578954 | 96855789 | ikcon3@ | 1234 5678 5012 | ASDEE4455P | Accounts |
-
-  Scenario Outline: Name server details
-    Then User enters name server details "<NS1>" "<IP1>" "<NS2>" "<IP2>" "<NS3>" "<IP3>" "<NS4>" "<IP4>"
-
-    Examples: 
-      | NS1     | NS2     | NS3     | NS4     | IP1      | IP2      | IP3      | IP4      |
-      | Office1 | office2 | Office3 | office4 | 2.0.9.71 | 2.0.9.94 | 2.0.9.72 | 2.0.9.96 |
-
-  Scenario Outline: Preview and Submit
-    Then User preview and submit onboarding
-
-  Scenario Outline: Registrant Application Page
-    Then User Navigate to Application Page
-    Then User Validate Application Page
-    Then User Validate Application data
-    Then User Navigates the Domain Applications Details page
-    Then User validate the Domain Applications Details page
-    And User subit the Domain Applications Details page
-
-  Scenario Outline: Registrant Domain Page
-    Then User Navigate to Domain Page
-    Then User Validate Domain Page
-    Then User Validate Domain data
-    Then User Navigates the Domain Details page
-    Then User validate the Domain Domain Details page "<NS1>" "<IP1>" "<NS2>" "<IP2>"
-    And User subit the Domain Details page
-
-    Examples: 
-      | NS1     | NS2     | IP1       | IP2       |
-      | Office1 | office2 | 1.10.2.41 | 1.10.3.41 |
-
-  Scenario Outline: Registrant Invoice Page
-    Then User navigate to Invoice page
-    Then User validate the Invoice page
-    Then User download the proforma invoice
-    Then User download the invoice
-
-  Scenario Outline: Registrnt User Management
-    Then User navigate to user management page
-    Then User Validate the user management page
-
-  Scenario Outline: Registrant Officer Details Management
-    Then User navigate to officer details management page
-    Then User Validate the officer details management page
-    Then User logout the application
+  #Scenario Outline: Registrant Registration and login
+    #Given User is on Landing Page
+    #Then User validating the Landing Page
+    #When User navigate to Registration Page
+    #Then User Register An Account "<username>" "<password>"
+    #When User navigate to Login Page
+    #Then User enters "<username>" and "<password>"
+#
+    #Examples: 
+      #| username               | password  | Case  |
+      #| venka.h@ikcontech.com | Test@1236 | Valid |
+#
+  #Scenario Outline: DSC Verify
+    #And User enters the dsc details
+#
+  #Scenario Outline: Onboarding Page
+  #Then User enters domain page "<domain>"
+  #Then User enters organisation details "<domain>" "<PIN>" "<Address>" "<Tel>" "<Mob>" "<Email>" "<GST>" "<PAN>" "<License>"
+  #
+  #Examples:
+  #| domain | PIN    | Address                                  | Tel        | Mob       | Email  | GST             | PAN        | License               |
+  #| simons | 500090 | CYBERTOWERS,Madhapur,HEDERABAD,Telangana | 9685578941 | 868557894 | ikcon@ | 22ABCDE0000A1J5 | ASDEE4455Q | L12345MH2023PLC000001 |
+  #
+  #Scenario Outline: Admin Contact details
+  #Then User enters admin contact details "<Name>" "<Tel>" "<Mob>" "<Email>" "<Aadhar>" "<PAN>" "<Desig>"
+  #
+  #Examples:
+  #| Name   | Tel        | Mob       | Email   | Aadhar         | PAN        | Desig   |
+  #| prasad | 9685578942 | 868557894 | ikcon1@ | 1234 5678 8012 | ASDEE4455L | Manager |
+  #
+  #Scenario Outline: Technical contact details
+  #Then User enters technical contact details "<Name>" "<Tel>" "<Mob>" "<Email>" "<Aadhar>" "<PAN>" "<Desig>"
+  #
+  #Examples:
+  #| Name   | Tel        | Mob       | Email   | Aadhar         | PAN        | Desig     |
+  #| srivas | 9685578943 | 868557894 | ikcon2@ | 1234 5678 7012 | ASDEE4455P | Assig Mng |
+  #
+  #Scenario Outline: Billing contact details page
+  #Then User enters billing contact details "<Name>" "<Tel>" "<Mob>" "<Email>" "<Aadhar>" "<PAN>" "<Desig>"
+  #
+  #Examples:
+  #| Name  | Tel        | Mob      | Email   | Aadhar         | PAN        | Desig    |
+  #| raman | 9685578954 | 96855789 | ikcon3@ | 1234 5678 5012 | ASDEE4455P | Accounts |
+  #
+  #Scenario Outline: Name server details
+  #Then User enters name server details "<NS1>" "<IP1>" "<NS2>" "<IP2>" "<NS3>" "<IP3>" "<NS4>" "<IP4>"
+  #
+  #Examples:
+  #| NS1     | NS2     | NS3     | NS4     | IP1      | IP2      | IP3      | IP4      |
+  #| Office1 | office2 | Office3 | office4 | 2.0.9.81 | 2.0.9.44 | 2.0.9.62 | 2.0.9.76 |
+  #
+  #Scenario Outline: Preview and Submit
+  #Then User preview and submit onboarding
+  #
+  #Scenario Outline: Registrant Application Page
+  #Then User Navigate to Application Page
+  #Then User Validate Application Page
+  #Then User Validate Application data
+  #Then User Navigates the Domain Applications Details page
+  #Then User validate the Domain Applications Details page
+  #And User subit the Domain Applications Details page
+  #
+  #Scenario Outline: Registrant Domain Page
+    #Then User Navigate to Domain Page
+    #Then User Validate Domain Page
+    #Then User Validate Domain data
+    #Then User Navigates the Domain Details page
+    #Then User validate the Domain Domain Details page "<NS1>" "<IP1>" "<NS2>" "<IP2>"
+    #And User subit the Domain Details page
+#
+    #Examples: 
+     #| NS1     | NS2     | IP1       | IP2       |
+      #| Office1 | office2 | 1.10.2.41 | 1.10.3.41 |
+#
+  #Scenario Outline: Registrant Invoice Page
+    #Then User navigate to Invoice page
+    #Then User validate the Invoice page
+    #Then User download the proforma invoice
+    #Then User download the invoice
+#
+  #Scenario Outline: Registrnt User Management
+    #Then User navigate to user management page
+    #Then User Validate the user management page
+#
+  #Scenario Outline: Registrant Officer Details Management
+    #Then User navigate to officer details management page
+    #Then User Validate the officer details management page
+    #Then User logout the application
   #@2ndStep
   #Scenario Outline: Registrar Login Page
     #Given Registrar is on Landing Page1
@@ -172,33 +172,25 @@ Feature: Registrant Onboarding
     #Examples: 
       #| DepartmentName |
       #| Banking        |
-#
-  #@3rdstep
-  #Scenario Outline: Registrant Registration and login
-    #Given User is on Landing Page
-    #Then User enters registrant credentials
-#
-  #Scenario Outline: DSC Verify
-    #And User enters the dsc details
-#
-  #Scenario Outline: Registrant Application Page
-    #Then User Navigate to Application Page
-    #Then User payment and upload recipt
-    #Then User logout the application
-#
-  #Scenario Outline: Registrant Registration and login
-    #Given User is on Landing Page
-    #Then User validating the Landing Page
-    #When User navigate to Registration Page
-    #Then User Register An Account "<username>" "<password>"
-    #When User navigate to Login Page
-    #Then User enters "<username>" and "<password>"
-#
-  #Scenario Outline: Registrant Invoice Page
-    #Then User Navigate to Domain Page
-    #Then User download the proforma invoice
-    #Then User download the invoice
-    #Then User logout the application
+
+  @3rdstep
+  Scenario Outline: Registrant Registration and login
+    Given User is on Landing Page
+    Then User enters registrant credentials
+
+  Scenario Outline: DSC Verify
+    And User enters the dsc details
+
+  Scenario Outline: Registrant Application Page
+    Then User Navigate to Application Page
+    Then User payment and upload recipt
+
+Scenario Outline: Registrant Invoice Page
+    Then User navigate to Invoice page
+    Then User validate the Invoice page
+    Then User download the proforma invoice
+    Then User download the invoice
+    Then User logout the application
 #
   #Scenario Outline: Registrar Login Page
     #Given Registrar is on Landing Page1

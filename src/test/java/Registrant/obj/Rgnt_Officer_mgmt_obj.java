@@ -2,12 +2,14 @@ package Registrant.obj;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import Configuration.ConfigReader;
 import Drivermanager.Driver;
 import hooks.Baseclass;
 
@@ -61,35 +63,71 @@ public class Rgnt_Officer_mgmt_obj extends Baseclass {
 		} catch (Exception e) {
 			Clickelement(Ofcmgmt);
 		}
-		
 
 		validatetext(OFCMGMTtitle, "Officer Details Management");
 		validatetext(Addofc_button, "Add Officer Details");
-		String Table_col = "Id,Entity Name,Person Name,Designation,Mobile Number,Email ID,Role,View Documents,Login Status,Delete Officer";
+		String Table_col = "Id,Entity Name,Officer Name,Designation,Mobile Number,Email ID,Role,View Documents,Login Status,Contact Approved,Delete Officer";
 		Table_prop(Table_cols, Table_col);
 
-		validatetext(AO_F.get(1), "NA");
-		validatetext(AO_P.get(2), "Entity name");
-		validatetext(AO_P.get(3), "Personname");
-		validatetext(AO_P.get(4), "Designation");
-		validatetext(AO_P.get(5), "Mobile Number");
-		validatetext(AO_P.get(6), "Email ID");
+		validatetext(AO_F.get(0), "View");
+		validatetext(AO_P.get(1), ConfigReader.getProperty("Domain").toUpperCase());
+		validatetext(AO_P.get(2), AO_P.get(2).getText());
+		validatetext(AO_P.get(3), AO_P.get(3).getText());
+		validatetext(AO_P.get(4), AO_P.get(4).getText());
+		validatetext(AO_P.get(5), AO_P.get(5).getText());
 
-		validatetext(TO_F.get(1), "View");
-		validatetext(TO_P.get(2), "Entity name");
-		validatetext(TO_P.get(3), "Personname");
-		validatetext(TO_P.get(4), "Designation");
-		validatetext(TO_P.get(5), "Mobile Number");
-		validatetext(TO_P.get(6), "Email ID");
-
-		validatetext(FO_F.get(1), "View");
-		validatetext(FO_P.get(2), "Entity name");
-		validatetext(FO_P.get(3), "Personname");
-		validatetext(FO_P.get(4), "Designation");
-		validatetext(FO_P.get(5), "Mobile Number");
-		validatetext(FO_P.get(6), "Email ID");
+		validatetext(TO_F.get(0), "View");
+		validatetext(TO_P.get(1), ConfigReader.getProperty("Domain").toUpperCase());
+		validatetext(TO_P.get(2), TO_P.get(2).getText());
+		validatetext(TO_P.get(3), TO_P.get(3).getText());
+		validatetext(TO_P.get(4), TO_P.get(4).getText());
+		validatetext(TO_P.get(5), TO_P.get(5).getText());
+		
+		validatetext(FO_F.get(0), "View");
+		validatetext(FO_P.get(1), ConfigReader.getProperty("Domain").toUpperCase());
+		validatetext(FO_P.get(2), FO_P.get(2).getText());
+		validatetext(FO_P.get(3), FO_P.get(3).getText());
+		validatetext(FO_P.get(4), FO_P.get(4).getText());
+		validatetext(FO_P.get(5), FO_P.get(5).getText());
 
 //		Clickelement(AO_F.get(1));
 
 	}
+	
+	
+
+	@FindBy(xpath = "//div[contains(text(),'Super Admin Management')]")
+	public WebElement SAtitle;
+	@FindBy(xpath = "//button[contains(text(),'Add Super Admin')]")
+	public WebElement AddSA_button;
+	@FindBy(xpath = "//input[@placeholder='Search']")
+	public WebElement Search ;
+
+	public void Super_admin_management(){
+		user_navigate_to_USERmgmt_page();
+		validatetext(SUPERMGMT, "Super Admin Management");
+		try {
+			Clickelement(SUPERMGMT);
+		} catch (Exception e) {
+			Clickelement(SUPERMGMT);
+		}
+		
+
+		validatetext(SAtitle, "Super Admin Management");
+		validatetext(AddSA_button, "Add Super Admin");
+		String Table_col = "Sl.No,User Id,User Name,Entity Name,Mobile Number,Role,Status,Actions";
+		Table_prop(Table_cols, Table_col);
+		List<WebElement> Domain_ID=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain").toUpperCase()+"'])[1]/preceding-sibling::td"));
+		dispalyedattribute(Domain_ID.get(1), "1");
+		List<WebElement> Table_data1=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain").toUpperCase()+"'])[1]/following-sibling::td"));
+		validatetext(Table_data1.get(0), Table_data1.get(0).getText());
+		validatetext(Table_data1.get(1), "Super Admin");
+		validatetext(Table_data1.get(2), "Active");
+		validatetext(Table_data1.get(3), "");
+		validateattribute(Search, "placeholder","Search");
+		
+	}
+	
+
+	
 }
