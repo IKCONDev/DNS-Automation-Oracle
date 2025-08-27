@@ -6,7 +6,7 @@
 <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<tools-systemPath>
-		C:\Users\VenkateshUdaru\Downloads\Download_copy\oracledns\DNS-Automation-Oracle\Tools\tools-1.5.0 1.jar</tools-systemPath>
+		C:\Users\PeralaBhargaviPrakas\Desktop\DR\DNS-Automation-Oracle\Tools\tools-1.5.0 1.jar</tools-systemPath>
 	</properties>
 	<dependencies>
 	<dependency>

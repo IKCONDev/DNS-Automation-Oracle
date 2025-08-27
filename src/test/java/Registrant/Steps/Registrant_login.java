@@ -121,11 +121,11 @@ public class Registrant_login {
 		RLO.User_upload_billing_contact_details(Aadhar, PAN);
 	}
 
-	@Then("User enters name server details {string} {string} {string} {string} {string} {string} {string} {string}")
-	public void User_enters_name_server_details(String NSR1,String NIP1,String NSR2,String NIP2,String NSR3,String NIP3,String NSR4,String NIP4) throws AWTException, InterruptedException {
+	@Then("User enters name server details {string} {string} {string} {string} {string} {string} {string} {string} {string} {string} {string} {string}")
+	public void User_enters_name_server_details(String NSR1,String NIP1, String NIP2,String NSR2,String NIP3,String NIP4,String NSR3,String NIP5,String NIP6,String NSR4,String NIP7,String NIP8) throws AWTException, InterruptedException {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		RLO.Validate_name_server_details_page();
-		RLO.User_enters_name_server_details(NSR1,NIP1,NSR2,NIP2,NSR3,NIP3,NSR4,NIP4);
+		RLO.User_enters_name_server_details(NSR1,NIP1, NIP2,NSR2,NIP3,NIP4,NSR3,NIP5,NIP6,NSR4,NIP7,NIP8);
 	}
 	
 	@Then("User preview and submit onboarding")

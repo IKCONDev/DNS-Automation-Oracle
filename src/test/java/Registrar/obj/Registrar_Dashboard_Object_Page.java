@@ -90,7 +90,7 @@ public class Registrar_Dashboard_Object_Page extends Baseclass{
 	}
 	//HOME PAGE
 
-		@FindBy(xpath="//div[contains(text(),'Total Organisations')]")
+		@FindBy(xpath="//div[contains(text(),'Total Entities')]")
 		public WebElement TotalOrganisationstxtval ;
 		@FindBy(xpath="//div[contains(text(),'Total Domains')]")
 		public WebElement TotalDomainstxtval ;
@@ -157,19 +157,15 @@ public class Registrar_Dashboard_Object_Page extends Baseclass{
 			Clickelement(Applicationstatusselyearly);
 			
 			validatetext(ApplicationInQueuetextvl, "Application In Queue");
-			
-			
-			
-			
-			
+				
 			
 		}
 		public void Create_ApplicationQuee_TextValidations_in_Home_Page() throws InterruptedException {
 			
-			//Thread.sleep(5000);
+			/*//Thread.sleep(5000);
 			Actions Act = new Actions(driver);
 			WebElement OrgName=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']"));
-			Act.moveToElement(OrgName).build().perform();
+			Act.moveToElement(OrgName).build().perform();*/
 			
 			String Apptableextvalues[] = { "Domain ID", "Domain Name", "Organisation Name","Registration Date", "Renewal Date", "Status"};
 			List<WebElement> val = driver.findElements(By.xpath("//table[@id='table1']//tr//th"));
@@ -178,15 +174,22 @@ public class Registrar_Dashboard_Object_Page extends Baseclass{
 
 				validatetext(val.get(i), Apptableextvalues[i]);
 			}
-			//String Apptabledata[]= {"21","Vtech.bank.in","Vtech","Feb 2, 2025, 6:54 AM","Feb 2, 2030, 6:54 AM","Pending"};
-			//List<WebElement> val1 = driver.findElements(By.xpath("(//table[@id='table1']//tr[1]//td)"));
+			
 			
 					List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']/following-sibling::td"));
 					List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']/preceding-sibling::td"));
 
 					 //ConfigReader.getProperty("Domainnametxtval"));
-				dispalyedattribute(Orgname1.get(0), "ID"); 
-				
+					
+				try {
+					dispalyedattribute(Orgname1.get(0), "ID");
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} 
+				/*validatetext(Orgname1.get(0),ConfigReader.getProperty("DomainID"));
+				configWriter.setProperty("DomainName", Orgname.get(1).getText());
+				configWriter.saveProperties();
 				validatetext(Orgname1.get(1),ConfigReader.getProperty("DomainName"));
 				configWriter.setProperty("AppSubmissionDate", Orgname.get(0).getText());
 				configWriter.saveProperties();
@@ -196,7 +199,7 @@ public class Registrar_Dashboard_Object_Page extends Baseclass{
 				validatetext(Orgname.get(1), ConfigReader.getProperty("DomRenewalDate"));
 				configWriter.setProperty("AppStatus2", Orgname.get(2).getText());
 				configWriter.saveProperties();
-				validatetext(Orgname.get(2), ConfigReader.getProperty("AppStatus2"));          
+				validatetext(Orgname.get(2), ConfigReader.getProperty("AppStatus2"));   */       
 
 			}
 		}

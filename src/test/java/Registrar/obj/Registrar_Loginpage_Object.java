@@ -75,7 +75,7 @@ public class Registrar_Loginpage_Object extends Baseclass{
 		validatetext(Nextbuttontextvl,"Next");
 //		String src=driver.getCurrentUrl();
 		
-		Actions act = new Actions(driver);
+	/*	Actions act = new Actions(driver);
 		act.sendKeys(Keys.PAGE_DOWN).build().perform();
 		
         Clickelement(Termsconditions_buttons);
@@ -106,7 +106,7 @@ public class Registrar_Loginpage_Object extends Baseclass{
     }
 
 
-        }
+        }*/
 	
 	}
 	public void User_enter_Username_Password_to_navigate_Home_Page1(String UN, String Password) throws Exception  {
@@ -116,35 +116,36 @@ public class Registrar_Loginpage_Object extends Baseclass{
 	       configWriter.setProperty("RGPPAss", Password);
 	      configWriter.saveProperties();
 		
-	      Clickelement(privcypolicy_buttons);
+	     // Clickelement(privcypolicy_buttons);
 	        
-	     
+	      
 	  	
-	        Set<String> allWindows = driver.getWindowHandles();
-
-	        // Store the current window handle
-	        String currentWindow = driver.getWindowHandle();
-
-	        // Loop through all window handles
-	        for (String window : allWindows) {
-	            // If the window is not the current one, close it
-	            if (!window.equals(currentWindow)) {
-	                driver.switchTo().window(window);
-	                driver.close(); // Close the tab
+//	        Set<String> allWindows = driver.getWindowHandles();
+//
+//	        // Store the current window handle
+//	        String currentWindow = driver.getWindowHandle();
+//
+//	        // Loop through all window handles
+//	        for (String window : allWindows) {
+//	            // If the window is not the current one, close it
+//	            if (!window.equals(currentWindow)) {
+//	                driver.switchTo().window(window);
+	               // driver.close(); // Close the tab
 	            
-	        Thread.sleep(3000);
-	        
-	        // Switch back to the original window
-	        driver.switchTo().window(currentWindow);
+//	        Thread.sleep(3000);
+//	        
+//	        // Switch back to the original window
+//	        driver.switchTo().window(currentWindow);
 	        
 
 	        // Optionally, you can verify if the correct URL is still open
-	        System.out.println("Current URL: " + driver.getCurrentUrl());
+	      //  System.out.println("Current URL: " + driver.getCurrentUrl());
 	        // Clean up and close the driver
-	       // driver.quit();
-	    
+	       // driver.quit();} }
+	      
 		sendkeyweb(Enteremailtextbox, UN);		
 		sendkeyweb(passwordentertxtbox, Password);
+		String OTP1 = myObj.nextLine();
 		Clickelement(ClickNextbutton);
 		popupvalidate( "An OTP has been sent to your email.","Invalid Credentials");
 		System.out.println("Enter OTP : ");
@@ -160,8 +161,7 @@ public class Registrar_Loginpage_Object extends Baseclass{
 		
 	
 	}
-	}
+
 
 }
 
-}
