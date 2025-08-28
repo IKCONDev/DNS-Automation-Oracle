@@ -44,13 +44,29 @@ public void User_Can_Check_OrganisationDetails_DocumentsUpload_Functionalities_i
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 	RA.User_Can_Check_OrganisationDetails_DocumentsUpload_Functionalities_in_Applications_Page();
 	
+	
+	}
+@Then("Registrar  check DocumentsUpload Functionalities in Applications Page1")
+public void User_Can_Check_OrganisationDetails_DocumentsUpload_Functionalities_in_Applications_Page1() throws Exception  {
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+	RA.User_Can_Check_OrganisationDetails_DocumentsUpload_Functionalities_in_Applications_Page1();
+	
+	
+	}
 
-}
 //
 @Then("Registrar  check AdministrativeOfficier Functionalities in Applications Page")
 public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Applications_Page() throws Exception  {
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 	RA.User_Can_Check_AdministrativeOfficier_Functionalities_in_Applications_Page();
+	RA.User_Can_Check_AdministrativeOfficier_Functionalities_in_Applications_Page1();
+	
+
+}
+@Then("Registrar  check AdministrativeOfficier Functionalities in Applications Page1")
+public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Applications_Page1() throws Exception  {
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+	RA.User_Can_Check_AdministrativeOfficier_Functionalities_in_Applications_Page1();
 	
 
 }
@@ -58,13 +74,29 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Page() throws Exception  {
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 	RA.User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Page();
-	
+	RA.User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Page1();
+
+}
+@Then("Registrar  check TechnicalOfficier Functionalities in Applications Page1")
+public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Page1() throws Exception  {
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+	RA.User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Page1();
 
 }
 @Then("Registrar  check BillingOfficier Functionalities in Applications Page")
 public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page() throws Exception  {
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 	RA.User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page();
+	RA.User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page1();
+	
+	
+
+}
+@Then("Registrar  check BillingOfficier Functionalities in Applications Page1")
+public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page1() throws Exception  {
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+	RA.User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page1();
+	
 	
 
 }

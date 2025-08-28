@@ -70,7 +70,7 @@ public class Registrar_Loginpage_Object extends Baseclass{
 		validatetext(loginemailtextval, "Email");
 		validateattribute(EnterEmailPlaceholder,"placeholder", "Enter your email");
 		validatetext(loginpasstextval, "Password");
-		validateattribute(EnterpasswordPlaceholder,"placeholder", "Enter the strong password");
+		validateattribute(EnterpasswordPlaceholder,"placeholder", "Enter your password");
 		validatetext(Forgitpasswordtext, "Forgot password?");
 		validatetext(Nextbuttontextvl,"Next");
 //		String src=driver.getCurrentUrl();

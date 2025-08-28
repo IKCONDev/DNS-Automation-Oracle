@@ -131,6 +131,7 @@ public class Rgst_domain_obj extends Baseclass{
 	
 	
 	public void user_validate_the_domain_domain_details_page(String NSR1,String NIP1,String NSR2,String NIP2) throws AWTException, InterruptedException {
+
 		validatetext(Nameserver, "Name Servers");
 		validatetext(Hostname,"Host Name");
 		validatetext(TTL,"Tenure");
@@ -152,6 +153,10 @@ public class Rgst_domain_obj extends Baseclass{
 		Clickelement(ADD_NS);
 		driver.navigate().back();
 //		RL.User_enters_name_server_details(NSR1, NIP1,  NIP2, NSR2, NIP3, NIP4,NSR3, NIP5, NIP6,NSR4, NIP7, NIP8);
+//		RL.User_enters_name_server_details(NSR1, NIP1,  NIP2, NSR2, NIP3, NIP4,NSR3, NIP5, NIP6,NSR4, NIP7, NIP8);
+		Clickelement(DeleteNS.get(2));
+		Clickelement(DeleteNS.get(2));
+
 //		RL.User_enters_name_server_details(NSR1, NIP1, NSR2, NIP2);
 		Clickelement(ADD_DNSsec);
 		clickmultipleweb(backbutton);
