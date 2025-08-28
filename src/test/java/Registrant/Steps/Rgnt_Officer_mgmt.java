@@ -18,6 +18,7 @@ public class Rgnt_Officer_mgmt {
 	@Then("User Validate the user management page")
 	public void user_validate_the_user_management_page() {
 		ROM.user_validate_the_officer_management_page();
+		ROM.Super_admin_management();
 	}
 
 	@Then("User navigate to officer details management page")

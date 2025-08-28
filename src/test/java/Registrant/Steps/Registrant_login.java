@@ -78,6 +78,7 @@ public class Registrant_login {
 	public void message_displayed_login_successfully() throws InterruptedException {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		RLO.DSC_token();
+		RLO.DSC_token2();
 	}
 
 	@Then("User enters domain page {string}")

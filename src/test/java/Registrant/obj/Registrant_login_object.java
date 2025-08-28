@@ -352,19 +352,26 @@ public class Registrant_login_object extends Baseclass {
 	public WebElement Proceedwithdsc;
 	
 	public void DSC_token() throws InterruptedException {
-		Clickelement(Proceedwithdsc);
-		popupvalidate("Fetched tokens successfully", "Login Successful");
+		try {
+			Clickelement(Proceedwithdsc);
+			popupvalidate("Login Successful","Fetched tokens successfully");
+		} catch (Exception e) {
+		}
 		Selectdropdown(DSC_token, "1");
 		Selectdropdown(DSC_certificate, "1");
 		sendkeyweb(DSC_password, "Idrbt@123");
 		Clickelement(DSC_submit);
 		String captcha = myObj.nextLine();
 		System.out.println(captcha);
+		
+	}
+	public void DSC_token2() {
 		try {
 			Clickelement(Next_button);
 		} catch (Exception e) {
 		}
 		popupvalidate("Signed using DSC successful", "emty");
+		
 	}
 
 	@FindBy(xpath = "//button[normalize-space()='Got it!']")
@@ -470,7 +477,7 @@ public class Registrant_login_object extends Baseclass {
 		validatetext(Domain_button, "Got it!");
 		Clickelement(Domain_button);
 		validatetext(Domain_validate, "Domains");
-		validatetext(Bank_name_label, "Entity Name");//Domain Name
+		validatetext(Bank_name_label, "Domain Name");//Domain Name
 		validatetext(Domain_label, "Domain");
 		validatetext(Domain_label, "Domain");
 		validateattribute(Bank_name,"placeholder","Enter Your Entity Identifier");
@@ -820,11 +827,25 @@ public class Registrant_login_object extends Baseclass {
 	public WebElement Addnsbutton;
 
 	public void Validate_name_server_details_page() {
+<<<<<<< HEAD
+//		validatetext(NS_Page_head, "Name Server Details");
+		String Table_cold="Server,Name Server Host Name,DNS Service Provider,IP Address,IP Service Provider,Actions";
+=======
 		validatetext(NS_Page_head, "Name Server Details");
 		String Table_cold="Server,Name Server Host Name,DNS Service Provider,IPV4 Address,IPV6 Address,IP Service Provider,Actions";
+>>>>>>> branch 'devbranch' of https://github.com/IKCONDev/DNS-Automation-Oracle.git
 		Table_prop(TAble_col, Table_cold);
 		validateattribute(Table_dataNS.get(0),"placeholder", "");
 		validateattribute(Table_dataNS.get(1),"placeholder", "Enter Provider Name");
+<<<<<<< HEAD
+		validateattribute(Table_dataNS.get(2),"placeholder", "Enter IP Address");
+		validateattribute(Table_dataNS.get(3),"placeholder", "Enter IP Address");
+		validateattribute(Table_dataNS.get(4),"placeholder", "Enter Provider Name");
+		validateattribute(Table_dataNS.get(5),"placeholder", "Enter name server host");
+		validateattribute(Table_dataNS.get(6),"placeholder", "Enter Provider Name");
+		validateattribute(Table_dataNS.get(7),"placeholder", "Enter IP Address");
+		validateattribute(Table_dataNS.get(8),"placeholder", "Enter IP Address");
+=======
 		validateattribute(Table_dataNS.get(2),"placeholder", "Enter IPV4 Address");
 		validateattribute(Table_dataNS.get(3),"placeholder", "Enter IPV6 Address");
 		validateattribute(Table_dataNS.get(4),"placeholder", "Enter Provider Name");
@@ -832,6 +853,7 @@ public class Registrant_login_object extends Baseclass {
 		validateattribute(Table_dataNS.get(6),"placeholder", "Enter Provider Name");
 		validateattribute(Table_dataNS.get(7),"placeholder", "Enter IPV4 Address");
 		validateattribute(Table_dataNS.get(8),"placeholder", "Enter IPV6 Address");
+>>>>>>> branch 'devbranch' of https://github.com/IKCONDev/DNS-Automation-Oracle.git
 		validateattribute(Table_dataNS.get(9),"placeholder", "Enter Provider Name");
 	}
 
@@ -852,6 +874,15 @@ public class Registrant_login_object extends Baseclass {
 		sendkeyweb(Table_dataNS.get(0),NSR1);
 		sendkeyweb(Table_dataNS.get(1),"Oracle");
 		sendkeyweb(Table_dataNS.get(2),NIP1);
+<<<<<<< HEAD
+		sendkeyweb(Table_dataNS.get(3),"2026:db6::1");
+		sendkeyweb(Table_dataNS.get(4),"IDRBT");
+		sendkeyweb(Table_dataNS.get(5),NSR2);
+		sendkeyweb(Table_dataNS.get(6),"Oracle");
+		sendkeyweb(Table_dataNS.get(7),NIP2);
+		sendkeyweb(Table_dataNS.get(8),"2026:db6::13");
+		sendkeyweb(Table_dataNS.get(9),"IDRBT");
+=======
 		sendkeyweb(Table_dataNS.get(3),NIP2);
 		sendkeyweb(Table_dataNS.get(4),"IDRBT");
 		sendkeyweb(Table_dataNS.get(5),NSR2);
@@ -869,21 +900,51 @@ public class Registrant_login_object extends Baseclass {
 		sendkeyweb(Table_dataNS.get(17),NIP7);
 		sendkeyweb(Table_dataNS.get(18),NIP8);
 		sendkeyweb(Table_dataNS.get(19),"IDRBT");
+>>>>>>> branch 'devbranch' of https://github.com/IKCONDev/DNS-Automation-Oracle.git
 		Clickelement(Addnsbutton);
 		
-		sendkeyweb(Table_dataNS.get(8),NSR3);
-		sendkeyweb(Table_dataNS.get(9),"Oracle");
-		sendkeyweb(Table_dataNS.get(10),NIP3);
-		sendkeyweb(Table_dataNS.get(11),"IDRBT");
+		sendkeyweb(Table_dataNS.get(10),NSR3);
+		sendkeyweb(Table_dataNS.get(11),"Oracle");
+		sendkeyweb(Table_dataNS.get(12),NIP3);
+		sendkeyweb(Table_dataNS.get(13),"2026:db6::14");
+		sendkeyweb(Table_dataNS.get(14),"IDRBT");
 		
 		Clickelement(Addnsbutton);
-		sendkeyweb(Table_dataNS.get(12),NSR4);
-		sendkeyweb(Table_dataNS.get(13),"Oracle");
-		sendkeyweb(Table_dataNS.get(14),NIP4);
-		sendkeyweb(Table_dataNS.get(15),"IDRBT");
+		sendkeyweb(Table_dataNS.get(15),NSR4);
+		sendkeyweb(Table_dataNS.get(16),"Oracle");
+		sendkeyweb(Table_dataNS.get(17),NIP4);
+		sendkeyweb(Table_dataNS.get(19),"IDRBT");
+		
+		Clickelement(Add_dnssec);
+		sendkeyweb(Keytag.get(0),"1125");
+		sendkeyweb(digest.get(0),NSR4);
+		Selectdropdown(Algorithem_type.get(0), "1");
+		Selectdropdown(Digest.get(0), "2");
+		Clickelement(Add_Additional_DNS);
+		Clickelement(Delete.get(1));
 		clickmultipleweb(Save_next);
 
 	}
+	
+	@FindBy(xpath = "//button[normalize-space()='Add DNSSEC Details']")
+	public WebElement Add_dnssec;
+	@FindBy(xpath = "//input[@placeholder='Enter key tag']")
+	public List<WebElement> Keytag;
+	@FindBy(xpath = "//input[@placeholder='Enter digest']")
+	public List<WebElement> digest;
+	@FindBy(xpath = "//label[normalize-space()='Algorithm Type']/following-sibling::select")
+	public List<WebElement> Algorithem_type;
+	@FindBy(xpath = "//label[normalize-space()='Digest Type']/following-sibling::select")
+	public List<WebElement> Digest;
+	@FindBy(xpath = "//button[normalize-space()='Delete']")
+	public List<WebElement> Delete;
+	@FindBy(xpath = "//button[normalize-space()='Add Additional Record']")
+	public WebElement Add_Additional_DNS;
+	
+	
+	
+	
+	
 	
 	@FindBy(xpath = "//span[contains(text(),'Reports')]")
 	public WebElement reportsbuttonclick;
@@ -893,7 +954,7 @@ public class Registrant_login_object extends Baseclass {
 	public WebElement UMbuttonclick;
 	@FindBy(xpath = "//a[@class='ng-star-inserted']")
 	public WebElement offdeclick;
-	@FindBy(xpath = "//input[@type='checkbox']")
+	@FindBy(xpath = "(//input[@type='checkbox'])[2]")
 	public WebElement Preview_check;
 	@FindBy(xpath = "(//button[@aria-label='Close'])[1]")
 	public WebElement popupclose;
