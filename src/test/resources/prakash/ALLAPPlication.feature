@@ -89,14 +89,12 @@ Feature: Registrant Onboarding
     #Then User navigate to officer details management page
     #Then User Validate the officer details management page
     #Then User logout the application
-<<<<<<< HEAD
 
   #@2ndStep
   #Scenario Outline: Registrar Login Page
     #Given Registrar is on Landing Page1
     #Then Registrar Can Check  Textvaladations in Login Page
     #When Registrar  Enter valid UN and PWD "<username>" and "<password>" and navigate to Registrar Home Page
-=======
   #@2ndStep
   #Scenario Outline: Registrar Login Page
     #Given Registrar is on Landing Page1
@@ -334,7 +332,6 @@ Feature: Registrant Onboarding
   #Scenario Outline: Registrant Invoice Page
     #Then User Navigate to Domain Page
 
->>>>>>> branch 'devbranch' of https://github.com/IKCONDev/DNS-Automation-Oracle.git
 #
     #Examples: 
       #| username             | password | Case  |
@@ -531,7 +528,6 @@ Feature: Registrant Onboarding
     #Then User validate the Domain Domain Details page "<NS1>" "<IP1>" "<NS2>" "<IP2>"
     #And User subit the Domain Details page
 #
-<<<<<<< HEAD
     #Examples: 
       #| NS1     | NS2     | IP1       | IP2       |
       #| Office1 | office2 | 1.10.2.41 | 1.10.3.41 |
@@ -770,7 +766,6 @@ Feature: Registrant Onboarding
     #Then User Navigate to Domain Page
     #Then User download the invoice
     #Then User logout the application
-=======
     #Scenario Outline: Registrant Officer Details Management
       #Then User navigate to officer details management page
       #Then User Validate the officer details management page
@@ -1043,4 +1038,3 @@ Scenario Outline: Registrar Invoice & Reports  Page
     Then User download the proforma invoice
     Then User download the invoice
     Then User logout the application
->>>>>>> branch 'devbranch' of https://github.com/IKCONDev/DNS-Automation-Oracle.git
