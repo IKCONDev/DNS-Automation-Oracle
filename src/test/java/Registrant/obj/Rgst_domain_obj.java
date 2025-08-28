@@ -116,7 +116,6 @@ public class Rgst_domain_obj extends Baseclass{
 	@FindBy(xpath = "//h2[normalize-space()='Billing History']")
 	public WebElement Bill_history;
 	
-<<<<<<< HEAD
 	@FindBy(xpath = "//h2[normalize-space()='DNSSEC Details']")
 	public WebElement DNS_SECdetails;
 	@FindBy(xpath = "//div[normalize-space()='Key Tag']")
@@ -132,9 +131,6 @@ public class Rgst_domain_obj extends Baseclass{
 	
 	
 	public void user_validate_the_domain_domain_details_page(String NSR1,String NIP1,String NSR2,String NIP2) throws AWTException, InterruptedException {
-=======
-	public void user_validate_the_domain_domain_details_page(String NSR1,String NIP1, String NIP2,String NSR2,String NIP3,String NIP4,String NSR3,String NIP5,String NIP6,String NSR4,String NIP7,String NIP8) throws AWTException, InterruptedException {
->>>>>>> branch 'devbranch' of https://github.com/IKCONDev/DNS-Automation-Oracle.git
 		validatetext(Nameserver, "Name Servers");
 		validatetext(Hostname,"Host Name");
 		validatetext(TTL,"Tenure");
@@ -154,17 +150,9 @@ public class Rgst_domain_obj extends Baseclass{
 			System.out.println(e);
 		}
 		Clickelement(ADD_NS);
-<<<<<<< HEAD
 		driver.navigate().back();
-=======
-		RL.User_enters_name_server_details(NSR1, NIP1,  NIP2, NSR2, NIP3, NIP4,NSR3, NIP5, NIP6,NSR4, NIP7, NIP8);
-		Clickelement(DeleteNS.get(2));
-		Clickelement(DeleteNS.get(2));
->>>>>>> branch 'devbranch' of https://github.com/IKCONDev/DNS-Automation-Oracle.git
-		
+//		RL.User_enters_name_server_details(NSR1, NIP1,  NIP2, NSR2, NIP3, NIP4,NSR3, NIP5, NIP6,NSR4, NIP7, NIP8);
 //		RL.User_enters_name_server_details(NSR1, NIP1, NSR2, NIP2);
-//		Clickelement(DeleteNS.get(2));
-//		Clickelement(DeleteNS.get(2));
 		Clickelement(ADD_DNSsec);
 		clickmultipleweb(backbutton);
 	}

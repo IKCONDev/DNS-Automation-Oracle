@@ -2,6 +2,7 @@ package Registrant.obj;
 
 import java.awt.AWTException;
 import java.util.List;
+import java.util.Scanner;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -65,25 +66,26 @@ public class Regst_App_obj extends Baseclass {
 		String s="Application ID,Entity Name,Domain Name,,Submission Date,Status,Payment Status,NS Record Status,Tenure (yrs),View Name Servers,Remarks/Comments,Payment";
 		Table_prop(Table_col, s);
 	}
-	
+	Scanner myObj = new Scanner(System.in);
+	@SuppressWarnings({ "unused"})
 	public void user_pay_bill() throws InterruptedException {
-	List<WebElement> APP_ID=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in']preceding-sibling::td"));
+	List<WebElement> APP_ID=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in']/preceding-sibling::td"));
 	dispalyedattribute(APP_ID.get(0), "Application ID");
 	List<WebElement> Table_data=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in']/following-sibling::td"));
 	
 	configWriter.setProperty("submissiondate", Table_data.get(1).getText());
 		
-		validatetext(Table_data.get(2), "Approved for payment");
-		    Thread.sleep(2000);
+		validatetext(Table_data.get(3), "Ready For Payment");
 			Clickelement(paynowbtn);
 			//driver.navigate().back();
-			Thread.sleep(2000);
+			System.out.println("Complete payment");
+			String OTP = myObj.nextLine();
 			//driver.navigate().refresh();
 		validatetext(Table_data.get(3), "Payment Completed");
 		List<WebElement> APP_ID1=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/preceding-sibling::td"));
 		List<WebElement> Table_data1=driver.findElements(By.xpath("(//td[normalize-space()='"+ConfigReader.getProperty("Domain")+".bank.in'])[1]/following-sibling::td"));
 		validatetext(Table_data1.get(4), "OnHold");
-		validatetext(Table_data1.get(5), "5");
+		validatetext(Table_data1.get(5), "1");
 		validatetext(Table_data1.get(6), "Pay Now");
 		validatetext(Table_data1.get(1), ConfigReader.getProperty("submissiondate"));
 		validateattribute(Search, "placeholder","Search");
@@ -264,28 +266,65 @@ public class Regst_App_obj extends Baseclass {
 			Clickelement(RGST);
 			sendkeyweb(reuploadInput, ConfigReader.getProperty("OGSTnum"));
 			Clickelement(upload);
-			fileupload_robot(ConfigReader.getProperty("GSTIN"));
+			fileupload_robot(ConfigReader.getProperty("GSTIN2"));
 			Thread.sleep(4000);
 			Clickelement(Save);
 			popupvalidate(null, null);
 			Clickelement(Cancel);
 		}
-		
-		if(GSTStatus.getText().contains("Rejected")) {
-			Clickelement(RGST);
-			sendkeyweb(reuploadInput, ConfigReader.getProperty("OGSTnum"));
+		popupvalidate("Reuploaded document","");
+		Thread.sleep(4000);
+		if(PANStatus.getText().contains("Rejected")) {
+			Clickelement(RPAN);
+			sendkeyweb(reuploadInput, ConfigReader.getProperty("PAN"));
 			Clickelement(upload);
-			fileupload_robot(ConfigReader.getProperty("GSTIN"));
+			fileupload_robot(ConfigReader.getProperty("PAN2"));
 			Thread.sleep(4000);
 			Clickelement(Save);
 			popupvalidate(null, null);
 			Clickelement(Cancel);
 		}
-		
+		popupvalidate("Reuploaded document","");
+		Thread.sleep(4000);
+		if(LicenseStatus.getText().contains("Rejected")) {
+			Clickelement(RLIC);
+			sendkeyweb(reuploadInput, ConfigReader.getProperty("Olicence"));
+			Clickelement(upload);
+			fileupload_robot(ConfigReader.getProperty("LIC2"));
+			Thread.sleep(4000);
+			Clickelement(Save);
+			popupvalidate(null, null);
+			Clickelement(Cancel);
+		}
+		popupvalidate("Reuploaded document","");
+		Thread.sleep(4000);
+		if(BoardStatus.getText().contains("Rejected")) {
+			Clickelement(RBR);
+			try {
+				sendkeyweb(reuploadInput, ConfigReader.getProperty("OGSTnum"));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			Clickelement(upload);
+			fileupload_robot(ConfigReader.getProperty("Board2"));
+			Thread.sleep(4000);
+			Clickelement(Save);
+			popupvalidate(null, null);
+			Clickelement(Cancel);
+			
+		}
+		popupvalidate("Reuploaded document","");
+		Thread.sleep(4000);
 		
 	}
 	@FindBy(xpath = "//div[contains(@style,'space-between') and contains(.,'GSTIN')]//div[contains(@style,'underline')]")
 	public WebElement RGST;
+	@FindBy(xpath = "//div[contains(@style,'space-between') and contains(.,'PAN')]//div[contains(@style,'underline')]")
+	public WebElement RPAN;
+	@FindBy(xpath = "//div[contains(@style,'space-between') and contains(.,'Licence')]//div[contains(@style,'underline')]")
+	public WebElement RLIC;
+	@FindBy(xpath = "//div[contains(@style,'space-between') and contains(.,'Board Resolution')]//div[contains(@style,'underline')]")
+	public WebElement RBR;
 	
 
 	public void user_subit_the_domain_applications_details_page() throws AWTException, InterruptedException {

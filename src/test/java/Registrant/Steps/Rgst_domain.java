@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package Registrant.Steps;
 
 import java.awt.AWTException;
@@ -48,8 +47,7 @@ public class Rgst_domain {
 	   
 	}
 }
-=======
-package Registrant.Steps;
+/*package Registrant.Steps;
 
 import java.awt.AWTException;
 
@@ -98,4 +96,4 @@ public class Rgst_domain {
 	   
 	}
 }
->>>>>>> branch 'devbranch' of https://github.com/IKCONDev/DNS-Automation-Oracle.git
+>>>>>>> branch 'devbranch' of https://github.com/IKCONDev/DNS-Automation-Oracle.git*/

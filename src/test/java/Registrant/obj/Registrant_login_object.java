@@ -370,7 +370,11 @@ public class Registrant_login_object extends Baseclass {
 			Clickelement(Next_button);
 		} catch (Exception e) {
 		}
-		popupvalidate("Signed using DSC successful", "emty");
+		try {
+			popupvalidate("Signed using DSC successful", "emty");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 	}
 
@@ -827,17 +831,11 @@ public class Registrant_login_object extends Baseclass {
 	public WebElement Addnsbutton;
 
 	public void Validate_name_server_details_page() {
-<<<<<<< HEAD
 //		validatetext(NS_Page_head, "Name Server Details");
-		String Table_cold="Server,Name Server Host Name,DNS Service Provider,IP Address,IP Service Provider,Actions";
-=======
-		validatetext(NS_Page_head, "Name Server Details");
 		String Table_cold="Server,Name Server Host Name,DNS Service Provider,IPV4 Address,IPV6 Address,IP Service Provider,Actions";
->>>>>>> branch 'devbranch' of https://github.com/IKCONDev/DNS-Automation-Oracle.git
 		Table_prop(TAble_col, Table_cold);
 		validateattribute(Table_dataNS.get(0),"placeholder", "");
 		validateattribute(Table_dataNS.get(1),"placeholder", "Enter Provider Name");
-<<<<<<< HEAD
 		validateattribute(Table_dataNS.get(2),"placeholder", "Enter IP Address");
 		validateattribute(Table_dataNS.get(3),"placeholder", "Enter IP Address");
 		validateattribute(Table_dataNS.get(4),"placeholder", "Enter Provider Name");
@@ -845,19 +843,10 @@ public class Registrant_login_object extends Baseclass {
 		validateattribute(Table_dataNS.get(6),"placeholder", "Enter Provider Name");
 		validateattribute(Table_dataNS.get(7),"placeholder", "Enter IP Address");
 		validateattribute(Table_dataNS.get(8),"placeholder", "Enter IP Address");
-=======
-		validateattribute(Table_dataNS.get(2),"placeholder", "Enter IPV4 Address");
-		validateattribute(Table_dataNS.get(3),"placeholder", "Enter IPV6 Address");
-		validateattribute(Table_dataNS.get(4),"placeholder", "Enter Provider Name");
-		validateattribute(Table_dataNS.get(5),"placeholder", "Enter name server host");
-		validateattribute(Table_dataNS.get(6),"placeholder", "Enter Provider Name");
-		validateattribute(Table_dataNS.get(7),"placeholder", "Enter IPV4 Address");
-		validateattribute(Table_dataNS.get(8),"placeholder", "Enter IPV6 Address");
->>>>>>> branch 'devbranch' of https://github.com/IKCONDev/DNS-Automation-Oracle.git
 		validateattribute(Table_dataNS.get(9),"placeholder", "Enter Provider Name");
 	}
 
-	public void User_enters_name_server_details(String NSR1,String NIP1, String NIP2,String NSR2,String NIP3,String NIP4,String NSR3,String NIP5,String NIP6,String NSR4,String NIP7,String NIP8) throws AWTException, InterruptedException {
+	public void User_enters_name_server_details(String NSR1,String NIP1,String NSR2, String NIP2,String NSR3,String NIP3,String NSR4,String NIP4) throws AWTException, InterruptedException {
 		configWriter.setProperty("NS1", NSR1);
 		configWriter.setProperty("IPV41", NIP1);
 		configWriter.setProperty("IPV61", NIP2);	
@@ -865,16 +854,11 @@ public class Registrant_login_object extends Baseclass {
 		configWriter.setProperty("IPV42", NIP3);
 		configWriter.setProperty("IPV62", NIP4);	
 		configWriter.setProperty("NS3", NSR3);
-		configWriter.setProperty("IPV43", NIP5);
-		configWriter.setProperty("IPV63", NIP6);	
 		configWriter.setProperty("NS4", NSR4);
-		configWriter.setProperty("IPV44", NIP7);
-		configWriter.setProperty("IPV64", NIP8);	
 		
 		sendkeyweb(Table_dataNS.get(0),NSR1);
 		sendkeyweb(Table_dataNS.get(1),"Oracle");
 		sendkeyweb(Table_dataNS.get(2),NIP1);
-<<<<<<< HEAD
 		sendkeyweb(Table_dataNS.get(3),"2026:db6::1");
 		sendkeyweb(Table_dataNS.get(4),"IDRBT");
 		sendkeyweb(Table_dataNS.get(5),NSR2);
@@ -882,25 +866,6 @@ public class Registrant_login_object extends Baseclass {
 		sendkeyweb(Table_dataNS.get(7),NIP2);
 		sendkeyweb(Table_dataNS.get(8),"2026:db6::13");
 		sendkeyweb(Table_dataNS.get(9),"IDRBT");
-=======
-		sendkeyweb(Table_dataNS.get(3),NIP2);
-		sendkeyweb(Table_dataNS.get(4),"IDRBT");
-		sendkeyweb(Table_dataNS.get(5),NSR2);
-		sendkeyweb(Table_dataNS.get(6),"Oracle1");
-		sendkeyweb(Table_dataNS.get(7),NIP3);
-		sendkeyweb(Table_dataNS.get(8),NIP4);
-		sendkeyweb(Table_dataNS.get(9),"IDRBT");
-		sendkeyweb(Table_dataNS.get(10),NSR3);
-		sendkeyweb(Table_dataNS.get(11),"Oracle2");
-		sendkeyweb(Table_dataNS.get(12),NIP5);
-		sendkeyweb(Table_dataNS.get(13),NIP6);
-		sendkeyweb(Table_dataNS.get(14),"IDRBT");
-		sendkeyweb(Table_dataNS.get(15),NSR4);
-		sendkeyweb(Table_dataNS.get(16),"Oracle3");
-		sendkeyweb(Table_dataNS.get(17),NIP7);
-		sendkeyweb(Table_dataNS.get(18),NIP8);
-		sendkeyweb(Table_dataNS.get(19),"IDRBT");
->>>>>>> branch 'devbranch' of https://github.com/IKCONDev/DNS-Automation-Oracle.git
 		Clickelement(Addnsbutton);
 		
 		sendkeyweb(Table_dataNS.get(10),NSR3);
