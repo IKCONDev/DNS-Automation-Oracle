@@ -827,17 +827,17 @@ public class Registrant_login_object extends Baseclass {
 	public WebElement Addnsbutton;
 
 	public void Validate_name_server_details_page() {
-<<<<<<< HEAD
+
 //		validatetext(NS_Page_head, "Name Server Details");
 		String Table_cold="Server,Name Server Host Name,DNS Service Provider,IP Address,IP Service Provider,Actions";
-=======
+
 		validatetext(NS_Page_head, "Name Server Details");
-		String Table_cold="Server,Name Server Host Name,DNS Service Provider,IPV4 Address,IPV6 Address,IP Service Provider,Actions";
->>>>>>> branch 'devbranch' of https://github.com/IKCONDev/DNS-Automation-Oracle.git
-		Table_prop(TAble_col, Table_cold);
+		String Table_cold1="Server,Name Server Host Name,DNS Service Provider,IPV4 Address,IPV6 Address,IP Service Provider,Actions";
+
+		Table_prop(TAble_col, Table_cold1);
 		validateattribute(Table_dataNS.get(0),"placeholder", "");
 		validateattribute(Table_dataNS.get(1),"placeholder", "Enter Provider Name");
-<<<<<<< HEAD
+
 		validateattribute(Table_dataNS.get(2),"placeholder", "Enter IP Address");
 		validateattribute(Table_dataNS.get(3),"placeholder", "Enter IP Address");
 		validateattribute(Table_dataNS.get(4),"placeholder", "Enter Provider Name");
@@ -845,7 +845,7 @@ public class Registrant_login_object extends Baseclass {
 		validateattribute(Table_dataNS.get(6),"placeholder", "Enter Provider Name");
 		validateattribute(Table_dataNS.get(7),"placeholder", "Enter IP Address");
 		validateattribute(Table_dataNS.get(8),"placeholder", "Enter IP Address");
-=======
+
 		validateattribute(Table_dataNS.get(2),"placeholder", "Enter IPV4 Address");
 		validateattribute(Table_dataNS.get(3),"placeholder", "Enter IPV6 Address");
 		validateattribute(Table_dataNS.get(4),"placeholder", "Enter Provider Name");
@@ -853,7 +853,7 @@ public class Registrant_login_object extends Baseclass {
 		validateattribute(Table_dataNS.get(6),"placeholder", "Enter Provider Name");
 		validateattribute(Table_dataNS.get(7),"placeholder", "Enter IPV4 Address");
 		validateattribute(Table_dataNS.get(8),"placeholder", "Enter IPV6 Address");
->>>>>>> branch 'devbranch' of https://github.com/IKCONDev/DNS-Automation-Oracle.git
+
 		validateattribute(Table_dataNS.get(9),"placeholder", "Enter Provider Name");
 	}
 
@@ -874,7 +874,7 @@ public class Registrant_login_object extends Baseclass {
 		sendkeyweb(Table_dataNS.get(0),NSR1);
 		sendkeyweb(Table_dataNS.get(1),"Oracle");
 		sendkeyweb(Table_dataNS.get(2),NIP1);
-<<<<<<< HEAD
+
 		sendkeyweb(Table_dataNS.get(3),"2026:db6::1");
 		sendkeyweb(Table_dataNS.get(4),"IDRBT");
 		sendkeyweb(Table_dataNS.get(5),NSR2);
@@ -882,7 +882,7 @@ public class Registrant_login_object extends Baseclass {
 		sendkeyweb(Table_dataNS.get(7),NIP2);
 		sendkeyweb(Table_dataNS.get(8),"2026:db6::13");
 		sendkeyweb(Table_dataNS.get(9),"IDRBT");
-=======
+
 		sendkeyweb(Table_dataNS.get(3),NIP2);
 		sendkeyweb(Table_dataNS.get(4),"IDRBT");
 		sendkeyweb(Table_dataNS.get(5),NSR2);
@@ -900,7 +900,7 @@ public class Registrant_login_object extends Baseclass {
 		sendkeyweb(Table_dataNS.get(17),NIP7);
 		sendkeyweb(Table_dataNS.get(18),NIP8);
 		sendkeyweb(Table_dataNS.get(19),"IDRBT");
->>>>>>> branch 'devbranch' of https://github.com/IKCONDev/DNS-Automation-Oracle.git
+
 		Clickelement(Addnsbutton);
 		
 		sendkeyweb(Table_dataNS.get(10),NSR3);
