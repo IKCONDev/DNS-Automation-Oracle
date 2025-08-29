@@ -23,9 +23,10 @@ public class Registrar_Dashboard_Object_Page extends Baseclass{
 		driver = RC;
 		PageFactory.initElements(RC, this);
 	}
-	
+	@FindBy(xpath="//input[@placeholder='Search']")
+	public WebElement Appsearchfun; 
 	@FindBy(xpath="//mat-icon[normalize-space()='apps']")
-	public WebElement Appsearch; ;
+	public WebElement Appsearch; 
 	@FindBy(xpath="//mat-icon[normalize-space()='public']")
 	public WebElement DomainSearch ;
 	@FindBy(xpath="//mat-icon[normalize-space()='description']")
@@ -162,10 +163,9 @@ public class Registrar_Dashboard_Object_Page extends Baseclass{
 		}
 		public void Create_ApplicationQuee_TextValidations_in_Home_Page() throws InterruptedException {
 			
-			/*//Thread.sleep(5000);
-			Actions Act = new Actions(driver);
-			WebElement OrgName=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']"));
-			Act.moveToElement(OrgName).build().perform();*/
+			
+			
+			
 			
 			String Apptableextvalues[] = { "Domain ID", "Domain Name", "Organisation Name","Registration Date", "Renewal Date", "Status"};
 			List<WebElement> val = driver.findElements(By.xpath("//table[@id='table1']//tr//th"));
@@ -174,7 +174,7 @@ public class Registrar_Dashboard_Object_Page extends Baseclass{
 
 				validatetext(val.get(i), Apptableextvalues[i]);
 			}
-			
+			sendkeyweb(Appsearchfun, ConfigReader.getProperty("OrgName"));
 			
 					List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']/following-sibling::td"));
 					List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']/preceding-sibling::td"));
@@ -184,22 +184,18 @@ public class Registrar_Dashboard_Object_Page extends Baseclass{
 				try {
 					dispalyedattribute(Orgname1.get(0), "ID");
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} 
-				/*validatetext(Orgname1.get(0),ConfigReader.getProperty("DomainID"));
-				configWriter.setProperty("DomainName", Orgname.get(1).getText());
-				configWriter.saveProperties();
-				validatetext(Orgname1.get(1),ConfigReader.getProperty("DomainName"));
-				configWriter.setProperty("AppSubmissionDate", Orgname.get(0).getText());
-				configWriter.saveProperties();
-				validatetext(Orgname.get(0),ConfigReader.getProperty("AppSubmissionDate")); 
-				configWriter.setProperty("DomRenewalDate", Orgname.get(1).getText());
-				configWriter.saveProperties();
-				validatetext(Orgname.get(1), ConfigReader.getProperty("DomRenewalDate"));
-				configWriter.setProperty("AppStatus2", Orgname.get(2).getText());
-				configWriter.saveProperties();
-				validatetext(Orgname.get(2), ConfigReader.getProperty("AppStatus2"));   */       
+			
+				try {
+					validatetext(Orgname1.get(1),ConfigReader.getProperty("DomainName"));
+					validatetext(Orgname.get(0),ConfigReader.getProperty("AppSubmissionDate")); 
+					validatetext(Orgname.get(1), ConfigReader.getProperty("DomRenewalDate"));
+					validatetext(Orgname.get(2), ConfigReader.getProperty("AppStatus2"));
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}       
 
 			}
 		}
