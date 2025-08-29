@@ -829,6 +829,9 @@ public class Registrant_login_object extends Baseclass {
 	public WebElement Cancel;
 	@FindBy(xpath = "//button[contains(text(),' Add More NS ')]")
 	public WebElement Addnsbutton;
+	@FindBy(xpath = "//button[@class='delete-button']")
+	public List<WebElement> DeleteNS;
+	 
 
 	public void Validate_name_server_details_page() {
 //		validatetext(NS_Page_head, "Name Server Details");
@@ -847,14 +850,6 @@ public class Registrant_login_object extends Baseclass {
 		validateattribute(Table_dataNS.get(6),"placeholder", "Enter Provider Name");
 		validateattribute(Table_dataNS.get(7),"placeholder", "Enter IP Address");
 		validateattribute(Table_dataNS.get(8),"placeholder", "Enter IP Address");
-		validateattribute(Table_dataNS.get(2),"placeholder", "Enter IPV4 Address");
-		validateattribute(Table_dataNS.get(3),"placeholder", "Enter IPV6 Address");
-		validateattribute(Table_dataNS.get(4),"placeholder", "Enter Provider Name");
-		validateattribute(Table_dataNS.get(5),"placeholder", "Enter name server host");
-		validateattribute(Table_dataNS.get(6),"placeholder", "Enter Provider Name");
-		validateattribute(Table_dataNS.get(7),"placeholder", "Enter IPV4 Address");
-		validateattribute(Table_dataNS.get(8),"placeholder", "Enter IPV6 Address");
-
 		validateattribute(Table_dataNS.get(9),"placeholder", "Enter Provider Name");
 	}
 
@@ -892,6 +887,13 @@ public class Registrant_login_object extends Baseclass {
 		sendkeyweb(Table_dataNS.get(16),"Oracle");
 		sendkeyweb(Table_dataNS.get(17),NIP4);
 		sendkeyweb(Table_dataNS.get(19),"IDRBT");
+		
+		try {
+			Clickelement(DeleteNS.get(6));
+			Clickelement(DeleteNS.get(5));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		Clickelement(Add_dnssec);
 		sendkeyweb(Keytag.get(0),"1125");
