@@ -88,111 +88,111 @@ Feature: Registrant Onboarding
     #Then User Validate the officer details management page
     #Then User logout the application
 
-  @2ndStep
-  Scenario Outline: Registrar Login Page
-    Given Registrar is on Landing Page1
-    Then Registrar Can Check  Textvaladations in Login Page
-    When Registrar  Enter valid UN and PWD "<username>" and "<password>" and navigate to Registrar Home Page
-
-    Examples: 
-      | username                 | password | Case  |
-      | vaishnav.p@ikcontech.com | Test@123 | Valid |
-
-  Scenario Outline: Registrar Functionalities in Dashboard Page
-    Then Registrar  check  fields  in  Home Page
-    Then Registrar  check textvaladations in Home Page
-    Then Registrar  check  Create ApplicationQuee TextValidations in Home Page
-
-    Examples: 
-      | APPorgname  | OrgName     |
-      | Information | Canara Bank |
-
-  Scenario Outline: Registrar Application  Page
-    Then Registrar Navigate to Application Page  check  Textvalidations
-    Then Registrar Navigate to Application Page  check Tabledata Textvalidations
-    Then Registrar Navigate to Application Page  check  OrganisationDetails Textvalidations
-    Then Registrar  check DocumentsUpload Functionalities in Applications Page1
-    Then Registrar  check AdministrativeOfficier Functionalities in Applications Page1
-    Then Registrar  check TechnicalOfficier Functionalities in Applications Page1
-    Then Registrar  check BillingOfficier Functionalities in Applications Page1
-
-    Examples: 
-      | OrgName     | ADocument Type | PDocument Type | OrgDocument Type | DomainName     |
-      | Canara Bank | Aadhaar        | PAN            | Organisation Id  | canara.bank.in |
-
-  Scenario Outline: Registrar  Domain Page
-    Then Registrar can Navigate to Domain Page can check Textvalidations
-    Then Registrar  check DomaintableData Textvalidations
-    Then Registrar  check AllFieldsData  "<IP2>" "<IP1>" Textvalidations in Domain Page
-    Then Registrar  check Final  Functionalities in Domains Page
-
-    Examples: 
-      | IP2         | IP1         | Status2          |
-      | 199.12.4.23 | 199.15.2.24 | Payment Not Done |
-
-  Scenario Outline: Registrar Invoice  Page
-    Then Registrar can Navigate to Invoice Page  check Textvalidations
-
-    Examples: 
-      | DomainName     |
-      | canara.bank.in |
-
-  Scenario Outline: Registrar  DR User Management Settings Page
-    Then Registrar navigate to Settings Page  check "<UserId>" DRUserManagement  Textvalidations and all fields functionalities
-
-    Examples: 
-      | UserId               |
-      | bharat@ikcontech.com |
-
-  Scenario Outline: Registrant User Management Page
-    Then Registrar  check RegistrantUserManagement Textvalidations and functionalities in Settings Page
-
-    Examples: 
-      | OrgName     |
-      | Canara Bank |
-
-  Scenario Outline: Registrant Officers Details  Settings  Page
-    Then Registrar  check RegistrantOfficerDetails "<OrgName>" "<ADocument Type>"  "<PDocument Type>"  "<OrgDocument Type>" Textvalidations and functionalities in Settings Page
-
-    Examples: 
-      | OrgName     | ADocument Type | PDocument Type | OrgDocument Type |
-      | Canara Bank | Aadhaar        | PAN            | Organisation Id  |
-
-  Scenario Outline: Registrar Roles Settings  Page
-    Then Registrar  check RegistrarRolesSearch "<RoleName>" Textvalidations and functionalities in Settings Page
-
-    Examples: 
-      | RoleName   |
-      | IDRBTADMIN |
-
-  Scenario Outline: Registrar  Department Settings  Page
-    Then Registrar can RegistrarDepartmentSearch "<DepartmentName>"   Textvalidations and functionalities in Settings Page
-    Then Registrar Can Check  logout funcionality
-
-    Examples: 
-      | DepartmentName |
-      | Banking        |
-
-  #@3rdstep
-  #Scenario Outline: Registrant Registration and login
-    #Given User is on Landing Page
-    #Then User enters registrant credentials
+  #@2ndStep
+  #Scenario Outline: Registrar Login Page
+    #Given Registrar is on Landing Page1
+    #Then Registrar Can Check  Textvaladations in Login Page
+    #When Registrar  Enter valid UN and PWD "<username>" and "<password>" and navigate to Registrar Home Page
 #
-  #Scenario Outline: DSC Verify
-    #And User enters the dsc details
+    #Examples: 
+      #| username                 | password | Case  |
+      #| vaishnav.p@ikcontech.com | Test@123 | Valid |
 #
-  #Scenario Outline: Registrant Application Page
-    #Then User Navigate to Application Page
-    #Then User payment and upload recipt
+  #Scenario Outline: Registrar Functionalities in Dashboard Page
+    #Then Registrar  check  fields  in  Home Page
+    #Then Registrar  check textvaladations in Home Page
+    #Then Registrar  check  Create ApplicationQuee TextValidations in Home Page
 #
-#Scenario Outline: Registrant Invoice Page
-    #Then User navigate to Invoice page
-    #Then User validate the Invoice page
-    #Then User download the proforma invoice
-    #Then User download the invoice
-    #Then User logout the application
-  #
-    #
+    #Examples: 
+      #| APPorgname  | OrgName     |
+      #| Information | Canara Bank |
+#
+  #Scenario Outline: Registrar Application  Page
+    #Then Registrar Navigate to Application Page  check  Textvalidations
+    #Then Registrar Navigate to Application Page  check Tabledata Textvalidations
+    #Then Registrar Navigate to Application Page  check  OrganisationDetails Textvalidations
+    #Then Registrar  check DocumentsUpload Functionalities in Applications Page1
+    #Then Registrar  check AdministrativeOfficier Functionalities in Applications Page1
+    #Then Registrar  check TechnicalOfficier Functionalities in Applications Page1
+    #Then Registrar  check BillingOfficier Functionalities in Applications Page1
+#
+    #Examples: 
+      #| OrgName     | ADocument Type | PDocument Type | OrgDocument Type | DomainName     |
+      #| Canara Bank | Aadhaar        | PAN            | Organisation Id  | canara.bank.in |
+#
+  #Scenario Outline: Registrar  Domain Page
+    #Then Registrar can Navigate to Domain Page can check Textvalidations
+    #Then Registrar  check DomaintableData Textvalidations
+    #Then Registrar  check AllFieldsData  "<IP2>" "<IP1>" Textvalidations in Domain Page
+    #Then Registrar  check Final  Functionalities in Domains Page
+#
+    #Examples: 
+      #| IP2         | IP1         | Status2          |
+      #| 199.12.4.23 | 199.15.2.24 | Payment Not Done |
+#
+  #Scenario Outline: Registrar Invoice  Page
+    #Then Registrar can Navigate to Invoice Page  check Textvalidations
+#
+    #Examples: 
+      #| DomainName     |
+      #| canara.bank.in |
+#
+  #Scenario Outline: Registrar  DR User Management Settings Page
+    #Then Registrar navigate to Settings Page  check "<UserId>" DRUserManagement  Textvalidations and all fields functionalities
+#
+    #Examples: 
+      #| UserId               |
+      #| bharat@ikcontech.com |
+#
+  #Scenario Outline: Registrant User Management Page
+    #Then Registrar  check RegistrantUserManagement Textvalidations and functionalities in Settings Page
+#
+    #Examples: 
+      #| OrgName     |
+      #| Canara Bank |
+#
+  #Scenario Outline: Registrant Officers Details  Settings  Page
+    #Then Registrar  check RegistrantOfficerDetails "<OrgName>" "<ADocument Type>"  "<PDocument Type>"  "<OrgDocument Type>" Textvalidations and functionalities in Settings Page
+#
+    #Examples: 
+      #| OrgName     | ADocument Type | PDocument Type | OrgDocument Type |
+      #| Canara Bank | Aadhaar        | PAN            | Organisation Id  |
+#
+  #Scenario Outline: Registrar Roles Settings  Page
+    #Then Registrar  check RegistrarRolesSearch "<RoleName>" Textvalidations and functionalities in Settings Page
+#
+    #Examples: 
+      #| RoleName   |
+      #| IDRBTADMIN |
+#
+  #Scenario Outline: Registrar  Department Settings  Page
+    #Then Registrar can RegistrarDepartmentSearch "<DepartmentName>"   Textvalidations and functionalities in Settings Page
+    #Then Registrar Can Check  logout funcionality
+#
+    #Examples: 
+      #| DepartmentName |
+      #| Banking        |
+
+  @3rdstep
+  Scenario Outline: Registrant Registration and login
+    Given User is on Landing Page
+    Then User enters registrant credentials
+
+  Scenario Outline: DSC Verify
+    And User enters the dsc details
+
+  Scenario Outline: Registrant Application Page
+    Then User Navigate to Application Page
+    Then User payment and upload recipt
+
+Scenario Outline: Registrant Invoice Page
+    Then User navigate to Invoice page
+    Then User validate the Invoice page
+    Then User download the proforma invoice
+    Then User download the invoice
+    Then User logout the application
+  
+    
 #
   #@4thstep
   #Scenario Outline: Registrar Login Page
