@@ -91,6 +91,15 @@ public class Rgnt_Officer_mgmt_obj extends Baseclass {
 		validatetext(FO_P.get(5), FO_P.get(5).getText());
 
 //		Clickelement(AO_F.get(1));
+		Clickelement(AO_F.get(0));
+		Re_upload_documents();
+		driver.navigate().back();
+		Clickelement(TO_F.get(0));
+		Re_upload_documents();
+		driver.navigate().back();
+		Clickelement(FO_F.get(0));
+		Re_upload_documents();
+		driver.navigate().back();
 
 	}
 	
@@ -126,6 +135,42 @@ public class Rgnt_Officer_mgmt_obj extends Baseclass {
 		validatetext(Table_data1.get(3), "");
 		validateattribute(Search, "placeholder","Search");
 		
+	}
+	@FindBy(xpath = "//td[contains(text(),'Rejected')]")
+	public List<WebElement> Status_doc ;
+	@FindBy(xpath = "//button[contains(text(),'Reupload')]")
+	public List<WebElement> reupload_doc ;
+	public void Re_upload_documents(){
+		if(Status_doc.get(0).isDisplayed()) {
+			Clickelement(reupload_doc.get(0));
+		}
+		if(Status_doc.get(1).isDisplayed()) {
+			Clickelement(reupload_doc.get(1));
+		}
+		if(Status_doc.get(2).isDisplayed()) {
+			Clickelement(reupload_doc.get(2));
+		}
+		
+	}
+	public void user_reupload_the_officer_DOC() {
+		validatetext(SUPERMGMT, "Super Admin Management");
+		validatetext(Ofcmgmt, "Officer Details Management");
+		try {
+			Clickelement(Ofcmgmt);
+		} catch (Exception e) {
+			Clickelement(Ofcmgmt);
+		}
+		Clickelement(AO_F.get(0));
+		Re_upload_documents();
+		driver.navigate().back();
+		Clickelement(TO_F.get(0));
+		Re_upload_documents();
+		driver.navigate().back();
+		Clickelement(FO_F.get(0));
+		Re_upload_documents();
+		driver.navigate().back();
+
+
 	}
 	
 
