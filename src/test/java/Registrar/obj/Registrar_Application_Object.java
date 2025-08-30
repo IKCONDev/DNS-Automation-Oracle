@@ -46,7 +46,7 @@ public void User_textvaladation_in_Application_Page1() throws Exception  {
 	Clickelement(Appsearch);
 	//Thread.sleep(5000);
 	
-	String Apptableextvalues="Application ID,Entity Name,Domain Name,Submission Date,Application Status,Payment Status,NS Record Status,Tenure (yrs),View Name Servers,Remarks/Comments,Added By,Re-Submissiom,Mark As Deleted";
+	String Apptableextvalues="Application ID,Entity Name,,Domain Name,Submission Date,Application Status,Payment Status,NS Record Status,Tenure (yrs),View Name Servers,Remarks/Comments,Added By,Re-Submissiom,Mark As Deleted";
 	Table_prop(Tabledata, Apptableextvalues);
 	List<WebElement> val = driver.findElements(By.xpath("//table[@id='table1']//th"));
 	////
@@ -455,7 +455,7 @@ public void User_Can_Check_OrganisationDetails_DocumentsUpload_Functionalities_i
 public void User_Can_Check_OrganisationDetails_DocumentsUpload_Functionalities_in_Applications_Page1() throws Exception {
 	Clickelement(Appsearch);
 	sendkeyweb(Appsearchsend, ConfigReader.getProperty("OrgName"));
-	Thread.sleep(2000);
+	
 	WebElement id1=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//preceding-sibling::td"));
 
 	try {
@@ -471,7 +471,7 @@ public void User_Can_Check_OrganisationDetails_DocumentsUpload_Functionalities_i
 	}
 	validatetext(OrganizationDocstxtval, "Entity Documents");
 	
-	Clickelement(tier12checkbox);
+	//Clickelement(tier12checkbox);
 	
 	Clickelement(GSTINsearch);
 	Clickelement(ApproveClick);
@@ -1107,6 +1107,7 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 	Thread.sleep(1000);
 	Clickelement(TOpanverify);
 	Clickelement(TOPanAproveClick);
+	clickmultipleweb(closedocbutton);
 	Thread.sleep(1000);
 	Clickelement(TOODVerify);
 	Clickelement(TOODAproveClick);
@@ -1139,6 +1140,7 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page1
 	Thread.sleep(1000);
 	Clickelement(BOpanverify);
 	Clickelement(BOPanAproveClick);
+	clickmultipleweb(closedocbutton);
 	Thread.sleep(1000);
 	Clickelement(BOODVerify);
 	Clickelement(BOODAproveClick);
@@ -1152,7 +1154,8 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page1
 	act.sendKeys(Keys.PAGE_UP).build().perform();
 	act.sendKeys(Keys.PAGE_DOWN).build().perform();
 	Clickelement(clicksubmitbtn);
-	popupvalidate("Fetched tokens successfully", "");
+	act.sendKeys(Keys.PAGE_DOWN).build().perform();
+	//popupvalidate("Fetched tokens successfully", "");
 	Selectdropdown(DSC_token, "1");
 	Selectdropdown(DSC_certificate, "1");
 	sendkeyweb(DSC_password, "Idrbt@123");

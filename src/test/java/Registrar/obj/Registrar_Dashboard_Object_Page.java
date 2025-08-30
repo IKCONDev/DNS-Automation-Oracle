@@ -52,6 +52,9 @@ public class Registrar_Dashboard_Object_Page extends Baseclass{
 	public WebElement RegistrarDepartmentSearch ;
 	@FindBy(xpath="//mat-icon[normalize-space()='dashboard']")
 	public WebElement Dashboardsearch ;
+	@FindBy(xpath="//span[text()='Reports']")
+	public WebElement ReportsSearch ;
+
 
 	public void User_check_allfields_in_Home_Page1() throws Exception {
 		Thread.sleep(8000);
@@ -66,6 +69,9 @@ public class Registrar_Dashboard_Object_Page extends Baseclass{
 		Clickelement(Invoicesearch);
 		Thread.sleep(3000);
 		driver.navigate().back();
+		Clickelement(ReportsSearch);
+		Thread.sleep(3000);
+		//driver.navigate().back();
 		Thread.sleep(3000);
 		//Clickelement(Reportssearch);
 		//Thread.sleep(3000);
@@ -127,7 +133,7 @@ public class Registrar_Dashboard_Object_Page extends Baseclass{
 		
 
 		public void User_textvaladation_in_Home_Main_Page1() throws Exception {
-			validatetext(TotalOrganisationstxtval, "Total Registrants");
+			validatetext(TotalOrganisationstxtval, "Total Entities");
 			validatetext(TotalDomainstxtval, "Total Domains");
 			validatetext(Applicationinqueuetxtval,"Application in queue");
 			validatetext(ActiveUserstxtval, "Active Users");
