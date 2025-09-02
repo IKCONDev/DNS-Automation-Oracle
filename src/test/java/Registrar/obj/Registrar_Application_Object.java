@@ -102,8 +102,8 @@ public void User_Can_Check_Application_Tabledatatextvaladation_in_Applications_P
 	
 sendkeyweb(Appsearchsend, ConfigReader.getProperty("OrgName"));
 	
-	List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']/following-sibling::td"));
-	WebElement Orgname1=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//preceding-sibling::td"));
+	List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName").toUpperCase()+"']/following-sibling::td"));
+	WebElement Orgname1=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName").toUpperCase()+"']//preceding-sibling::td"));
 
 	//
 	 try {
@@ -144,7 +144,7 @@ sendkeyweb(Appsearchsend, ConfigReader.getProperty("OrgName"));
 	Thread.sleep(4000);
 	sendkeyweb(Appsearchsend, ConfigReader.getProperty("OrgName"));
 	Thread.sleep(2000);
-	WebElement id1=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//preceding-sibling::td"));
+	WebElement id1=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName").toUpperCase()+"']//preceding-sibling::td"));
 
 	try {
 		Clickelement(id1);
@@ -456,7 +456,7 @@ public void User_Can_Check_OrganisationDetails_DocumentsUpload_Functionalities_i
 	Clickelement(Appsearch);
 	sendkeyweb(Appsearchsend, ConfigReader.getProperty("OrgName"));
 	
-	WebElement id1=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//preceding-sibling::td"));
+	WebElement id1=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName").toUpperCase()+"']//preceding-sibling::td"));
 
 	try {
 		Clickelement(id1);
@@ -471,8 +471,8 @@ public void User_Can_Check_OrganisationDetails_DocumentsUpload_Functionalities_i
 	}
 	validatetext(OrganizationDocstxtval, "Entity Documents");
 	
-	//Clickelement(tier12checkbox);
-	
+	Clickelement(tier12checkbox);
+	//+ve
 	Clickelement(GSTINsearch);
 	Clickelement(ApproveClick);
 	clickmultipleweb(ClosebuttonClick);
@@ -496,7 +496,39 @@ public void User_Can_Check_OrganisationDetails_DocumentsUpload_Functionalities_i
 	validatetext(linktxtval, "Links");
 	validatetext(AOofftxtval, "Administrative Officer");
 	validatetext(TOofftxtval, "Technical Officer"); 
-	validatetext(BOofftxtval, "Billing Officer");
+	validatetext(BOofftxtval, "Billing Officer");  
+	
+	/*//-ve
+	Clickelement(GSTINsearch);
+	Clickelement(RejectClick);
+	clickmultipleweb(ClosebuttonClick);
+	validatetext(Rejected1statustxtval, "Rejected");
+	validatetext(ToastermsgRejectdoc,"Document Rejected");
+	
+	Clickelement(PANsearch);
+	Clickelement(Reject2Click);
+	clickmultipleweb(ClosebuttonClick);
+	validatetext(Rejected2statustxtval,"Rejected");
+	validatetext(ToastermsgRejectdoc,"Document Rejected");
+	clickmultipleweb(ClosebuttonClick);
+	
+	Clickelement(LicenceNumberdocsearch);
+	Clickelement(Reject3Click);
+	clickmultipleweb(ClosebuttonClick);
+	validatetext(ToastermsgRejectdoc,"Document Rejected");
+	validatetext(Rejected3statustxtval,"Rejected");
+	Clickelement(BoardResolutionsearch);
+	clickmultipleweb(ClosebuttonClick);
+	validatetext(Rejected4statustxtval,"Rejected");
+	validatetext(ToastermsgRejectdoc,"Document Rejected");
+	validatetext(offtxtval, "Officers"); 
+	validatetext(ststxtval, "Status");
+	validatetext(linktxtval, "Links");
+	validatetext(AOofftxtval, "Administrative Officer");
+	validatetext(TOofftxtval, "Technical Officer"); 
+	validatetext(BOofftxtval, "Billing Officer");  */
+	
+	driver.navigate().back();
 }
 //AO
 @FindBy(xpath="//td[contains(text(),'Administrative Officer')]/following-sibling::td//a")
@@ -670,16 +702,11 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 	
 	//Administrative
 	Clickelement(Aoviewclick);
-	////
 	System.out.println("Administrative Officer Approvals");
 	Clickelement(AOAdharverify);
-	////
-	////
 	Clickelement(AOadharRejectClick);
+	Clickelement(AoadharRejectSavechangesClick);
 	clickmultipleweb(ClosebuttonClick);
-	////
-	//Clickelement(AoadharRejectSavechangesClick);
-	////
 	//validatetext(Toastermessage,"Document Rejected.");
 	////
 //	Clickelement(AOAdharverify);
@@ -1080,21 +1107,36 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Applications_Page1() throws Exception {
 	//AO
 	
-	
+	// Administrative +ve
 	Clickelement(Aoviewclick);
 	System.out.println("Administrative Officer Approvals");
 	Clickelement(AOAdharverify);
 	Clickelement(AOadharAproveClick);
 	clickmultipleweb(ClosebuttonClick);
-	Thread.sleep(1000);
 	Clickelement(AOpanverify);
 	Clickelement(AOPanAproveClick);
 	clickmultipleweb(ClosebuttonClick);
-	Thread.sleep(1000);
 	Clickelement(AOODVerify);
 	Clickelement(AOODAproveClick);
 	clickmultipleweb(closedocbutton);
 	driver.navigate().back();
+	
+	
+	//Administrative -ve
+/*	Clickelement(Aoviewclick);
+	System.out.println("Administrative Officer Approvals");
+	Clickelement(AOAdharverify);
+	Clickelement(AOadharRejectClick);
+	Clickelement(AoadharRejectSavechangesClick);
+	clickmultipleweb(ClosebuttonClick);
+	Clickelement(AOpanverify);
+	Clickelement(AopanRejectClick);
+	clickmultipleweb(ClosebuttonClick);
+	Clickelement(AOODVerify);
+	Clickelement(AoODRejectClick);
+	clickmultipleweb(closedocbutton);
+	
+	driver.navigate().back();*/
 }
 
 
@@ -1104,11 +1146,9 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 	Clickelement(TOAdharverify);
 	Clickelement(TOadharAproveClick);
 	clickmultipleweb(closedocbutton);
-	Thread.sleep(1000);
 	Clickelement(TOpanverify);
 	Clickelement(TOPanAproveClick);
 	clickmultipleweb(closedocbutton);
-	Thread.sleep(1000);
 	Clickelement(TOODVerify);
 	Clickelement(TOODAproveClick);
 	clickmultipleweb(closedocbutton);
@@ -1129,28 +1169,211 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 	
 
 }
+@FindBy(xpath = "(//div[@class='card'][contains(.,'GST')]//span[text()='View'])[1]")
+public WebElement GSTTINViewClick;
+@FindBy(xpath = "(//div[@class='modal-footer']//button[text()='Approve'])[2]")
+public WebElement GSTTINApprove;
+@FindBy(xpath = "//div[@id=\"approveCommentModal\"]/div/div/div[3]/button[1]")
+public WebElement Savechanges1;
+@FindBy(xpath = "(//div[@class='modal-footer']//button[text()='Save changes'])[5]")
+public WebElement Savechanges;
+@FindBy(xpath = "(//div[@class='card'][contains(.,'GST')]//span[text()='View'])[2]")
+public WebElement PANViewClick;
+@FindBy(xpath = "(//div[@class='modal-footer']//button[text()='Approve'])[1]")
+public WebElement PANViewApprove;
+@FindBy(xpath = "(//div[@class='card'][contains(.,'GST')]//span[text()='View'])[3]")
+public WebElement LicenseViewClick;
+@FindBy(xpath = "(//div[@class='modal-footer']//button[text()='Approve'])[3]")
+public WebElement LicenseViewApprove;
+@FindBy(xpath = "(//div[@class='card'][contains(.,'GST')]//span[text()='View'])[4]")
+public WebElement BrViewClick;
+@FindBy(xpath = "(//div[@class='modal-footer']//button[text()='Approve'])[4]")
+public WebElement BrViewApprove;
+
+//Admin
+@FindBy(xpath = "(//tr[@class='ng-star-inserted']//td[3])[1]")
+public WebElement Adhar1ViewClick;
+@FindBy(xpath = "(//div[@class='modal-footer']//button[text()='Approve'])[2]")
+public WebElement Adhar1ViewClickApprove;
+@FindBy(xpath = "(//tr[@class='ng-star-inserted']//td[3])[2]")
+public WebElement PAN1ViewClick;
+@FindBy(xpath = "(//button[normalize-space()='Approve'])[5]")
+public WebElement Approve;
+@FindBy(xpath = "(//tr[@class='ng-star-inserted']//td[3])[3]")
+public WebElement Od1ViewClick;
+@FindBy(xpath = "(//div[@class='modal-footer']//button[text()='Approve'])[3]")
+public WebElement Od1ViewClickApprove;
+
+
+
+//Tech
+@FindBy(xpath = "(//tr[@class='ng-star-inserted']//td[3])[4]")
+public WebElement Adhar2ViewClick;
+@FindBy(xpath = "(//div[@class='modal-footer']//button[text()='Approve'])[2]")
+public WebElement Adhar2ViewClickApprove;
+@FindBy(xpath = "(//tr[@class='ng-star-inserted']//td[3])[5]")
+public WebElement PAN2ViewClick;
+@FindBy(xpath = "(//div[@class='modal-footer']//button[text()='Approve'])[1]")
+public WebElement PAN2ViewApprove;
+@FindBy(xpath = "(//tr[@class='ng-star-inserted']//td[3])[6]")
+public WebElement Od2ViewClick;
+@FindBy(xpath = "(//div[@class='modal-footer']//button[text()='Approve'])[3]")
+public WebElement Od2ViewClickApprove;
+
+
+//Finance
+@FindBy(xpath = "(//tr[@class='ng-star-inserted']//td[3])[7]")
+public WebElement Adhar3ViewClick;
+@FindBy(xpath = "(//div[@class='modal-footer']//button[text()='Approve'])[2]")
+public WebElement Adhar3ViewClickApprove;
+@FindBy(xpath = "(//tr[@class='ng-star-inserted']//td[3])[8]")
+public WebElement PAN3ViewClick;
+@FindBy(xpath = "(//div[@class='modal-footer']//button[text()='Approve'])[1]")
+public WebElement PAN3ViewApprove;
+@FindBy(xpath = "(//tr[@class='ng-star-inserted']//td[3])[9]")
+public WebElement Od3ViewClick;
+@FindBy(xpath = "(//div[@class='modal-footer']//button[text()='Approve'])[3]")
+public WebElement Od3ViewClickApprove;
+@FindBy(xpath="//input[@class='ng-untouched ng-pristine ng-valid']")
+public WebElement  tier12checkboxclick;
+
 
 public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page1() throws Exception {
 	
 	
-	Clickelement(Boclickiew);
+	/*Clickelement(Boclickiew);
 	Clickelement(BOAdharverify);
 	Clickelement(BOadharAproveClick);
 	clickmultipleweb(closedocbutton);
-	Thread.sleep(1000);
 	Clickelement(BOpanverify);
 	Clickelement(BOPanAproveClick);
 	clickmultipleweb(closedocbutton);
-	Thread.sleep(1000);
 	Clickelement(BOODVerify);
 	Clickelement(BOODAproveClick);
 	clickmultipleweb(closedocbutton);
 	driver.navigate().back();
 	Thread.sleep(2000);
+	
+	*/
+	
+	Clickelement(Appsearch);
+	sendkeyweb(Appsearchsend, ConfigReader.getProperty("OrgName"));
+	
+	WebElement id1=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName").toUpperCase()+"']//preceding-sibling::td"));
+
+	try {
+		Clickelement(id1);
+	}catch (Exception e) {
+		System.out.println(e);
+	}
+	
+	try {
+		Clickelement(id1);
+	}catch (Exception e) {
+		System.out.println(e);
+	}
+	Clickelement(tier12checkboxclick);
+	Thread.sleep(2000);
 	Clickelement(clickreviewbtn);
+	Thread.sleep(2000);
+	Clickelement(GSTTINViewClick);
+	Thread.sleep(2000);
+	Clickelement(GSTTINApprove);
+	Clickelement(Savechanges);
+	System.out.println("Entity GSTTIN Document Approved");
+	Thread.sleep(2000);
+	Clickelement(PANViewClick);
+	Thread.sleep(2000);
+	Clickelement(PANViewApprove);
+	Clickelement(Savechanges);
+	System.out.println("Entity PAN Document Approved");
+	Thread.sleep(2000);
+	Clickelement(LicenseViewClick);
+	Thread.sleep(2000);
+	Clickelement(LicenseViewApprove);
+	Clickelement(Savechanges);
+	System.out.println("Entity License Document Approved");
+	Thread.sleep(2000);
+	Clickelement(BrViewClick);
+	Thread.sleep(2000);
+	Clickelement(BrViewApprove);
+	Clickelement(Savechanges);
+	System.out.println("Entity Board Resolution Document Approved");
+	Thread.sleep(2000);
 	
 	Actions act = new Actions(driver);
 	act.sendKeys(Keys.PAGE_DOWN).build().perform();
+	
+	//Admin Approvals
+	Clickelement(Adhar1ViewClick);
+	Thread.sleep(2000);
+	Clickelement(Approve);
+	Clickelement(Savechanges1);
+	Thread.sleep(2000);
+	System.out.println("Admin Adhar Document Approved");
+	Thread.sleep(2000);
+	Clickelement(PAN1ViewClick);
+	Thread.sleep(2000);
+	Clickelement(Approve);
+	Clickelement(Savechanges1);
+	Thread.sleep(2000);
+	System.out.println("PAN  Document Approved");
+	Thread.sleep(2000);
+	Clickelement(Od1ViewClick);
+	Thread.sleep(2000);
+	Clickelement(Approve);
+	Clickelement(Savechanges1);
+	Thread.sleep(2000);
+	System.out.println("Organizational ID Cara  Document Approved");
+	Thread.sleep(2000);
+	
+	//Tech Approvals
+		Clickelement(Adhar2ViewClick);
+		Thread.sleep(2000);
+		Clickelement(Approve);
+		Clickelement(Savechanges1);
+		Thread.sleep(2000);
+		System.out.println("Technical Adhar Document Approved");
+		Thread.sleep(2000);
+		Clickelement(PAN2ViewClick);
+		Thread.sleep(2000);
+		Clickelement(Approve);
+		Clickelement(Savechanges1);
+		Thread.sleep(2000);
+		System.out.println("Technical PAN Document Approved");
+		Thread.sleep(2000);
+		Clickelement(Od2ViewClick);
+		Thread.sleep(2000);
+		Clickelement(Approve);
+		Clickelement(Savechanges1);
+		Thread.sleep(2000);
+		System.out.println("Technical OD Document Approved");
+		Thread.sleep(2000);
+	
+	
+		//Finance Approvals
+				Clickelement(Adhar3ViewClick);
+				Thread.sleep(2000);
+				Clickelement(Approve);
+				Clickelement(Savechanges1);
+				System.out.println("Finance Adhar Document Approved");
+				Thread.sleep(2000);
+				Clickelement(PAN3ViewClick);
+				Thread.sleep(2000);
+				Clickelement(Approve);
+				Clickelement(Savechanges1);
+				Thread.sleep(2000);
+				System.out.println("Finance PAN Document Approved");
+				Thread.sleep(2000);
+				Clickelement(Od3ViewClick);
+				Thread.sleep(2000);
+				Clickelement(Approve);
+				Clickelement(Savechanges1);
+				Thread.sleep(2000);
+				System.out.println("Finance OD Document Approved");
+				Thread.sleep(2000);
+	
+	
 	act.sendKeys(Keys.PAGE_UP).build().perform();
 	act.sendKeys(Keys.PAGE_DOWN).build().perform();
 	Clickelement(clicksubmitbtn);
@@ -1162,7 +1385,7 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page1
 	Clickelement(DSC_submit);
 	popupvalidate("Signed using DSC successful", "emty");
 	Thread.sleep(10000);
-//	validatealert("");
+	validatealert("");
 	try {
 		driver.switchTo().alert().accept();
 	} catch (Exception e) {
@@ -1210,7 +1433,7 @@ public void Registrar_can_Approve_Registrant_Application() throws Exception {
 	//
 	sendkeyweb(Appsearchsend, ConfigReader.getProperty("OrgName"));
 	//
-	WebElement id1=driver.findElement(By.xpath("//td[normalize-space()='"+ ConfigReader.getProperty("OrgName")+"']//preceding-sibling::td"));
+	WebElement id1=driver.findElement(By.xpath("//td[normalize-space()='"+ ConfigReader.getProperty("OrgName").toUpperCase()+"']//preceding-sibling::td"));
 
 	try {
 		Clickelement(id1);
@@ -1230,6 +1453,14 @@ public void Registrar_can_Approve_Registrant_Application() throws Exception {
 		
 		e.printStackTrace();
 	}
+	
+	//act.sendKeys(Keys.PAGE_DOWN).build().perform();
+	//popupvalidate("Fetched tokens successfully", "");
+	Selectdropdown(DSC_token, "1");
+	Selectdropdown(DSC_certificate, "1");
+	sendkeyweb(DSC_password, "Idrbt@123");
+	Clickelement(DSC_submit);
+	popupvalidate("Signed using DSC successful", "emty");
 	//
 	/*try {
 		Selectdropdown(selectpaystatus, "Payment Approved");
@@ -1264,8 +1495,8 @@ public WebElement Domainsclick ;
 	
 	//Clickelement(Domainsearchclick);
 	sendkeyweb(Appsearchsend, ConfigReader.getProperty("DomainName"));
-	List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']/following-sibling::td"));
-	List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']/preceding-sibling::td"));
+	List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName").toUpperCase()+"']/following-sibling::td"));
+	List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName").toUpperCase()+"']/preceding-sibling::td"));
 
 	
 	dispalyedattribute(Orgname1.get(0), "ID"); 

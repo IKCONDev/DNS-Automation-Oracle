@@ -866,12 +866,12 @@ public class Registrant_login_object extends Baseclass {
 		sendkeyweb(Table_dataNS.get(0),NSR1);
 		sendkeyweb(Table_dataNS.get(1),"Oracle");
 		sendkeyweb(Table_dataNS.get(2),NIP1);
-		sendkeyweb(Table_dataNS.get(3),"2026:db6::1");
+		sendkeyweb(Table_dataNS.get(3),"2026:db6::32");
 		sendkeyweb(Table_dataNS.get(4),"IDRBT");
 		sendkeyweb(Table_dataNS.get(5),NSR2);
 		sendkeyweb(Table_dataNS.get(6),"Oracle");
 		sendkeyweb(Table_dataNS.get(7),NIP2);
-		sendkeyweb(Table_dataNS.get(8),"2026:db6::13");
+		sendkeyweb(Table_dataNS.get(8),"2026:db6::33");
 		sendkeyweb(Table_dataNS.get(9),"IDRBT");
 
 		Clickelement(Addnsbutton);
@@ -879,7 +879,7 @@ public class Registrant_login_object extends Baseclass {
 		sendkeyweb(Table_dataNS.get(10),NSR3);
 		sendkeyweb(Table_dataNS.get(11),"Oracle");
 		sendkeyweb(Table_dataNS.get(12),NIP3);
-		sendkeyweb(Table_dataNS.get(13),"2026:db6::14");
+		sendkeyweb(Table_dataNS.get(13),"2026:db6::34");
 		sendkeyweb(Table_dataNS.get(14),"IDRBT");
 		
 		Clickelement(Addnsbutton);

@@ -36,6 +36,34 @@ public class Registrar_Reports_Objects extends Baseclass {
 	@FindBy(xpath="//tbody/tr[1]/td[6]/span[1]//*[name()='svg']")
 	public WebElement InvoiceDownloadbutton;
 	
+	
+	
+	public void Registrar_can_Navigate_to_Reports_Page_check_Textvalidations() throws Exception {
+		WebElement ele = driver.findElement(By.xpath("//span[text()='Reports']"));
+		Actions act = new Actions(driver);
+		act.moveToElement(ele).build().perform();
+		Thread.sleep(3000);
+		Clickelement(ClickReports);
+		Thread.sleep(3000);
+		Clickelement(ClickDomainappsum);
+		Thread.sleep(3000);
+		driver.navigate().back();
+		Thread.sleep(3000);
+		Clickelement(ClickReports);
+		Thread.sleep(3000);
+		Clickelement(ClickDomainappmat);
+		Thread.sleep(3000);
+		driver.navigate().back();
+		Thread.sleep(3000);
+		Clickelement(ClickReports);
+		Thread.sleep(3000);
+		Clickelement(ClickDomainappalp);
+		Thread.sleep(3000);
+		driver.navigate().back();
+		
+	}
+	
+	
 	public void Registrar_Reports_Domain_Application_Summary() throws Exception {
 		WebElement ele = driver.findElement(By.xpath("//span[text()='Reports']"));
 		Actions act = new Actions(driver);
@@ -46,6 +74,10 @@ public class Registrar_Reports_Objects extends Baseclass {
 		Clickelement(ClickReports);
 		Thread.sleep(3000);
 		Clickelement(ClickDomainappsum);
+		Thread.sleep(3000);
+		Clickelement(ClickReports);
+		Thread.sleep(3000);
+		Clickelement(ClickDomainappmat);
 		
 		
 		
