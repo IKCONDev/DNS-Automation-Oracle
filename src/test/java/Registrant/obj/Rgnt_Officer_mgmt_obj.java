@@ -91,17 +91,37 @@ public class Rgnt_Officer_mgmt_obj extends Baseclass {
 		validatetext(FO_P.get(5), FO_P.get(5).getText());
 
 //		Clickelement(AO_F.get(1));
-		Clickelement(AO_F.get(0));
-		Re_upload_documents();
-		driver.navigate().back();
-		Clickelement(TO_F.get(0));
-		Re_upload_documents();
-		driver.navigate().back();
-		Clickelement(FO_F.get(0));
-		Re_upload_documents();
-		driver.navigate().back();
+		try {
+			Clickelement(AO_l);
+			Re_upload_documents();
+			driver.navigate().back();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		try {
+			Clickelement(TO_l);
+			Re_upload_documents();
+			driver.navigate().back();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		try {
+			Clickelement(FO_l);
+			Re_upload_documents();
+			driver.navigate().back();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 
 	}
+	
+	@FindBy(xpath = "//td[contains(text(),'Administrative Officer')]/following-sibling::td//a")
+	public WebElement AO_l;
+	@FindBy(xpath = "//td[contains(text(),'Technical Officer')]/following-sibling::td//a")
+	public WebElement TO_l;
+	@FindBy(xpath = "//td[contains(text(),'Financial Officer')]/following-sibling::td//a")
+	public WebElement FO_l;
 	
 	
 

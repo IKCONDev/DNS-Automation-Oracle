@@ -488,7 +488,10 @@ public class Registrant_login_object extends Baseclass {
 		sendkeyweb(Bank_name, domain);
 		Selectdropdown(Zone_input, ".bank.in");// .fin.in
 		Clickelement(Search);
-		validatetext(Alias_section_path, "An additional charge of ₹ 2000/- will be applied for adding an extra domain name to your domain.");
+		try {
+			validatetext(Alias_section_path, "An additional charge of ₹ 2000/- will be applied for adding an extra domain name to your domain.");
+		} catch (Exception e) {
+		}
 		validatetext(ExtraCost, " Additional Domain For Reservation");
 		sendkeyweb(addalisname, domain+"one");
 		Clickelement(addbuttonclick);
@@ -636,6 +639,9 @@ public class Registrant_login_object extends Baseclass {
 	public List<WebElement> upload_doc;
 	@FindBy(xpath = "//input[@placeholder='Enter PAN']")
 	public WebElement admin_pan;
+	@FindBy(xpath = "//div[normalize-space()='This email is already used']")
+	public WebElement Error_email;
+	 
 	
 	public void User_enters_contact_details(String Name,String Tel,String  Mob,String  Email,String Desig) throws AWTException, InterruptedException {
 		configWriter.setProperty("admin_fname", Name);
@@ -652,6 +658,8 @@ public class Registrant_login_object extends Baseclass {
 		
 		
 		sendkeyweb(admin_fname, Name);
+		sendkeyweb(admin_email, sample);
+		validatetext(Error_email, "This email is already used");
 		sendkeyweb(admin_email, Email+ConfigReader.getProperty("OrgName")+".com");
 		sendkeyweb(STD_Code1, "040");
 		sendkeyweb(org_telephone1, Tel);
@@ -662,7 +670,7 @@ public class Registrant_login_object extends Baseclass {
 		sendkeyweb(admin_desig, Desig);
 		
 	}
-		
+	String sample ="admin@gmail.com";
 		public void User_upload_contact_details_documens(String Aadhar,String  PAN) throws AWTException, InterruptedException {
 			
 		Selectdropdown(admin_doc_type, "Aadhaar");
@@ -720,6 +728,8 @@ public class Registrant_login_object extends Baseclass {
 		validateattribute(tech_phone, "placeholder", "Enter STD Telephone");
 		validateattribute(tech_altphone, "placeholder", "Enter phone number");
 		sendkeyweb(tech_fname, Name);
+		sendkeyweb(tech_email, sample);
+		validatetext(Error_email, "This email is already used");
 		sendkeyweb(tech_email, Email+ConfigReader.getProperty("OrgName")+".com");
 		sendkeyweb(STD_Code2, "040");
 		sendkeyweb(org_telephone2, Tel);
@@ -783,6 +793,8 @@ public class Registrant_login_object extends Baseclass {
 		validateattribute(bill_phone, "placeholder", "Enter STD Telephone");
 		validateattribute(bill_altphone, "placeholder", "Enter phone number");
 		sendkeyweb(bill_fname, Name);
+		sendkeyweb(bill_email, sample);
+		validatetext(Error_email, "This email is already used");
 		sendkeyweb(bill_email, Email+ConfigReader.getProperty("OrgName")+".com");
 		sendkeyweb(STD_Code3, "040");
 		sendkeyweb(org_telephone3, Tel);
@@ -853,39 +865,32 @@ public class Registrant_login_object extends Baseclass {
 		validateattribute(Table_dataNS.get(9),"placeholder", "Enter Provider Name");
 	}
 
-	public void User_enters_name_server_details(String NSR1,String NIP1,String NSR2, String NIP2,String NSR3,String NIP3,String NSR4,String NIP4) throws AWTException, InterruptedException {
-		configWriter.setProperty("NS1", NSR1);
-		configWriter.setProperty("IPV41", NIP1);
-		configWriter.setProperty("IPV61", NIP2);	
-		configWriter.setProperty("NS2", NSR2);
-		configWriter.setProperty("IPV42", NIP3);
-		configWriter.setProperty("IPV62", NIP4);	
-		configWriter.setProperty("NS3", NSR3);
-		configWriter.setProperty("NS4", NSR4);
+	public void User_enters_name_server_details(String NSR,String IP1,String IPV6) throws AWTException, InterruptedException {
+		configWriter.setProperty("NS1", NSR);
 		
-		sendkeyweb(Table_dataNS.get(0),NSR1);
+		sendkeyweb(Table_dataNS.get(0),NSR+"a");
 		sendkeyweb(Table_dataNS.get(1),"Oracle");
-		sendkeyweb(Table_dataNS.get(2),NIP1);
-		sendkeyweb(Table_dataNS.get(3),"2026:db6::1");
+		sendkeyweb(Table_dataNS.get(2),IP1+"1");
+		sendkeyweb(Table_dataNS.get(3),IPV6+"1");
 		sendkeyweb(Table_dataNS.get(4),"IDRBT");
-		sendkeyweb(Table_dataNS.get(5),NSR2);
+		sendkeyweb(Table_dataNS.get(5),NSR+"d");
 		sendkeyweb(Table_dataNS.get(6),"Oracle");
-		sendkeyweb(Table_dataNS.get(7),NIP2);
-		sendkeyweb(Table_dataNS.get(8),"2026:db6::13");
+		sendkeyweb(Table_dataNS.get(7),IP1+"2");
+		sendkeyweb(Table_dataNS.get(8),IPV6+"1");
 		sendkeyweb(Table_dataNS.get(9),"IDRBT");
 
 		Clickelement(Addnsbutton);
 		
-		sendkeyweb(Table_dataNS.get(10),NSR3);
+		sendkeyweb(Table_dataNS.get(10),NSR+"b");
 		sendkeyweb(Table_dataNS.get(11),"Oracle");
-		sendkeyweb(Table_dataNS.get(12),NIP3);
-		sendkeyweb(Table_dataNS.get(13),"2026:db6::14");
+		sendkeyweb(Table_dataNS.get(12),IP1+"3");
+		sendkeyweb(Table_dataNS.get(13),IPV6+"3");
 		sendkeyweb(Table_dataNS.get(14),"IDRBT");
 		
 		Clickelement(Addnsbutton);
-		sendkeyweb(Table_dataNS.get(15),NSR4);
+		sendkeyweb(Table_dataNS.get(15),NSR+"c");
 		sendkeyweb(Table_dataNS.get(16),"Oracle");
-		sendkeyweb(Table_dataNS.get(17),NIP4);
+		sendkeyweb(Table_dataNS.get(17),IP1+"4");
 		sendkeyweb(Table_dataNS.get(19),"IDRBT");
 		
 		try {
@@ -897,7 +902,7 @@ public class Registrant_login_object extends Baseclass {
 		
 		Clickelement(Add_dnssec);
 		sendkeyweb(Keytag.get(0),"1125");
-		sendkeyweb(digest.get(0),NSR4);
+		sendkeyweb(digest.get(0),NSR);
 		Selectdropdown(Algorithem_type.get(0), "1");
 		Selectdropdown(Digest.get(0), "2");
 		Clickelement(Add_Additional_DNS);

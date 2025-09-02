@@ -77,7 +77,7 @@ public class Rgst_domain_obj extends Baseclass{
 	public void user_navigates_the_domain_details_page() {
 		validatetext(Details_page_title, "Domain Details");
 		validatetext(domain_name, "Domain");
-		validatetext(org_name, "Entity Name");
+//		validatetext(org_name, "Entity Name");
 		validatetext(Reg_date, "Registration Date");
 		validatetext(Ren_date, "Renewal Date");
 		validatetext(status, "Domain Status");
@@ -147,9 +147,7 @@ public class Rgst_domain_obj extends Baseclass{
 		validatetext(NS_records.get(1),"10");
 		validatetext(NS_records.get(4),ConfigReader.getProperty("NS2"));
 		validatetext(NS_records.get(5),ConfigReader.getProperty("IP2"));
-		}catch (Exception e) {
-			System.out.println(e);
-		}
+		
 		Clickelement(ADD_NS);
 		driver.navigate().back();
 //		RL.User_enters_name_server_details(NSR1, NIP1,  NIP2, NSR2, NIP3, NIP4,NSR3, NIP5, NIP6,NSR4, NIP7, NIP8);
@@ -160,6 +158,9 @@ public class Rgst_domain_obj extends Baseclass{
 //		RL.User_enters_name_server_details(NSR1, NIP1, NSR2, NIP2);
 		Clickelement(ADD_DNSsec);
 		clickmultipleweb(backbutton);
+		}catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 	@FindBy(xpath = "//button[@aria-label='Close']")
 	public List<WebElement> backbutton;

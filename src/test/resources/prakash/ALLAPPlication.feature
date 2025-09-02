@@ -45,12 +45,12 @@ Feature: Registrant Onboarding
       #| Name  | Tel        | Mob      | Email   | Aadhar         | PAN        | Desig    |
       #| raman | 9685578954 | 96855789 | ikcon3@ | 1234 5678 5012 | ASDEE4455P | Accounts |
 
-  Scenario Outline: Name server details
-    Then User enters name server details "<NS1>" "<IP1>" "<NS2>" "<IP2>" "<NS3>" "<IP3>" "<NS4>" "<IP4>"
+   Scenario Outline: Name server details
+    Then User enters name server details "<NS1>" "<IP1>" "<IPV6>"
 
     Examples: 
-      | NS1     | NS2     | NS3     | NS4     | IP1      | IP2      | IP3      | IP4      |
-      | Office1 | office2 | Office3 | office4 | 2.0.9.81 | 2.0.9.44 | 2.0.9.62 | 2.0.9.76 |
+      | NS1     | IP1      | IPV6       |
+      | Office1 | 2.0.9.81 | 2023:db5:: |
 
   Scenario Outline: Preview and Submit
     Then User preview and submit onboarding
