@@ -147,7 +147,7 @@ public class Registrar_Loginpage_Object extends Baseclass{
 		sendkeyweb(passwordentertxtbox, Password);
 		String OTP1 = myObj.nextLine();
 		Clickelement(ClickNextbutton);
-		popupvalidate( "An OTP has been sent to your email.","Invalid Credentials");
+		popupvalidate("An OTP has been sent to your email.","Invalid Credentials");
 		System.out.println("Enter OTP : ");
 		
 	

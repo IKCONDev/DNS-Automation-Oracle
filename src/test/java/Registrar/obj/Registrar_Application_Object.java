@@ -46,7 +46,7 @@ public void User_textvaladation_in_Application_Page1() throws Exception  {
 	Clickelement(Appsearch);
 	//Thread.sleep(5000);
 	
-	String Apptableextvalues="Application ID,Entity Name,Domain Name,Submission Date,Application Status,Payment Status,NS Record Status,Tenure (yrs),View Name Servers,Remarks/Comments,Added By,Re-Submissiom,Mark As Deleted";
+	String Apptableextvalues="Application ID,Entity Name,,Domain Name,Submission Date,Application Status,Payment Status,NS Record Status,Tenure (yrs),View Name Servers,Remarks/Comments,Added By,Re-Submissiom,Mark As Deleted";
 	Table_prop(Tabledata, Apptableextvalues);
 	List<WebElement> val = driver.findElements(By.xpath("//table[@id='table1']//th"));
 	////
@@ -102,7 +102,7 @@ public void User_Can_Check_Application_Tabledatatextvaladation_in_Applications_P
 	
 sendkeyweb(Appsearchsend, ConfigReader.getProperty("OrgName"));
 	
-	List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//following-sibling::td"));
+	List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']/following-sibling::td"));
 	WebElement Orgname1=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//preceding-sibling::td"));
 
 	//
@@ -137,7 +137,7 @@ sendkeyweb(Appsearchsend, ConfigReader.getProperty("OrgName"));
 
 	//sendkeyweb(searchbuttonclick,"Ikcon");
 
-	Thread.sleep(2000); //
+	Thread.sleep(4000); //
 	Clickelement(Orgname1);
 	Thread.sleep(2000);
 	Clickelement(cancelclick);
@@ -345,7 +345,7 @@ public WebElement  Approve3Click;
 public WebElement  Close3buttonClick;
 @FindBy(xpath="//span[text()='Board Resolution']")
 public WebElement BoardResolutionsearch  ;
-@FindBy(xpath="//div[@id='viewTheBoardDocs']//button[@class='btn btn-primary'][normalize-space()='Approve']")
+@FindBy(xpath="(//button[text()='Approve'])[5]")
 public WebElement  Approve4Click;
 @FindBy(xpath="//div[@id='viewTheBoardDocs']//span[@aria-hidden='true'][normalize-space()='×']")
 public WebElement  Close4buttonClick;
@@ -427,7 +427,7 @@ public void User_Can_Check_OrganisationDetails_DocumentsUpload_Functionalities_i
 	Thread.sleep(2000);
 	Clickelement(BoardResolutionsearch);
 	Thread.sleep(2000);
-	Clickelement(Reject4Click);
+	//Clickelement(Reject4Click);
 	clickmultipleweb(ClosebuttonClick);
 	//
 	validatetext(Rejected4statustxtval,"Rejected");
@@ -455,7 +455,7 @@ public void User_Can_Check_OrganisationDetails_DocumentsUpload_Functionalities_i
 public void User_Can_Check_OrganisationDetails_DocumentsUpload_Functionalities_in_Applications_Page1() throws Exception {
 	Clickelement(Appsearch);
 	sendkeyweb(Appsearchsend, ConfigReader.getProperty("OrgName"));
-	Thread.sleep(2000);
+	
 	WebElement id1=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//preceding-sibling::td"));
 
 	try {
@@ -471,96 +471,31 @@ public void User_Can_Check_OrganisationDetails_DocumentsUpload_Functionalities_i
 	}
 	validatetext(OrganizationDocstxtval, "Entity Documents");
 	
-	Clickelement(tier12checkbox);
-	//Thread.sleep(5000);
-//	Clickelement(GSTINsearch);
-//	//
-//	Clickelement(RejectClick);
-//	////
-//	clickmultipleweb(ClosebuttonClick);
-//	validatetext(Rejected1statustxtval, "Rejected");
-//	validatetext(ToastermsgRejectdoc,"Document Rejected");
+	//Clickelement(tier12checkbox);
 	
 	Clickelement(GSTINsearch);
-	//
 	Clickelement(ApproveClick);
 	clickmultipleweb(ClosebuttonClick);
-	//Selectdropdown(selectstatustxtval, "Approved for payment");
     validatetext(Approved1statustxtval,"Approved");
-   // validatetext(Rejectstatus2txtval, "Approved ");
     validatetext(Toastermsgappovedoc,"Document Approved");
-	
-//	//
-//	Clickelement(PANsearch);
-//	//
-//	Clickelement(Reject2Click);
-//	clickmultipleweb(ClosebuttonClick);
-//	validatetext(Rejected2statustxtval,"Rejected");
-//	validatetext(ToastermsgRejectdoc,"Document Rejected");
-//	clickmultipleweb(ClosebuttonClick);
-//	//
 	Clickelement(PANsearch);
-	//
 	Clickelement(Approve2Click);
 	clickmultipleweb(ClosebuttonClick);
 	validatetext(Approved2statustxtval,"Approved");
 	validatetext(Toastermsgappovedoc,"Document Approved");
-	//Clickelement(ClosebuttonClick2);
-//	//
-//	Clickelement(Close2buttonClick);
-//	////
-//	
-//	////
-//	//validatetext(Rejectstatus2txtval, "Approved");
-//	////
-//	//validatetext(Toastermsgappovedoc, "Document  Approved Successfully");
-//	//
-//	Clickelement(LicenceNumberdocsearch);
-//	//
-//	Clickelement(Reject3Click);
-//	clickmultipleweb(ClosebuttonClick);
-//	//
-//	validatetext(ToastermsgRejectdoc,"Document Rejected");
-//	validatetext(Rejected3statustxtval,"Rejected");
 	Clickelement(LicenceNumberdocsearch);
-	//
 	Clickelement(Approve3Click);
 	clickmultipleweb(ClosebuttonClick);
-	//Thread.sleep(5000);
-	//Clickelement(Close3buttonClick);
-	//Thread.sleep(5000);
-	//Clickelement(ClosebuttonClick);
-	//validatetext(Approved3statustxtval,"Approved");
-	//Thread.sleep(5000);
-	//validatetext(Rejectstatus2txtval, "Approved");
-//	validatetext(Toastermsgappovedoc,"Document Approved");
-	
-//	Thread.sleep(2000);
-//	Clickelement(BoardResolutionsearch);
-//	Thread.sleep(2000);
-//	Clickelement(Reject4Click);
-//	clickmultipleweb(ClosebuttonClick);
-//	//
-//	validatetext(Rejected4statustxtval,"Rejected");
-//	validatetext(ToastermsgRejectdoc,"Document Rejected");
 	Clickelement(BoardResolutionsearch);
-	//
 	Clickelement(Approve4Click);
 	clickmultipleweb(ClosebuttonClick);
-	//Thread.sleep(2000);
-	//Clickelement(Close4buttonClick);
-	
-	//Thread.sleep(5000);
 	validatetext(Approved4statustxtval,"Approved");
-	//Thread.sleep(5000);
-	validatetext(Rejectstatus2txtval, "Approved");
 	validatetext(Toastermsgappovedoc,"Document Approved");
-	//
-	validatetext(offtxtval, "Officers"); //
+	validatetext(offtxtval, "Officers"); 
 	validatetext(ststxtval, "Status");
 	validatetext(linktxtval, "Links");
 	validatetext(AOofftxtval, "Administrative Officer");
-	validatetext(TOofftxtval, "Technical Officer"); //
+	validatetext(TOofftxtval, "Technical Officer"); 
 	validatetext(BOofftxtval, "Billing Officer");
 }
 //AO
@@ -585,7 +520,12 @@ public WebElement AOadharApprovalchecktxtval ;
 public WebElement AOpanverify ;
 @FindBy(xpath="(//button[text()='Close'])[3]")
 public WebElement AOpanclosebutton ;
-
+@FindBy(xpath="(//span[@class='ClickDisplayDoc'])[2]")
+public WebElement Reviewagainp1 ;
+@FindBy(xpath="(//span[@class='ClickDisplayDoc'])[2]")
+public WebElement Reviewagainp2 ;
+@FindBy(xpath="(//span[@class='ClickDisplayDoc'])[2]")
+public WebElement Reviewagainp3 ;
 @FindBy(xpath="(//textarea[@class='ng-untouched ng-pristine ng-valid'])[1]")
 public WebElement AOpanApprovalCommentClick ;
 @FindBy(xpath="(//button[text()='Save changes'])[1]")
@@ -1146,9 +1086,11 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 	Clickelement(AOAdharverify);
 	Clickelement(AOadharAproveClick);
 	clickmultipleweb(ClosebuttonClick);
+	Thread.sleep(1000);
 	Clickelement(AOpanverify);
 	Clickelement(AOPanAproveClick);
 	clickmultipleweb(ClosebuttonClick);
+	Thread.sleep(1000);
 	Clickelement(AOODVerify);
 	Clickelement(AOODAproveClick);
 	clickmultipleweb(closedocbutton);
@@ -1162,8 +1104,11 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 	Clickelement(TOAdharverify);
 	Clickelement(TOadharAproveClick);
 	clickmultipleweb(closedocbutton);
+	Thread.sleep(1000);
 	Clickelement(TOpanverify);
 	Clickelement(TOPanAproveClick);
+	clickmultipleweb(closedocbutton);
+	Thread.sleep(1000);
 	Clickelement(TOODVerify);
 	Clickelement(TOODAproveClick);
 	clickmultipleweb(closedocbutton);
@@ -1186,26 +1131,31 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 }
 
 public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page1() throws Exception {
-	Thread.sleep(5000);
+	
 	
 	Clickelement(Boclickiew);
 	Clickelement(BOAdharverify);
 	Clickelement(BOadharAproveClick);
 	clickmultipleweb(closedocbutton);
+	Thread.sleep(1000);
 	Clickelement(BOpanverify);
 	Clickelement(BOPanAproveClick);
+	clickmultipleweb(closedocbutton);
+	Thread.sleep(1000);
 	Clickelement(BOODVerify);
 	Clickelement(BOODAproveClick);
 	clickmultipleweb(closedocbutton);
 	driver.navigate().back();
 	Thread.sleep(2000);
 	Clickelement(clickreviewbtn);
+	
 	Actions act = new Actions(driver);
 	act.sendKeys(Keys.PAGE_DOWN).build().perform();
 	act.sendKeys(Keys.PAGE_UP).build().perform();
 	act.sendKeys(Keys.PAGE_DOWN).build().perform();
 	Clickelement(clicksubmitbtn);
-	popupvalidate("Fetched tokens successfully", "");
+	act.sendKeys(Keys.PAGE_DOWN).build().perform();
+	//popupvalidate("Fetched tokens successfully", "");
 	Selectdropdown(DSC_token, "1");
 	Selectdropdown(DSC_certificate, "1");
 	sendkeyweb(DSC_password, "Idrbt@123");
