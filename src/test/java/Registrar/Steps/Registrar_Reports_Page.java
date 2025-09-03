@@ -21,6 +21,12 @@ public class Registrar_Reports_Page {
 	
 	Registrar_Reports_Objects RRO = new Registrar_Reports_Objects(driver);
 	
+	@Then("Registrar can Navigate to Reports  Page  check Textvalidations")
+	public void Registrar_can_Navigate_to_Reports_Page_check_Textvalidations() throws Exception  {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+		RRO.Registrar_Reports_Domain_Application_Summary();
+		
+	}
 	
 	@Then("Registrar Reports Domain Application Summary")
 	public void Registrar_Reports_Domain_Application_Summary() throws Exception  {

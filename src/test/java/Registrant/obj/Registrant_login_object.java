@@ -889,7 +889,7 @@ public class Registrant_login_object extends Baseclass {
 		sendkeyweb(Table_dataNS.get(14),"IDRBT");
 		
 		Clickelement(Addnsbutton);
-		sendkeyweb(Table_dataNS.get(15),NSR+"c");
+		sendkeyweb(Table_dataNS.get(15),NSR+"d");
 		sendkeyweb(Table_dataNS.get(16),"Oracle");
 		sendkeyweb(Table_dataNS.get(17),IP1+"4");
 		sendkeyweb(Table_dataNS.get(19),"IDRBT");
