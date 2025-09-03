@@ -88,7 +88,6 @@ Feature: Registrant Onboarding
     #Then User Validate the officer details management page
     #Then User logout the application
 
-<<<<<<< HEAD
    Scenario Outline: Name server details
     Then User enters name server details "<NS1>" "<IP1>" "<IPV6>"
 
@@ -164,7 +163,6 @@ Feature: Registrant Onboarding
       #| OrgName     | ADocument Type | PDocument Type | OrgDocument Type | DomainName     |
       #| Canara Bank | Aadhaar        | PAN            | Organisation Id  | canara.bank.in |
 #
-=======
   @2ndStep
   Scenario Outline: Registrar Login Page
     Given Registrar is on Landing Page1
@@ -197,7 +195,6 @@ Feature: Registrant Onboarding
       | OrgName     | ADocument Type | PDocument Type | OrgDocument Type | DomainName     |
       | Canara Bank | Aadhaar        | PAN            | Organisation Id  | canara.bank.in |
 
->>>>>>> branch 'devbranch' of https://github.com/IKCONDev/DNS-Automation-Oracle.git
   #Scenario Outline: Registrar  Domain Page
     #Then Registrar can Navigate to Domain Page can check Textvalidations
     #Then Registrar  check DomaintableData Textvalidations
