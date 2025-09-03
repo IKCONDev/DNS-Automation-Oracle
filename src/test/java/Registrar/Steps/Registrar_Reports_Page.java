@@ -28,6 +28,18 @@ public class Registrar_Reports_Page {
 		RRO.Registrar_Reports_Domain_Application_Summary();
 		
 	}
-
+	@Then("Registrar Reports Domain Application Matrix")
+	public void Registrar_Reports_Domain_Application_Matrix() throws Exception  {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+		RRO.Registrar_Reports_Domain_Application_Matrix();
+		
+	}
+	
+	@Then("Registrar Reports Domain Application Oraphandata")
+	public void Registrar_Reports_Domain_Application_Orphandata() throws Exception  {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+		RRO.Registrar_Reports_Domain_Application_Orphandata();
+		
+	}
 	
 }

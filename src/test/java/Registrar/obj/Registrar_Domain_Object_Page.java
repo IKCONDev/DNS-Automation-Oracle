@@ -369,6 +369,7 @@ public class Registrar_Domain_Object_Page extends Baseclass {
 			validatetext(Status4.get(2), ConfigReader.getProperty("InvoiceDate"));
 			
 			
+			
 		
 	}
 

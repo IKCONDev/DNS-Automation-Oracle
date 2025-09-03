@@ -873,17 +873,18 @@ public class Registrant_login_object extends Baseclass {
 		sendkeyweb(Table_dataNS.get(2),IP1+"1");
 		sendkeyweb(Table_dataNS.get(3),IPV6+"1");
 		sendkeyweb(Table_dataNS.get(4),"IDRBT");
-		sendkeyweb(Table_dataNS.get(5),NSR+"d");
+		sendkeyweb(Table_dataNS.get(5),NSR+"b");
 		sendkeyweb(Table_dataNS.get(6),"Oracle");
-		sendkeyweb(Table_dataNS.get(7),IP1+"2");
-		sendkeyweb(Table_dataNS.get(8),IPV6+"1");
+		sendkeyweb(Table_dataNS.get(7),IP1+"3");
+		sendkeyweb(Table_dataNS.get(8),IPV6+"2");
 		sendkeyweb(Table_dataNS.get(9),"IDRBT");
 
 		Clickelement(Addnsbutton);
 		
-		sendkeyweb(Table_dataNS.get(10),NSR+"b");
+		sendkeyweb(Table_dataNS.get(10),NSR+"c");
 		sendkeyweb(Table_dataNS.get(11),"Oracle");
 		sendkeyweb(Table_dataNS.get(12),IP1+"3");
+		sendkeyweb(Table_dataNS.get(13),IPV6+"3");
 		sendkeyweb(Table_dataNS.get(13),IPV6+"3");
 		sendkeyweb(Table_dataNS.get(14),"IDRBT");
 		
