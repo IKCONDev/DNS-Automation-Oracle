@@ -27,6 +27,9 @@ public class Registrar_Logout_Object extends Baseclass {
 		Clickelement(ClickProfilebutton);
 		Thread.sleep(3000);
 		Clickelement(Clicklogoutbutton);
+		
+		Thread.sleep(3000);
+		driver.close();
 	}
 	
 
