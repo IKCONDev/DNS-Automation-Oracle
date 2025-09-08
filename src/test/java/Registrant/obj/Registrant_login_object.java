@@ -1,6 +1,7 @@
 package Registrant.obj;
 
 import java.awt.AWTException;
+import java.io.File;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
@@ -472,6 +473,8 @@ public class Registrant_login_object extends Baseclass {
 	@FindBy(xpath = "//button[normalize-space()='Next']")
 	public WebElement nextbutton;
 	
+	@FindBy(xpath = "//input[@class='form-control']")
+	public WebElement selchoosefile;
 	
 	public void user_should_get_logged_in(String domain) throws InterruptedException{
 	
@@ -480,6 +483,8 @@ public class Registrant_login_object extends Baseclass {
 		Thread.sleep(2000);
 		validatetext(Domain_button, "Got it!");
 		Clickelement(Domain_button);
+		
+		
 		validatetext(Domain_validate, "Domains");
 		validatetext(Bank_name_label, "Domain Name");//Domain Name
 		validatetext(Domain_label, "Domain");
@@ -488,6 +493,22 @@ public class Registrant_login_object extends Baseclass {
 		sendkeyweb(Bank_name, domain);
 		Selectdropdown(Zone_input, ".bank.in");// .fin.in
 		Clickelement(Search);
+		
+//		try {
+//			sendkeyweb(Bank_name, "yz");
+//			Selectdropdown(Zone_input, ".bank.in");// .fin.in
+//			Clickelement(Search);
+//			Clickelement(selchoosefile);
+// 
+//			File file = new File("Licence.jpeg");
+//			selchoosefile.sendKeys(file.getAbsolutePath());
+//		} catch (Exception e1) {
+//			
+//			e1.printStackTrace();
+//		}
+
+		
+		
 		try {
 			validatetext(Alias_section_path, "An additional charge of ₹ 2000/- will be applied for adding an extra domain name to your domain.");
 		} catch (Exception e) {
@@ -870,28 +891,28 @@ public class Registrant_login_object extends Baseclass {
 		
 		sendkeyweb(Table_dataNS.get(0),NSR+"a");
 		sendkeyweb(Table_dataNS.get(1),"Oracle");
-		sendkeyweb(Table_dataNS.get(2),IP1+"11");
-		sendkeyweb(Table_dataNS.get(3),IPV6+"11");
+		sendkeyweb(Table_dataNS.get(2),IP1+"99");
+		sendkeyweb(Table_dataNS.get(3),IPV6+"99");
 		sendkeyweb(Table_dataNS.get(4),"IDRBT");
 		sendkeyweb(Table_dataNS.get(5),NSR+"b");
 		sendkeyweb(Table_dataNS.get(6),"Oracle");
-		sendkeyweb(Table_dataNS.get(7),IP1+"22");
-		sendkeyweb(Table_dataNS.get(8),IPV6+"22");
+		sendkeyweb(Table_dataNS.get(7),IP1+"88");
+		sendkeyweb(Table_dataNS.get(8),IPV6+"88");
 		sendkeyweb(Table_dataNS.get(9),"IDRBT");
 
 		Clickelement(Addnsbutton);
 		
 		sendkeyweb(Table_dataNS.get(10),NSR+"c");
 		sendkeyweb(Table_dataNS.get(11),"Oracle");
-		sendkeyweb(Table_dataNS.get(12),IP1+"33");
-		sendkeyweb(Table_dataNS.get(13),IPV6+"33");
-		sendkeyweb(Table_dataNS.get(13),IPV6+"88");
+		sendkeyweb(Table_dataNS.get(12),IP1+"77");
+		sendkeyweb(Table_dataNS.get(13),IPV6+"77");
+		sendkeyweb(Table_dataNS.get(13),IPV6+"66");
 		sendkeyweb(Table_dataNS.get(14),"IDRBT");
 		
 		Clickelement(Addnsbutton);
 		sendkeyweb(Table_dataNS.get(15),NSR+"d");
 		sendkeyweb(Table_dataNS.get(16),"Oracle");
-		sendkeyweb(Table_dataNS.get(17),IP1+"4");
+		sendkeyweb(Table_dataNS.get(17),IP1+"9");
 		sendkeyweb(Table_dataNS.get(19),"IDRBT");
 		
 		try {

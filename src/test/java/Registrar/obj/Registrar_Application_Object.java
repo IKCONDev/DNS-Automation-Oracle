@@ -357,12 +357,29 @@ public WebElement  ToastermsgRejectdoc;
 public WebElement  clickreviewbtn;
 @FindBy(xpath="//input[@class='ng-untouched ng-pristine ng-valid']")
 public WebElement  tier12checkbox;
+@FindBy(xpath="//h4[text()=' Two Letter Domain Board Approval Document']")
+public WebElement  Twoletter;
+@FindBy(xpath="//span[text()='Domain Board Approval Document']")
+public WebElement  Board_doc;
+@FindBy(xpath="(//button[text()='Reject' and //button[@class='btn btn-danger']])[5]")
+public WebElement  Twolettersdocreject;
+@FindBy(xpath="(//button[text()='Approve' and //button[@class='btn btn-danger']])[5]")
+public WebElement  TwolettersdocApprove;
 public void User_Can_Check_OrganisationDetails_DocumentsUpload_Functionalities_in_Applications_Page() throws Exception {
 	validatetext(OrganizationDocstxtval, "Entity Documents");
 	
 	Clickelement(tier12checkbox);
 	//Thread.sleep(5000);
+	
+	
+	if(Twoletter.isDisplayed()) {
+		Clickelement(Board_doc);
+		Clickelement(TwolettersdocApprove);
+		
+	}	
 	Clickelement(GSTINsearch);
+	
+	
 	//
 	Clickelement(RejectClick);
 	////
@@ -1276,6 +1293,13 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page1
 	Thread.sleep(2000);
 	Clickelement(clickreviewbtn);
 	Thread.sleep(2000);
+	
+	if(Twoletter.isDisplayed()) {
+		Clickelement(Board_doc);
+		Clickelement(Twolettersdocreject);
+		
+	}	
+	
 	Clickelement(GSTTINViewClick);
 	Thread.sleep(2000);
 	Clickelement(GSTTINApprove);
