@@ -465,6 +465,10 @@ public class Registrant_login_object extends Baseclass {
 	@FindBy(xpath = "//label[contains(.,'2 Letter Domain Board Approval Document')]")
 	public WebElement Twoletter;
 	
+	
+	@FindBy(xpath = "//div[@class='card']")
+	public List<WebElement> card;
+	
 	public void user_should_get_logged_in(String domain) throws InterruptedException, AWTException{
 	
        configWriter.setProperty("Domain", domain);
@@ -479,7 +483,7 @@ public class Registrant_login_object extends Baseclass {
 		sendkeyweb(Bank_name, domain);
 		Selectdropdown(Zone_input, ".bank.in");// .fin.in
 		Clickelement(Search);
-		if(Twoletter.isDisplayed()) {
+		if (card.get(1).getText().contains("2 Letter Domain Board Approval Document")) {
 			Clickelement(Board_doc);
 			fileupload_robot(ConfigReader.getProperty("Board1"));
 		}		

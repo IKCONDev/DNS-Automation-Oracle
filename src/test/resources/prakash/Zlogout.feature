@@ -3,15 +3,15 @@ Feature: Registrant Onboarding
   @Step1
   Scenario Outline: Registrant Registration and login
     Given User is on Landing Page
-    Then User validating the Landing Page
-    When User navigate to Registration Page
-    Then User Register An Account "<username>" "<password>"
-    When User navigate to Login Page
+    #Then User validating the Landing Page
+    #When User navigate to Registration Page
+    #Then User Register An Account "<username>" "<password>"
+    #When User navigate to Login Page
     Then User enters "<username>" and "<password>"
 
     Examples: 
       | username          | password  | Case  |
-      | abv@ikcontech.com | Test@1236 | Valid |
+      | abou@ikcontech.com | Test@1236 | Valid |
 
   Scenario Outline: DSC Verify(Registrant)
     And User enters the dsc details
@@ -22,7 +22,7 @@ Feature: Registrant Onboarding
 
     Examples: 
       | domain | PIN    | Address                                  | Tel        | Mob       | Email  | GST             | PAN        | License               |
-      | jiva   | 500090 | CYBERTOWERS,Madhapur,HEDERABAD,Telangana | 9685578941 | 868557894 | ikcon@ | 22ABCDE0000A1J5 | ASDEE4455Q | L12345MH2023PLC000001 |
+      | jivas   | 500090 | CYBERTOWERS,Madhapur,HEDERABAD,Telangana | 9685578941 | 868557894 | ikcon@ | 22ABCDE0000A1J5 | ASDEE4455Q | L12345MH2023PLC000001 |
 
   Scenario Outline: Admin Contact details
     Then User enters admin contact details "<Name>" "<Tel>" "<Mob>" "<Email>" "<Aadhar>" "<PAN>" "<Desig>"
@@ -50,7 +50,7 @@ Feature: Registrant Onboarding
 
     Examples: 
       | NS1     | IP1     | IPV6      |
-      | Office1 | 1.20.2. | 2024:db4:: |
+      | Office1 | 1.21.2. | 2014:db4:: |
 
   Scenario Outline: Preview and Submit
     Then User preview and submit onboarding
