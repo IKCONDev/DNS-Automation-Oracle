@@ -431,30 +431,16 @@ public class Registrant_login_object extends Baseclass {
 	@FindBy(xpath = "//input[contains(@placeholder,'License Given By RBI')]")
 	public WebElement org_Lic;//Enter Regulatory RBI License
 	
-	@FindBy(xpath = "//h1[normalize-space()='Domains']")
+	@FindBy(xpath = "//h1[normalize-space()='Domain']")
 	public WebElement Domain_validate;
 	@FindBy(xpath = "//label[contains(normalize-space(),'Name')]")
 	public WebElement Bank_name_label;
 	@FindBy(xpath = "//label[normalize-space()='Domain']")
 	public WebElement Domain_label;
-	
-	@FindBy(xpath = "(//h2[contains(text(),'Alias Name')])[1]")
-	public WebElement Alias_name;
-
-	@FindBy(xpath = "//div[contains(text(),'Additional Domain For Reservation')]")
+	@FindBy(xpath = "//div[contains(text(),'Name Identifiers to be Reserved')]")
 	public WebElement ExtraCost;
-	
-	
-	
-	
-	@FindBy(xpath = "//div[@class='alias-grid']//input")
-	public List<WebElement> Alias_grid;
-	@FindBy(xpath = "//div[contains(text(),'Your first 5 additional domain registrations are free. Each additional domain beyond this limit will incur a charge of ₹2000/- per domain.')]")
-	public WebElement Alias_section_path;
-	@FindBy(xpath = "//h2[contains(text(),'Domain Price Summary')]")
+	@FindBy(xpath = "//h2[contains(text(),'Price Summary')]")
 	public WebElement Price_summary;
-	@FindBy(xpath = "(//div//h2[contains(text(),'Domain Price Summary')])/following-sibling::div")
-	public List<WebElement> Price_summary_obj;
 	@FindBy(xpath = "(//input[@type='text'])[2]")
 	public WebElement addalisname;
 	@FindBy(xpath = "//button[contains(text(),'Add')]")
@@ -471,9 +457,15 @@ public class Registrant_login_object extends Baseclass {
 	//button[normalize-space()='Next']
 	@FindBy(xpath = "//button[normalize-space()='Next']")
 	public WebElement nextbutton;
+	@FindBy(xpath = "//tr")
+	public List<WebElement> Price_summary_obj;
+	@FindBy(xpath = "(//input[@type='file'])[2]")
+	public WebElement Board_doc;
 	
+	@FindBy(xpath = "//label[contains(.,'2 Letter Domain Board Approval Document')]")
+	public WebElement Twoletter;
 	
-	public void user_should_get_logged_in(String domain) throws InterruptedException{
+	public void user_should_get_logged_in(String domain) throws InterruptedException, AWTException{
 	
        configWriter.setProperty("Domain", domain);
        configWriter.setProperty("DomainName", domain+".bank.in");
@@ -483,20 +475,19 @@ public class Registrant_login_object extends Baseclass {
 		validatetext(Domain_validate, "Domains");
 		validatetext(Bank_name_label, "Domain Name");//Domain Name
 		validatetext(Domain_label, "Domain");
-		validatetext(Domain_label, "Domain");
 		validateattribute(Bank_name,"placeholder","Enter Your Entity Identifier");
 		sendkeyweb(Bank_name, domain);
 		Selectdropdown(Zone_input, ".bank.in");// .fin.in
 		Clickelement(Search);
-		try {
-			validatetext(Alias_section_path, "An additional charge of ₹ 2000/- will be applied for adding an extra domain name to your domain.");
-		} catch (Exception e) {
-		}
-		validatetext(ExtraCost, " Additional Domain For Reservation");
+		if(Twoletter.isDisplayed()) {
+			Clickelement(Board_doc);
+			fileupload_robot(ConfigReader.getProperty("Board1"));
+		}		
+		validatetext(ExtraCost, "Name Identifiers to be Reserved");
 		sendkeyweb(addalisname, domain+"one");
 		Clickelement(addbuttonclick);
-		validatetext(Price_summary, "Domain Price Summary");
-		String price_summary="Domain Price :25000,Additional Domain Price:0,Total Price:25000";
+		validatetext(Price_summary, "Price Summary");
+		String price_summary="ITEM	PRICE,Domain Price	₹,Name Identifier Price	₹,,Grand Total	₹";
 		Table_prop(Price_summary_obj, price_summary);
 		ac.scrollByAmount(0, 500).build().perform();
 		clickmultipleweb(Save_next);
@@ -846,7 +837,10 @@ public class Registrant_login_object extends Baseclass {
 	 
 
 	public void Validate_name_server_details_page() {
-//		validatetext(NS_Page_head, "Name Server Details");
+		try {
+			validatetext(NS_Page_head, "Name Server Details");
+		} catch (Exception e) {
+		}
 		String Table_cold="Server,Name Server Host Name,DNS Service Provider,IPV4 Address,IPV6 Address,IP Service Provider,Actions";
 		Table_prop(TAble_col, Table_cold);
 		validatetext(NS_Page_head, "Name Server Details");

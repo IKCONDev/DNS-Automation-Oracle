@@ -21,12 +21,5 @@ public class Rgnt_Officer_mgmt {
 		ROM.Super_admin_management();
 	}
 
-	@Then("User navigate to officer details management page")
-	public void user_navigate_to_officer_details_management_page() {
-	}
-
-	@Then("User Validate the officer details management page")
-	public void user_validate_the_officer_details_management_page() {
-	}
 
 }

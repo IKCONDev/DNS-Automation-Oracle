@@ -10,19 +10,19 @@ Feature: Registrant Onboarding
     Then User enters "<username>" and "<password>"
 
     Examples: 
-      | username              | password  | Case  |
-      | venky.g@ikcontech.com | Test@1236 | Valid |
+      | username          | password  | Case  |
+      | abv@ikcontech.com | Test@1236 | Valid |
 
-  Scenario Outline: DSC Verify
+  Scenario Outline: DSC Verify(Registrant)
     And User enters the dsc details
 
-  Scenario Outline: Onboarding Page
+  Scenario Outline: Onboarding Page 
     Then User enters domain page "<domain>"
     Then User enters organisation details "<domain>" "<PIN>" "<Address>" "<Tel>" "<Mob>" "<Email>" "<GST>" "<PAN>" "<License>"
 
     Examples: 
       | domain | PIN    | Address                                  | Tel        | Mob       | Email  | GST             | PAN        | License               |
-      | gemin  | 500090 | CYBERTOWERS,Madhapur,HEDERABAD,Telangana | 9685578941 | 868557894 | ikcon@ | 22ABCDE0000A1J5 | ASDEE4455Q | L12345MH2023PLC000001 |
+      | jiva   | 500090 | CYBERTOWERS,Madhapur,HEDERABAD,Telangana | 9685578941 | 868557894 | ikcon@ | 22ABCDE0000A1J5 | ASDEE4455Q | L12345MH2023PLC000001 |
 
   Scenario Outline: Admin Contact details
     Then User enters admin contact details "<Name>" "<Tel>" "<Mob>" "<Email>" "<Aadhar>" "<PAN>" "<Desig>"
@@ -49,8 +49,8 @@ Feature: Registrant Onboarding
     Then User enters name server details "<NS1>" "<IP1>" "<IPV6>"
 
     Examples: 
-      | NS1     | IP1      | IPV6       |
-      | Office1 | 2.0.9.81 | 2023:db5:: |
+      | NS1     | IP1     | IPV6      |
+      | Office1 | 1.20.2. | 2024:db4:: |
 
   Scenario Outline: Preview and Submit
     Then User preview and submit onboarding
@@ -72,8 +72,8 @@ Feature: Registrant Onboarding
     And User subit the Domain Details page
 
     Examples: 
-      | NS1     | NS2     | IP1       | IP2       |
-      | Office1 | office2 | 1.12.2.41 | 1.16.3.41 |
+      | NS1     | NS2     | IP1        | IP2        |
+      | Office1 | office2 | 1.10.12.30 | 1.101.3.15 |
 
   Scenario Outline: Registrant Invoice Page
     Then User navigate to Invoice page
@@ -82,10 +82,6 @@ Feature: Registrant Onboarding
   Scenario Outline: Registrnt User Management
     Then User navigate to user management page
     Then User Validate the user management page
-
-  Scenario Outline: Registrant Officer Details Management
-    Then User navigate to officer details management page
-    Then User Validate the officer details management page
     Then User logout the application
 
   @2ndStep
@@ -96,7 +92,7 @@ Feature: Registrant Onboarding
 
     Examples: 
       | username                 | password | Case  |
-      | Vaishnav.P@ikcontech.com | Test@123 | Valid |
+      | vaishnav.p@ikcontech.com | Test@123 | Valid |
 
   Scenario Outline: Registrar Functionalities in Dashboard Page
     Then Registrar  check  fields  in  Home Page
@@ -115,6 +111,60 @@ Feature: Registrant Onboarding
     Then Registrar  check AdministrativeOfficier Functionalities in Applications Page
     Then Registrar  check TechnicalOfficier Functionalities in Applications Page
     Then Registrar  check BillingOfficier Functionalities in Applications Page
+    Then Registrar Can Check  logout funcionality
+
+    Examples: 
+      | OrgName     | ADocument Type | PDocument Type | OrgDocument Type | DomainName     |
+      | Canara Bank | Aadhaar        | PAN            | Organisation Id  | canara.bank.in |
+
+  @3rdStep
+  Scenario Outline: Registrant Registration and login
+    Given User is on Landing Page
+    Then User enters registrant credentials
+
+  Scenario Outline: DSC Verify
+    And User enters the dsc details
+
+  Scenario Outline: Registrant Application Page
+    Then User Navigate to Application Page
+    Then User Validate Application Page
+    Then User Validate Application data
+    Then User Navigates the Domain Applications Details page
+    Then User validate the Domain Applications Details page
+    And User subit the Domain Applications Details page
+
+  Scenario Outline: Registrant Domain Page
+    Then User Navigate to Domain Page
+    Then User Validate Domain Page
+    Then User Validate Domain data
+    Then User Navigates the Domain Details page
+    Then User validate the Domain Domain Details page "<NS1>" "<IP1>" "<NS2>" "<IP2>"
+    And User subit the Domain Details page
+
+    Examples: 
+      | NS1     | NS2     | IP1       | IP2       |
+      | Office1 | office2 | 1.10.2.41 | 1.10.3.41 |
+
+  Scenario Outline: Registrnt User Management
+    Then User navigate to user management page
+    Then User Validate the user management page
+    Then User logout the application
+
+  @4thStep
+  Scenario Outline: Registrar Login Page
+    Given Registrar is on Landing Page1
+    Then Registrar Can Check  Textvaladations in Login Page
+    When Registrar  Enter valid UN and PWD "<username>" and "<password>" and navigate to Registrar Home Page
+
+    Examples: 
+      | username                 | password | Case  |
+      | vaishnav.p@ikcontech.com | Test@123 | Valid |
+
+  Scenario Outline: Registrar Application  Page
+    Then Registrar  check DocumentsUpload Functionalities in Applications Page1
+    Then Registrar  check AdministrativeOfficier Functionalities in Applications Page1
+    Then Registrar  check TechnicalOfficier Functionalities in Applications Page1
+    Then Registrar check BillingOfficier Functionalities in Applications Page1
 
     Examples: 
       | OrgName     | ADocument Type | PDocument Type | OrgDocument Type | DomainName     |
@@ -133,6 +183,9 @@ Feature: Registrant Onboarding
   Scenario Outline: Registrar Invoice  Page
     Then Registrar can Navigate to Invoice Page  check Textvalidations
 
+  Scenario Outline: Registrar Reports  Page
+    Then Registrar can Navigate to Reports  Page  check Textvalidations
+
     Examples: 
       | DomainName     |
       | canara.bank.in |
@@ -146,10 +199,6 @@ Feature: Registrant Onboarding
 
   Scenario Outline: Registrant User Management Page
     Then Registrar  check RegistrantUserManagement Textvalidations and functionalities in Settings Page
-
-    Examples: 
-      | OrgName     |
-      | Canara Bank |
 
   Scenario Outline: Registrant Officers Details  Settings  Page
     Then Registrar  check RegistrantOfficerDetails "<OrgName>" "<ADocument Type>"  "<PDocument Type>"  "<OrgDocument Type>" Textvalidations and functionalities in Settings Page
@@ -173,7 +222,7 @@ Feature: Registrant Onboarding
       | DepartmentName |
       | Banking        |
 
-  @3rdstep
+  @5thstep
   Scenario Outline: Registrant Registration and login
     Given User is on Landing Page
     Then User enters registrant credentials
@@ -192,27 +241,30 @@ Feature: Registrant Onboarding
     Then User download the invoice
     Then User logout the application
 
-  @4thstep
+  @6thstep
   Scenario Outline: Registrar Login Page
     Given Registrar is on Landing Page1
     When Registrar  Enter valid UN and PWD "<username>" and "<password>" and navigate to Registrar Home Page
 
     Examples: 
-      | username             | password | Case  |
-      | bharat@ikcontech.com | Test@123 | Valid |
+      | username                 | password | Case  |
+      | vaishnav.p@ikcontech.com | Test@123 | Valid |
 
   Scenario Outline: Application
     Then Registrar  check Final Functionalities in Applications Page
     Then Registrar  check Final Final Functionalities in Domains Page
     Then Registrar check Finalstep Functionalities in Domains page
     Then Registrar  check Final Functionalities in Invoice Page
+    Then Registrar Reports Domain Application Summary
+    Then Registrar Reports Domain Application Matrix
+    Then Registrar Reports Domain Application Oraphandata
     Then Registrar Can Check  logout funcionality
 
     Examples: 
       | OrgName  | DomainName        | Status3              |
       | MaxTecho | hindustan.bank.in | Approved for payment |
 
-  @5thstep
+  @7thstep
   Scenario Outline: Registrant Registration and login
     Given User is on Landing Page
     Then User enters registrant credentials

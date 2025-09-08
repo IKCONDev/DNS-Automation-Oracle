@@ -1,5 +1,6 @@
 package Registrant.obj;
 
+import java.awt.AWTException;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -156,23 +157,44 @@ public class Rgnt_Officer_mgmt_obj extends Baseclass {
 		validateattribute(Search, "placeholder","Search");
 		
 	}
-	@FindBy(xpath = "//td[contains(text(),'Rejected')]")
-	public List<WebElement> Status_doc ;
+	@FindBy(xpath = "//td[normalize-space()='Aadhaar']/following-sibling::td")
+	public List<WebElement> AAdhar_doc ;
+	@FindBy(xpath = "//td[normalize-space()='PAN']/following-sibling::td")
+	public List<WebElement> PAN_doc ;
+	@FindBy(xpath = "//td[normalize-space()='Organization Identity Card']/following-sibling::td")
+	public List<WebElement> ORG_doc ;
 	@FindBy(xpath = "//button[contains(text(),'Reupload')]")
 	public List<WebElement> reupload_doc ;
-	public void Re_upload_documents(){
-		if(Status_doc.get(0).isDisplayed()) {
+	public void Re_upload_documents() throws AWTException, InterruptedException{
+		if(AAdhar_doc .get(0).getText().equals("Rejected")) {
 			Clickelement(reupload_doc.get(0));
+			sendkeyweb(reupload_number, "955385009348");
+			Clickelement(reupload_doc1 );
+			fileupload_robot(ConfigReader.getProperty("GSTIN"));
 		}
-		if(Status_doc.get(1).isDisplayed()) {
+		if(PAN_doc .get(0).getText().equals("Rejected")) {
 			Clickelement(reupload_doc.get(1));
+			sendkeyweb(reupload_number, ConfigReader.getProperty("PAN"));
+			Clickelement(reupload_doc1 );
+			fileupload_robot(ConfigReader.getProperty("PAN"));
 		}
-		if(Status_doc.get(2).isDisplayed()) {
+		if(ORG_doc .get(0).getText().equals("Rejected")) {
 			Clickelement(reupload_doc.get(2));
+			sendkeyweb(reupload_number, "");
+			Clickelement(reupload_doc1 );
+			fileupload_robot(ConfigReader.getProperty("License"));
 		}
 		
+		
 	}
-	public void user_reupload_the_officer_DOC() {
+	@FindBy(xpath = "//input[@placeholder='Enter Aadhaar Number']")
+	public WebElement reupload_number ;
+	@FindBy(xpath = "//button[normalize-space()='Upload Document']")
+	public WebElement reupload_doc1 ;
+	@FindBy(xpath = "//button[normalize-space()='Save']")
+	public WebElement save_internal ;	
+	
+	public void user_reupload_the_officer_DOC() throws AWTException, InterruptedException {
 		validatetext(SUPERMGMT, "Super Admin Management");
 		validatetext(Ofcmgmt, "Officer Details Management");
 		try {
@@ -193,6 +215,33 @@ public class Rgnt_Officer_mgmt_obj extends Baseclass {
 
 	}
 	
-
+/*Selectdropdown(org_doc, " Organization GSTIN ");
+		configWriter.setProperty("OGSTnum", GST);
+		sendkeyweb(org_GST, GST);
+		Thread.sleep(2000);
+		Clickelement(org_select_file);
+		fileupload_robot(ConfigReader.getProperty("GSTIN"));
+		Thread.sleep(2000);
+		Selectdropdown(org_doc, " PAN ");
+		Thread.sleep(2000);
+		configWriter.setProperty("OPANnum", PAN);
+		sendkeyweb(org_PAN, PAN);
+		Thread.sleep(2000);
+		Clickelement(org_select_file);
+		fileupload_robot(ConfigReader.getProperty("PAN"));
+		Thread.sleep(2000);
+		Selectdropdown(org_doc, "License Given By RBI");
+		Thread.sleep(2000);
+		configWriter.setProperty("Olicence", License);
+		sendkeyweb(org_Lic, License);
+		Thread.sleep(2000);
+		Clickelement(org_select_file);
+		fileupload_robot(ConfigReader.getProperty("License"));
+		Thread.sleep(2000);
+		Selectdropdown(org_doc, " Board Resolution ");
+		Thread.sleep(2000);
+		Clickelement(org_select_file);
+		fileupload_robot(ConfigReader.getProperty("Board"));
+		Thread.sleep(2000);*/
 	
 }
