@@ -471,6 +471,10 @@ public class Registrant_login_object extends Baseclass {
 	public WebElement Twoletter;
 
 	
+	
+	@FindBy(xpath = "//div[@class='card']")
+	public List<WebElement> card;
+	
 	public void user_should_get_logged_in(String domain) throws InterruptedException, AWTException{
 	
        configWriter.setProperty("Domain", domain);
@@ -487,27 +491,8 @@ public class Registrant_login_object extends Baseclass {
 		sendkeyweb(Bank_name, domain);
 		Selectdropdown(Zone_input, ".bank.in");// .fin.in
 		Clickelement(Search);
-
-		
-//		try {
-//			sendkeyweb(Bank_name, "yz");
-//			Selectdropdown(Zone_input, ".bank.in");// .fin.in
-//			Clickelement(Search);
-//			Clickelement(selchoosefile);
-// 
-//			File file = new File("Licence.jpeg");
-//			selchoosefile.sendKeys(file.getAbsolutePath());
-//		} catch (Exception e1) {
-//			
-//			e1.printStackTrace();
-//		}
-
-		
-		
-		
 		validatetext(ExtraCost, " Additional Domain For Reservation");
-
-		if(Twoletter.isDisplayed()) {
+		if (card.get(1).getText().contains("2 Letter Domain Board Approval Document")) {
 			Clickelement(Board_doc);
 			fileupload_robot(ConfigReader.getProperty("Board1"));
 		}		
