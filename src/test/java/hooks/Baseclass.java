@@ -243,18 +243,18 @@ public class Baseclass {
 	public void clickmultipleweb(List<WebElement> elements) {
 		 elements.stream().filter(WebElement::isDisplayed).forEach(this::Clickelement);
     }
-	public void Clickelement(WebElement element) {
-		try { wait.until(ExpectedConditions.visibilityOf(element));
-	     wait.until(ExpectedConditions.elementToBeClickable(element)).click();
+	public void Clickelement(WebElement tier12checkbox) {
+		try { wait.until(ExpectedConditions.visibilityOf(tier12checkbox));
+	     wait.until(ExpectedConditions.elementToBeClickable(tier12checkbox)).click();
 	     
 		}catch (NoSuchElementException e) {
-	            System.err.println("No Such Element: The element was not found - " + element);
+	            System.err.println("No Such Element: The element was not found - " + tier12checkbox);
 	        } catch (StaleElementReferenceException e) {
-	            System.err.println("Stale Element: The element is no longer attached to the DOM - " + element);
+	            System.err.println("Stale Element: The element is no longer attached to the DOM - " + tier12checkbox);
 	        } catch (ElementClickInterceptedException e) {
-	            System.err.println("Element Click Intercepted: Another element is blocking the click - " + element);
+	            System.err.println("Element Click Intercepted: Another element is blocking the click - " + tier12checkbox);
 	        } catch (Exception e) {
-	            System.err.println("Exception occurred while clicking the element - " + element + " : " + e.getMessage());
+	            System.err.println("Exception occurred while clicking the element - " + tier12checkbox + " : " + e.getMessage());
 	        }
 	    }
 	    

@@ -1,7 +1,6 @@
 package Registrant.obj;
 
 import java.awt.AWTException;
-import java.io.File;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
@@ -460,9 +459,8 @@ public class Registrant_login_object extends Baseclass {
 	public WebElement nextbutton;
 	@FindBy(xpath = "//tr")
 	public List<WebElement> Price_summary_obj;
-	@FindBy(xpath = "(//input[@type='file'])[2]")
+	@FindBy(xpath = "//div[@class='fs-5 ng-star-inserted']//div//input")
 	public WebElement Board_doc;
-	
 
 	@FindBy(xpath = "//input[@class='form-control']")
 	public WebElement selchoosefile;
@@ -492,12 +490,16 @@ public class Registrant_login_object extends Baseclass {
 		Selectdropdown(Zone_input, ".bank.in");// .fin.in
 		Clickelement(Search);
 		validatetext(ExtraCost, " Additional Domain For Reservation");
+		
 		if (card.get(1).getText().contains("2 Letter Domain Board Approval Document")) {
-		        ac.moveToElement(Board_doc).click().perform();
-				fileupload_robot(ConfigReader.getProperty("Board"));
-		}		
+				ac.moveToElement(selchoosefile).click().build().perform();
+				fileupload_robot("Board1.jpg");
+		}else {
+			  Thread.sleep(5000);
+			System.out.println("element not displayed");
+		}
 		validatetext(ExtraCost, "Name Identifiers to be Reserved");
-
+        Thread.sleep(5000);
 		sendkeyweb(addalisname, domain+"one");
 		Clickelement(addbuttonclick);
 		validatetext(Price_summary, "Price Summary");
@@ -878,28 +880,28 @@ public class Registrant_login_object extends Baseclass {
 		
 		sendkeyweb(Table_dataNS.get(0),NSR+"a");
 		sendkeyweb(Table_dataNS.get(1),"Oracle");
-		sendkeyweb(Table_dataNS.get(2),IP1+"99");
-		sendkeyweb(Table_dataNS.get(3),IPV6+"99");
+		sendkeyweb(Table_dataNS.get(2),IP1+"23");
+		sendkeyweb(Table_dataNS.get(3),IPV6+"23");
 		sendkeyweb(Table_dataNS.get(4),"IDRBT");
 		sendkeyweb(Table_dataNS.get(5),NSR+"b");
 		sendkeyweb(Table_dataNS.get(6),"Oracle");
-		sendkeyweb(Table_dataNS.get(7),IP1+"88");
-		sendkeyweb(Table_dataNS.get(8),IPV6+"88");
+		sendkeyweb(Table_dataNS.get(7),IP1+"24");
+		sendkeyweb(Table_dataNS.get(8),IPV6+"24");
 		sendkeyweb(Table_dataNS.get(9),"IDRBT");
 
 		Clickelement(Addnsbutton);
 		
 		sendkeyweb(Table_dataNS.get(10),NSR+"c");
 		sendkeyweb(Table_dataNS.get(11),"Oracle");
-		sendkeyweb(Table_dataNS.get(12),IP1+"77");
-		sendkeyweb(Table_dataNS.get(13),IPV6+"77");
-		sendkeyweb(Table_dataNS.get(13),IPV6+"66");
+		sendkeyweb(Table_dataNS.get(12),IP1+"25");
+		sendkeyweb(Table_dataNS.get(13),IPV6+"25");
+		sendkeyweb(Table_dataNS.get(13),IPV6+"26");
 		sendkeyweb(Table_dataNS.get(14),"IDRBT");
 		
 		Clickelement(Addnsbutton);
 		sendkeyweb(Table_dataNS.get(15),NSR+"d");
 		sendkeyweb(Table_dataNS.get(16),"Oracle");
-		sendkeyweb(Table_dataNS.get(17),IP1+"9");
+		sendkeyweb(Table_dataNS.get(17),IP1+"27");
 		sendkeyweb(Table_dataNS.get(19),"IDRBT");
 		
 		try {
