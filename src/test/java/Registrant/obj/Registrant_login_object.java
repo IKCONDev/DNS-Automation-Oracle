@@ -493,8 +493,8 @@ public class Registrant_login_object extends Baseclass {
 		Clickelement(Search);
 		validatetext(ExtraCost, " Additional Domain For Reservation");
 		if (card.get(1).getText().contains("2 Letter Domain Board Approval Document")) {
-			Clickelement(Board_doc);
-			fileupload_robot(ConfigReader.getProperty("Board1"));
+		        ac.moveToElement(Board_doc).click().perform();
+				fileupload_robot(ConfigReader.getProperty("Board"));
 		}		
 		validatetext(ExtraCost, "Name Identifiers to be Reserved");
 
@@ -997,6 +997,39 @@ public class Registrant_login_object extends Baseclass {
 		Thread.sleep(2000);
 		Clickelement(Profile_icon);
 		Clickelement(Logout);
+	}
+	
+	
+	
+	@FindBy(xpath = "//small[contains(.,' Only 3')]")
+	public WebElement Error;
+	public void User_enters_name_server_details_copy(String NSR,String IP1,String IPV6) throws AWTException, InterruptedException {
+		configWriter.setProperty("NS1", NSR);
+		
+		sendkeyweb(Table_dataNS.get(0),NSR+"a");
+		sendkeyweb(Table_dataNS.get(1),"Oracle");
+		sendkeyweb(Table_dataNS.get(2),IP1+"99");
+		sendkeyweb(Table_dataNS.get(3),IPV6+"99");
+		try {
+			if(Error.isDisplayed()) {
+				Table_dataNS.get(3).clear();
+			}
+		} catch (Exception e) {
+		}
+		sendkeyweb(Table_dataNS.get(4),"IDRBT");
+		sendkeyweb(Table_dataNS.get(5),NSR+"b");
+		sendkeyweb(Table_dataNS.get(6),"Oracle");
+		sendkeyweb(Table_dataNS.get(7),IP1+"88");
+		sendkeyweb(Table_dataNS.get(8),IPV6+"88");
+		try {
+			if(Error.isDisplayed()) {
+				Table_dataNS.get(8).clear();
+			}
+		} catch (Exception e) {
+		}
+		sendkeyweb(Table_dataNS.get(9),"IDRBT");
+		clickmultipleweb(Save_next);
+		
 	}
 
 }

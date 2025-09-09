@@ -3,10 +3,10 @@ Feature: Registrant Onboarding
   @Step1
   Scenario Outline: Registrant Registration and login
     Given User is on Landing Page
-    #Then User validating the Landing Page
-    #When User navigate to Registration Page
-    #Then User Register An Account "<username>" "<password>"
-    #When User navigate to Login Page
+    Then User validating the Landing Page
+    When User navigate to Registration Page
+    Then User Register An Account "<username>" "<password>"
+    When User navigate to Login Page
     Then User enters "<username>" and "<password>"
 
     Examples: 
@@ -22,7 +22,7 @@ Feature: Registrant Onboarding
 
     Examples: 
       | domain | PIN    | Address                                  | Tel        | Mob       | Email  | GST             | PAN        | License               |
-      | jivas   | 500090 | CYBERTOWERS,Madhapur,HEDERABAD,Telangana | 9685578941 | 868557894 | ikcon@ | 22ABCDE0000A1J5 | ASDEE4455Q | L12345MH2023PLC000001 |
+      | lk   | 500090 | CYBERTOWERS,Madhapur,HEDERABAD,Telangana | 9685578941 | 868557894 | ikcon@ | 22ABCDE0000A1J5 | ASDEE4455Q | L12345MH2023PLC000001 |
 
   Scenario Outline: Admin Contact details
     Then User enters admin contact details "<Name>" "<Tel>" "<Mob>" "<Email>" "<Aadhar>" "<PAN>" "<Desig>"
@@ -68,12 +68,12 @@ Feature: Registrant Onboarding
     Then User Validate Domain Page
     Then User Validate Domain data
     Then User Navigates the Domain Details page
-    Then User validate the Domain Domain Details page "<NS1>" "<IP1>" "<NS2>" "<IP2>"
+    Then User validate the Domain Domain Details page "<NSR>" "<IPV4>" "<IPV6>"
     And User subit the Domain Details page
 
     Examples: 
-      | NS1     | NS2     | IP1        | IP2        |
-      | Office1 | office2 | 1.10.12.30 | 1.101.3.15 |
+      | NSR     | IPV4        | IPV6        |
+      | Office1 | 1.10.12.30 | 1.101.3.15 |
 
   Scenario Outline: Registrant Invoice Page
     Then User navigate to Invoice page

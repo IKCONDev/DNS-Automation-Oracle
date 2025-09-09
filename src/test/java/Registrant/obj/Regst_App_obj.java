@@ -344,6 +344,67 @@ public class Regst_App_obj extends Baseclass {
 	    
 	}
 	
+	@FindBy(xpath = "//h4[normalize-space()='Entity Details']")
+	public WebElement ED;
+	@FindBy(xpath = "//a[normalize-space()='Update Entity']")
+	public WebElement UED;
+	@FindBy(xpath = "//h5[normalize-space()='Entity Name']")
+	public WebElement EN;
+	@FindBy(xpath = "//input[contains(@placeholder,'Entity Name')]")
+	public WebElement EEN;
+	@FindBy(xpath = "//h5[normalize-space()='Pincode']")
+	public WebElement Pin;
+	@FindBy(xpath = "//input[contains(@placeholder,'pin code')]")
+	public WebElement EPIN;
+	@FindBy(xpath = "//h5[normalize-space()='Address']")
+	public WebElement ADD;
+	@FindBy(xpath = "//input[contains(@placeholder,'Address')]")
+	public WebElement Eadd;
+	@FindBy(xpath = "//h5[normalize-space()='Entity Email ID']")
+	public WebElement EID;
+	@FindBy(xpath = "//input[contains(@placeholder,'Email id')]")
+	public WebElement EEID;
+	@FindBy(xpath = "//label[normalize-space()='Super Admin 1']")
+	public WebElement SA;
+	@FindBy(xpath = "//label[normalize-space()='Super Admin 1']/following-sibling::input")
+	public WebElement LSA;
+	@FindBy(xpath = "//label[normalize-space()='Mobile Number']")
+	public WebElement MOB;
+	@FindBy(xpath = "//label[normalize-space()='Mobile Number']/following-sibling::input")
+	public WebElement LMOB;
+	@FindBy(xpath = "//label[normalize-space()='Email']")
+	public WebElement Email;
+	@FindBy(xpath = "//label[normalize-space()='Email']/following-sibling::input")
+	public WebElement LEmail;
+	
+	public void User_update_entity_details() {
+		validatetext(ED, "Entity Details");
+		validatetext(UED, "Update Entity");
+		validatetext(EN, "Entity Name");
+		validatetext(Pin, "Pincode");
+		validatetext(ADD, "Address");
+		validatetext(EID, "Entity Email ID");
+		validatetext(SA, "Super Admin 1");
+		validatetext(LSA, "");
+		validatetext(MOB, "Mobile Number");
+		validatetext(LMOB, "");
+		validatetext(Email, "Email");
+		validatetext(LEmail, "");
+		sendkeyweb(EEN, ConfigReader.getProperty("Domain"));
+		sendkeyweb(EPIN, "521175");
+		sendkeyweb(Eadd, "Cyber Towers");
+		sendkeyweb(EEID, "abc@gmail.com");
+		Clickelement(UED);
+		User_update_Tier1_details();
+	}
+	
+	@FindBy(xpath = "//input[@type='checkbox']")
+	public WebElement Tier_checkbox;
+	public void User_update_Tier1_details() {
+		Clickelement(Tier_checkbox);		
+		
+		
+	}
 	
 
 }

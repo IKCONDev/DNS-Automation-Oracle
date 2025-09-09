@@ -130,7 +130,7 @@ public class Rgst_domain_obj extends Baseclass{
 	public WebElement Appoved;
 	
 	
-	public void user_validate_the_domain_domain_details_page(String NSR1,String NIP1,String NSR2,String NIP2) throws AWTException, InterruptedException {
+	public void user_validate_the_domain_domain_details_page(String NSR,String NIP1,String NIP2) throws AWTException, InterruptedException {
 
 		validatetext(Nameserver, "Name Servers");
 		validatetext(Hostname,"Host Name");
@@ -142,7 +142,6 @@ public class Rgst_domain_obj extends Baseclass{
 		validatetext(Bill_history,"Billing History");
 		try {
 		List<WebElement> NS_records=driver.findElements(By.xpath("(//div[contains(@class,'row row-cols-')]//div[contains(text(),'"+ConfigReader.getProperty("NS1")+"')])/following::div"));
-//		validatetext(NS_records.get(0),ConfigReader.getProperty("NS1"));
 		validatetext(NS_records.get(0),ConfigReader.getProperty("IP1"));
 		validatetext(NS_records.get(1),"10");
 		validatetext(NS_records.get(4),ConfigReader.getProperty("NS2"));
@@ -150,12 +149,9 @@ public class Rgst_domain_obj extends Baseclass{
 		
 		Clickelement(ADD_NS);
 		driver.navigate().back();
-//		RL.User_enters_name_server_details(NSR1, NIP1,  NIP2, NSR2, NIP3, NIP4,NSR3, NIP5, NIP6,NSR4, NIP7, NIP8);
-//		RL.User_enters_name_server_details(NSR1, NIP1,  NIP2, NSR2, NIP3, NIP4,NSR3, NIP5, NIP6,NSR4, NIP7, NIP8);
-		Clickelement(DeleteNS.get(2));
-		Clickelement(DeleteNS.get(2));
-
-//		RL.User_enters_name_server_details(NSR1, NIP1, NSR2, NIP2);
+//		Clickelement(DeleteNS.get(2));
+//		Clickelement(DeleteNS.get(2));
+		RL.User_enters_name_server_details_copy(NSR,NIP1,NIP2); 
 		Clickelement(ADD_DNSsec);
 		clickmultipleweb(backbutton);
 		}catch (Exception e) {
@@ -180,10 +176,24 @@ public class Rgst_domain_obj extends Baseclass{
 	
 	
 	
-	public void user_subit_the_domain_details_page() {
+	
+	@FindBy(xpath = "//div[@class='modal-content']//button[normalize-space()='Save']")
+	public List<WebElement> Save;
+	@FindBy(xpath = "(//h2[normalize-space()='Name Identifiers']/following::div)[1]")
+	public WebElement ADD_Name_identifier;
+	@FindBy(xpath = "//div[@class='modal-content']//input[@type='text']")
+	public List<WebElement> ENI;
+	@FindBy(xpath = "//div[@class='modal-content']//button[normalize-space()='Cancel']")
+	public WebElement CAncel;
+	
+	public void user_add_Name_identifiers() {
+	    Clickelement(ADD_Name_identifier);
+	    sendkeysmultipleweb(ENI, null);
+	    clickmultipleweb(Save);
+	   
+        }
 	    
 		
 	   
-	}
 	
 }

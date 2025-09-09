@@ -215,33 +215,4 @@ public class Rgnt_Officer_mgmt_obj extends Baseclass {
 
 	}
 	
-/*Selectdropdown(org_doc, " Organization GSTIN ");
-		configWriter.setProperty("OGSTnum", GST);
-		sendkeyweb(org_GST, GST);
-		Thread.sleep(2000);
-		Clickelement(org_select_file);
-		fileupload_robot(ConfigReader.getProperty("GSTIN"));
-		Thread.sleep(2000);
-		Selectdropdown(org_doc, " PAN ");
-		Thread.sleep(2000);
-		configWriter.setProperty("OPANnum", PAN);
-		sendkeyweb(org_PAN, PAN);
-		Thread.sleep(2000);
-		Clickelement(org_select_file);
-		fileupload_robot(ConfigReader.getProperty("PAN"));
-		Thread.sleep(2000);
-		Selectdropdown(org_doc, "License Given By RBI");
-		Thread.sleep(2000);
-		configWriter.setProperty("Olicence", License);
-		sendkeyweb(org_Lic, License);
-		Thread.sleep(2000);
-		Clickelement(org_select_file);
-		fileupload_robot(ConfigReader.getProperty("License"));
-		Thread.sleep(2000);
-		Selectdropdown(org_doc, " Board Resolution ");
-		Thread.sleep(2000);
-		Clickelement(org_select_file);
-		fileupload_robot(ConfigReader.getProperty("Board"));
-		Thread.sleep(2000);*/
-	
 }
