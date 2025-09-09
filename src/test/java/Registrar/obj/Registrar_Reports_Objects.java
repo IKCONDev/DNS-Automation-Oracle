@@ -35,6 +35,9 @@ public class Registrar_Reports_Objects extends Baseclass {
 	public WebElement Domainappsumtxtval;
 	@FindBy(xpath="//tbody/tr[1]/td[6]/span[1]//*[name()='svg']")
 	public WebElement InvoiceDownloadbutton;
+	@FindBy(xpath="(//div[@class='ng-select-container'])[1]")
+	public WebElement Searchreportsentity ;
+	
 	
 	
 	
@@ -74,14 +77,11 @@ public class Registrar_Reports_Objects extends Baseclass {
 		Clickelement(ClickReports);
 		Thread.sleep(3000);
 		Clickelement(ClickDomainappsum);
-		Thread.sleep(3000);
-		Clickelement(ClickReports);
-		Thread.sleep(3000);
-		Clickelement(ClickDomainappmat);
 		
 		
 		
-		//sendkeyweb(Appsearchsend, ConfigReader.getProperty("OrgName"));
+		
+		sendkeyweb(Searchreportsentity, ConfigReader.getProperty("OrgName"));
 
 		
 			
@@ -129,7 +129,7 @@ WebElement Orgname1=driver.findElement(By.xpath("//td[normalize-space()='"+Confi
 		Thread.sleep(3000);
 		Clickelement(ClickDomainappmat);
 	
-		
+		sendkeyweb(Searchreportsentity, ConfigReader.getProperty("OrgName"));
 		driver.navigate().back();
 		
 	}
@@ -143,6 +143,8 @@ public void Registrar_Reports_Domain_Application_Orphandata() throws Exception {
 	Clickelement(ClickReports);
 	Thread.sleep(3000);
 	Clickelement(ClickDomainappalp);
+	
+	sendkeyweb(Searchreportsentity, ConfigReader.getProperty("OrgName"));
 	
 	List<WebElement> Orgname=driver.findElements(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//following-sibling::td"));
 	WebElement Orgname1=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//preceding-sibling::td"));

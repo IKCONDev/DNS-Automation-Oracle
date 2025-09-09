@@ -19,6 +19,7 @@ public class Registrar_Application_Object extends Baseclass {
 	
 	
 	WebDriver driver = Driver.getDriver();
+	Actions ac=new Actions(driver);
 	ConfigWriter configWriter = new ConfigWriter();
 
 
@@ -355,22 +356,48 @@ public WebElement  tier12checkbox;
 public WebElement  Twoletter;
 @FindBy(xpath="//span[text()='Domain Board Approval Document']")
 public WebElement  Board_doc;
-@FindBy(xpath="(//button[text()='Reject' and //button[@class='btn btn-danger']])[5]")
-public WebElement  Twolettersdocreject;
-@FindBy(xpath="(//button[text()='Approve' and //button[@class='btn btn-danger']])[5]")
+@FindBy(xpath="//div[@id=\"viewTheBoardApprovalDocs\"]/div/div/div[3]/button[2]")
+public WebElement Twolettersdocreject;
+@FindBy(xpath="//div[@id=\"viewTheBoardApprovalDocs\"]/div/div/div[3]/button[1]")
 public WebElement  TwolettersdocApprove;
+@FindBy(xpath = "//div[@class='card']")
+public List<WebElement> card;
+@FindBy(xpath = "//div[@id=\"rejectCommentModal\"]/div/div/div[3]/button[1]")
+public WebElement twolsavechangesaprove;
+@FindBy(xpath = "//div[@id=\"rejectCommentModal\"]/div/div/div[3]/button[1]")
+public WebElement twolsavechangesreject;
 public void User_Can_Check_OrganisationDetails_DocumentsUpload_Functionalities_in_Applications_Page() throws Exception {
+	Clickelement(Appsearch);
+	sendkeyweb(Appsearchsend, ConfigReader.getProperty("OrgName"));
+	
+	WebElement id1=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName").toUpperCase()+"']//preceding-sibling::td"));
+
+	try {
+		Clickelement(id1);
+	}catch (Exception e) {
+		System.out.println(e);
+	}
+	
+	try {
+		Clickelement(id1);
+	}catch (Exception e) {
+		System.out.println(e);
+	}
 	validatetext(OrganizationDocstxtval, "Entity Documents");
 	
-	Clickelement(tier12checkbox);
-	//Thread.sleep(5000);
+	//Clickelement(tier12checkbox);
+	Thread.sleep(3000);
 	
-	
-	if(Twoletter.isDisplayed()) {
-		Clickelement(Board_doc);
-		Clickelement(TwolettersdocApprove);
+	if (card.get(1).getText().contains("Two Letter Domain Board Approval Document")) {
 		
-	}	
+		ac.moveToElement(Board_doc).click().build().perform();
+		//Clickelement(Board_doc);
+		Clickelement(Twolettersdocreject);
+		Clickelement(twolsavechangesreject);
+}else {
+	  Thread.sleep(5000);
+	System.out.println("element not displayed");
+}
 	Clickelement(GSTINsearch);
 	
 	
@@ -438,7 +465,7 @@ public void User_Can_Check_OrganisationDetails_DocumentsUpload_Functionalities_i
 	Thread.sleep(2000);
 	Clickelement(BoardResolutionsearch);
 	Thread.sleep(2000);
-	//Clickelement(Reject4Click);
+	Clickelement(Reject4Click);
 	clickmultipleweb(ClosebuttonClick);
 	//
 	validatetext(Rejected4statustxtval,"Rejected");
@@ -484,6 +511,17 @@ public void User_Can_Check_OrganisationDetails_DocumentsUpload_Functionalities_i
 	
 	Clickelement(tier12checkbox);
 	//+ve
+	
+if (card.get(1).getText().contains("Two Letter Domain Board Approval Document")) {
+		
+		ac.moveToElement(Board_doc).click().build().perform();
+		//Clickelement(Board_doc);
+		Clickelement(TwolettersdocApprove);
+		Clickelement(twolsavechangesaprove);
+}else {
+	  Thread.sleep(5000);
+	System.out.println("element not displayed");
+}
 	Clickelement(GSTINsearch);
 	Clickelement(ApproveClick);
 	clickmultipleweb(ClosebuttonClick);
@@ -714,10 +752,14 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 	//Administrative
 	Clickelement(Aoviewclick);
 	System.out.println("Administrative Officer Approvals");
+	Thread.sleep(2000);
 	Clickelement(AOAdharverify);
+	Thread.sleep(2000);
 	Clickelement(AOadharRejectClick);
+	Thread.sleep(2000);
 	Clickelement(AoadharRejectSavechangesClick);
-	clickmultipleweb(ClosebuttonClick);
+	Thread.sleep(2000);
+	//clickmultipleweb(ClosebuttonClick);
 	//validatetext(Toastermessage,"Document Rejected.");
 	////
 //	Clickelement(AOAdharverify);
@@ -729,12 +771,17 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 //	//
 //	//Clickelement(AOadharApprovalSavechangesClick);
 //	validatetext(Toastermessage,"Document Approved.");
+	Thread.sleep(2000);
 	Clickelement(AOpanverify);
+	Thread.sleep(2000);
 	////
 	Clickelement(AopanRejectClick);
-	clickmultipleweb(ClosebuttonClick);
+	Thread.sleep(2000);
+	Clickelement(AoadharRejectSavechangesClick);
+	Thread.sleep(2000);
+	//clickmultipleweb(ClosebuttonClick);
 	//
-	//Clickelement(AoadharRejectSavechangesClick);
+	
 	//validatetext(Toastermessage,"Document Rejected.");
 	//
 //	Clickelement(AOpanverify);
@@ -749,11 +796,14 @@ public void User_Can_Check_AdministrativeOfficier_Functionalities_in_Application
 //	validatetext(Toastermessage,"Document Approved.");
 //	//
 	Clickelement(AOODVerify);
+	Thread.sleep(2000);
 	//
 	//clickmultipleweb(closedocbutton);
 	Clickelement(AoODRejectClick);
-	//
-	clickmultipleweb(closedocbutton);
+	Thread.sleep(2000);
+	Clickelement(AoadharRejectSavechangesClick);
+	Thread.sleep(2000);
+	//clickmultipleweb(closedocbutton);
 	//
 	//Clickelement(AoadharRejectSavechangesClick);
 	//
@@ -837,17 +887,24 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 	////
 	
 	//Clickelement(AppCountsearch);
-	//
+	Thread.sleep(5000);
 	Clickelement(ToViewclick);
+	
+	
 	//Thread.sleep(5000);
 	//Clickelement(TODocviewclick);
 	System.out.println(" Technical Officer Approvals ");
+	Thread.sleep(2000);
 	//
 	Clickelement(TOAdharverify);
+	Thread.sleep(2000);
 	////
 	//
 	Clickelement(AOadharRejectClick);
-	clickmultipleweb(closedocbutton);
+	Thread.sleep(2000);
+	Clickelement(TOadharRejectSavechangesClick);
+	Thread.sleep(2000);
+	//clickmultipleweb(closedocbutton);
 	//
 	//Clickelement(TOadharRejectSavechangesClick);
 	//
@@ -863,10 +920,12 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 //	validatetext(Toastermessage,"Document Approved.");
 //	//
 	Clickelement(TOpanverify);
-	//
+	Thread.sleep(2000);
 	Clickelement(AopanRejectClick);
-	//
-	clickmultipleweb(closedocbutton);
+	Thread.sleep(2000);
+	Clickelement(TOadharRejectSavechangesClick);
+	Thread.sleep(2000);
+	//clickmultipleweb(closedocbutton);
 	//
 	//validatetext(Toastermessage,"Document Rejected.");
 	//
@@ -880,7 +939,7 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 //	//
 //	validatetext(Toastermessage,"Document Approved.");
 	//
-	Clickelement(TOODVerify);
+	
 	//
 	//clickmultipleweb(closedocbutton);
 	//
@@ -891,9 +950,13 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 	//validatetext(Toastermessage,"Document Rejected.");
 	//
 	Clickelement(TOODVerify);
+	Thread.sleep(2000);
 	//
-	Clickelement(TOODAproveClick);
-	clickmultipleweb(closedocbutton);
+	Clickelement(TOODRejectClick);
+	Thread.sleep(2000);
+	Clickelement(TOadharRejectSavechangesClick);
+	Thread.sleep(2000);
+	//clickmultipleweb(closedocbutton);
 //	//
 //	sendkeyweb(TOadharApprovalCommentClick, "Approved");
 //	//
@@ -901,22 +964,22 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 //	//
 //	validatetext(Toastermessage,"Document Approved.");
 	//
-	Clickelement(Appsearch);
+	//Clickelement(Appsearch);
 	//
 
 	
-	//driver.navigate().back();
+	driver.navigate().back();
 	
-	sendkeyweb(Appsearchsend, ConfigReader.getProperty("OrgName"));
-	//List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']//preceding-sibling::td"));
-	//WebElement id1=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//preceding-sibling::td"));
-	WebElement id2=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//preceding-sibling::td"));
-
-	try {
-		Clickelement(id2);
-	}catch (Exception e) {
-		System.out.println(e);
-	}
+//	sendkeyweb(Appsearchsend, ConfigReader.getProperty("OrgName"));
+//	//List<WebElement> Orgname1=driver.findElements(By.xpath("//td[normalize-space()='"+src+"']//preceding-sibling::td"));
+//	//WebElement id1=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//preceding-sibling::td"));
+//	WebElement id2=driver.findElement(By.xpath("//td[normalize-space()='"+ConfigReader.getProperty("OrgName")+"']//preceding-sibling::td"));
+//
+//	try {
+//		Clickelement(id2);
+//	}catch (Exception e) {
+//		System.out.println(e);
+//	}
 	
 	
 	
@@ -1024,27 +1087,35 @@ public WebElement closed1;
 public WebElement closed2;
 //BO
 public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page() throws Exception {
-	Thread.sleep(5000);
+	Thread.sleep(2000);
 	
 	Clickelement(Boclickiew);
-	//
+	Thread.sleep(5000);
 	System.out.println(" Billing Officer Approvals ");
+	Thread.sleep(2000);
 
 	Clickelement(BOAdharverify);
+	Thread.sleep(2000);
 	//
 	Clickelement(BOadharRejectClick);
-	clickmultipleweb(closedocbutton);
+	Thread.sleep(2000);
+	Clickelement(BOadharRejectSavechangesClick);
+	Thread.sleep(2000);
+	//clickmultipleweb(closedocbutton);
 	//
-	//Clickelement(BOadharRejectSavechangesClick);
+
 	//
-	validatetext(Toastermessage,"Document Rejected.");
+	//validatetext(Toastermessage,"Document Rejected.");
 
 	Clickelement(BOpanverify);
+	Thread.sleep(2000);
 	//
 	Clickelement(BOpanRejectClick);
+	Thread.sleep(2000);
 	//
-	clickmultipleweb(closedocbutton);
-	//Clickelement(BOadharRejectSavechangesClick);
+	//clickmultipleweb(closedocbutton);
+	Clickelement(BOadharRejectSavechangesClick);
+	Thread.sleep(2000);
 	//
 	validatetext(Toastermessage,"Document Rejected.");
 	//
@@ -1058,12 +1129,13 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 //	validatetext(Toastermessage,"Document Approved.");
 //	//
 	Clickelement(BOODVerify);
-	////
+	Thread.sleep(2000);
 	//
 	Clickelement(BOODRejectClick);
-	clickmultipleweb(closedocbutton);
+	Thread.sleep(2000);
+	//clickmultipleweb(closedocbutton);
 	//
-	//Clickelement(BOadharRejectSavechangesClick);
+	Clickelement(BOadharRejectSavechangesClick);
 	Thread.sleep(2000);
 	validatetext(Toastermessage,"Document Rejected.");
 	//
@@ -1077,6 +1149,8 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page(
 //	//
 //	validatetext(Toastermessage,"Document Approved.");
 	driver.navigate().back();
+	
+	
 	Thread.sleep(5000);
 	Clickelement(clickreviewbtn);
 	Actions act = new Actions(driver);
@@ -1180,6 +1254,8 @@ public void User_Can_Check_TechnicalOfficier_Functionalities_in_Applications_Pag
 	
 
 }
+@FindBy(xpath = "(//div[@class='card'][contains(.,'Domain Board Approval Document')]//span[text()='View'])[1]")
+public WebElement TwoletterdomainViewClick;
 @FindBy(xpath = "(//div[@class='card'][contains(.,'GST')]//span[text()='View'])[1]")
 public WebElement GSTTINViewClick;
 @FindBy(xpath = "(//div[@class='modal-footer']//button[text()='Approve'])[2]")
@@ -1288,11 +1364,14 @@ public void User_Can_Check_BillingOfficier_Functionalities_in_Applications_Page1
 	Clickelement(clickreviewbtn);
 	Thread.sleep(2000);
 	
-	if(Twoletter.isDisplayed()) {
-		Clickelement(Board_doc);
-		Clickelement(Twolettersdocreject);
-		
-	}	
+	if (card.get(1).getText().contains("2 Letter Domain Board Approval Document")) {
+		ac.moveToElement(TwoletterdomainViewClick).click().build().perform();
+		Clickelement(TwolettersdocApprove);
+		Clickelement(twolsavechangesaprove);
+}else {
+	  Thread.sleep(5000);
+	System.out.println("element not displayed");
+}
 	
 	Clickelement(GSTTINViewClick);
 	Thread.sleep(2000);
